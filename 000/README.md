@@ -64,7 +64,7 @@ then Hardware would be extremely "low-level" and the Graphic User Interface (GUI
 ### Instructions:
 This code and very document you're reading is currently situated in a Github repo - specifically, ours. And we know you've done enough reading to choke a donkey, so let's get you going on coding. In an effort to teach you about coding and good practices, we're having your assignments done through Git, and using the web interface tool we provided, you can keep track of everything. 
 
-Steps to submit an assignment commands are listed in the format: cmd <--> cmd for UNIX vs Windows (UNIX_CMD <--> WINDOWS_CMD):
+Steps to submit an assignment; commands are listed below:
 
 1. Fork this repository, the whole thing. You should fork to your own account, and get a nice little copy of this repository of assignments. 
 
@@ -74,13 +74,13 @@ Steps to submit an assignment commands are listed in the format: cmd <--> cmd fo
 ```
 where "link" is the link you copied to clone it to your computer. Then use 
 ```
-    cd repo_name <--> dir repo_name
+    cd repo_name
 ``` 
 You are now inside your repo. 
 
 3. The structure is "repo_name/###/###-code/, where ### is the assignment number. You need to make a directory in "repo_name/###/" called "your-name" Assuming you're in the repo's root or highest level directory (you can type 
 ```
-    pwd <--> cd
+    pwd
 ``` 
 to print your working directory and should see something like "blahblahblah/repo_name" or "~/repo_name" print to the console). Then, you can list the contents of this directory with
 ```
@@ -88,13 +88,13 @@ to print your working directory and should see something like "blahblahblah/repo
 ```
 You should see each of the assignment numbers as well as "README.md" and "GET_STARTED.md". To make the required directory, go ahead and change your directory to be inside repo_name/###/ (do you remember how?), then use 
 ```
-    cp -r ###-code your-name <--> TODO
+    cp -r ###-code your-name
 ```
 On UNIX, "cp" is to copy, "-r" tells it to copy recursively (copies all files in a directory by recursively search through until it runs out of files to copy), and the first argument ("###-code") is the source name, the second ("your-name") is the destination name. 
 
-4. Now that you have a copy of the assignment that can be attributed to you, go ahead and work on it, following the instructions within the assignment. 
+4. Now that you have a copy of the assignment that can be attributed to you, go ahead and work on it, following the instructions within the assignment. If you want to check your assignment at any one time, please use the ```check ###``` command you installed at the beginning. This command assumes you are in the directory containing _assignment.py_ (do you know how to check that?) Once in that directory, running ```check ###``` (where "###" is the assignment number) should let you know how you're doing. Try to debug on your own at first, then try to Google stuff (StackOverflow, for example), then maybe try some Youtube tutorials. If you're stuck and frustrated, take a break, eat an apple, etc. then come back. After you've tried to help yourself, ask a friend, an Associate, or us (in any order), and someone will be able to help you. 
 
-5. When you're done (you think), make sure you've added, committed, and pushed all of your changes (local -> Github). Now it's time to submit a pull request to merge this with the original repository. You can do this by going to the repository on Github, and at the top, clicking "open pull request." This will bring up some simple dialogs. Once you've completed that, you'll see the automated tests that get run against your code. If they all pass, you'll know. If they don't, you'll know, and you'll get some feedback on how to get started debugging. Try to debug on your own at first, then try to Google stuff (StackOverflow, for example), then maybe try some Youtube tutorials. If you're stuck and frustrated, take a break, eat an apple, etc. then come back. After you've tried to help yourself, ask a friend, an Associate, or us (in any order), and someone will be able to help you. 
+5. When you're done (you think), make sure you've added, committed, and pushed all of your changes (local -> Github). Now it's time to submit a pull request to merge this with the original repository. You can do this by going to the repository on Github, and at the top, clicking "open pull request." This will bring up some simple dialogs. Once you've completed that, you'll see the automated tests that get run against your code. If they all pass, you'll know. If they don't, you'll know. They're mostly there to make sure you didn't tinker with any of the other code there. 
 
 6. When you've passed all the tests, and your request says something like "Can be automatically merged", please comment on the last edit/commit (at the bottom of the pull request page, there's a comment section). And copy/paste + fill out this template:
 
