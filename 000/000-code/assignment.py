@@ -18,16 +18,16 @@ def append_msg(msg):
 
 # TODO: understanding classes (an introduction)
 class QuickMaths():
-    def add(x, y):
+    def add(self, x, y):
         return None
 
-    def subtract(x, y):
+    def subtract(self, x, y):
         return None
 
-    def multiply(x, y):
+    def multiply(self, x, y):
         return None
 
-    def divide(x, y):
+    def divide(self, x, y):
         return None
 
 # TODO: implement - can you do this more efficiently?
