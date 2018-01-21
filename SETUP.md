@@ -8,7 +8,7 @@ In order to do all of things we need you to do, there are some configration/set 
 
 2. Get an editor! We don't care which one you use, and there are many great ones out there - Atom, Sublime, Emacs, Vim, Visual Studio Code, etc. - just pick one that you like and get familiar with it, you'll be using it a lot!
 
-3. CS50.me - we use CS50's check50 to let you check your assignments and get feedback on them, so you'll need an account with CS50.me. Fortunately, you can simply sign in with your HarvardKey and you'll be good to go! (This will not affect/conflict with your CS50 assignments. We will not be submitting through submit50, so don't worry about that.) You may need to authorize submit50 and check50 the first time you run our ```check``` command, but otherwise it will work very similarly to how it worked if you took CS50. 
+3. CS50.me - we use CS50's check50 to let you check your assignments and get feedback on them, so you'll need an account with CS50.me. Fortunately, you can simply sign in with your Github account and you'll be good to go! (This will not affect/conflict with your CS50 assignments. We will not be submitting through submit50, so don't worry about that.) You may need to authorize submit50 and check50 the first time you run our ```check``` command, but otherwise it will work very similarly to how it worked if you took CS50. 
 
 4. Speaking of checking assignments - although there will be a process involving pull requests (don't worry, we explain later) and github for submission, checking is quite easy. We need you to run the install script in this directory (we encourage you to take a glance at the contents of the install file to see what's what). To do so, please run:
 ```bash
