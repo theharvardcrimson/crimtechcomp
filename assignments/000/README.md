@@ -1,5 +1,5 @@
 # Intro - Python
-:P So you think you can code (haha, we're so funny, sorry). In this repository, you'll find a file called _assignment.py_. That ".py" extension at the end tells the computer it's a Python file, which is useful for all sorts of things. This guide will assume you know very very little about computers, and if you want a gauge of where you're at, read the following list:
+So you think you can code (haha, we're so funny, sorry :P). In this repository, you'll find a file called _assignment.py_. That ".py" extension at the end tells the computer it's a Python file, which is useful for all sorts of things. This guide will assume you know very very little about computers, and if you want a gauge of where you're at, read the following list:
 
 - CLI
 - REPL
