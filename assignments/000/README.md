@@ -99,6 +99,7 @@ On UNIX, "cp" is to copy, "-r" tells it to copy recursively (copies all files in
 6. When you've passed all the tests, and your request says something like "Can be automatically merged", please comment on the last edit/commit (at the bottom of the pull request page, there's a comment section). And copy/paste + fill out this template:
 
 ```
+Final Submit
 Difficulty: #
 Best Part: blabbity blah
 Worst Part: hoopity hoopla
@@ -112,6 +113,7 @@ Difficulty should be out of 10, where 9 and 10 were literally impossible for you
 For example:
 
 ```
+Final Submit
 Difficulty: 6
 Best Part: Learned how to use functions
 Worst Part: Didn't understand recursion
