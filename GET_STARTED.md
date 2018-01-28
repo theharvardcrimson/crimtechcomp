@@ -1,8 +1,8 @@
-## GET PUMPED (and started)
+## chill the fuck out (and started)
 Sorry if this was confusing, but if you haven't already please go read _README.md_ first.
 
 -----
-
+:)
 ### Beginning
 
 Ok, so now that you've begun, let's get some stuff set up/explained (we promise you'll code soon). Github is a service that we'll be using a ton, and in essence, it's a version control framework that makes coding/developing "easy." That is, if you know what the terms "fork," "push," "pull," "clone," "branch," and "pull request" mean, it's easy. If you don't, fear not! That's what we're here for. 
