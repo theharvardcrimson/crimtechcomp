@@ -66,7 +66,7 @@ This code and very document you're reading is currently situated in a Github rep
 
 Steps to submit an assignment; commands are listed below:
 
-1. Fork this repository, the whole thing. You should fork to your own account, and get a nice little copy of this repository of assignments. 
+1. Fork this repository, the whole thing. You should fork to your own account, and get a nice little copy of this repository of assignments. (Make sure you have an account on tech.thecrimson.com if you want to be able to keep track of your assignments!)
 
 2. On your own copy of this repository, clone it to your laptop to get access to work on it. On your Github page for this repository in the top right, there is a button that lets you copy the link to the repository. In your console you can then use 
 ```
@@ -94,12 +94,10 @@ On UNIX, "cp" is to copy, "-r" tells it to copy recursively (copies all files in
 
 4. Now that you have a copy of the assignment that can be attributed to you, go ahead and work on it, following the instructions within the assignment. If you want to check your assignment at any one time, please use the ```check ###``` command you installed at the beginning. This command assumes you are in the directory containing _assignment.py_ (do you know how to check that?) Once in that directory, running ```check ###``` (where "###" is the assignment number) should let you know how you're doing. Try to debug on your own at first, then try to Google stuff (StackOverflow, for example), then maybe try some Youtube tutorials. If you're stuck and frustrated, take a break, eat an apple, etc. then come back. After you've tried to help yourself, ask a friend, an Associate, or us (in any order), and someone will be able to help you. 
 
-5. When you're done (you think), make sure you've added, committed, and pushed all of your changes (local -> Github). Now it's time to submit a pull request to merge this with the original repository. You can do this by going to the repository on Github, and at the top, clicking "open pull request." This will bring up some simple dialogs. Once you've completed that, you'll see the automated tests that get run against your code. If they all pass, you'll know. If they don't, you'll know. They're mostly there to make sure you didn't tinker with any of the other code there. 
-
-6. When you've passed all the tests, and your request says something like "Can be automatically merged", please comment on the last edit/commit (at the bottom of the pull request page, there's a comment section). And copy/paste + fill out this template:
+5. When you're done (you think), make sure you've added, committed, and pushed all of your changes (local -> Github). Now it's time to submit a pull request to merge this with the original repository. You can do this by going to the repository on Github (in your copy of the repository), and at the top, clicking "open pull request." This will bring up some simple dialogs. Once you've completed that, you'll see the automated tests that get run against your code. If they all pass, you'll know. If they don't, you'll know. They're mostly there to make sure you didn't tinker with any of the other code there. This next part is EXTREMELY IMPORTANT: When you submit that pull request, we need you to add in a comment. And we need that comment to be formatted in a particular way. We've listed a template below that we ask you copy-paste into the comment section of the pull request. We will demonstrate this, but please do not forget this important step!
 
 ```
-Final Submit
+Final Submit: ###
 Difficulty: #
 Best Part: blabbity blah
 Worst Part: hoopity hoopla
@@ -113,11 +111,11 @@ Difficulty should be out of 10, where 9 and 10 were literally impossible for you
 For example:
 
 ```
-Final Submit
-Difficulty: 6
+Final Submit: 000
+Difficulty: 3
 Best Part: Learned how to use functions
 Worst Part: Didn't understand recursion
-Additional Comments: Y'all are awesome
+Comments: Y'all are awesome
 ```
 
-7. Congrats!
+7. Congrats! You've completed an assignment!
