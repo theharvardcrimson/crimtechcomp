@@ -9,7 +9,7 @@ if [ "$#" -ne "0" ]; then
 fi
 
 # install CS50's check50 with pip
-pip install check50
+pip3 install check50
 
 # find out if user is ubuntu or mac
 read -p "Are you on Ubuntu or a Mac? (u/m) " u_or_m
