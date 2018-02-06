@@ -2,8 +2,7 @@
 
 # Built to set up check50 for use in 2018 - 2019
 # does not run oob, will need to be made executable "chmod +x install"
-
-# check for correct number of arguments
+# y  # check for correct number of arguments
 if [ "$#" -ne "0" ]; then
     echo "Usage: $0"
     exit
