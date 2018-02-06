@@ -27,7 +27,3 @@ else
     echo "check () { check50 \"\$1\"@harvard-crimson/checks; }" >> ~/.bashrc
     source ~/.bashrc
 fi
-
-# remove this file
-rm $0
-
