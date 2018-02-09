@@ -1,6 +1,6 @@
 ## Welcome!
 
-Welcome to the Crimson Comp - 2018! We're looking forward to working together with you
+Welcome to the Crimson Comp - 2018! Woo! We're looking forward to working together with you
 to make this a wonderful experience for all involved, and we hope that 
 these "assignments" contribute, rather than detract from that experience. 
 
