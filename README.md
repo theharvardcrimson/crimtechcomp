@@ -6,7 +6,7 @@ these "assignments" contribute, rather than detract from that experience.
 
 -----
 
-### "Assignments"
+### "Assignments"adadsasdasdf
 
 Before we get going, we'd like to clarify some things:
   1. These aren't really assignments. Yes, we ask (*require*) that you do them, but
