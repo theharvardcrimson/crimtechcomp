@@ -60,7 +60,7 @@ def challenge1(lst):
 # TODO: implement
 def challenge2(n):
     lst = []
-    for i in range(1, int(math.ceil(math.sqrt(n))) + 1, 1):
+    for i in range(1, int(math.floor(math.sqrt(n))) + 1, 1):
         if n % i == 0:
             lst.append((i, n/i))
     return lst
