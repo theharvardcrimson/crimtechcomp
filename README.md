@@ -7,7 +7,7 @@ these "assignments" contribute, rather than detract from that experience.
 -----
 
 ### "Assignments"
-
+asdfasdfasdfasdfasdf
 Before we get going, we'd like to clarify some things:
   1. These aren't really assignments. Yes, we ask (*require*) that you do them, but
   they are not intended to be done entirely on your own, nor do you receive a grade.
