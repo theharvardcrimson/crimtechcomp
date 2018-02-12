@@ -39,9 +39,19 @@ def update_name(person, new_name):
 
 # TODO: implement - these are still required, but are combinations of learned skills + some
 def challenge1(lst):
-    return lst.reverse()
+    
+    for x in range(len(lst)):
+        lst[x] = lst[x][::-1]
+
+    lst.reverse()
+        
+    return lst
 
 # TODO: implement
 def challenge2(n):
-    return None
+    factors = []
+    for i in range(1, int(n**0.5)+1):
+        if n % i == 0:
+            factors.append((i, n / i))
+    return factors
 
