@@ -39,7 +39,7 @@ def update_name(person, new_name):
 
 # TODO: implement - these are still required, but are combinations of learned skills + some
 def challenge1(lst):
-    return lst.revere()
+    return lst.reverse()
 
 # TODO: implement
 def challenge2(n):
