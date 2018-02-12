@@ -1,5 +1,5 @@
-print("Hello, world!")
-
+def say_hello():
+    print("Hello, world!")
 """
 
 # this is a singleline comment, PLEASE EDIT ME
