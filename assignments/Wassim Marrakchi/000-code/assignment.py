@@ -1,55 +1,56 @@
-print("Hello, world!")
+# Color: Crimson
 
-"""
+def say_hello():
+    print("Hello, world!")
 
-# this is a singleline comment, PLEASE EDIT ME
-print("I am not executed when in the triple quotes, but once you remove them...PLS REMOVE ME K THX BAI")
-
-# TODO: implement
+# Prints message back out to console
 def echo_me(msg):
+    print(msg)
 
-# TODO: understand and remove
 def string_or_not(d):
     exec(d)
 
-# TODO: understand formatting - can you eliminate the redundancy here?
 def append_msg(msg):
-    print("Your message was: {}.".format(msg))
+    print("Your message should have been: {}!".format(msg))
 
 # TODO: understanding classes (an introduction)
 class QuickMaths():
+
     def add(self, x, y):
-        return None
+        return x+y
 
     def subtract(self, x, y):
-        return None
+        return x-y
 
     def multiply(self, x, y):
-        return None
+        return x*y
 
     def divide(self, x, y):
-        return None
+        return x/y
 
 # TODO: implement - can you do this more efficiently?
+
 def increment_by_one(lst):
-    new_lst = list()
-
-    for x in lst:
-        new_lst.append(x - 1)
-
-    return new_lst
+    for x in range(len(lst)):
+        lst[x] = lst[x] + 1
+    return lst
 
 # TODO: understand - do we need a return statement here? why?
 def update_name(person, new_name):
     person["name"] = new_name
 
-    return person
-
 # TODO: implement - these are still required, but are combinations of learned skills + some
 def challenge1(lst):
-    return None
+    lst.reverse()
+    new_lst = []
+    for x in lst:
+        string = ""
+        for y in range(len(x)):
+            string = x[y] + string
+        new_lst.append(string)
+    return new_lst
+
 
 # TODO: implement
 def challenge2(n):
     return None
-"""
