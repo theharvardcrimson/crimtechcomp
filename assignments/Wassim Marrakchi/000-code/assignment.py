@@ -53,4 +53,8 @@ def challenge1(lst):
 
 # TODO: implement
 def challenge2(n):
-    return None
+    divisors = []
+    for x in range(1,n/2):
+        if n % x == 0:
+            divisors.append((x,n/x))
+    return divisors
