@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+Articles
+{% endblock %}
+
+{% block body %}
+  {% for article in articles %}
+  <div>
+      <h2>{{ article.title }}</h2>
+      <p>By {{ article.writer.first_name }} {{ article.writer.last_name }} on {{ article.published_date }}</p>
+      <p>{{ article.content }}</p>
+  </div>
+  {% endfor %}
+{% endblock %}
