@@ -30,7 +30,7 @@ TLDR:
 
 3. CS50.me
 
-4. Run ```/.install```
+4. Run ```./install```
 
 5. Go code!
 
