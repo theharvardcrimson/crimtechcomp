@@ -25,7 +25,7 @@ class Author(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
-    published_date = models.Datefield(auto_now=Flase, auto_now_add=False)
+    published_date = models.Datefield(auto_now=False, auto_now_add=False)
     content = models.TextField()
     writer = models.ForeignKey('self', NULL = True, on_delete=SET_NULL)
 
