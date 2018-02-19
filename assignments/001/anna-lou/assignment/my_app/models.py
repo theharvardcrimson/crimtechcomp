@@ -25,4 +25,4 @@ class Article(models.Model):
     title = models.CharField(max_length=150)
     published_date = models.DateField(auto_now=False, auto_now_add=True)
     content = models.TextField()
-    writer = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
+    writer = models.ForeignKey('Author', on_delete=models.PROTECT)
