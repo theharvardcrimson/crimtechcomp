@@ -1,41 +1,38 @@
-print("Hello, world!")
+def say_hello():
+	print("Hello, world!")
 
-"""
 
-# this is a singleline comment, PLEASE EDIT ME
-print("I am not executed when in the triple quotes, but once you remove them...PLS REMOVE ME K THX BAI")
 
-# TODO: implement
+# Color: green
+
+# Prints user entered string
 def echo_me(msg):
+	print(msg)
 
-# TODO: understand and remove
-def string_or_not(d):
-    exec(d)
-
-# TODO: understand formatting - can you eliminate the redundancy here?
+# User inputs a string and function adds an exclamation point
 def append_msg(msg):
-    print("Your message was: {}.".format(msg))
+    print("Your message should have been: {}!".format(msg))
 
-# TODO: understanding classes (an introduction)
+# Class of the 4 arithmetic operations
 class QuickMaths():
     def add(self, x, y):
-        return None
+        return x + y
 
     def subtract(self, x, y):
-        return None
+        return x - y
 
     def multiply(self, x, y):
-        return None
+        return x*y
 
     def divide(self, x, y):
-        return None
+        return x/y
 
-# TODO: implement - can you do this more efficiently?
+# Takes each element in a list and adds one
 def increment_by_one(lst):
     new_lst = list()
 
     for x in lst:
-        new_lst.append(x - 1)
+        new_lst.append(x + 1)
 
     return new_lst
 
@@ -47,9 +44,31 @@ def update_name(person, new_name):
 
 # TODO: implement - these are still required, but are combinations of learned skills + some
 def challenge1(lst):
-    return None
+	length = len(lst)
+        i = 0
+	new_lst = list()
+	while i <= length - 1:
+		new_lst.append(lst[i][::-1])
+		i = i + 1
+	final_lst = list()
+	i = length - 1
+	while i >= 0:
+		final_lst.append(new_lst[i])
+		i = i-1
+	return final_lst
 
-# TODO: implement
+
+# yeet
 def challenge2(n):
-    return None
-"""
+	n = int(n)
+	lst = list()
+	i = 1
+	while i <= n:
+		if n%i == 0:
+			if (n/i,i) in lst:
+				lst=lst
+			else:
+				lst.append((i,n/i))
+		i = i + 1
+
+	return lst
