@@ -27,3 +27,6 @@ else
     echo "check () { check50 \"\$1\"@harvard-crimson/checks; }" >> ~/.bashrc
     source ~/.bashrc
 fi
+
+read -p "What is your Github username? " username
+git config --global credential.https://github.com/submit50.username $username
