@@ -1,0 +1,27 @@
+{% block title %}
+<h2>Articles</h2>
+{% endblock %}  
+
+
+{% block body %}
+<!--<div>
+    <h1>{{ articles}}</h1>
+    <p>{% for i in articles %}{{ i }}{% endfor %}</p>
+</div>-->
+
+
+
+{% for article in articles %} 
+<div>
+    <p>{{article.placeholder }}</p>
+    <p>{{article.title }}</p>
+    <p>{{article.published_date }}</p>
+    <p>{{article.content }}</p>
+    <p>{{article.writer }}</p><br>
+    <br>
+    
+</div>
+{% endfor %}
+
+
+{% endblock %}
