@@ -1,0 +1,12 @@
+{% block title %}
+<h1>Articles</h1>
+{% endblock %}
+
+{% block body %}
+<div>
+    {% for a in articles %}
+    <h2>{{ a.title }}</h2>
+    <p>{{ a.content }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
