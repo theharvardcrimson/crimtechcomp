@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Nick and Richard's Excellent Adventure</title>
+
+    <!-- this tells our webpage how to find its css stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/excellent.css' %}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Nick and Richard's Excellent Adventure</h1>
+      <p>Instead of writing comp presentations themselves, Nick and Richard decided to travel through time in order to assemble history's finest computer scientists.</p>
+      <p>Unfortunately, they travelled back a bit too far... to the beginnings of the internet! The time travel police won't let them go back to the present age unless they build a website that's excellent.</p>
+      <p>What a totally good thing is, is that you have the power of modern technology and can make an awesome website to bring them back (unless you are using an outdated browser like IE 9, in which case they will be stuck in the past forever). Your tasks:</p>
+      <ul id="todo_list">
+        <li>You should have a radical web inspector or a set of developer tools. Figure out how to open these, and check out the totally cool <a href="https://www.w3schools.com/jsref/dom_obj_all.asp" target="_blank">DOM elements</a>. Maybe your first task is hiding somewhere...</li>
+        <li>Do you see <a href="https://www.w3schools.com/css/" target="_blank">that file</a> `excellent.css`? Using inspect element, can you see how it gets linked to this page? (there's some Django-specific pieces to this if you look at the actual source code <span class="bodacious">#spotthedifference</span>) <a href="https://www.w3schools.com/css/css_howto.asp" target="_blank">This link</a> might help! <span class="bodacious">Totally bodacious!</span></li>
+        <li>Like, after you've done that, find the id that marks your second task. It might contain some totally identical text. Nick or Richard <a href="https://stackoverflow.com/questions/183532/what-is-the-difference-between-html-tags-div-and-span" target="_blank">might've made a major mistake</a>. Fix it by using the right tag!</li>
+        <li>Read up about some <a href="https://en.wikipedia.org/wiki/Shafi_Goldwasser" target="_blank">absolutely</a> <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof" target="_blank">awesome</a>, <a href="https://www.w3.org/People/Berners-Lee/" target="_blank">totally</a> <a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee" target="_blank">Timothy</a> people. For your third task, like, pick any computer scientist to write a sentence about. You should put this in a new <a href="https://www.w3schools.com/tags/tag_p.asp" target="_blank">paragraph element</a> in the third task's div. Add the bodacious <a href="https://css-tricks.com/the-difference-between-id-and-class/" target="_blank">class</a> to this paragraph element.</li>
+        <li>The internet police still won't let Nick and Richard back to the present because their website still looks totally terrible. In the most `excellent.css` file, make sure the <a href="https://www.w3schools.com/css/css_margin.asp" target="_blank">margins of the website</a> are 50 pixels on each side by changing the style rules for the wrapper.</li>
+        <li>Change the font to <a href="https://fonts.google.com" target="_blank">something way better</a>.</li>
+        <li>The next task is to totally make this website more modern by adding some of the characteristic modern elements of a webpage.</li>
+        <li>Like, if we could have a nav bar and a footer, we'd be well on our way to at least 2005</li>
+        <li>And, like, if you could be so excellent as to add a logo to that navbar we'd be lookin' bodacious (make sure the logo has the id "logo")</li>
+        <li>Finally, play around and add 3 features you think make websites cool (I added a background image, I made a carousel, I added a form, etc., etc.) And list out those features in three fancy, bodacious bullet points below!</li>
+      </ul>
+
+      <img id="task1" src="">
+        <!--
+          Congrats! You found your first task (sorry we're feeling cute and hid it in an HTML comment)
+          For your first task, find a historical figure and put a bodacious portrait here.
+          maybe, like, you'll find https://www.w3schools.com/html/html_images.asp useful
+        -->
+      </img>
+
+      <div id="task2">
+        This is like, <div>some</div> identically-styled text.
+      </div>
+
+      <div id="task3">
+
+      </div>
+
+      <p>(In case you are wondering why this assignment is so strange, it is because <a href="http://www.imdb.com/title/tt0096928/" target="_blank">it is written in the style of an art house film from 1989</a>. Also, this assignment might have been created past midnight.)</p>
+      <h4>Best,</h4>
+      <h4>Nick <span class="bodacious">&&</span> Richard</h4>
+    </div>
+  </body>
+</html>
