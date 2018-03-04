@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+  </head>
+  <body>
+    <!-- navbar here! -->
+    
+    {% block body %}
+    <div>
+      <h1>[[ authors ]]<h1>
+      <p>{% for article in articles %}{{ article }}{% endfor %}</p>
+    <div> 
+    {% endblock %}
+
+  </body>
+</html>
