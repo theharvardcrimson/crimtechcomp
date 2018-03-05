@@ -1,3 +1,35 @@
+body {
+  background-image: url("https://previews.123rf.com/images/sunchick326/sunchick3261508/sunchick326150800526/43318826-vintage-or-grungy-white-background-of-natural-cement-or-stone-old-texture-as-a-retro-pattern-wall-it.jpg");
+}
+
+.wrapper {
+  margin: 50px;
+  font-family: "Times New Roman";
+  color: black;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  background-color: #bae1e2;
+  padding: 10px;
+  width: 200px;
+}
+
+.navbar li a:hover {
+  background-color: #4a14ad;
+  color: #ffffff;
+}
+
 .bodacious {
   animation: bodacious 1s infinite;
 }

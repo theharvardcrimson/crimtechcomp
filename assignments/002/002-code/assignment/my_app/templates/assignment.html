@@ -2,13 +2,33 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <title>Nick and Richard's Excellent Adventure</title>
 
     <!-- this tells our webpage how to find its css stylesheet -->
     <link rel="stylesheet" href="{% static 'css/excellent.css' %}">
   </head>
   <body>
+    <script>
+      function handleQuestion() {
+        var answer = "wrong! shrek is the best disney character"
+        if (document.getElementById("shrek").value == "Shrek") {
+          answer = "yes! correct."
+        }
+
+        document.getElementById("ShrekResponse").innerHTML = answer;
+      }
+    </script>
+
+
     <div class="wrapper">
+      <ul class="navbar">
+        <li><img id="logo" src="http://img4.bdbphotos.com/images/50x50/2/p/2pp77rtc51ge15.jpg?skj2io4l"></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="http://www.bing.com">The Rest of the Internet</a></li>
+      </ul><br>
+
       <h1>Nick and Richard's Excellent Adventure</h1>
       <p>Instead of writing comp presentations themselves, Nick and Richard decided to travel through time in order to assemble history's finest computer scientists.</p>
       <p>Unfortunately, they travelled back a bit too far... to the beginnings of the internet! The time travel police won't let them go back to the present age unless they build a website that's excellent.</p>
@@ -26,7 +46,7 @@
         <li>Finally, play around and add 3 features you think make websites cool (I added a background image, I made a carousel, I added a form, etc., etc.) And list out those features in three fancy, bodacious bullet points below!</li>
       </ul>
 
-      <img id="task1" src="">
+      <img id="task1" src="https://vignette.wikia.nocookie.net/disney/images/d/d6/Buzz_lightyear_pose.jpg">
         <!--
           Congrats! You found your first task (sorry we're feeling cute and hid it in an HTML comment)
           For your first task, find a historical figure and put a bodacious portrait here.
@@ -35,16 +55,46 @@
       </img>
 
       <div id="task2">
-        This is like, <div>some</div> identically-styled text.
+        This is like, <span>some</span> identically-styled text.
       </div>
 
       <div id="task3">
-
+        <p>Alan Turing cracked the German code machine Enigma to help the Allies win World War II.</p>
       </div>
+
+      <form id="questions">
+        What is your favorite Disney character? <br>
+        <input id="shrek" type="text" placeholder="Shrek">
+        <br>
+        What was your first cat's name? <br>
+        <input type="text" placeholder="totally not a security question">
+        <br>
+        <button type="button" onclick="handleQuestion()">Submit</button>
+      </form>
+      <p id="ShrekResponse"></p>
+
+      <button type="button" id="alert">Alert</button>
+
+      <script> 
+        $("#alert").click(function() {
+          alert("the lampoon sucks")
+        });
+      </script>
+
+      I added 3 new things:
+      <ul class="bodacious">
+        <li>Question form with a dynamic response!</li>
+        <li>Background image</li>
+        <li>Alert button :)</li>
+      </ul>
 
       <p>(In case you are wondering why this assignment is so strange, it is because <a href="http://www.imdb.com/title/tt0096928/" target="_blank">it is written in the style of an art house film from 1989</a>. Also, this assignment might have been created past midnight.)</p>
       <h4>Best,</h4>
       <h4>Nick <span class="bodacious">&&</span> Richard</h4>
+
+      <footer>
+        Hello, I'm a footer. 
+      </footer>
     </div>
   </body>
 </html>
