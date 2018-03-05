@@ -19,3 +19,9 @@
     color: orange;
   }
 }
+
+.wrapper {
+  margin: 200px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
