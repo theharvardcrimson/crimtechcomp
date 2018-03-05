@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Karma');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
 
 .bodacious {
   animation: bodacious 1s infinite;
@@ -24,22 +25,38 @@
 
 body {
   margin: 0;
+  font-size: 1.1em;
+}
+
+::selection {
+  background: gray;
+  color: white;
+}
+
+a::selection {
+  color: black;
 }
 
 #logo {
   width: 40px;
   float: left;
   padding: 10px 15px 0 30px;
+  filter: invert(100%);
 }
 
 .wrapper {
   margin: 100px 50px 50px 50px;
-  font-family: Karma;
+  font-family: Crimson Text;
+}
+
+a {
+  color: gray;
 }
 
 footer {
   text-align: center;
   padding: 20px;
+  font-family: Crimson Text;
 }
 
 .navbar {
@@ -56,7 +73,7 @@ footer {
   text-align: center;
   padding: 20px 30px;
   text-decoration: none;
-  font-size: 17px;
+  font-family: Alegreya Sans SC;
 }
 
 .navbar a:hover {
@@ -64,8 +81,20 @@ footer {
   color: black;
 }
 
+#scroll {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  font-size: 4em;
+  color: gray;
+}
+
+#scroll:hover {
+  cursor: pointer;
+}
+
 #landing img {
-  opacity: 0.8;
+  opacity: 0.9;
   position: fixed;
   width: 100%;
   top: 0;
@@ -73,19 +102,29 @@ footer {
 
 #begin {
   position: fixed;
-  top: 45%;
+  top: 43%;
   left: 46%;
-  padding: 10px;
+  padding: 15px;
   border: 2px solid white;
   color: white;
   text-align: center;
+  font-family: Alegreya Sans SC;
+  font-size: 1.3em;
 }
 
 #begin:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
-/* from w3 schools */
+.bubble {
+  transition: all 300ms;
+}
+
+.bubble:hover {
+  transform: scale(1.25);
+}
+
+/* from w3schools */
 .caption {
   position: fixed;
   left: 0;
@@ -93,9 +132,10 @@ footer {
   width: 100%;
   text-align: center;
   color: #000;
+  font-family: Alegreya Sans SC;
 }
 
-/* from w3 schools */
+/* from w3schools */
 .caption span.border {
   background-color: #111;
   color: white;

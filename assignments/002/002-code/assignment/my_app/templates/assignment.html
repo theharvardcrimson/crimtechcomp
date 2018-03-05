@@ -6,6 +6,9 @@
 
     <!-- this tells our webpage how to find its css stylesheet -->
     <link rel="stylesheet" href="{% static 'css/excellent.css' %}">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
   </head>
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -16,21 +19,19 @@
       <div class="caption">
         <span class="border">Nick and Richard's Excellent Adventure</span>
       </div>
-      <a id="begin" onclick="$('#landing').fadeOut();">B E G I N</a>
+      <a id="begin" class="bubble" onclick="$('#landing').fadeOut();">begin</a>
     </div>
 
     <div class="navbar">
-      <img id="logo" src="https://s3.amazonaws.com/thumbnails.thecrimson.com/photos/2017/07/26/150944_1323621.png.800x811_q95_crop-smart_upscale.png">
-      <a href="#">This</a>
-      <a href="#">is</a>
-      <a href="#">a</a>
-      <a href="#">navbar</a>
-      <a href="#">!</a>
+      <img id="logo" class="bubble" src="https://cdn0.iconfinder.com/data/icons/space-4/450/astronaut-512.png">
+      <a href="#!">This</a>
+      <a href="#!">is</a>
+      <a href="#!">a</a>
+      <a href="#!">navbar</a>
+      <a href="#!">!</a>
     </div>
 
     <div class="wrapper">
-      <div style="background-image: url('https://wallup.net/wp-content/uploads/2016/01/316346-simple_background-simple-space-astronaut-flag.jpg')"></div>
-
       <h1>Nick and Richard's Excellent Adventure</h1>
       <p>Instead of writing comp presentations themselves, Nick and Richard decided to travel through time in order to assemble history's finest computer scientists.</p>
       <p>Unfortunately, they travelled back a bit too far... to the beginnings of the internet! The time travel police won't let them go back to the present age unless they build a website that's excellent.</p>
@@ -62,11 +63,13 @@
         <p>(<a href="https://en.wikipedia.org/wiki/Shafi_Goldwasser">from Wikipedia</a>)</p>
       </div>
 
+      <div id="scroll" class="bubble" onclick="$('html, body').animate({scrollTop: 0}, 600);"><i class="fa fa-arrow-circle-up"></i></div>
+
       <p>Features:
         <ul>
-          <li>overlaid image</li>
-          <li>begin button</li>
-          <li>landing fades out button press</li>
+          <li>added a landing thing</li>
+          <li>made a scroll to top button</li>
+          <li>hovering over some things will make them grow</li>
         </ul>
       </p>
 
