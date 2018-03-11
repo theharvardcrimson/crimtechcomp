@@ -1,0 +1,11 @@
+{% block title %}
+<h1>Authors</h1>
+{% endblock %}
+
+{% block body %}
+<div>
+    {% for a in authors %}
+    <p>{{ a.first_name }} {{ a.last_name }}</p>
+    {% endfor %}
+</div>
+{% endblock %}

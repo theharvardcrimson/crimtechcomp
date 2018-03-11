@@ -1,0 +1,39 @@
+html {
+  margin-left: 50px;
+  margin-right: 50px;
+  font-family: "Courier New";
+  background-image: url("https://media1.tenor.com/images/66286c21e00a4ef6707abb4bfe19dcb3/tenor.gif?itemid=5043292");
+}
+
+.bodacious {
+  animation: bodacious 1s infinite;
+}
+
+.lincoln {
+  padding: 100px;
+  animation: lincoln 4s infinite;
+}
+
+@keyframes bodacious{
+  20% {
+    color: red;
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: orange;
+  }
+}
+
+@keyframes lincoln{
+  100% {
+    transform: rotate(360deg);
+  }
+}
