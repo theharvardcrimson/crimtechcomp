@@ -1,7 +1,5 @@
 from django.conf.urls import include, url
+from encode.views import *
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'crypto.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
     url(r'^.*', encode_view)
 ]
