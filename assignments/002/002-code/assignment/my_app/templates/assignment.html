@@ -6,8 +6,31 @@
 
     <!-- this tells our webpage how to find its css stylesheet -->
     <link rel="stylesheet" href="{% static 'css/excellent.css' %}">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
   </head>
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/captcha/jquery.clientsidecaptcha.js" type="text/javascript"></script>
+
+    <div id="landing">
+      <img src="https://wallup.net/wp-content/uploads/2016/01/316346-simple_background-simple-space-astronaut-flag.jpg">
+      <div class="caption">
+        <span class="border">Nick and Richard's Excellent Adventure</span>
+      </div>
+      <a id="begin" class="bubble" onclick="$('#landing').fadeOut();">begin</a>
+    </div>
+
+    <div class="navbar">
+      <img id="logo" class="bubble" src="https://cdn0.iconfinder.com/data/icons/space-4/450/astronaut-512.png">
+      <a href="#!">This</a>
+      <a href="#!">is</a>
+      <a href="#!">a</a>
+      <a href="#!">navbar</a>
+      <a href="#!">!</a>
+    </div>
+
     <div class="wrapper">
       <h1>Nick and Richard's Excellent Adventure</h1>
       <p>Instead of writing comp presentations themselves, Nick and Richard decided to travel through time in order to assemble history's finest computer scientists.</p>
@@ -26,25 +49,34 @@
         <li>Finally, play around and add 3 features you think make websites cool (I added a background image, I made a carousel, I added a form, etc., etc.) And list out those features in three fancy, bodacious bullet points below!</li>
       </ul>
 
-      <img id="task1" src="">
-        <!--
-          Congrats! You found your first task (sorry we're feeling cute and hid it in an HTML comment)
-          For your first task, find a historical figure and put a bodacious portrait here.
-          maybe, like, you'll find https://www.w3schools.com/html/html_images.asp useful
-        -->
+      <img id="task1" src="http://img.playbuzz.com/image/upload/f_auto,fl_lossy,q_auto/cdn/e60912fb-f792-4ac6-b2c0-5cc5bfa8ae5a/d3780a5f-70b6-4ad2-9f46-956fbe7dc386.jpg">
       </img>
 
       <div id="task2">
-        This is like, <div>some</div> identically-styled text.
+        This is like, <span>some</span> identically-styled text.
       </div>
 
       <div id="task3">
-
+        <p class="bodacious">
+          Goldwasser's research areas include computational complexity theory, cryptography and computational number theory.
+        </p>
+        <p>(<a href="https://en.wikipedia.org/wiki/Shafi_Goldwasser">from Wikipedia</a>)</p>
       </div>
+
+      <div id="scroll" class="bubble" onclick="$('html, body').animate({scrollTop: 0}, 600);"><i class="fa fa-arrow-circle-up"></i></div>
+
+      <p>Features:
+        <ul>
+          <li>added a landing thing</li>
+          <li>made a scroll to top button</li>
+          <li>hovering over some things will make them grow</li>
+        </ul>
+      </p>
 
       <p>(In case you are wondering why this assignment is so strange, it is because <a href="http://www.imdb.com/title/tt0096928/" target="_blank">it is written in the style of an art house film from 1989</a>. Also, this assignment might have been created past midnight.)</p>
       <h4>Best,</h4>
       <h4>Nick <span class="bodacious">&&</span> Richard</h4>
     </div>
+    <footer>© 2018</footer>
   </body>
 </html>
