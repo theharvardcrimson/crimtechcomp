@@ -1,0 +1,73 @@
+.bodacious {
+  animation: bodacious 1s infinite;
+}
+
+@keyframes bodacious{
+  20% {
+    color: red;
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: orange;
+  }
+}
+
+#wrapper {
+    margin: 50px;
+}
+
+body {
+    font-family: 'Roboto', 'Helvetica', 'Sans-serif';
+    background-color: rgba(255,160,122,0.5);
+}
+
+#navbar {
+    border-bottom: 1px solid black;
+}
+
+#navbar ul {
+    list-style: none;
+    font-weight: 700;
+    padding: 10px;
+}
+
+#navbar ul li {
+    display: inline;
+    font-size: 1.5em;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.nav-link {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#logo {
+    width: 100px;
+}
+
+#footer {
+    border-top: 1px solid black;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#features {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
