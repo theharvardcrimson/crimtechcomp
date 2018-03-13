@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}: Decode{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center;">Decode</h1>
+    <div style="text-align: center;">
+        <form method="post">
+            <input name="key" placeholder="Key"/>
+            <br>
+            <input name="text" placeholder="Text"/>
+            <br>
+            <button type="submit">Decode</button>
+            {% csrf_token %}
+        </form>
+    </div>
+{% endblock %}
