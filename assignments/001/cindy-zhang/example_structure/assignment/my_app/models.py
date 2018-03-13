@@ -16,7 +16,7 @@ class Author(models.Model):
   birthday = models.DateField(auto_now=False, auto_now_add=False)
   favorite_activities = models.TextField()
   email = models.EmailField()
-  education = models.CharField(choices=EDUCATION_CHOICES)
+  education = models.CharField(max_length=100, choices=EDUCATION_CHOICES)
 
 class Article(models.Model):
   title=models.CharField(max_length=150)
