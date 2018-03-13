@@ -1,0 +1,48 @@
+.bodacious {
+  animation: bodacious 1s infinite;
+}
+div.wrapper {
+  margin: 50px;
+}
+
+* {
+ font-family: 'VT323', monospace;
+}
+
+#nav {
+  padding-left: 50px;
+}
+.navigation {
+  list-style:none;
+  background-color: crimson;
+
+}
+a.list {
+  color: white;
+}
+.footer {
+  position: absolute;
+  width: 100%;
+  background-color: crimson;
+  padding-left: 100px;
+  color: white;
+  text-align: center;
+}
+
+@keyframes bodacious{
+  20% {
+    color: red;
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: orange;
+  }
+}
