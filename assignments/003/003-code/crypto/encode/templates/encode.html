@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Encode
+{% endblock %}
+
+{% block body %}
+	<form id="encrypt" method="post"> {% csrf_token %}
+		Local <input class="form-check-input" name="local" value="true" type="radio">
+		<br>
+		Remote <input class="form-check-input" name="remote" value="true" type="radio">
+		<br>
+		<input name="key" type="text" placeholder="Key">
+		<br>
+		<input name="msg" type="text" placeholder="Message">
+		<br>
+		<input id="encode_submit" type="submit" value="Submit">
+	</form>
+{% endblock %}

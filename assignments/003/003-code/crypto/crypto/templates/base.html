@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	<title>
+    		{% block title %}{% endblock %}
+    	</title>
+
+    	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/boot">
+	</head>
+
+	<body>
+		<ul class="navbar">
+			<li><a href="/">Home</a></li>
+			<li><a href="/encode/">Encode</a></li>
+			<li><a href="/decode/">Decode</a></li>
+		</ul>
+
+		<p>Hello, world</p>
+		
+		{% block body %}
+		{% endblock %}
+	</body>
+</html>
