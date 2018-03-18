@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'encode',
     'decode',
+    'crypto',
 )
 
 MIDDLEWARE_CLASSES = (

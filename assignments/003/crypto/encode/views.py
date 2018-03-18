@@ -13,7 +13,7 @@ def calculate(x, y, f): #<-- this is just a function
     return x / y
   elif f == 'power':
     return x ** y
-  else
+  else:
     return None
 
 def encode_view(request): #<-- this is a view
