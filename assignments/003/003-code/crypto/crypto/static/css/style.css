@@ -1,0 +1,11 @@
+.navbar {
+	list-style-type: none;
+}
+
+.navbar li {
+	padding: 20px;
+}
+
+.navbar li a {
+	display: block;
+}
