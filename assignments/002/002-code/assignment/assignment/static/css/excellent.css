@@ -2,6 +2,10 @@
   animation: bodacious 1s infinite;
 }
 
+html {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
 @keyframes bodacious{
   20% {
     color: red;
@@ -18,4 +22,35 @@
   100% {
     color: orange;
   }
+}
+
+.wrapper {
+  margin: 50px;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#logo {
+  width: 5%;
+  height: auto;
+}
+
+.navbar li {
+  display:inline;
+}
+
+#bordered {
+  border-style: double;
+}
+
+#task1 {
+  opacity: 0.5;
+}
+
+footer:hover {
+  color: blue;
 }
