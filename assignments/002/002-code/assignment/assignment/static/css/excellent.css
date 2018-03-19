@@ -2,6 +2,34 @@
   animation: bodacious 1s infinite;
 }
 
+body {
+   text-shadow: 2px 2px red;
+   background-image: url("https://www.thewallpapers.org/photo/66767/Nature-and-Summer-time-041.jpg");
+   background-position: center;
+   background-color: #cccccc;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+    margin-left: 50px;
+    font-family: 'Rammetto One', cursive;
+}
+
+footer {
+    display: block;
+}
+img {
+  border-radius: 50%;
+}
+
 @keyframes bodacious{
   20% {
     color: red;
