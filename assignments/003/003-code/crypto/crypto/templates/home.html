@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+  <a href="{% url 'encode' %}">
+    <button class="btn btn-primary" style="margin: 20px auto; display: block;">Encode</button>
+  </a>
+  <a href="{% url 'decode' %}">
+    <button class="btn btn-primary" style="margin: 20px auto; display: block;">Decode</button>
+  </a>
+ </div>
+{% endblock %}
+
+
+

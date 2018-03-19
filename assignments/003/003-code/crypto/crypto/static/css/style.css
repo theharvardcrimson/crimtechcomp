@@ -1,0 +1,29 @@
+.container {
+  width: 600px;
+  height: 100px;
+  position: absolute;
+  top:0;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.crypto-btn {
+  margin: 20px auto;
+  display: block;
+}
+
+.crypto-input {
+  margin: 10px;
+}
+
+.result-container {
+  position: relative;
+  top: 30%;
+}
+
+.result-text {
+  width: 100%;
+  text-align: center;
+}
