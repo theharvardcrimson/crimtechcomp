@@ -1,0 +1,13 @@
+{% block title %}
+Articles
+{% endblock %}
+
+    <!-- navbar here! -->
+    {% for article in articles %}
+    <div>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.content }}</p>
+        <p>{{ article.published_date }}</p>
+        <p>{{ article.writer }}</p>
+    </div>
+    {% endfor %}

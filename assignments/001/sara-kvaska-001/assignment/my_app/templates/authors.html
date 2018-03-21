@@ -1,0 +1,16 @@
+{% block title %}
+Authors
+{% endblock %}
+
+{% block body %}
+  {% for author in authors %}
+    <div>
+      <h1>{{ author.first_name }}<h1>
+      <h1>{{ author.last_name }}</h1>
+      <h1>{{ author.birthday }}</h1>
+      <h1>{{ author.favorite_activities }}</h1>
+      <h1>{{ author.email }}</h1>
+      <h1>{{ author.education }}</h1>
+    </div>
+  {% endfor %}
+{% endblock %}
