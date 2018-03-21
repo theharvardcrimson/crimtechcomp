@@ -78,7 +78,7 @@ where "link" is the link you copied to clone it to your computer. Then use
 ``` 
 You are now inside your repo. 
 
-3. The structure is "repo_name/###/###-code/, where ### is the assignment number. You need to make a directory in "repo_name/###/" called "your-name" Assuming you're in the repo's root or highest level directory (you can type 
+3. The structure is "repo_name/assignments/###/###-code/, where ### is the assignment number. You need to make a directory in "repo_name/assignments/###/" called "your-name" Assuming you're in the repo's root or highest level directory (you can type 
 ```
     pwd
 ``` 

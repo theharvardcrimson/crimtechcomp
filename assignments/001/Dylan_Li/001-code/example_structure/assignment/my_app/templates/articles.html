@@ -1,0 +1,20 @@
+{% block title %}
+
+Articles
+
+{% endblock %}
+
+{% block body %}
+
+{$ for article in articles}
+
+<div>
+	<h2> {{ article.title }} </h2>
+	<p> {{ article.writer }} </p>
+	<p> {{ article.content }} </p>
+	<p> {{ article.published_date }}</p>
+</div>
+
+{% endfor %}
+
+{% endblock %}

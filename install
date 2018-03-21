@@ -2,15 +2,14 @@
 
 # Built to set up check50 for use in 2018 - 2019
 # does not run oob, will need to be made executable "chmod +x install"
-
-# check for correct number of arguments
+# y  # check for correct number of arguments
 if [ "$#" -ne "0" ]; then
     echo "Usage: $0"
     exit
 fi
 
 # install CS50's check50 with pip
-pip install check50
+pip3 install check50
 
 # find out if user is ubuntu or mac
 read -p "Are you on Ubuntu or a Mac? (u/m) " u_or_m
@@ -29,6 +28,5 @@ else
     source ~/.bashrc
 fi
 
-# remove this file
-rm $0
-
+read -p "What is your Github username? " username
+git config --global credential.https://github.com/submit50.username $username

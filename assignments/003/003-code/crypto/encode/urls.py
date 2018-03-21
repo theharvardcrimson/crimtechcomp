@@ -1,0 +1,6 @@
+from django.conf.urls import url
+from encode.views import *
+
+urlpatterns = [
+    url(r'^encode/.*', encode_view, name='encode'),
+]
