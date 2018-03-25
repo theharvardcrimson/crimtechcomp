@@ -2,12 +2,12 @@
   animation: bodacious 1s infinite;
 }
 
-.wrapper {
+html {
   margin: 50px 50px 50px 50px;
   font-family: Helvetica;
   background-image: url("https://s3.amazonaws.com/static.thecrimson.com/images/seal.jpg");
-  background-repeat:no-repeat;
-  background-size:cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @keyframes bodacious{
@@ -28,26 +28,8 @@
   }
 }
 
-#navbar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#navbar ul li {
-  display: block;
-  width: 60px;
-  float: left;
-}
-
 #logo {
-  width: 100%;
-}
-
-#navar ul li a {
-  display: block;
-  padding: 8px;
-  background-color: #dddddd;
+  width: 20%;
 }
 
 #task1 {
