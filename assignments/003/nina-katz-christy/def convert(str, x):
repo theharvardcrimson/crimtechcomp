@@ -1,0 +1,5 @@
+def convert(str, x):
+	encoded = ""
+	for c in str:
+		encoded += chr(ord(c) + x)
+	return encoded
