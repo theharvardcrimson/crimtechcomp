@@ -4,6 +4,18 @@
 
 {% block body %}
   <h2 style="margin-bottom:30px">Results</h2>
-  <p>{{ result }}</p>
-  <p>database coming soon!</p>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Key</th>
+        <th>Message</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>{{ k }}</td>
+      <td>{{ msg }}</td>
+      <td>{{ result }}</td>
+    </tr>
+  </table>
 {% endblock %}
