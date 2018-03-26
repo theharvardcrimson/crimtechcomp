@@ -1,20 +1,23 @@
 from django.shortcuts import render
 
-# Create your views here.
-def calculate(x, y, f): #<-- this is just a function
-  f = f.strip().lower()
-  if f == 'add':
-    return x + y
-  elif f == 'subtract':
-    return x - y
-  elif f == 'multiply':
-    return x * y
-  elif f == 'divide':
-    return x / y
-  elif f == 'power':
-    return x ** y
-  else:
-    return None
+def encode(msg, key):
+  x = ""
+  key = key.upper()
+  counter = 0
+  for ch in msg:
+    val = ord(key[counter]) - ord('A') + 1
+    if ch.islower():
+      x += chr(((ord(ch) - ord('a') + val) % 26) + ord('a'))
+    elif ch.isupper():
+      x += chr(((ord(ch) - ord('A') + val) % 26) + ord('A'))
+    else:
+      x += ch
+    if counter == len(key) - 1:
+      key = key[::-1]
+      counter = 0
+    else:
+      counter += 1
+  return x
 
 def encode_view(request): #<-- this is a view
   if request.method == 'POST':
