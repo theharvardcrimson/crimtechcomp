@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+  <div class="radio">
+    <label><input type="radio" checked name="optradio" id="remote-radio" value="false"> Remote</label>
+  </div>
+  <div class="radio">
+    <label><input type="radio" name="optradio" id="local-radio" value="true"> Local</label>
+  </div>
+  <form method="post">
+    <input type="text" class="form-control crypto-input" name="msg" id="msg" placeholder="Ciphertext"/>
+    <input type="text" class="form-control crypto-input" name="key" id="key" placeholder="Key"/>
+    <button id="submit-btn" class="btn btn-primary crypto-btn" type="submit">Submit Me!</button>
+    {% csrf_token %}
+  </form>
+  <div align="center">
+    <p class="local-text" id="local-text" align="center"></p>
+  </div>
+</div>
+{% endblock %}
