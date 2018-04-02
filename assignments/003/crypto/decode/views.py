@@ -20,16 +20,12 @@ def decode(msg, key):
   return x
 
 
-def decode_view(request): #<-- this is a view
-  if request.method == 'POST':
-    context = {'calculation': None}
-
-    x, y = request.POST['x'], request.POST['y']
-    fun = request.POST['function']
-
-    context['calculation'] = calculate(x, y, fun)
-
-    return render(request, 'decode.html', context=context)
-
+def decode_view(request):
+  if 'msg' in request.POST and 'key' in request.POST:
+    msg = request.POST['msg']
+    key = request.POST['key']
+    context = {'message': msg, 'key': key, 'res': decode(msg, key)}
+    return render(request, 'decoded.html', context=context)
   else:
     return render(request, 'decode.html')
+    

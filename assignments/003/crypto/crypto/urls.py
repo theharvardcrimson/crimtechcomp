@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^encode/.*', encode_urls),
     url(r'^decode/.*', decode_urls),
+    url(r'^.*', index),
 ]

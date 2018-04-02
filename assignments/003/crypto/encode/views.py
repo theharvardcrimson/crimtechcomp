@@ -19,16 +19,12 @@ def encode(msg, key):
       counter += 1
   return x
 
-def encode_view(request): #<-- this is a view
-  if request.method == 'POST':
-    context = {'calculation': None}
-
-    x, y = request.POST['x'], request.POST['y']
-    fun = request.POST['function']
-
-    context['calculation'] = calculate(x, y, fun)
-
-    return render(request, 'encode.html', context=context)
-
+def encode_view(request):
+  if 'msg' in request.POST and 'key' in request.POST:
+    msg = request.POST['msg']
+    key = request.POST['key']
+    context = {'message': msg, 'key': key, 'res': encode(msg, key)}
+    return render(request, 'encoded.html', context=context)
   else:
     return render(request, 'encode.html')
+    

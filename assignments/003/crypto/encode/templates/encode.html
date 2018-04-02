@@ -1,6 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Encode
+{% endblock %}
+
+{% block content %}
+
 <form method="post">
-    <input name="key" placeholder="Key"/>
-    <input name="msg" placeholder="Message to encode"/>
+	Local <input class="form-check-input" name="local" type="radio">
+	<br>
+	Remote <input class="form-check-input" name="remote" type="radio">
+	<br>
+    <input name="key" type="text" placeholder="Key"/>
+    <input name="msg" type="text" placeholder="Message to encode"/>
     <button type="submit">Submit Me!</button>
     {% csrf_token %}
 </form>
+
+{% endblock %}
