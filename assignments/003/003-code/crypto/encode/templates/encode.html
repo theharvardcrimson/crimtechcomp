@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+	Encode
+{% endblock %}
+
+{% block body %}
+	<h1>ENCODE</h1>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="{% static 'js/encode.js' %}"></script>
+
+	<form id="encrypt" method="post"> {% csrf_token %}
+		Local <input class="form-check-input" onclick="hello()" name="evaloption" value="local" type="radio">
+		<br>
+		Remote <input class="form-check-input" name="evaloption" value="remote" type="radio" checked>
+		<br>
+		<input name="key" type="text" placeholder="Key">
+		<br>
+		<input name="msg" type="text" placeholder="Message">
+		<br>
+		<input id="remote_submit" type="submit" value="Remote Submit">
+	</form>
+	<button id="local_submit" hidden>Local Submit</button> 
+	<p hidden id="local_result"></p> 
+{% endblock %}

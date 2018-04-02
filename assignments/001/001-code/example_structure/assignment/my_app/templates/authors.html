@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Authors
+{% endblock %}
+
+{% block body %}
+	<h1>Authors</h1>
+	{% for author in author_list %}
+		<p1>{{ author.first_name }} {{author.last_name}}</p2>
+	{% endfor %}
+{% endblock %}

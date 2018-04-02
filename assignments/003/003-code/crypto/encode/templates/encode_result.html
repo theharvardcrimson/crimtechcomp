@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Encode Result
+{% endblock %}
+
+{% block body %}
+	<table>
+		<tr>
+			<th>Plaintext</th>
+			<th>Key</th>
+			<th>Ciphertext</th>
+		</tr>
+		<tr>
+			<td>{{ message }}</td>
+			<td>{{ key }}</td>
+			<td>{{ ciphertext }}</td>
+		</tr>
+	</table>
+
+	<br>
+	<a href="/encode/">New Encode!</a>
+	<a href="/decode/">New Decode!</a>
+{% endblock %}
