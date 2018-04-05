@@ -6,15 +6,18 @@
 
 {% block content %}
 
+Local <input id="local" name="local" type="radio">
+<br>
+Remote <input id="remote" name="remote" type="radio">
+<br>
+
 <form method="post">
-	Local <input class="form-check-input" name="local" type="radio">
-	<br>
-	Remote <input class="form-check-input" name="remote" type="radio">
-	<br>
-    <input name="key" type="text" placeholder="Key"/>
-    <input name="msg" type="text" placeholder="Message to encode"/>
-    <button type="submit">Submit Me!</button>
+    <input id="key" name="key" type="text" placeholder="Key"/>
+    <input id="msg" name="msg" type="text" placeholder="Message to encode"/>
+    <button id="submit" type="submit">Submit Me!</button>
     {% csrf_token %}
 </form>
+
+<p id="local-res" style="display:none">Result</p>
 
 {% endblock %}

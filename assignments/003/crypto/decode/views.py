@@ -25,7 +25,7 @@ def decode_view(request):
     msg = request.POST['msg']
     key = request.POST['key']
     context = {'message': msg, 'key': key, 'res': decode(msg, key)}
-    return render(request, 'decoded.html', context=context)
+    return render(request, 'result.html', context=context)
   else:
     return render(request, 'decode.html')
     
