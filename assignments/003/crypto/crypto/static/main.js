@@ -41,8 +41,8 @@ function encode(msg, key) {
 		else {
 			counter += 1;
 		}
-	};
-};
+	}
+}
 
 function decode(msg, key) {
 	x = "";
@@ -69,5 +69,5 @@ function decode(msg, key) {
 		else {
 			counter += 1;
 		}
-	};
-};
+	}
+}
