@@ -99,3 +99,4 @@ ENV/
 
 # mypy
 .mypy_cache/
+assignments/002/002-code/assignment/my_app/templates/assignment.html

@@ -6,8 +6,15 @@
 
     <!-- this tells our webpage how to find its css stylesheet -->
     <link rel="stylesheet" href="{% static 'css/excellent.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
   </head>
   <body>
+
+    <ul class="navbar">
+      <li><img id="logo" src="https://s3.amazonaws.com/static.thecrimson.com/images/seal.jpg"></img><li>
+      <li><a href="assignment.html">Home</a></li>
+    </ul>
+
     <div class="wrapper">
       <h1>Nick and Richard's Excellent Adventure</h1>
       <p>Instead of writing comp presentations themselves, Nick and Richard decided to travel through time in order to assemble history's finest computer scientists.</p>
@@ -26,25 +33,28 @@
         <li>Finally, play around and add 3 features you think make websites cool (I added a background image, I made a carousel, I added a form, etc., etc.) And list out those features in three fancy, bodacious bullet points below!</li>
       </ul>
 
-      <img id="task1" src="">
-        <!--
-          Congrats! You found your first task (sorry we're feeling cute and hid it in an HTML comment)
-          For your first task, find a historical figure and put a bodacious portrait here.
-          maybe, like, you'll find https://www.w3schools.com/html/html_images.asp useful
-        -->
+      <ul>
+        <li id="bordered">I made a border around some text right here</li>
+        <li>I made Leo Tolstoy a bit transparent</li>
+        <li>The footer changes color when you hover over it</li>
+      </ul>
+
+      <img id="task1" src="http://redzambala.com/sites/default/files/styles/250-b/public/field/image/leo-tolstoy-what-believ.jpg?itok=gtQS_G5U">
       </img>
 
       <div id="task2">
-        This is like, <div>some</div> identically-styled text.
+        This is like, <span>some</span> identically-styled text.
       </div>
 
       <div id="task3">
-
+        <p class="bodacious">Shafi Goldwasser is a really cool CS person from MIT who has done lots of great things in her life.</p>
       </div>
 
       <p>(In case you are wondering why this assignment is so strange, it is because <a href="http://www.imdb.com/title/tt0096928/" target="_blank">it is written in the style of an art house film from 1989</a>. Also, this assignment might have been created past midnight.)</p>
       <h4>Best,</h4>
       <h4>Nick <span class="bodacious">&&</span> Richard</h4>
     </div>
+
+    <footer>Crimtech comp assignment 2</footer>
   </body>
 </html>

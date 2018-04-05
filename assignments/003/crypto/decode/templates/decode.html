@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Decode
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+	Local <input id="local" name="lr" type="radio">
+	<br>
+	Remote <input id="remote" name="lr" type="radio">
+	<br>
+    <input id="key" name="key" type="text" placeholder="Key"/>
+    <input id="msg" name="msg" type="text" placeholder="Message to decode"/>
+    <button id="submit" type="submit">Submit Me!</button>
+    {% csrf_token %}
+</form>
+
+<p id="local-res" style="display:none">Result</p>
+
+{% endblock %}

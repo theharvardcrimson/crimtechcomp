@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Result
+{% endblock %}
+
+{% block content %}
+	<table>
+		<tr>
+			<th>Message</th>
+			<th>Key</th>
+			<th>Result</th>
+		</tr>
+		<tr>
+			<td>{{ message }}</td>
+			<td>{{ key }}</td>
+			<td>{{ res }}</td>
+		</tr>
+	</table>
+
+	<br>
+{% endblock %}
