@@ -33,16 +33,16 @@ function encode(msg, key) {
 	counter = 0;
 
 	for (i = 0; i < msg.length; i++) {
-		val = key.charCodeAt(counter) - 'A'.charCodeAt() + 1;
-
-		if (msg[i] == msg[i].toLowerCase()) {
-			x += String.fromCharCode(((msg.charCodeAt(i) - 'a'.charCodeAt() + val) % 26) + 'a'.charCodeAt());
+		val = key.charCodeAt(counter) - 64;
+    
+		if (msg.charCodeAt(i) >= 97 && msg.charCodeAt(i) <= 122) {     
+			x += String.fromCharCode((Math.abs(msg.charCodeAt(i) - 97 + val) % 26 + 97));
 		}
-		else if (msg[i] == msg[i].toUpperCase()) {
-			x += String.fromCharCode(((msg.charCodeAt(i) - 'A'.charCodeAt() + val) % 26) + 'A'.charCodeAt());
+		else if (msg.charCodeAt(i) >= 65 && msg.charCodeAt(i) <= 90) {
+			x += String.fromCharCode((Math.abs(msg.charCodeAt(i) - 65 + val) % 26 + 65));
 		}
 		else {
-			x += msg[i]
+			x += msg[i];
 		}
 
 		if (counter == key.length - 1) {
@@ -62,16 +62,17 @@ function decode(msg, key) {
 	counter = 0;
 
 	for (i = 0; i < msg.length; i++) {
-		val = key.charCodeAt(counter) - 'A'.charCodeAt() + 1;
-
-		if (msg[i] == msg[i].toLowerCase()) {
-			x += String.fromCharCode(((msg.charCodeAt(i) - 'a'.charCodeAt() - val) % 26) + 'a'.charCodeAt());
+  
+		val = key.charCodeAt(counter) - 64;
+    
+		if (msg.charCodeAt(i) >= 97 && msg.charCodeAt(i) <= 122) {     
+			x += String.fromCharCode((Math.abs(msg.charCodeAt(i) - 97 - val) % 26 + 97));
 		}
-		else if (msg[i] == msg[i].toUpperCase()) {
-			x += String.fromCharCode(((msg.charCodeAt(i) - 'A'.charCodeAt() - val) % 26) + 'A'.charCodeAt());
+		else if (msg.charCodeAt(i) >= 65 && msg.charCodeAt(i) <= 90) {
+			x += String.fromCharCode((Math.abs(msg.charCodeAt(i) - 65 - val) % 26 + 65));
 		}
 		else {
-			x += msg[i]
+			x += msg[i];
 		}
 
 		if (counter == key.length - 1) {
