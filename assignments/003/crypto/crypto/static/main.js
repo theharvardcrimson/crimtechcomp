@@ -1,7 +1,17 @@
-if(document.getElementById('local').checked) {
-	document.getElementById('submit').style.display = 'none';
-	document.getElementById('local-res').style.display = 'inline-block';
-}
+$(document).ready(
+	$('#local').click(function() {
+   		if($('#local').is(':checked')) {
+   			document.getElementById('submit').style.display = 'none';
+			document.getElementById('local-res').style.display = 'inline-block';
+   		}
+   	})
+	$('#remote').click(function() {
+   		if($('#remote').is(':checked')) {
+   			document.getElementById('local-res').style.display = 'none';
+			document.getElementById('submit').style.display = 'inline-block';
+   		}
+   	})
+)
 
 $(document).ready(
 	function() {
