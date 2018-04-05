@@ -4,14 +4,15 @@ $(document).ready(
    			document.getElementById('submit').style.display = 'none';
 			document.getElementById('local-res').style.display = 'inline-block';
    		}
-   	})
+   	}))
+ 
+$(document).ready(
 	$('#remote').click(function() {
    		if($('#remote').is(':checked')) {
    			document.getElementById('local-res').style.display = 'none';
 			document.getElementById('submit').style.display = 'inline-block';
    		}
-   	})
-)
+   	}))
 
 $(document).ready(
 	function() {
@@ -20,9 +21,9 @@ $(document).ready(
 		        k = $('#key').val();
 		        m = $('#msg').val();
 		        if (window.location.pathname === '/encode/') {
-		        	$('#local-res').text(encode(k, m));
+		        	document.getElementById('local-res').innerHTML = encode(m, k);
 		        }
-		        else $('#local-res').text(decode(k, m));
+		        else document.getElementById('local-res').innerHTML = decode(m, k);
 		    });
 	})
 
@@ -52,6 +53,7 @@ function encode(msg, key) {
 			counter += 1;
 		}
 	}
+	return x;
 }
 
 function decode(msg, key) {
@@ -80,4 +82,5 @@ function decode(msg, key) {
 			counter += 1;
 		}
 	}
+	return x;
 }
