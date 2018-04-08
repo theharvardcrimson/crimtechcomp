@@ -9,6 +9,7 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^encode/.*', encode_urls),
-    url(r'^decode/.*', decode_urls),
+    url(r'^encode/.*', include(encode_urls)),
+    url(r'^decode/.*', include(decode_urls)),
+    url(r'^.*', include(encode_urls))
 ]
