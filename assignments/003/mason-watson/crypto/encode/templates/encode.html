@@ -1,6 +1,56 @@
-<form method="post">
-    <input name="msg" placeholder="Enter a decoded message"/>
-    <input name="key" placeholder="Enter key"/>
-    <button type="submit">Submit Me!</button>
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+  <input type="radio" id="local" name="method" value"false">Local<br>
+  <input type="radio" name="method" value"true">Remote<br>
+  <input type="text" id="msg" name="msg" placeholder="Enter an decoded message"/>
+  <input type="text" id="key" name="key" placeholder="Enter key"/>
+  <button id="submit" type="submit">Submit</button>
     {% csrf_token %}
 </form>
+
+<div id="container"></div>
+
+<script type="text/javascript">
+  function encode (msg, k) {
+    var newstr = "";
+    var i = 0;
+    for (var l in msg) {
+        c = msg.toString().charAt(l);
+        if (Number.isNaN(Number.parseInt(c))) {
+            if ((i / k.length) % 2 != 0 || i == 0) {
+                adjusted = c.charCodeAt(0) + (k.toString().slice(i % k.length, i % k.length + 1).charCodeAt(0)) - 96;
+                if (adjusted >= 123) {
+                    newstr += String.fromCharCode((c.charCodeAt(0) + k.toString().slice(i % k.length, i % k.length + 1).charCodeAt(0) - 96) % 123 + 97);
+                }
+                else {
+                    newstr += String.fromCharCode(c.charCodeAt(0) + k.toString().slice(i % k.length, i % k.length + 1).charCodeAt(0) - 96);
+                }
+            }
+            else {
+                adjusted = c.charCodeAt(0) + k.toString().slice(-(i % k.length) - 1, -(i % k.length) - 1).charCodeAt(0) - 96;
+                if (adjusted >= 123)
+                    newstr += String.fromCharCode((c.charCodeAt(0) + k.toString().slice(-(i % k.length) - 1, -(i % k.length)).charCodeAt(0) - 96) % 123 + 97);
+                else
+                    newstr += String.fromCharCode(c.charCodeAt(0) + k.toString().slice(-(i % k.length) - 1, -(i % k.length)).charCodeAt(0) - 96);
+            }
+        }
+        else {
+          newstr += c;
+        }
+        i++;
+      }
+      return newstr;
+  }
+
+  $(document).click(function () {
+    if (document.getElementById('local').value) {
+      $('#submit').hide();
+      $(document).on("keypress", function (e) {
+        $('#container').append('<p>'+(encode(document.getElementById('msg').value, document.getElementById('key').value))+"</p>")
+        });
+    }
+  });
+</script>
+{% endblock %}
