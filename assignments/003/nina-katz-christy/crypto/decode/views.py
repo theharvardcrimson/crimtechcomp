@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 ALPHA = 26
 LOWA = 97
+CAPA = 65
 
 def ascii_to_alpha(a):
     if (a.isupper()):
@@ -18,16 +19,16 @@ def decode(msg, k):
 			decoded += chr((ascii_to_alpha(c) - ascii_to_alpha(k[keyi])) % ALPHA + LOWA)
 		else:
 			decoded += c
-		if keyi == (len(k) - 1):
-			inc = False
-			continue
-		elif keyi == 0:
-			inc = True
-			continue
 		if inc == True:
 			keyi += 1
 		else:
 			keyi -= 1
+		if keyi == len(k):
+			keyi -= 1
+			inc = False
+		elif keyi < 0:
+			keyi += 1
+			inc = True
 	return decoded
 
 
