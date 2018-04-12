@@ -1,0 +1,50 @@
+.bodacious {
+  animation: bodacious 1s infinite;
+}
+
+html {
+  margin: 50px 50px 50px 50px;
+  font-family: Helvetica;
+  background-image: url("https://s3.amazonaws.com/static.thecrimson.com/images/seal.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@keyframes bodacious{
+  20% {
+    color: red;
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: orange;
+  }
+}
+
+#logo {
+  width: 20%;
+}
+
+#task1 {
+  display: block;
+    border: 10px solid blue;
+    border-radius: 4px;
+    padding: 5px;
+    margin: auto;
+  }
+
+#title {
+  clear: both;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+}
