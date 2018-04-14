@@ -1,0 +1,198 @@
+/*
+    Styling for _base_briefing, daily_briefing, and any other new newsletters
+    - Brian Yu, Hannah Natanson, Derek Xiao, Nathan Lee '19
+*/
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  width: 100%;
+}
+.teaser {
+  font-size: 14px;
+}
+li {
+  padding-top: 5px;
+}
+a {
+  text-decoration: none !important;
+}
+.main-img {
+  width: 100%;
+  max-height: 360px;
+}
+.teaser a {
+  color: #327acc;
+  float: right;
+}
+ul {
+  padding-left: 5px;
+  margin-top: 8px;
+}
+#main {
+  width: 100%;
+  max-width: 601px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 10px 10px 10px;
+}
+
+.header {
+  font-family: 'Big Caslon', 'Crimson Text', 'Times New Roman', serif;
+  font-size: 16px;
+  height: 20px;
+  padding-top: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+#title {
+  font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', 'Georgia', serif;
+  font-size: 36px;
+  margin: 14px 0 4px 0;
+}
+
+.date {
+  float: right;
+}
+
+.preview {
+  display: none;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.seal {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  margin-right: 3px;
+}
+
+#endline > .center > .seal {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
+
+.placeholder {
+  font-size: 48px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 200px;
+  line-height: 200px;
+  background-color: #e27878;
+}
+
+.briefing-teaser {
+  font-size: 15px;
+  line-height: 19px;
+  margin-bottom: 16px;
+}
+
+.story {
+  padding: 6px 0px 6px 0px;
+}
+
+.story img {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.see-more {
+  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.headline {
+  font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', 'Georgia', serif;
+  color: #a62b17;
+  font-size: 22px;
+  line-height: 23px;
+  margin: 6px 0 6px 0;
+}
+
+.headline a {
+  text-decoration: none;
+  color: #a62b17;
+}
+
+.featured > .headline {
+  font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', 'Georgia', serif;
+  font-size: 29px;
+  line-height: 30px;
+}
+.section-header {
+  margin-top: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: #a62b17;
+  width: 100%;
+  padding-bottom: 2px;
+  border-bottom: 4px #a62b17 solid;
+}
+
+.story-opinion {
+  background-color: #f0f0f0;
+  padding: 3px 8px 26px 8px;
+}
+
+.story-sports {
+  padding: 4px 0px 4px 0px;
+}
+
+.contributor {
+  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+.contributor a {
+  text-decoration: none;
+  color: #a62b17;
+}
+#social {
+  padding: 12px 0 12px 0;
+}
+#social > .cta {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
+  font-size: 18px;
+  padding-bottom: 6px;
+}
+#social > .social-images {
+  width: 130px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#social img {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+#endline {
+  font-size: 11px;
+  margin-top: 20px;
+}
+#endline a {
+  text-decoration: none;
+  color: #a62b17;
+}
+
+#endline > .center {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 6px;
+}

@@ -1,0 +1,44 @@
+.image-list li{
+    width: 80px;
+    height: 100px;
+    list-style: none;
+    float: left;
+    display: block;
+    margin: 1px;
+    position: relative;
+}
+
+.image-list {
+    list-style: none;
+}
+
+#images-bank, #images-current{
+    border-width: 1px 1px 0px 1px;
+    border-color: grey;
+    border-style: solid;
+    margin: 20px 10px 10px 10px;
+}
+#images-bank{
+    padding: 5px 0px 0px 0px;
+}
+
+.links{
+    clear:both;
+    padding: 8px 0px 0px 110px;
+}
+.ui-overlay{
+    display: none;
+    position: absolute;
+    width: 900px;
+    padding-left: 10px;
+    background-color: white;
+    top: 20%;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+.cover-image{
+    padding: 2px 2px 2px 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+}

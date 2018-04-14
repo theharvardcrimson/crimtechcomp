@@ -1,0 +1,28 @@
+
+<span class="filter_label">SECTION:</span>
+
+                <form class="filter_section">
+                {% for section, d in sections.items %}
+                <input type="checkbox" class="filter_check"
+					{% if d.selected %}
+						checked
+					{% endif %}
+					name="{{section|lower}}"
+				value="{{d.url}}"/><span class="reg_text">{{section}}</span></input>
+				<span class="reg_text">({{d.count}})</span>
+                {% endfor %}
+                </form>
+
+<span class="filter_label">TYPE:</span>
+
+                <form class="filter_type">
+                {% for type, d in types.items %}
+                <input type="checkbox" class="filter_check"
+					{% if d.selected %}
+						checked
+					{% endif %}
+					name="{{type|lower}}"
+                value="{{d.url}}"/><span class="reg_text">{{type}}</span></input>
+                <span class="reg_text">({{d.count}})</span>
+                {% endfor %}
+                </form>

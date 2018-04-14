@@ -1,0 +1,11 @@
+{% load common %}
+{% load content_filters %}
+
+
+<div class="image_thumb">
+	       <a href="{{video.get_absolute_url}}">{{ video|to_img_tag:"75,75,75,75" }}</a>
+</div>
+<div class="title">{{ video|linkify }}</div>
+<div class="dateline">
+    Added on {{ video.issue.issue_date|date:"F j, Y" }}
+</div>

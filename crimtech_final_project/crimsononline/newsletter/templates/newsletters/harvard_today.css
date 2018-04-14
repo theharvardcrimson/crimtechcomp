@@ -1,0 +1,541 @@
+
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+
+table td a {
+  color: #A82931;
+  text-decoration: none;
+}
+
+#content{
+  padding-top: 10px;
+}
+
+#endline {
+    background-color: #a70500;
+}
+
+#endline a {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+#endline td {
+  color: #FFF;
+  font-size: 10px;
+  padding: 0;
+}
+
+#endline table:first-child {
+  margin-top: 10px;
+}
+
+#endline table {
+  width: 100%;
+}
+
+#endline a {
+  color: #fff;
+}
+
+
+#headertext td {
+  line-height: 30px !important;
+}
+
+#header {
+    color: #A82931;
+    text-align: center;
+    width: 100%;
+}
+
+#navwrapper {
+    text-align: center;
+    text-decoration: none;
+    background-color:  #A82931;
+    width: 100%;
+    height: 25px;
+}
+
+#nav {
+    text-align: center;
+    text-decoration: none;
+    background-color:  #A82931;
+    width: 100%;
+    height: 25px;
+}
+
+#nav .center{
+  line-height: 0px;
+  padding-top: 4px;
+  vertical-align: middle;
+}
+
+#nav .center ul{
+  text-align: justify;
+  max-width: 100%;
+}
+
+#nav .center ul:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+
+#nav td{
+  line-height: 25px;
+}
+
+#nav ul li  {
+    display: inline-block;
+    text-transform: uppercase;
+    font: 0.9em 'Colaborate Light','Lucida Sans Unicode',sans-serif;
+}
+
+#nav ul li:first-child  {
+    padding-left: 20px;
+}
+#nav ul li:last-child  {
+    padding-right: 20px;
+}
+
+#nav a:visited {
+    color: white;
+}
+
+#nav a:link {
+    color: white;
+    text-decoration: none;
+}
+
+#nav td:first-child {
+  padding-bottom: 0;
+}
+
+#nav ul {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  zoom: 1;
+}
+
+#nav ul > li {
+  /* list-style: none;
+  display: inline; */
+}
+
+.top-bar-item {
+  font-size: 1em !important;
+}
+
+
+#today-header-table {
+  width: 100%;
+  text-align: center;
+}
+
+#today-header-table td {
+  padding: 0;
+}
+
+#today-header-table a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+#today-subhead {
+    font-family: "Georgia", serif;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+
+.top-img {
+  width: 200px;
+  padding-right: 12px;
+}
+
+#today-photo-description-table {
+  padding-top: 0;
+}
+
+#today-photo-description {
+  padding-bottom: 0;
+}
+
+#today-photo-description, #today-photo-description p {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  line-height: 14px;
+}
+
+.topic-box-table {
+  width: 100%;
+}
+
+.topic-box-table-td {
+  padding-left: 10px;
+}
+
+.topic-box-table-td > table {
+  width: 100%;
+}
+
+.topic-box-title {
+  background-color: rgba(186, 6, 0, 1);
+  color: #fff;
+  font-family: 'Georgia', serif;
+  font-weight: lighter;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 23px;
+}
+
+.topic-box-table .topic-box-item {
+  padding: 10px 0px !important;
+  font-family: "Georgia", serif;
+}
+
+.topic-box-table .topic-box-item p {
+  font-family: "Georgia", serif;
+}
+
+
+#navwrapper .wrapper{
+  padding: 0px;
+}
+
+#header{
+  display: table;
+  color: #fff;
+}
+
+
+#header-wrapper h2{
+    font-family: 'Georgia', serif;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+  }
+
+#headertext{
+  width: 100%;
+  display: table !important;
+}
+
+#headertext td{
+  text-align: center;
+  color: #fff;
+}
+
+#header-harvard {
+
+}
+
+#header-today {
+  font-family: serif;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+#today-intro, #today-intro p {
+  font-family: "Georgia", serif;
+}
+
+#today-row {
+  margin: 10px 0;
+}
+
+#today-row td.wrapper {
+  padding-right: 0 !important;
+}
+
+#today-info-box {
+  width: 100%;
+}
+
+#today-info-box strong {
+    display: block;
+    text-transform: capitalize;
+  }
+
+#today-info-box td {
+  width: 32%;
+  font-family: Georgia, serif;
+  padding: 8px;
+}
+
+#today-info-box td p {
+  font-family: Georgia, serif;
+}
+
+#today-splitter {
+  width: 3% !important;
+}
+
+#today-sponsored-events .small-red-tag-wrapper,
+ #today-events .small-red-tag-wrapper {
+  width: 100%;
+}
+
+#today-sponsored-events .small-red-tag-wrapper > tr > td,
+#today-events .small-red-tag-wrapper > tr > td {
+  padding-bottom: 2px;
+}
+
+
+
+#today-sponsored-events .small-red-tag td {
+  padding: 3px 5px 2px 5px;
+  background-color: rgba(186,6,0,1);
+  color: #fff;
+  font-family: Georgia, Helvetica, sans-serif;
+  font-weight: lighter;
+  border-radius: 0px 10px 10px 0px;
+  margin-bottom: 5px;
+}
+
+#events-container .right-text-pad{
+  padding-right: 0px;
+  padding-bottom: 0px !important;
+}
+
+#today-events .small-red-tag td {
+  padding: 3px 5px 2px 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  border-radius: 0px 10px 10px 0px;
+  background-color: #fff;
+  color: #a82931;
+  border: 2px solid #a82931;
+  border-left: 0px;
+  background-color: #ffffff;
+  font-weight: lighter;
+  font-family: Georgia, Helvetica, sans-serif;
+}
+
+#today-articles-table{
+  float: none !important;
+}
+
+#today-articles{
+  font-family: 'Helvetica' sans-serif;
+}
+
+
+#today-articles p{
+  font-family: Georgia, serif;
+  padding-left: 5px;
+}
+
+#today-articles strong{
+    display: inline-block;
+    border-bottom: 2px solid #a82931;
+    color: #a82931;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    line-height: 15px;
+    line-height: 18px;
+    text-transform: none;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+#today-articles a {
+  color: #a82931;
+  text-decoration: underline;
+}
+
+#today-articles ol {
+  font-family: Georgia, serif;
+  margin-top: 5px;
+  padding-left: 30px;
+}
+
+#today-articles .headline {
+  font-size: 13px;
+
+
+}
+
+#today-articles .teaser {
+  font-size: 13px;
+}
+
+.today-food ul {
+  padding-left: 10px;
+  margin-top: 2px;
+  margin-bottom: 5;
+}
+
+#today-weather strong {
+  margin-bottom: 3px;
+  display: inline-block;
+}
+
+#today-weather img {
+  margin-right: 7px;
+}
+
+#today-headline{
+    display: inline-block;
+    border-bottom: 2px solid #a82931;
+    color: #a82931;
+    font-family:  'Helvetica' sans-serif;
+    font-weight: bold;
+    line-height: 18px;
+    text-transform: none;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+#time-strip{
+  width: 5%;
+  border-right: 2px solid #a82931;
+  padding-top: -10px;
+}
+
+#events-head{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+   border: none;
+}
+
+#events-list{
+  border-bottom: 2px solid #a82931;
+}
+
+#events-list .topic-box-item p{
+  padding-left: 10px;
+  padding-top: 10px;}
+
+#events-head strong{
+  font-family:  'Helvetica' sans-serif;
+  font-weight: bold;
+  line-height: 18px;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+}
+
+#sponsored-events-head{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+   border: none;
+}
+
+#sponsored-events-list{
+  border-bottom: 2px solid #a82931;
+}
+
+#sponsored-events-list .topic-box-item p{
+  padding-left: 10px;
+  padding-top: 10px;}
+
+
+#others-container{
+  padding-top: 10px;
+  padding-left: 20px;
+  font-family: Georgia, serif;
+}
+
+
+#others-container p{
+  padding-left: 0px;
+  font-family: Georgia, serif;
+}
+
+
+#others-container p strong:not(:empty) {
+    font-family: 'Helvetica', sans-serif !important;
+    display: inline-block;
+    border-bottom: 2px solid #a82931;
+    color: #a82931;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 15px;
+    text-transform: none;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 0px;
+    margin-left: -5px;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+  #magazine-subhead a {
+    font-size: 17px;
+  }
+
+  .container{
+    width: 100%;
+  }
+
+  .body{
+
+  }
+  #content{
+  }
+
+  #nav li{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
+  #navwrapper ul li {
+    height: 40px;
+    font-family: 'Helvetica' sans-serif;
+  }
+
+  #navwrapper ul li a{
+    color: #fff;
+  }
+
+  .topic-box-table-td {
+    padding-right: 10px !important;
+  }
+
+  #today-subhead {
+    font-family: "Georgia", serif;
+    font-size: 20px !important;
+  }
+
+  #today-info-box td {
+    display: block;
+    width: 95%;
+  }
+
+  #today-articles{
+    padding-left: 10px;
+  }
+
+  #time-strip{
+    width: 5%;
+  }
+
+  .center{
+    max-width: 100%;
+  }
+
+  #header, #header-wrapper, #header h2, #headertext{
+    text-align: center;
+  }
+
+  table[class="body"] img.top-img {
+    width: 100% !important;
+    padding-bottom: 10px;
+  }
+}

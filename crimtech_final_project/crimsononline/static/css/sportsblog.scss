@@ -1,0 +1,331 @@
+@charset "utf-8";
+/* CSS Document */
+
+div#container  {
+	margin-left: auto;
+	margin-right: auto;
+	width: 973px;
+	text-align: left
+	}
+
+#banner  {
+		background:#fff;
+		height:179px;
+		width:973px;
+		}
+
+#mainleft {
+		width:166px;
+		float:left;
+		background:#fff;
+		margin-top:17px;
+		margin-left:-5px;
+		margin-right: 8px;
+		padding-bottom:10px;
+		}
+#maincenter {
+		width:646px;
+		float:left;
+		background:#fff;
+		padding-bottom:10px;
+		}
+#maingutter  {
+		width:15px;
+		float:left;
+		margin-left:-5px;
+		padding-bottom:10px;
+}
+#mainright {
+		width:309px;
+		float:left;
+		background:#fff;
+		padding-bottom:10px;
+		}
+
+#standings  {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 10px;
+	text-align: center;
+}
+
+#taglinks {
+    margin: 0 0 10px 0;
+}
+
+#games  {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 10px;
+	text-align: left;
+}
+#expandable {
+    display : block;
+}
+
+#expandable1 {
+    display : block;
+}
+
+#expandable2 {
+    display : block;
+}
+
+.hidden {
+    display : none;
+}
+
+.unhidden {
+     display : block;
+}
+/* Basic styling, used when JavaScript is unsupported */
+
+.cbb {
+	border:1px solid #666;
+	background:#fff;
+	margin-top: 0em;
+	margin-right: 0;
+	margin-bottom: 1em;
+	margin-left: 0;
+	padding: 0;
+}
+.cbb h1 {
+	margin:0 -10px;
+	padding:0.3em 10px;
+	background:#efece6;
+	font:bold 1.2em/1 Arial, Helvetica, sans-serif;
+}
+/* Normal styling */
+.cbb {margin:0.5em 0;}
+	/* Top corners and border */
+.bt {
+	height:17px;
+	margin:0 0 0 18px;
+	background:url('../images/sportsblog/box.gif') no-repeat 100% 0;
+}
+.bt div {
+	position:relative;
+	left:-18px;
+	width:18px;
+	height:17px;
+	background:url('../images/sportsblog/box.gif') no-repeat 0 0;
+	font-size:0;
+	line-height:0;
+}
+
+	/* Bottom corners and border */
+.bb {
+	height:14px;
+	margin:0 0 0 12px;
+	background:url('../images/sportsblog/box.gif') no-repeat 100% 100%;
+}
+.bb div {
+	position:relative;
+	left:-12px;
+	width:12px;
+	height:14px;
+	background:url('../images/sportsblog/box.gif') no-repeat 0 100%;
+	font-size:0;
+	line-height:0;
+}
+
+	/* Left border */
+.i1 {
+	padding:0 0 0 12px;
+	background:url('../images/sportsblog/borders.gif') repeat-y 0 0;
+}
+	/* Right border */
+.i2 {
+	padding:0 12px 0 0;
+	background:url('../images/sportsblog/borders.gif') repeat-y 100% 0;
+}
+	/* Wrapper for the content. Use it to set the background colour and insert some padding between the borders and the content. */
+.i3 {
+	display:block;
+	margin:0;
+	padding:1px 10px;
+	background:#fff;
+}
+	/* Make the content wrapper auto clearing so it will contain floats (see http://positioniseverything.net/easyclearing.html). */
+.i3:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.i3 {display:inline-block;}
+.i3 {display:block;}
+
+a.websites:link, a.websites:visited, a.sports:link, a.sports:visited {
+	text-decoration:none;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 14px;
+	color:#545454;
+	link-indent: 50px;
+}
+
+a.websites:hover, a.websites:active, a.sports:hover, a.sports:active, a.currentsport {
+	text-decoration:underline;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 14px;
+	font-weight:bold;
+	color:#B90F14;
+	link-indent: 50px;
+}
+
+li.links {
+padding-left: 12px;
+text-indent: 12px;
+list-style-type:none;
+margin-top: 0.25em;
+}
+
+
+.published, .published a{
+    font-style:italic;
+    border:none;
+    margin: 3px 0 10px;
+    color:#999;
+    font-size:11px;
+    font-family: georgia, times, sans-serif;
+}
+#content h1, #content h1 a, #content h1 a:visited {
+	margin:0;
+    font-size:22px;
+    font-weight: bold;
+    letter-spacing: normal;
+    line-height: normal;
+    color:#B90F14;
+	text-decoration:none;
+}
+
+#content h1 a:hover  {
+text-decoration:underline;
+}
+
+.tall{
+    width: 200px;
+    padding: 0 0 3px 0;
+	margin-top: 4px;
+	margin-right: 10px;
+	margin-bottom: 4px;
+}
+.wide{
+    width: 436px;
+}
+
+.image{
+    border: 0;
+    padding:0px;
+    float: left;
+}
+
+.image > img {
+    border:1px solid #DDDDDD;
+}
+
+
+.image > .caption, .map > .caption{
+    font-family: helvetica, arial, sans-serif;
+    line-height: 1.4em;
+    font-size: 11px;
+    color: #777;
+}
+.image > p, .map > p{
+    padding: 0;
+    margin: 0;
+}
+
+.text > p {
+	margin: 0px 0px 18px 0px;
+    font-family: georgia, times, sans-serif;
+    font-size: 12px;
+}
+
+.entry-tags, .entry-tags a{
+    color: #999;
+    clear: both;
+}
+p.jump a, p.jump a:visited{
+    text-decoration: none;
+	color: #B90F14;
+}
+
+p.jump a:hover{
+    text-decoration: underline;
+	color: #B90F14;
+}
+
+.afterpost {
+    margin-bottom: 10px;
+    padding: 10px 0px;
+}
+
+.afterpost:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+.entry-tags{
+    float: left;
+	font-size: 10px;
+    width: 238px;
+}
+.entry-tags a{
+    text-decoration: underline;
+	font-size: 10px;
+}
+.entry-tags a:hover{
+    color: black;
+	font-size: 10px;
+}
+
+.comments, .comments:visited {
+    float: left;
+    width: 198px;
+    text-align: right;
+    color: #999;
+	font-size: 12px;
+}
+
+.comments a{
+    color: #999;
+	text-decoration: none;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.comments a:hover{
+    color: #999;
+	text-decoration: underline;
+	font-size: 12px;
+	font-style: italic;
+}
+
+div.nav-newer a{
+	color: #999;
+	font-size: 12px;
+	float:left;
+    margin: 0 10px 0 5px;
+}
+
+div.nav-older a{
+	color: #999;
+	font-size: 12px;
+	float:right;
+    margin: 0 5px 0 10px;
+}
+
+.mainleft > a {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 14px;
+    color: #444;
+    padding-left: 10px;
+}
+
+hr {
+    color: #777777;
+    background-color: #777777;
+}

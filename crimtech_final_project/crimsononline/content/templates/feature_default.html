@@ -1,0 +1,214 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load content_filters %}
+{% load flyby_preview %}
+{% load top_articles %}
+{% load ads_tags %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/dev_mag2.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/dev_mag_addl.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/feature.scss">
+{% endblock %}
+
+{% block outside_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/{{ section }}.css" type="text/css">
+{% endblock %}
+
+{% block js %}
+    <script src="{{ STATIC_URL }}js/fm.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="magazine">
+    {% comment %} {% include 'templatetag/feature_banner.html' %} {% endcomment %}
+    {% include 'templatetag/commencement_nav.html' %}
+    <section id="magazine-primary">
+        <div id="magazine-primary-first">
+            <div id="magazine-spread">
+                <a href="{{ content.feature.0.get_absolute_url }}">
+                    {% if section != 'senior-section' %}
+                    {{ content.feature.0|get_image_obj|to_img_tag:"838,445,838,445" }}
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}/photos/2013/05/28/220758_1288254.png" alt="Senior Survey">
+                    {% endif %}
+                </a>
+            </div>
+            <div id="magazine-primary-first-content">
+                <div id="magazine-scrutiny">
+                    <div id="magazine-scrutiny-content">
+                        <h1>{{ title }}</h1>
+                        <div id="magazine-scrutiny-inner">
+                            <div class="magazine-subsection article-subsection"><a href="/tag/Commencement Feature">Feature</a></div>
+                            <h2>{{ content.feature.0|linkify }}</h2>
+                            <div class="magazine-byline article-byline">{{ content.feature.0|byline:"short" }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="magazine-scrutiny-teaser">
+                <p>{{ content.feature.0.teaser }}</p>
+            </div>
+        </div>
+        <div id="magazine-primary-second">
+            <div id="magazine-primary-second-content">
+                <div id="magazine-cover-stories">
+                    <h3>{{ section_titles.main_stories }}</h3>
+                    {% for article in content.main_stories %}
+                        <div class="magazine-cover-story magazine-story article">
+                            <a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"75,71,75,71" }}</a>
+                            <h4>{{ article|linkify }}</h4>
+                            {% if section == 'senior-section' and forloop.counter == 1 %}
+                                <p>{{ article.subheadline }}</p>
+                            {% endif %}
+                            <div class="magazine-byline article-byline">{{ article|byline:"short" }} </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if section != 'senior-section' %}
+    <section id="magazine-secondary">
+        <div class="magazine-category">
+            {% with list=content.other_main_stories %}
+                {% include 'models/article/magazine-category.html' %}
+            {% endwith %}
+        </div>
+    </section>
+    {% endif %}
+    <section id="magazine-tertiary">
+        <div id="magazine-tertiary-first">
+            {% if section != 'senior-section' and tags.secondary_left != '' %}
+            <h3><a href="/tag/{{ tags.secondary_left }}">{{ section_titles.secondary_left }}</a></h3>
+            {% elif section == 'senior-section' %}
+            <h3><a href="/tag/weddings">{{ section_titles.secondary_left }}</a></h3>
+            {% else %}
+            <h3>{{ section_titles.secondary_left }}</h3>
+            {% endif %}
+            {% for article in content.secondary_left %}
+                <div class="magazine-story article">
+                    <a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"139,59,139,59" }}</a>
+                    <div class="magazine-subsection article-subsection"><a href="{{ article.subsection.get_absolute_url }}">{{ article.subsection }}</a></div>
+                    <h4>{{ article|linkify }}</h4>
+                    <div class="magazine-byline article-byline"><span class="article-date">{{  article|datify  }}</span></div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if section != 'senior-section' and section != 'year-in-review' %}
+        <div id="magazine-tertiary-third">
+            {% if tags.secondary_right != "" %}
+                <h3><a href="/tag/{{ tags.secondary_right }}" id="endpaperlink">{{ section_titles.secondary_right }}</a></h3>
+            {% else %}
+                <h3>{{ section_titles.secondary_right }}</h3>
+            {% endif %}
+            {% if section != 'year-in-sports' %}
+            <div class="magazine-tertiary-inner">
+            {% endif %}
+                {% for article in content.secondary_right %}
+                        {% if forloop.first %}
+                            <div class="magazine-story article">
+                                <a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"56,56,56,56" }}</a>
+                        {% else %}
+                        <div class="magazine-story article no-img">
+                        {% endif %}
+                        <h4>{{ article|linkify }}</h4>
+                        <div class="magazine-byline article-byline">{{  article|byline:"short"  }}</div>
+                    </div>
+                    {% if forloop.counter == 2 and section != 'year-in-sports' %}
+                        </div>
+                        <div class="magazine-tertiary-inner">
+                    {% endif %}
+                {% endfor %}
+            {% if section != 'year-in-sports' %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </section>
+    {% if section == 'year-in-sports' %}
+    <section id="sports-recaps" class="clearfix">
+        <div class="season clearfix" id="first-season">
+            <h3><a href="/tag/{{ tags.tertiary_left }}">{{ section_titles.tertiary_left }}</a></h3>
+            {% for article in content.tertiary_left %}
+                {% if article|get_image_obj == None %}
+                <div class="magazine-story article no-img">
+                {% else %}
+                <div class="magazine-story article">
+                {% endif %}
+                    <a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"139,59,139,59" }}</a>
+                    <div class="magazine-subsection article-subsection"><a href="{{ article.subsection.get_absolute_url }}">{{ article.subsection }}</a></div>
+                    <h4>{{ article|linkify }}</h4>
+                    <div class="magazine-byline article-byline"><span class="article-date">{{  article|datify  }}</span></div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="season clearfix" id="second-season">
+            <h3><a href="/tag/{{ tags.tertiary_middle }}">{{ section_titles.tertiary_middle }}</a></h3>
+            {% for article in content.tertiary_middle %}
+                {% if article|get_image_obj == None %}
+                <div class="magazine-story article no-img">
+                {% else %}
+                <div class="magazine-story article">
+                {% endif %}
+                    <a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"139,59,139,59" }}</a>
+                    <div class="magazine-subsection article-subsection"><a href="{{ article.subsection.get_absolute_url }}">{{ article.subsection }}</a></div>
+                    <h4>{{ article|linkify }}</h4>
+                    <div class="magazine-byline article-byline"><span class="article-date">{{  article|datify  }}</span></div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="season clearfix" id="third-season">
+            <h3><a href="/tag/{{ tags.tertiary_right }}">{{ section_titles.tertiary_right }}</a></h3>
+            {% for article in content.tertiary_right %}
+                {% if article|get_image_obj == None %}
+                <div class="magazine-story article no-img">
+                {% else %}
+                <div class="magazine-story article">
+                {% endif %}
+                    <a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"139,59,139,59" }}</a>
+                    <div class="magazine-subsection article-subsection"><a href="{{ article.subsection.get_absolute_url }}">{{ article.subsection }}</a></div>
+                    <h4>{{ article|linkify }}</h4>
+                    <div class="magazine-byline article-byline"><span class="article-date">{{  article|datify  }}</span></div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section id="awards" class="clearfix">
+        <h3><a href="/tag/{{ tags.other_stories }}">{{ section_titles.other_stories }}</a></h3>
+        {% for article in content.other_stories %}
+            {% if article|get_image_obj == None %}
+            <div class="magazine-story article no-img">
+            {% else %}
+            <div class="magazine-story article">
+            {% endif %}
+                <a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"139,59,139,59" }}</a>
+                <div class="magazine-subsection article-subsection"><a href="{{ article.subsection.get_absolute_url }}">{{ article.subsection }}</a></div>
+                <h4>{{ article|linkify }}</h4>
+                <div class="magazine-byline article-byline"><span class="article-date">{{  article|datify  }}</span></div>
+            </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    {% highlights_bar %}
+    <!--
+    <div id="magazine-more">
+        <div class="other_issues">
+            <h2>Other Issues</h2>
+            <h4>Click a cover to jump in</h4><br>
+            {% for issue in oldissues %}
+                {% include 'models/article/magazine-other-issues.html' %}
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "TheCrimson_FMLanding_ATF_300x250" 300 250 %}
+            </div>
+        </div>
+    </div> -->
+</div>
+
+{% endblock %}

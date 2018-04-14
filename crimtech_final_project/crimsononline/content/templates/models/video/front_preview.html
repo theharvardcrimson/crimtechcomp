@@ -1,0 +1,5 @@
+{% load content_filters %}
+<div style="margin-bottom:10px;">
+<a href="{{video.get_absolute_url}}">{{ video.pic|to_img_tag:"296,240,5,4" }}</a>
+<h3 style="font-size:13px;"><a href="{{video.get_absolute_url}}">{{video.title}}</a></h3>
+</div>

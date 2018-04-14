@@ -1,0 +1,53 @@
+//
+// COLORS
+//
+
+// We can't use "body:not(.page-development)" or similar, because that causes
+// all contained styles to have different specificities than the development
+// rules.
+.page-production {
+  $background-quiet: #faf3f2;
+  $background: #a50a0e;
+  $background-accent: #660609;
+  $background-gradient-start: #e7c0be;
+  $background-gradient-end: #d39a99;
+
+  $text-quiet: #777;
+  $text: #444;
+  $text-accent: #ba2b25;
+  $text-accent-more: #850204;
+  $text-reverse-quiet: #fffece;
+  $text-reverse: #fff;
+
+  @import "_color_overrides";
+}
+
+.page-development {
+  $background-quiet: #f2faf8;
+  $background: #0aa674;
+  $background-accent: #14805e;
+  $background-gradient-start: #b4dbd0;
+  $background-gradient-end: #91c7b7;
+
+  $text-quiet: #999;
+  $text: #666;
+  $text-accent: $background;
+  $text-accent-more: #01855d;
+  $text-reverse-quiet: #fffece;
+  $text-reverse: #fff;
+
+  @import "_color_overrides";
+}
+
+
+//
+// HOTFIXES
+//
+
+// Django 1.7 hides fields with input_type == 'hidden', so django_select2
+// fields aren't shown. Hack around this for now.
+//
+// XXX Fix django_select2 or use a less-shitty autocomplete widget.
+.form-row.hidden {
+    display: block;
+}

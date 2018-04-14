@@ -1,0 +1,545 @@
+{% extends "__base.html" %}
+{% block js %}
+<style>
+#wrapper{
+	width:960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#quotes {
+	height:468px;
+	width:100%;
+}
+#left {
+	float: left;
+	width: 420px;
+	height:400px;
+}
+#left img {
+	height:400px;
+}
+.center {
+			margin-left: auto;
+		margin-right: auto;
+
+}
+#quotes h1{
+		color: #ba0600;
+		font-size: 5em;
+		text-align:center;
+		padding-top: 30px;
+		margin-bottom: -30px
+	}
+#quote h2{
+	font-family: 'Crimson',Georgia,serif;
+	font-weight: normal;
+	color: #ba0600;
+
+    line-height: .95em;
+    font-size:2em;
+}
+#quote h3{
+	padding-top: 20px;
+}
+#quote {
+	float:right;
+	padding-right: 50px;
+	width:490px;  position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+
+}
+#left ul{
+	position:relative;
+	bottom:80px;
+	height:50px;
+	margin: 0;
+	padding: 0;
+	padding-left: 65px;
+	list-style-type: none;
+
+}
+#snow {
+	width:960px;
+	height:468px;
+	background-color: #F3F3F3;
+	z-index: -100;
+	position:absolute;
+}
+#left li {
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 10px 1px rgba(0,0,0,0.75);
+	background-size: 100% auto;
+	background-color: white;
+	display: inline-block;
+	margin-right: 15px;
+	width:50px;
+	height:50px;
+	border-radius: 50%;
+	border: 3px solid #FFFFFF;
+
+}
+.pradeep {
+		background-image: url("{{ STATIC_URL }}/images/techcomp/pradeep.png");
+
+}
+.sam {
+		background-image: url("{{ STATIC_URL }}/images/techcomp/sam.png");
+
+}
+.lydia {
+		background-image: url("{{ STATIC_URL }}/images/techcomp/lydia.png");
+
+}
+.gabbi {
+		background-image: url("{{ STATIC_URL }}/images/techcomp/gabbi.png");
+
+}
+#moreinfo {
+	height:60px;
+	background-color: #ba0600;
+	width:100%;
+
+}
+#moreinfo h2 {
+float:left;
+color:white;
+padding-top: 15px;
+padding-left: 30px;
+
+}
+#moreinfo input {
+	margin-top: 10px;
+	margin-right: 80px;
+	float:right;
+	   width: 300px;
+   height: 33px;
+   border: solid 2px #FFFFFF;
+   padding: 2px;
+   border-radius: 5px;
+   font-size: 20px;
+   box-shadow: 0px 1px 2px 0px #9C9C9C;
+   background-color: #FFFFFF;
+   outline: none;
+   color: #474747;
+}
+#left li:hover {
+	background-color: #DDDDDD;
+	cursor: pointer;
+}
+#descriptext p{
+		font-family: "Open Sans",Verdana,Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    line-height: 1.6875;
+    font-weight: normal;
+
+}
+
+#descriptext{
+	padding-left: 80px;
+	padding-right: 80px;
+
+}
+#vos {
+	height:300px;
+}
+#vos .ll{
+	height:200px;
+	width:320px;
+
+}
+#vos h1 {
+		font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+	    font-size: 26px;
+    line-height: 1.38462;
+    font-weight: bold;
+    text-align: center;
+}
+.ll {
+	float:left;
+
+}
+.rr{
+	float:right;
+}
+
+#maintext{
+	height:330px;
+	overflow: hidden;
+}
+.numbers {
+	float:left;
+	width:400px;
+	height:400px;
+}
+.box{
+	float:left;
+	width:200px;
+	height:150px;
+	text-align: center;
+	font-family: "Open Sans",Verdana,Arial,Helvetica,sans-serif;
+}
+.number {
+
+	font-weight:bold;
+	font-size:20pt;
+	padding-top: 60px;
+}
+.subtitle {
+	font-weight:300;
+	padding-top: 20px;
+	font-size:13pt;
+}
+#mtt {
+	float:right;
+	width:560px;
+	height:400px;
+	font-size:16pt;
+	line-height: 1.6em;
+
+	font-family: "Georgia", serif;
+}
+#mtt p {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.ct {
+	color: #ba0600;
+	font-weight: bold;
+}
+#compare {
+	width:960px;
+	height:280px;
+	padding-top: 30px;
+}
+.ctype {
+	float:left;
+	width:320px;
+	text-align: center;
+}
+.interest {
+		font-family: "Open Sans",Verdana,Arial,Helvetica,sans-serif;
+	font-weight: bold;
+	font-size: 18pt;
+	padding-bottom: 13pt;
+}
+.reason {
+	font-family: "Georgia", serif;
+	font-size: 13pt;
+	padding-left: 20px;
+	padding-right: 20px;
+	line-height: 1.6em;
+}
+.openhouse {
+	width:960px;
+	height:260px;
+}
+.house {
+	float:left;
+	width:400px;
+}
+.house img {
+	width:400px;
+}
+.housetext {
+
+	float:left;
+	width:560px;
+}
+.housetext h1 {
+	font-size: 40pt;
+}
+.housetexts {
+	padding-left: 50px;
+	padding-top: 60px;
+
+}
+.rsvp {
+	font-family: "Georgia", serif;
+	font-size:16pt;
+	line-height: 1.5em;
+	padding-top: 20px;
+
+}
+#faq {
+	width:960px;
+	padding-top: 40px;
+	padding-bottom: 80px;
+}
+#faqhead {
+	height:50px;
+	width:400px;
+	color:white;
+	font-family: 'Crimson',Georgia,serif;
+	text-align: center;
+
+	font-size: 16pt;
+	background-color: #ba0600;
+
+}
+#faqheadt {
+	padding-top: 15px;
+}
+.question a {
+	font-size: 16pt;
+	font-weight: bold;
+}
+.question {
+	padding-top: 50px;
+	padding-bottom: 10px;
+}
+.answer {
+	font-family: "Georgia", serif;
+	font-size: 14pt;
+	line-height: 1.6em;
+	display:none;
+
+}
+
+/* Template-specific stuff
+ *
+ * Customizations just for the template; these are not necessary for anything
+ * with disabling the responsiveness.
+ */
+
+/* Account for fixed navbar */
+body {
+  min-width: 970px;
+  padding-bottom: 30px;
+}
+
+/* Finesse the page header spacing */
+.page-header {
+  margin-bottom: 30px;
+}
+.page-header .lead {
+  margin-bottom: 10px;
+}
+
+
+/* Non-responsive overrides
+ *
+ * Utilitze the following CSS to disable the responsive-ness of the container,
+ * grid system, and navbar.
+ */
+
+/* Reset the container */
+.container {
+  width: 970px;
+  max-width: none !important;
+}
+
+/* Demonstrate the grids */
+.col-xs-4 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+}
+
+.container .navbar-header,
+.container .navbar-collapse {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Always float the navbar header */
+.navbar-header {
+  float: left;
+}
+
+/* Undo the collapsing navbar */
+.navbar-collapse {
+  display: block !important;
+  height: auto !important;
+  padding-bottom: 0;
+  overflow: visible !important;
+}
+
+.navbar-toggle {
+  display: none;
+}
+.navbar-collapse {
+  border-top: 0;
+}
+
+.navbar-brand {
+  margin-left: -15px;
+}
+
+/* Always apply the floated nav */
+.navbar-nav {
+  float: left;
+  margin: 0;
+}
+.navbar-nav > li {
+  float: left;
+}
+.navbar-nav > li > a {
+  padding: 15px;
+}
+
+/* Redeclare since we override the float above */
+.navbar-nav.navbar-right {
+  float: right;
+}
+
+/* Undo custom dropdowns */
+.navbar .navbar-nav .open .dropdown-menu {
+  position: absolute;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-width: 0 1px 1px;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #333;
+}
+.navbar .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > li > a:focus,
+.navbar .navbar-nav .open .dropdown-menu > .active > a,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #fff !important;
+  background-color: #428bca !important;
+}
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a,
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+  color: #999 !important;
+  background-color: transparent !important;
+}
+</style>
+<script>
+$(function() {
+	$("#modal").remove()
+  	var d = new Date();
+	var n = d.getTime();
+	var a = n-1453849385893;
+	function upd() {
+		var d = new Date();
+		var n = d.getTime();
+		var a = n-1453849385893;
+		current = numberWithCommas(Math.round((a/86400000)*300000)+1500000);
+		$(".pviews").text(current);
+	}
+	setInterval(upd, 100);
+	$( ".question a" ).click(function() {
+		console.log("here")
+  		var ans = $(this).parent().parent().children('.answer');
+  		console.log(ans);
+  		if(ans.css("display") == "none") {
+  			ans.slideDown();
+  			//ans.css("display", "block");
+  		} else {
+  			ans.slideUp();
+  			//ans.css("display", "none");
+  		}
+  		return false;
+	});
+
+});
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+window.onload = function(){
+
+	//canvas init
+	var canvas = document.getElementById("snow");
+	var ctx = canvas.getContext("2d");
+
+	//canvas dimensions
+	var W = canvas.width;
+	var H = canvas.height;
+
+	//snowflake particles
+	var mp = 50; //max particles
+	var particles = [];
+	for(var i = 0; i < mp; i++)
+	{
+		particles.push({
+			x: Math.random()*W, //x-coordinate
+			y: Math.random()*H, //y-coordinate
+			r: Math.random()*3+1, //radius
+			d: Math.random()*mp //density
+		})
+	}
+
+	//Lets draw the flakes
+	function draw()
+	{
+		ctx.clearRect(0, 0, W, H);
+
+		ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+		ctx.beginPath();
+		for(var i = 0; i < mp; i++)
+		{
+			var p = particles[i];
+			ctx.moveTo(p.x, p.y);
+			ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+		}
+		ctx.fill();
+		update();
+	}
+
+	//Function to move the snowflakes
+	//angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+	var angle = 0;
+	function update()
+	{
+		angle += 0.01;
+		for(var i = 0; i < mp; i++)
+		{
+			var p = particles[i];
+			//Updating X and Y coordinates
+			//We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
+			//Every particle has its own density which can be used to make the downward movement different for each flake
+			//Lets make it more random by adding in the radius
+			p.y += .3*(Math.cos(angle+p.d) + 1 + p.r/2);
+			p.x += .3*(Math.sin(angle) * 2);
+
+			//Sending flakes back from the top when it exits
+			//Lets make it a bit more organic and let flakes enter from the left and right also.
+			if(p.x > W+5 || p.x < -5 || p.y > H)
+			{
+				if(i%3 > 0) //66.67% of the flakes
+				{
+					particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};
+				}
+				else
+				{
+					//If the flake is exitting from the right
+					if(Math.sin(angle) > 0)
+					{
+						//Enter from the left
+						particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};
+					}
+					else
+					{
+						//Enter from the right
+						particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};
+					}
+				}
+			}
+		}
+	}
+
+	//animation loop
+	setInterval(draw, 33);
+}
+
+</script>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+{% endblock js %}
+
+{% block base_content %}
+	{{ flatpage.content }}
+{% endblock base_content %}

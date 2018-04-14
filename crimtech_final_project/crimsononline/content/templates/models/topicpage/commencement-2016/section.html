@@ -1,0 +1,132 @@
+{% extends "models/topicpage/commencement-2016/__base.html" %}
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+{% load placeholders %}
+{% get_static_prefix as STATIC_URL %}
+
+{% block title %}{{ topic.title }} {{ topic.subtitle }} | {{ block.super }}{% endblock %}
+
+{% block addl_css %}
+<style media="all" type="text/css">
+{% placeholder name="featured" content_range="(1,4)" content_types="article,external content" as feats %}
+    {% for a in feats|slice:":2" %}
+    .featured-left a:nth-child({{ forloop.counter }}) > div {
+        background-image: url({{ a.main_rel_content|img_url:"1500,10000" }});
+        height: {% scalebox feats|slice:":2" forloop.counter0 500 %}px;
+    }
+    {% endfor %}
+
+    {% for a in feats|slice:"2:4" %}
+    .featured-right a:nth-child({{ forloop.counter }}) > div {
+        background-image: url({{ a.main_rel_content|img_url:"1500,10000" }});
+        height: {% scalebox feats|slice:"2:4" forloop.counter0 500 %}px;
+    }
+    {% endfor %}
+{% endplaceholder %}
+{{ custom_html }}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="ad-tag top-leader-ad">Advertisement</div>
+<div class="leader-ad top-leader-body">
+    {% ad_unit "728x90" %}
+</div>
+
+<div class="content">
+    <div class="section supp-page">
+        <div class="section-anchor" id="featured"></div>
+        <div class="section-header">{{ topic.title }} {{ topic.subtitle }}</div>
+        {% placeholder name="featured" content_range="(0,4)" content_types="article,external content,topic page" as feats %}
+        {% if feats %}
+        <div class="featured-container cf">
+            <div class="featured-left">
+                {% for a in feats|slice:":2" %}
+                <a href="{{ a.get_absolute_url }}"><div>
+                    <div class="featured-title">
+                        <div>{{ a.title }}</div>
+                        <p>{{ a.description }}</p>
+                    </div>
+                </div></a>
+                {% endfor %}
+            </div>
+            <div class="featured-right">
+                {% for a in feats|slice:"2:" %}
+                <a href="{{ a.get_absolute_url }}"><div>
+                    <div class="featured-title">
+                        <div>{{ a.title }}</div>
+                        <p>{{ a.description }}</p>
+                    </div>
+                </div></a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endplaceholder %}
+    </div>
+    <div id="non-featured" class="section">
+        {% placeholder name="articles" content_range="(0,100)" content_types="article,image,widget,external content,topic page" as items %}
+            {% for i in items %}
+            <divider class="section-divider"></divider>
+            <div class="landing-item-wrapper">
+                {% if i.content_type.name = "article" or i.content_type.name = "topic page" %}
+                {% if i.main_rel_content %}
+                <a class="landing-article-image" href="{{ i.get_absolute_url }}">
+                    <img src='{{ i.main_rel_content|img_url:"540,360,540,360" }}'/>
+                    <div class="landing-article-image-text-container">
+
+                        <div href="{{ i.get_absolute_url}}" class="landing-article-image-text">{{ i.title }}</div>
+                    </div>
+
+                </a>
+                {% endif %}
+                <div class="landing-article">
+                    {# All formatting for this is at the end of commencement2015.scss #}
+                    <div class="landing-article-title">
+                        <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                    </div>
+                    <div class="landing-article-teaser">
+                        {{ i.description }}
+                    </div>
+                    <div class="landing-article-byline">
+                        {{ i|byline:"short" }}
+                    </div>
+                </div>
+                {% elif i.content_type.name = "image" %}
+                <div class="landing-work">
+                    <a href="{{ i.get_absolute_url }}">
+                        <div class="landing-work-title big-title">{{ i.title }}</div>
+                        <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                        <div class="landing-work-body">
+                            <img class="landing-image" src="{{ i|img_url:"2500,10000"}}">
+                        </div>
+                    </a>
+                </div>
+                {% elif i.content_type.name = "widget" %}
+                <div class="landing-work">
+                    <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                    {{ i|render:"plain" }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% endplaceholder %}
+    </div>
+</div>
+<div class="ad-tag">Advertisement</div>
+<div class="leader-ad">
+    {% ad_unit "728x90" %}
+</div>
+<div class="content">
+    <div id="design-attrib"></div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% block addl_classes %}{% if caption %}shortcodes-border{% endif %}{% endblock %}
+
+{% block content %}
+<a href="{{ ec.get_absolute_url }}" target="_blank">
+    {{ ec.pic|to_img_tag:"800,1200" }}
+</a>
+{% if byline %}
+    <div class="shortcodes-byline">
+        {{ ec.contributors.all|linkify|human_list }}
+    </div>
+{% endif %}
+{% if caption %}
+    <div class="shortcodes-description">
+        {{ caption }}
+    </div>
+{% endif %}
+{% endblock %}

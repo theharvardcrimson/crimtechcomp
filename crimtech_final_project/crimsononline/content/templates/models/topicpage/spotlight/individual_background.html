@@ -1,0 +1,91 @@
+{% extends "models/topicpage/spotlight/__base.html" %}
+
+{% load ads_tags %}
+{% load content_filters %}
+{% load placeholders %}
+{% load shortcodes_filters %}
+
+{% block nav %}
+    {{ block.super }}
+    <a href="{{ topic.parent.get_absolute_url }}"><li>Back to {{ topic.parent }}</li></a>
+{% endblock %}
+
+{% block body_style %}
+    {% if topic.main_rel_content %}
+        background-image: url({{ topic.main_rel_content|img_url:"635,630" }});
+        background-repeat: repeat-x;
+        background-size: cover;
+        position:absolute;
+        background-position:top;
+        background-attachment: fixed;
+        width: 100%;
+        background-repeat: repeat-x;
+        float: center;
+        magin: auto;
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="individual cf">
+            {% placeholder name="top photo" content_range="(0,1)" content_types="image" as photos %}
+
+            {% endplaceholder %}
+            <div class="face">
+                    <div class="name">{{ topic.title }}</div>
+                    <div class="fbyline">
+                        {{ topic.subtitle }}<br>
+                        Photographs {{ topic.main_rel_content|byline:"full" }}
+                    </div>
+            </div>
+    </div>
+
+    <div class="leader-ad">
+        {% ad_unit "728x90" %}
+    </div>
+
+    {% if topic.description %}
+    <section class="intro">
+        <div class="stext">
+                {{ topic.description|safe }}
+        </div>
+    </section>
+    {% endif %}
+
+    <div class="group">
+        <div class="photowrapper cf">
+            {% placeholder name="photos" content_range="(0,10)" content_types="image" as photos %}
+            {% if photos %}
+                    {% for photo in photos %}
+                        <a class="fancybox photo" href="{{ photo|img_url:"1600,900" }}" rel="group">
+                            <img src="{{ photo|img_url:"530,530,530,530" }}">
+                        </a>
+                    {% endfor %}
+            {% endif %}
+            {% endplaceholder %}
+        </div>
+    </div>
+
+    {% placeholder name="content" content_range="(0,10)" content_types="article" as articles %}
+    {% if articles %}
+            {% for article in articles %}
+                    <section>
+                            <div class="stitle">{{ article.headline }}</div>
+                            <div class="sbyline">{{ article|byline:"full" }}</div>
+                            <div class="stext">{{ article.text|shortcodes|safe }}</div>
+                    </section>
+            {% endfor %}
+    {% endif %}
+    {% endplaceholder %}
+
+    {% placeholder name="showcase video" content_range="(0,1)" content_types="video" as videos %}
+    {% if videos %}
+            {% for video in videos %}
+                <div style="width: 640px; height: 360px; margin: 0px auto; margin-bottom: 100px;">
+                        {% with id=video.key size="large" pos="left" %}
+                            {% include "shortcodes/youtube.html" %}
+                        {% endwith %}
+                </div>
+            {% endfor %}
+    {% endif %}
+    {% endplaceholder %}
+{% endblock %}

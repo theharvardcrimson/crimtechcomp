@@ -1,0 +1,23 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    <div class="article-headline-image">
+        <a href="{{ image.get_absolute_url }}">
+            {{ image|to_img_tag:"150,120,150,120"  }}
+        </a>
+    </div>
+    <div class="article-section">
+        <a href="{{ image.subsection.get_absolute_url }}">{{ image.subsection }}</a>
+    </div>
+    <h2>
+        <a href="{{ image.get_absolute_url }}">
+            {% if image.kicker|cut:" " %}{{ image.kicker }}{% else %}Image{% endif %}
+        </a>
+    </h2>
+    <div class="article-byline">
+        {{ image|byline:"short" }}
+        <span class="article-date">{{ image|datify }}</span>
+    </div>
+    <p>{% if image.caption != " " %}{{ image.caption }}{% else %}No caption{% endif %}</p>
+</div>

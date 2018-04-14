@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width"/>
+  <style type="text/css">
+    {% include "newsletters/ink.css" %}
+  </style>
+  <style type="text/css">
+    {% include "newsletters/style.css" %}
+  </style>
+  {% block additional_head %}{% endblock %}
+</head>
+
+<body>
+    <table class="body">
+      <tr>
+        <td class="center" align="center" valign="top">
+          <center>
+            <table class="container">
+              <tr>
+                <td>
+                  <table class="row" id="header">
+                    <tr>
+                      <td class="wrapper last">
+                        <table id="headertext" class="twelve columns">
+                          <tr>
+                            {% block header %}
+                            <td>
+                              <a target="_blank" href="http://www.thecrimson.com/">The Harvard Crimson</a>
+                            </td>
+                            {% endblock %}
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <!--CHANGE-->
+                  <table class="row top-bar-container hide-for-small">
+                    <tr>
+                      <td class="wrapper top-bar">
+                        <table class="four columns">
+                          <tr>
+                            <td class="left-text-pad">
+                              {% block left_tag %}Newsletter{% endblock %}
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="wrapper top-bar">
+                        <table class="four columns">
+                          <tr>
+                            <td align="center">
+                              <center>{% block middle_tag %}*|DATE:F j, Y|*{% endblock %}</center>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td id="top-social-wrapper" class="wrapper last">
+                        <table class="four columns">
+                          <tr>
+                            <td class="right-text-pad">
+                              {% block social_table %}
+                              <table align="right">
+                                <tr>
+                                  <td>
+                                    <a class="left-button" target="_blank" href="http://www.facebook.com/TheHarvardCrimson">
+                                      <img height="18" src="http://static.thecrimson.com/newsletter/media/facebook_long.png">
+                                    </a>
+                                  </td>
+                                  <td>
+                                    <a target="_blank" href="http://twitter.com/thecrimson">
+                                      <img height="18" src="http://static.thecrimson.com/newsletter/media/twitter_long.png">
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                              {% endblock %}
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  {% comment %}
+                  <table class="row top-bar-container show-for-small">
+                    <tr>
+                      <td class="wrapper last">
+                        <table class="twelve columns mobile-top-bar-wrapper">
+                          <tr>
+                            <td class="six sub-columns left-text-pad mobile-top-bar-left">
+                              Daily Newsletter
+                            </td>
+                            <td class="six sub-columns last right-text-pad mobile-top-bar-right">
+                              April 29, 2014
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  {% endcomment %}
+
+                  <table id="navwrapper" class="row">
+                    <tr>
+                      <td class="wrapper last">
+                        <table id="nav" class="twelve columns">
+                          <tr>
+                            <td class="center" align="center">
+                              <center>
+                              <ul>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/news/">News</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/opinion/">Opinion</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/fm/">Magazine</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/sports/">Sports</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/arts/">Arts</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/flyby/">Flyby</a></li>
+                              </ul>
+                              </center>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  {% comment %}
+                  <table id="socialbar" class="row">
+                    <tr>
+                      <td class="wrapper">
+                        <table class="nine columns">
+                          <tr>
+                            <td id="socialtext" class="left-text-pad">
+                              follow us on facebook and twitter
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="wrapper last">
+                        <table class="three columns">
+                          <tr>
+                            <td class="text-pad">
+                              <table id="social-buttons"><tr>
+                              <td><a target="_blank" href="http://www.facebook.com/TheHarvardCrimson">
+                                <img height="30" src="images/facebook.png">
+                              </a></td>
+                              <td><a target="_blank" href="http://twitter.com/thecrimson">
+                                <img height="30" src="images/twitter.png">
+                              </a></td>
+                              </tr></table>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  {% endcomment %}
+
+
+                  {% block content %}
+                  {% endblock %}
+
+                  <table class="row">
+                    <tr>
+                      <td class="wrapper last">
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="center" id="endline" align="center">
+                              <table>
+                                <tr>
+                                  <td id="sent-to-line" class="center" align="center">
+                                    Sent to *|EMAIL|* &mdash; <a href="*|ABOUT_LIST|*">why did I get this?</a>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td class="center" align="center">
+                                    <a href="*|UPDATE_PROFILE|*">unsubscribe from this list</a> | <a href="*|UNSUB|*">unsubscribe from all Crimson emails</a>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td class="center" align="center">
+                                    The Harvard Crimson &middot; 14 Plympton St. &middot; Cambridge, MA 02138
+                                    <img src="http://www.thecrimson.com/subscribe/track/" width="1" height="1" alt="">
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- END EMAIL CONTENT -->
+                </td>
+              </tr>
+            </table>
+          </center>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+</html>

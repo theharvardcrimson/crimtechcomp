@@ -1,0 +1,110 @@
+{% extends "__base.html" %}
+{% load ads_tags %}
+{% load common %}
+{% load content_filters %}
+{% load flyby_preview %}
+{% load top_articles %}
+{% load placeholders %}
+
+{% block content %}
+<section id="upper">
+    <div id="upper-body">
+        <div id="section-bar">
+            <h1>News</h1>
+            <nav id="section-nav">
+                <ul>
+                    <li><a href="/tag/College News/">College</a></li>
+                    <li><a href="/tag/Faculty News/">Faculty</a></li>
+                    <li><a href="/tag/Metro News/">Metro</a></li>
+                    <li><a href="/tag/University News/">University</a></li>
+                    <li><a href="{{ rss_url }}"><img src="{{ STATIC_URL}}images/icons/rss.gif"></a></li>
+                </ul>
+            </nav>
+        </div>
+        {% placeholder name="featured" content_range="(1,1)" content_types="article" as feat %}
+            {% with article=feat|first classes="feature horizontal" image=1 %}
+                {% include "models/article/preview.html" %}
+            {% endwith %}
+        {% endplaceholder %}
+        <div id="upper-first">
+            <div class="subsections-container">
+                {% placeholder name="photo features" content_range="(5,5)" content_types="article" as photo_features %}
+                    {% for photo in photo_features %}
+                        {% include "models/article/image.html" %}
+                    {% endfor %}
+                {% endplaceholder %}
+            </div>
+        </div>
+        <div id="upper-second">
+            <div class="upper-column">
+                <div class="subsection">
+                    {% placeholder name="left column" content_range="(4,4)" content_types="article" as left_articles %}
+                        {% for article in left_articles %}
+                            {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="upper-column">
+                {% placeholder name="right column" content_range="(4,4)" content_types="article" as right_articles %}
+                    {% for article in right_articles %}
+                        {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                    {% endfor %}
+                {% endplaceholder %}
+            </div>
+        </div>
+    </div>
+    <div id="upper-sidebar">
+        {% flyby_preview %}
+        {% most_read_articles %}
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "300x250" %}
+            </div>
+        </div>
+        <!--{% media_box %}-->
+    </div>
+</section>
+{% highlights_bar %}
+<section id="lower">
+    <div id="lower-body">
+        <div class="lower-column">
+            {# 8:13 #}
+            {% placeholder name="lower column part 1 (left)" content_range="(5,5)" content_types="article" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 comments=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+
+            {# 18:23 #}
+            {% placeholder name="lower column part 2 (left)" content_range="(5,5)" content_types="article" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 noteaser=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+        <div class="lower-column">
+            {# 13:18 #}
+            {% placeholder name="lower column part 1 (right)" content_range="(5,5)" content_types="article" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 comments=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+
+            {# 23:28 #}
+            {% placeholder name="lower column part 2 (right)" content_range="(5,5)" content_types="article" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 noteaser=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div id="lower-sidebar">
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "300x250" %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

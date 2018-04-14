@@ -1,0 +1,15 @@
+.re-pagebreak::before {
+  content: "\e617";
+}
+
+.redactor-editor .redactor-pagebreak {
+  background: none;
+  border-top: 1px dashed #ca161d;
+  /*
+   * The pagebreak hr carries an inline `display: none` to ensure it
+   * never displays unless explicitly overriden.
+   */
+  display: block !important;
+  height: 0;
+  margin: 15px -20px;
+}

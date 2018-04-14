@@ -1,0 +1,61 @@
+{% extends "__standard.html" %}
+{% load top_articles %}
+{% load common %}
+{% load content_filters %}
+{% load ads_tags %}
+{% load flyby_preview %}
+{% load shortcodes_filters %}
+
+{% block meta %}
+    {{ block.super }}
+    {% if request.GET.page = "single" %}
+        <meta name="robots" content="noindex">
+    {% endif %}
+{% endblock meta %}
+
+{# DON'T FORGET TO INCLUDE A TITLE! #}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+
+    <script type="text/javascript">
+            var disqus_shortname = 'thecrimson';
+            var disqus_url = 'https://www.thecrimson.com{{ request.path }}';
+            (function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.src = 'https://thecrimson.disqus.com/embed.js';
+                dsq.async = true;
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0])
+                    .appendChild(dsq);
+            })();
+    </script>
+{% endblock %}
+
+{# INCLUDE META_SOCIAL IF IMPORTANT #}
+
+{% block prebody %}
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style sidebar">
+    <div class="add-this-inner">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_email"></a>
+        <a class="addthis_button_print"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+</div>
+{% endblock %}
+
+{% block postbody %}
+<div id="article-comments">
+    <div id="disqus_thread"></div>
+    <div class="sidekick-shell sidebar">
+        <div class="sidekick">
+            <div class="ad-label">Advertisement</div>
+            {% ad_unit "300x250" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

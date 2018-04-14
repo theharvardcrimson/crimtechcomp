@@ -1,0 +1,8 @@
+{% extends "shortcodes/_base.html" %}
+
+{% block content %}
+    <div class="textmod">
+        <h2 class="textmod-header">{{ header }}</h2>
+        <div class="textmod-text">{{ text|safe }}</div>
+    </div>
+{% endblock %}

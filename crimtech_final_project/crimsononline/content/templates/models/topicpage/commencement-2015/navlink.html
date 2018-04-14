@@ -1,0 +1,13 @@
+{% if t == topic or t == article.parent_topic %}
+<li class="active nav-published">
+{% elif t.pub_status == 1 %}
+<li class="nav-published">
+{% else %}
+<li>
+{% endif %}
+	{% if t.pub_status == 1 %}
+	<a href="{{ t.get_absolute_url }}">{{ t.title }}</a>
+	{% else %}
+	<a>{{ t.title }}</a>
+	{% endif %}
+</li>

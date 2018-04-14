@@ -1,0 +1,19 @@
+{% load content_filters %}
+
+    <nav id="commencement-nav" class="clearfix">
+        <ul>
+            {% for s in sections %}
+            <li>
+                {% if s.pub_status == 1 %}
+                <a href="/feature/commencement-2013/{{ s.slug }}">
+                {% endif %}
+                    {{ s.icon|to_img_tag:"60,60,60,60" }}
+                    <p>{{ s.title }}</p>
+                {% if s.pub_status == 1 %}
+                </a>
+                {% endif %}
+            </li>
+
+            {% endfor %}
+        </ul>
+    </nav>

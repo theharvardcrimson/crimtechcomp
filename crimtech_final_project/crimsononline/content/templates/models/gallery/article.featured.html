@@ -1,0 +1,11 @@
+{% extends "models/wrapper.html" %}
+
+{% load content_filters %}
+{% load common %}
+
+{% block wrapper_classes %}{{gallery.cover_image.orientation}} image{% endblock %}
+{% block wrapper_contents %}
+    <a href="{{gallery.get_absolute_url}}">
+        {{gallery|to_img_tag:"392,"}}
+    </a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% load cache %}
+{% load common %}
+{% load content_filters %}
+
+{% if mostreadarticles %}
+	<h2 class="module-title">Most Read</h2>
+
+	<ol class="module-list">
+	     {% for article in mostreadarticles %}
+	        <li>{{ article|linkify }}</li>
+	    {% endfor %}
+	</ol>
+
+	<hr class="rule">
+{% endif %}

@@ -1,0 +1,28 @@
+{% extends "contentgroup/blog/the-back-page/page.html" %}
+
+{% load content_filters %}
+{% load common %}
+
+{% block center %}
+<div class="cbb">
+    {% if content %}
+        {% for c in content %}
+            {{ c|render:"blog_entry" }}
+        {% endfor %}
+    {% else %}
+        <span class="text">No content available.</span>
+    {% endif %}
+</div>
+{% if p.has_previous %}
+<div class="nav-newer">
+    <a href="{{url_base}}{{tag_str}}/">&laquo; Newest</a>
+    <a href="{{url_base}}/page/{{p.previous_page_number}}{{tag_str}}/">&lsaquo; Newer</a>
+</div>
+{% endif %}
+{% if p.has_next %}
+<div class="nav-older">
+    <a href="{{url_base}}/page/{{paginator.num_pages}}{{tag_str}}/">Oldest &raquo;</a>
+    <a href="{{url_base}}/page/{{p.next_page_number}}{{tag_str}}/">Older &rsaquo;</a>
+</div>
+{% endif %}
+{% endblock %}

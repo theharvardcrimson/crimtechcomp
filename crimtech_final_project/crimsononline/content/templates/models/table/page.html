@@ -1,0 +1,111 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load content_filters %}
+{% load top_articles %}
+{% load flyby_preview %}
+{% load ads_tags %}
+
+{% block title %}{{ table.title }} | {{ block.super }}{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/article.scss">
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+
+    <script type="text/javascript">
+            var disqus_shortname = '{{ DISQUS_SHORTNAME }}';
+            var disqus_url = 'http://www.thecrimson.com{{ request.path }}';
+            (function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.src = 'http://thecrimson.disqus.com/embed.js';
+                dsq.async = true;
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0])
+                    .appendChild(dsq);
+            })();
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% block body %}
+        <section id="main">
+            <div id="article">
+                <div id="article-header">
+                    {% block flybyheader %}{% endblock %}
+                    <h1>{{ table.title }}</h1>
+                    <div class="article-byline">{{ table|byline:"full" }}{% date table %}</div>
+                </div>
+
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style sidebar">
+                    <div class="add-this-inner">
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_button_email"></a>
+                        <a class="addthis_button_print"></a>
+                        <a class="addthis_button_compact"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                    </div>
+                </div>
+
+                <div id="article-body">
+                    <div id="text">
+                        {% with size="large" height="500" filter_column="0" count="0" caption=table.description %}
+                            {% include "shortcodes/filterable_table.html" %}
+                        {% endwith %}
+                    </div>
+                    <div id="article-tags">
+                        {% if tags %}
+                            <h3>Tags</h3>
+                            <div>
+                            {% for tag in tags %}
+                                <a href="{{ tag.url }}">{{ tag.text|safe }}</a>
+                                {% ifnotequal forloop.last 1 %}{% endifnotequal %}
+                            {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="sidebar">
+                    {% with table.rel_content.all|rel_articles as ras %}
+                        {% if ras %}
+                            <div id="article-related-shell" class="sidebar">
+                                <div id="article-related">
+                                    <h3>Related Articles</h3>
+                                    <ul>
+                                        {% for ra in ras %}
+                                        <li>{{ ra|linkify }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    {% most_read_articles %}
+                    <div class="sidekick-shell sidebar">
+                        <div class="sidekick primary">
+                            {% ad_unit "300x600" %}
+                        </div>
+                        <div class="large-screen-only">
+                            {% flyby_preview %}
+                        </div>
+                        <div class="sidekick-shell">
+                            <div class="sidekick">
+                                <div class="ad-label">Advertisement</div>
+                                {% ad_unit "300x250" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="article-comments">
+                    <div id="disqus_thread"></div>
+                </div>
+            </div>
+        </section>
+    {% endblock body %}
+{% endblock content %}

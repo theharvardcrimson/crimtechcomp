@@ -1,0 +1,87 @@
+{% extends "models/topicpage/compendium/__base.html" %}
+
+{% load common %}
+{% load ads_tags %}
+{% load content_filters %}
+{% load content_tags %}
+{% load placeholders %}
+
+
+        {% block content %}
+
+        <div class="content sticky-bar-start">
+
+        <div class="content-wrapper">
+        <div class="leaderboard-wrapper">
+        <div class="leader-ad">
+        {% ad_unit "728x90" %}
+        </div>
+    </div>
+        <div class="topic-head">
+    <h2 class="article-headline">{{ topic.headline }}</h2>
+
+        <div class="byline">
+            <div class="byline-date">{% date topic %}</div>
+
+        </div>
+        <div class="article-description">
+        {{topic.description}}
+        </div>
+        <div class="byline">
+         <span class="top"></span>
+          {% if topic.contributor_override %}
+            {{ topic.contributor_override|safe }}
+          {% else %}
+            <h4>{{ topic|byline:"full" }}</h4>
+            {% if topic.multimedia_contributors.count %}
+              <h4>Multimedia {{ topic|byline_multimedia:"short" }}, Crimson Staff Photographer</h4>
+            {% endif %}
+          {% endif %}
+      </div>
+
+
+</div>
+
+
+
+
+
+    <div class="section">
+        {% placeholder name="articles" content_range="(0,100)" content_types="article,image,widget,external content" as items %}
+            {% for i in items %}
+                <div class="landing-divider"></div>
+                <div class="landing-article">
+                    {% if i.main_rel_content %}
+                     <div class="landing-image">
+                     <div class="landing-image-media">
+                        <a href="{{ i.get_absolute_url }}">
+                        {{ i.main_rel_content|to_img_tag:'300,200,300,200' }}</a>
+
+                     </div>
+                    </div>
+                    {% endif %}
+                    <div class="landing-article-detail">
+                    <div class="landing-article-date-byline">{% date i %}</div>
+                    <div class="landing-article-title">
+                        <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                    </div>
+                    <div class="landing-article-teaser">
+                        {{ i.description }}
+                    </div>
+                    <div class="landing-article-date-byline">
+                        {{ i|byline:"short" }}
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        {% endplaceholder %}
+    </div>
+    <div class="leaderboard-wrapper">
+        <div class="leader-ad">
+        {% ad_unit "728x90" %}
+        </div>
+    </div>
+    </div>
+
+</div>
+{% endblock %}

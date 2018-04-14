@@ -1,0 +1,144 @@
+//
+// BACKGROUNDS AND BORDERS
+//
+
+#header {
+  background: $background;
+  border-bottom: 3px solid $background-accent;
+}
+
+#branding h1 {
+  margin: 7px 0;
+}
+
+.module h2,
+.module caption,
+.inline-group h2,
+.button.default,
+input[type=submit].default {
+  background: linear-gradient(180deg,
+                              $background-gradient-start,
+                              $background-gradient-end);
+}
+
+.button.default:active,
+input[type=submit].default:active {
+  background: linear-gradient(0,
+                              $background-gradient-start,
+                              $background-gradient-end);
+}
+
+.button.default,
+input[type=submit].default,
+.submit-row input.default {
+  border-color: darken($background-gradient-end, 10%);
+}
+
+.row1 {
+  background: $background-quiet;
+}
+
+// NB: The next two selectors are copied out of Django.
+//
+// These selectors aren't specific enough to override the `.module h2`
+// selector we've defined above, because these selectors get nested
+// under a root body selector, like `body.development`. So we include
+// them here. This is ugly, but fixing it would require splitting the
+// development and production styles into two separate stylesheets.
+fieldset.collapsed h2 {
+  background: url(../../admin/img/nav-bg.gif) bottom left repeat-x;
+  color: #999;
+}
+
+.selector .selector-available h2 {
+  background: url(../../admin/img/nav-bg.gif) bottom left repeat-x;
+  color: #666;
+}
+
+
+//
+// LINKS
+//
+
+a {
+  color: $text-accent;
+}
+
+a:hover {
+  color: $text-accent-more;
+}
+
+a.section,
+.object-tools a {
+  color: $text-reverse;
+}
+
+#branding h1 a,
+#branding h1 a:visited {
+  color: $text-reverse;
+}
+
+#branding h1 a:hover {
+  text-decoration: underline;
+}
+
+#changelist-filter a {
+  color: $text-quiet;
+}
+
+#changelist-filter a:hover {
+  color: $text-accent-more;
+}
+
+#changelist-filter li.selected a {
+  color: $text-accent !important;
+}
+
+.object-tools a:hover,
+.object-tools li:hover a {
+  background-color: $background-accent;
+}
+
+
+//
+// TEXT
+//
+
+#header,
+#branding h1 {
+  color: $text-reverse-quiet;
+}
+
+h1,
+#content-related .module h2,
+#content-related h3 {
+  color: $text;
+}
+
+div.breadcrumbs,
+#changelist .actions {
+  color: $text-quiet;
+}
+
+.quiet {
+  color: $text-quiet !important;
+}
+
+
+//
+// EXTENSIONS
+//
+
+#branding h1 a {
+  vertical-align: middle;
+}
+
+.badge {
+  background: $background-accent;
+  display: inline-block;
+  font-size: 0.65em;
+  margin: 0 20px;
+  padding: 5px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}

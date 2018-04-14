@@ -1,0 +1,12 @@
+<div id="cont">
+    <h1></h1>
+    <h2>Piecing Cambridge Together</h2>
+    {% include 'templatetag/fm_puzzle.svg' %}
+    <div id="other-articles" class="clearfix">
+        {% include 'templatetag/fm_puzzle_column.html' with section='Levity' %}
+
+        {% include 'templatetag/fm_puzzle_column.html' with section='Introspection' %}
+
+        {% include 'templatetag/fm_puzzle_column.html' with section='Retrospection' %}
+    </div>
+</div>

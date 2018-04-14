@@ -1,0 +1,244 @@
+#top {
+    max-width: 980px;
+    margin: 0 auto;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 5px;
+}
+
+#top h1 {
+    float: left;
+    background-color: #BA0600;
+    color: white;
+    padding: 8px 23px 13px;
+    text-decoration: inherit;
+}
+.days_of_week {
+	display: flex;
+	list-style: none;
+	padding-left: 0;
+	margin: 0 auto;
+    width: 980px;
+
+}
+@media (max-width: 980px) {
+    .days_of_week {
+        display: none;
+    }
+}
+
+
+.top_bar {
+	width: 100%;
+}
+.top_bar ul {
+	float: left;
+	margin: 15px 0;
+	padding: 0;
+	width: 20%;
+    text-align: center;
+    font-family: 'Colaborate Light','Lucida Sans Unicode',sans-serif;
+    font-size: 26px;
+    text-decoration: none;
+    color: #BA0600;
+}
+#links {
+    float: right;
+    font-size: 20px;
+    margin: 24px 0 5px 30px;
+}
+
+#links a {
+    margin-right: 37px;
+    font-family: 'Colaborate Light','Lucida Sans Unicode',sans-serif;
+    font-size: 26px;
+    text-decoration: none;
+    color: #999;
+    border-bottom: 3px solid rgba(255,255,255,0);
+
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+#links a.active, #links a:hover {
+    border-bottom: 5px solid #BA0600;
+    color: #BA0600;
+
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+#links a:last-child {
+    margin-right: 0;
+}
+
+/*
+--------
+Making the grid for columnists.
+--------
+*/
+#images_grid {
+    display: grid;
+    list-style: none;
+    max-width: 980px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 20px;
+    box-sizing: border-box;
+    padding-left: 0;
+    margin: 0 auto;
+}
+
+#images_grid li {
+    box-sizing: border-box;
+    background-color: #FEFFEA;
+    float: left;
+    text-align: center;
+    padding: 0;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+}
+
+#images_grid li .img-link {
+    display: block;
+    background-color: white;
+}
+
+#images_grid li img {
+    width: 100%;
+}
+
+#images_grid li a h2 {
+    font-size: 1.5em;
+    padding: 10px;
+    margin: -4px 0 0;
+    background-color: rgba(186,6,0, 0.75);
+    color: #EEE;
+    text-decoration: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#images_grid .subname {
+    background-color: #EEE;
+    color: #BA0600;
+    padding: 5px 0;
+    font-size: 16px;
+}
+
+#images_grid li .articles {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#images_grid li .articles h3 {
+    overflow: hidden;
+}
+
+#images_grid li .articles .article-date {
+    color: #999;
+}
+
+/*
+---------------
+Media Queries for image_grid
+---------------
+*/
+@media (max-width: 500px) {
+    #images_grid {
+        max-width: 375px;
+        grid-template-columns: repeat(2, 48%);
+        grid-gap: 5px;
+    }
+
+    #images_grid li {
+        width: 100%;
+        margin: 3%
+    }
+}
+
+@media (max-width: 630px) and (min-width: 501px) {
+    #images_grid {
+        grid-template-columns: repeat(3, 32%);
+        grid-gap: 5px;
+    }
+    #images_grid li {
+        width: 100%;
+        margin: 2%
+    }
+}
+
+@media (max-width: 765px) and (min-width: 631px) {
+    #images_grid {
+        grid-template-columns: repeat(4, 24%);
+        grid-gap: 5px;
+    }
+    #images_grid li {
+        width: 100%;
+        margin: 2%
+    }
+}
+ul.pager {
+    max-width: 980px;
+    margin: 15px auto;
+}
+
+@media (max-width: 990px) {
+    #top {
+        max-width: 95%;
+    }
+}
+
+.m {
+    grid-column: 1;
+}
+.t {
+    grid-column: 2;
+}
+.w {
+    grid-column: 3;
+}
+.th {
+    grid-column: 4;
+}
+.f {
+    grid-column: 5;
+}
+
+.one {
+    grid-row: 1;
+}
+.two {
+    grid-row: 2;
+}
+.three {
+    grid-row: 3;
+}
+
+/*
+---------------
+Media Queries for placement
+---------------
+*/
+@media (max-width: 500px) {
+    .m, .w, .f, .t, .th {
+        grid-column: auto;
+    }
+
+    .one, .two, .three {
+        grid-row: auto;
+    }
+}
+@media (max-width:630px) and (min-width:501px) {
+    .m, .t, .w, .th, .f {
+        grid-column: auto;
+    }
+    .one, .two, .three {
+        grid-row: auto;
+    }
+}
+@media (max-width: 765px) and (min-width: 631px) {
+    .m, .t, .w, .th, .f {
+        grid-column: auto;
+    }
+    .one, .two, .three {
+        grid-row: auto;
+    }
+}

@@ -1,0 +1,162 @@
+{% extends "models/topicpage/spotlight/__base.html" %}
+
+{% load ads_tags %}
+{% load content_filters %}
+{% load content_tags %}
+{% load placeholders %}
+
+{% block body_class %}
+spotlight-light
+{% endblock %}
+
+{% block meta_social %}
+    {% if topic.main_rel_content %}
+        <meta property="og:image" content="{{ topic.main_rel_content|img_url:"635,630" }}">
+        <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    {% endif %}
+    <meta property="og:title" content="{{ topic.title }} |{% if topic.section %} {{ topic.section }} |{% endif %} The Harvard Crimson">
+    <meta property="og:description" content="{{ topic.description }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ topic.title }}">
+    <meta name="twitter:description" content="{{ topic.description }}">
+    {% if topic.main_rel_content %}
+        <meta name="twitter:image" content="{{ topic.main_rel_content|img_url:"480,480" }}">
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div id="intro" style="background-image: url({{ topic.main_rel_content|img_url:"635,630" }})">
+        <div class="intro-text">
+            <div class="pre-line">
+                {% if topic.section.name == 'Magazine' %}
+                    Fifteen Minutes Magazine Presents
+                {% elif topic.section.name == 'Flyby' %}
+                    Flyby Blog Presents
+                {% else %}
+                    The Crimson Presents
+                {% endif %}
+            </div>
+            <div class="first-line">{{ topic.title }}</div>
+            <div class="second-line">{{ topic.subtitle }}</div>
+        </div>
+        <br><br>
+        <div class="arrow">
+            <img src="{{ STATIC_URL }}images/arrow-down.png">
+        </div>
+        <div class="dark-cover"></div>
+        <div class="dark-cover fader"></div>
+    </div>
+
+    <div id="blurb" class="sticky-bar-start">
+        <p>{{ topic.description|safe }}</p>
+    </div>
+
+    {% placeholder name="featured" content_range="(0,25)" content_types="article,topic page,external content" as feats %}
+    {% if feats %}
+    <div class="neighborhood">
+        <div class="hood_name">
+            <span>
+                {{ feats.title }}
+            </span>
+        </div>
+        <div class="individuals cf length-{{ feats|length }}">
+            {% for a in feats %}
+            <div class="frosh">
+                    <a href="{{ a.get_absolute_url }}">
+                        <img src="{{ a.main_rel_content|img_url:"600,600,600,600" }}">
+                        <div class="innards"></div>
+                        <div class="bottom-info">
+                            <div class="name">{{ a.title }}</div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endplaceholder %}
+
+    <div class="leader-ad">
+        {% ad_unit "728x90" %}
+    </div>
+
+    {% placeholder name="featured 2" content_range="(0,25)" content_types="article,topic page,external content" as feats2 %}
+    {% if feats2 %}
+    <div class="neighborhood">
+        <div class="hood_name">
+            <span>
+                {{ feats2.title }}
+            </span>
+        </div>
+        <div class="individuals cf length-{{ feats2|length }}">
+            {% for a in feats2 %}
+            <div class="frosh">
+                    <a href="{{ a.get_absolute_url }}">
+                        <img src="{{ a.main_rel_content|img_url:"600,600,600,600" }}">
+                        <div class="innards"></div>
+                        <div class="bottom-info">
+                            <div class="extra">{{ a.subtitle }}</div>
+                            <div class="name">{{ a.title }}</div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endplaceholder %}
+
+    {% placeholder name="featured 3" content_range="(0,25)" content_types="article,topic page,external content" as feats3 %}
+    {% if feats3 %}
+    <div class="neighborhood">
+        <div class="hood_name">
+            <span>
+                {{ feats3.title }}
+            </span>
+        </div>
+        <div class="individuals cf length-{{ feats3|length }}">
+            {% for a in feats3 %}
+            <div class="frosh">
+                    <a href="{{ a.get_absolute_url }}">
+                        <img src="{{ a.main_rel_content|img_url:"600,600,600,600" }}">
+                        <div class="innards"></div>
+                        <div class="bottom-info">
+                            <div class="extra">{{ a.subtitle }}</div>
+                            <div class="name">{{ a.title }}</div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endplaceholder %}
+
+    {% placeholder name="featured 4" content_range="(0,25)" content_types="article,topic page,external content" as feats4 %}
+    {% if feats4 %}
+    <div class="neighborhood">
+        <div class="hood_name">
+            <span>
+                {{ feats4.title }}
+            </span>
+        </div>
+        <div class="individuals cf length-{{ feats4|length }}">
+            {% for a in feats4 %}
+            <div class="frosh">
+                    <a href="{{ a.get_absolute_url }}">
+                        <img src="{{ a.main_rel_content|img_url:"600,600,600,600" }}">
+                        <div class="innards"></div>
+                        <div class="bottom-info">
+                            <div class="extra">{{ a.subtitle }}</div>
+                            <div class="name">{{ a.title }}</div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endplaceholder %}
+{% endblock %}

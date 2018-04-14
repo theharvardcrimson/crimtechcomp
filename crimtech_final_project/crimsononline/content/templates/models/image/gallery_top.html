@@ -1,0 +1,4 @@
+{% load common %}
+{% load content_filters %}
+<div style="margin-top: {{image|img_gallery_margin}}px;"></div>
+<a href="{{ image.get_absolute_url}}">{{ image|to_img_tag:"619,450" }}</a>

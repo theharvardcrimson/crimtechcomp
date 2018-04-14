@@ -1,0 +1,19 @@
+{% extends "flyby/__base.html" %}
+
+{% load content_filters %}
+
+{% block content %}
+  <article class="article article-item article-flatpage">
+    <div class="article-body">
+      <h1>Series</h1>
+
+      <div class="series-container">
+        {% for s in series %}
+          <a class="series-link" href="{{ s.get_absolute_url }}" style="background-image: url({{ s|img_url:'200,200,200,200,GRAD,black,60,60,DOWN' }})">
+            <span>{{ s.name }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </article>
+{% endblock %}

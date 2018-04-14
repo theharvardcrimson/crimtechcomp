@@ -1,0 +1,68 @@
+{% extends "sponsored/__base.html" %}
+{% load common %}
+{% block more_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/sponsored_content_css/articles/__article_navbar.scss" type="text/x-scss">
+    <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/sponsored_content_css/articles/basic.scss">
+{% endblock %}
+{% load content_filters %}
+{% load shortcodes_filters %}
+{% load top_articles %}
+{% block more_js %}
+    <script src="{{ STATIC_URL }}js/sponsored_content_js/articles/basic.js"></script>
+{% endblock %}
+{% block navbar %}
+    {% include "sponsored/articles/__article_navbar.html" %}
+{% endblock %}
+{% block content %}
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+<script type="text/javascript">
+    addthis.layers({
+        'theme' : 'transparent',
+        'share' : {
+          'position' : 'right',
+          'numPreferredServices' : 5
+        }
+    });
+</script>
+{% with article.rel_not_shortcoded|rel_no_articles as rcs %}
+    <div class="article-content hide-down">
+        <div id="headers" class="headers">
+            <h1>
+                {{ article.headline }}
+            </h1>
+            <h3>
+                {{ article.subheadline }}
+            </h3>
+            <div class="article-byline">
+                {% if 'The Crimson Brand Studio' in article|byline_sans_by:"full" %}
+                    <span style="font-variant: small-caps">produced by </span>
+                    {{ article|byline_sans_by:"sponsor_tcbs" }}
+                    <span style="font-variant: small-caps">, with </span>
+                    {{ article|byline_sans_by:"sponsor_byline_second" }}
+                {% else %}
+                    <span style="font-variant: small-caps">by </span>
+                    {{ article|byline_sans_by:"sponsor_byline" }}
+                    <span style="font-variant: small-caps">, in collaboration with the crimson brand studio</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row article-body">
+            <div class="col-md-9">
+                {% with paragraphs as paras %}
+                    {% for para in paras %}
+                        {{ para }}
+                    {% endfor %}
+                {% endwith %}
+                <hr style="border-top: 1px dotted black; width: 100%">
+                <p class="disclosure" style="text-align: left">The Crimson's news and opinion teams&mdash;including writers, editors, photographers, and designers—were not involved in the production of this article.</p>
+            </div>
+            <div class="col-md-3">
+                <div class="sidebar">
+                    {% most_read_articles %}
+                    {% sponsored_articles %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endwith %}
+{% endblock %}

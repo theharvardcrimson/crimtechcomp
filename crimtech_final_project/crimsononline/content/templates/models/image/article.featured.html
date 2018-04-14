@@ -1,0 +1,10 @@
+{% extends "models/wrapper.html" %}
+
+{% load content_filters %}
+{% load common %}
+
+{% block wrapper_classes %}{{image.orientation}}{% endblock %}
+{% block wrapper_id %}{{image.orientation}}{% endblock %}
+{% block wrapper_contents %}
+    {{image|to_img_tag:"392,"}}
+{% endblock %}

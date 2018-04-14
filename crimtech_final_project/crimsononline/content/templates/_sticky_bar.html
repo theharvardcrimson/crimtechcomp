@@ -1,0 +1,29 @@
+<div class="navigationwrapper">
+    <div class="navigation">
+        <div class="navigation-inner">
+            <h2 class="navigation-left navlogo">
+                {% if article.section.name == 'Magazine' %}
+                <a href="/fm">Fifteen Minutes Magazine</a>
+                {% elif article.section.name == 'Flyby' %}
+                <a href="/flyby">Flyby Blog</a>
+                {% else %}
+                <a href="/">The Harvard Crimson</a>
+                {% endif %}
+            </h2>
+
+            <div class="navigation-right">
+                <div class="addthis_toolbox addthis_default_style">
+                    <div class="add-this-inner">
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_button_email"></a>
+                        <a class="addthis_button_print"></a>
+                    </div>
+                </div>
+            </div>
+            <h2 class="navigation-center">
+                <a class="navlink" href="#top">{{ article.headline }}</a>
+            </h2>
+        </div>
+    </div>
+</div>

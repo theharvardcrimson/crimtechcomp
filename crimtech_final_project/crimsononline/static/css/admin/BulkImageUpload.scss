@@ -1,0 +1,179 @@
+$crimson: #ba0600;
+$dark_crimson: #870400;
+
+$row_height: 73px;
+
+/*
+Initial splash screen
+*/
+
+#content-main {
+	font-family: 'Lucida Grande', Verdana, Arial;
+	font-size: 10pt;
+    margin-top: 72px;
+}
+
+#drop {
+	position: fixed;
+	top: 0px;
+    left: 0px;
+	width: 100%;
+
+	background-color: white;
+    text-align: right;
+    font-weight: bold;
+    color: #7f858a;
+    box-shadow: 0px 0px 8px;
+}
+
+#drop-label {
+	font-size: 12pt;
+    display: inline;
+}
+
+#drop-button {
+	background-color: $dark_crimson;
+	color: white;
+
+	padding: 12px 26px;
+    font-size: 12pt;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 12px 12px 12px 0px;
+    line-height: 1;
+}
+
+#submit {
+    font-family: 'Lucida Grande', Verdana, Arial;
+    font-weight: bold;
+    background-color: $dark_crimson;
+    color: white;
+    border: none;
+    padding: 12px 26px;
+    font-size: 12pt;
+    border-radius: 2px;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#file-input {
+	display: none;
+}
+
+.item-row {
+    border-bottom: 1px solid #DDD;
+    padding: 10px;
+
+    .fields-default > div {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+.image-placeholder {
+    background-color: $crimson;
+    width: 128px;
+    height: 72px;
+    display: inline-block;
+
+    margin-right: 10px;
+
+    img {
+        width: 128px;
+        height: 72px;
+    }
+}
+
+/*
+Form overrides
+*/
+
+.fields-default, .fields-publishing-1, .fields-publishing-2, .fields-advanced {
+    display: inline-block;
+    vertical-align: top;
+    height: 79px;
+}
+
+.fields-publishing-2 select {
+    height: 27px;
+    display: block;
+    margin-bottom: -1px;
+    width: 100%;
+}
+
+.destination-block {
+    label {
+        display: block;
+        text-align: right;
+    }
+}
+
+.title-block {
+    input {
+        display: block;
+        height: 20px;
+    }
+}
+
+.description-block {
+    height: $row_height;
+    width: 200px;
+
+    textarea {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.tags-block {
+    height: $row_height;
+    width: 300px;
+}
+
+#ui-datepicker-div {
+    display: none;
+}
+
+/*
+Material overrides
+*/
+
+.title-block input {
+    // height: 2rem;
+    margin-bottom: -1px;
+    height: 21px;
+}
+
+/*
+Hidden form fields
+*/
+
+.fields-publishing {
+    overflow: hidden;
+
+    p {
+        margin: 0px;
+    }
+
+    #issue_picker_daily {
+        display: inline;
+    }
+
+    .issue_picker, .ui-datepicker-trigger {
+        display: inline;
+    }
+
+    display: inline-block;
+}
+
+.fields-advanced {
+    overflow: hidden;
+}
+
+.hidden-animate {
+    width: 0px;
+    height: $row_height - 2px;
+}

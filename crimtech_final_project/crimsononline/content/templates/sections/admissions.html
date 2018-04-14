@@ -1,0 +1,62 @@
+{% extends "__admissions.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block content %}
+	{% for article in articles %}
+		<article class="post">
+			<header>
+				{% if article.group %}
+					<div class="post-series">
+						{{ article.group.name }}
+					</div>
+				{% endif %}
+				<h2 class="post-title">
+					<a href="{{ article.get_absolute_url }}">{{ article.groupless_headline }}</a>
+				</h2>
+				<h3 class="post-subtitle">
+					{% if article.subheadline %}
+						{{ article.subheadline }}
+					{% endif %}
+				</h3>
+				<span class="post-metadata">
+					{{ article|byline:"full" }}<br>
+					<a href="{{ article.get_absolute_url }}">{{ article.issue.issue_date|date:"l" }}, {% date article %}</a>
+				</span>
+			</header>
+
+			<div class="post-content">
+				{% if article.main_rel_content %}
+					<a class="post-image post-image-{{ article.main_rel_content.orientation }}" href="{{ article.get_absolute_url }}">
+						{{ article.main_rel_content|to_img_tag:"550, 800"}}
+					</a>
+				{% endif %}
+				{{ article.text_before_jump|safe }}
+				{% if article.has_jump %}
+					<p>
+						<a class="important-link" href="{{ article.get_absolute_url }}">Read more &raquo;</a>
+					</p>
+				{% endif %}
+			</div>
+
+			{% if article.num_comments %}
+				<footer class="post-footer">
+					<a href="{{ article.get_absolute_url }}">
+						<span class="comment-count">{{ article.num_comments }}</span>
+						comment{% if article.num_comments != 1 %}s{% endif %}
+					</a>
+				</footer>
+			{% endif %}
+		</article>
+
+		{% if not forloop.last %}
+			<hr class="rule">
+		{% endif %}
+	{% endfor %}
+
+	{% if next_page %}
+		<div class="paginator">
+			<a href="/admissions/{{ next_page }}">More posts &raquo;</a>
+		</div>
+	{% endif %}
+{% endblock %}

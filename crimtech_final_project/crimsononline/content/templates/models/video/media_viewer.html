@@ -1,0 +1,15 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="viewer_header">
+    <h1><a href="{{ video.get_absolute_url }}">{{ video.title }}</a></h1>
+</div>
+
+<div class="viewer_top">
+    <div class="viewer_image">{{video|render:"gallery_top"}}
+    </div>
+</div>
+
+<div class="viewer_info">
+ {{video|render:"gallery_bottom"}}
+</div>

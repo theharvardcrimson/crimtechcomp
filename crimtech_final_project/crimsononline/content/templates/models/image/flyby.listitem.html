@@ -1,0 +1,25 @@
+{% extends "models/wrapper.html" %}
+
+{% load common %}
+{% load content_filters %}
+{% load content_module %}
+{% load module %}
+
+{% block wrapper_classes %}
+    {% ifequal image.orientation "tall" %}
+        side
+    {% else %}
+        full
+    {% endifequal %}
+{% endblock %}
+
+{% block wrapper_contents %}
+    <a href="{{image.get_absolute_url}}">
+        {% ifequal image.orientation "tall" %}
+            {{image|to_img_tag:"160,"}}
+        {% else %}
+            {{image|to_img_tag:"538,"}}
+        {% endifequal %}
+    </a>
+    <p class="byline">{{image.contributors.all|linkify|human_list}}</p>
+{% endblock %}

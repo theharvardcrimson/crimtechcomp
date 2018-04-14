@@ -1,0 +1,56 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load content_filters %}
+{% load flyby_preview %}
+{% load top_articles %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL}}css/index2.scss">
+{% endblock css %}
+
+{% block content %}
+<div id="top" class="clearfix">
+    <a href = "{{ self_url }}"><h1>{{ title }}</h1></a>
+</div>
+<ul id="block-list">
+    {% for chunk in blocks %}
+        <li>
+            <a href="{{ chunk.main_url }}">
+                {{ chunk.image|to_img_tag:"490,490,490,490" }}
+                <h2>{{ chunk.title }}</h2>
+            </a>
+            <div class="articles">
+                <div class="article">
+                    <h3>{{ chunk.articles.0|linkify }}</h3>
+                    <div class="article-byline">
+                        {{ chunk.articles.0|byline:"short" }} <span class="article-date">{{ chunk.articles.0|datify }}</span>
+                    </div>
+                </div>
+                {% for article in chunk.articles|slice:"1:" %}
+                    <div class="article">
+                        <h4>{{ article|linkify }}</h4>
+                        <div class="article-byline">
+                            {{ article|byline:"short" }} <span class="article-date">{{ article|datify }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block ads %}
+    {{ block.super }}
+{% endblock %}
+
+{% comment %}
+{% block ad_leaderboard_atf %}
+    {% ad_unit "728x90" %}
+{% endblock %}
+
+{% block ad_leaderboard_btf %}
+    {% ad_unit "728x90" %}
+{% endblock %}
+{% endcomment %}

@@ -1,0 +1,12 @@
+<div id="ad-{{ ad_unit.code }}" style="width: {{ ad_unit.dimensions.0}}px; height: {{ ad_unit.dimensions.1}}px;">
+	<script type='text/javascript'>
+    $(function () {
+      var container = $("#ad-{{ ad_unit.code }}");
+      if (container.is(":visible") && Crimson.ADS_ENABLED{% if dependent_el %} && $("{{ dependent_el }}").width() < {{ size_cutoff }}{% endif %}) {
+        googletag.cmd.push(function() {
+          googletag.display('ad-{{ ad_unit.code }}');
+        });
+      }
+    });
+	</script>
+</div>

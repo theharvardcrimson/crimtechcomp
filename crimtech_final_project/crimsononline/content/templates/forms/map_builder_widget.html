@@ -1,0 +1,139 @@
+{% load common %}
+
+<div id="map_preview" style="width: 400px; height: 300px"></div>
+
+<div class="form-row addmarker">
+    <div>
+        <label for="id_addmarker">Add Marker:</label>
+        <input id="id_addmarker" class="vTextField" type="text" maxlength="1000" name="addmarker"/>
+        <input type="button" name="_addressmarker" value="Search by Address" onclick="javascript:searchAddress()" />
+        <input type="button" name="_centermarker" value="Add Marker at Center" onclick="javascript:addMarkerAtCenter()" />
+    </div>
+</div>
+
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key={{googleapikey}}"></script>
+<script type="text/javascript">
+    var gmap;
+    var numMarkers;
+    var numMarkerFields;
+    var currentMarker = 0;
+    var markers = [];
+
+    $(document).ready(function(){
+        $('.frozen input').attr('readonly', true);
+        numMarkers = Number($('#id_markers-INITIAL_FORMS').val());
+        numMarkerFields = Number($('#id_markers-TOTAL_FORMS').val());
+
+        if (GBrowserIsCompatible()) {
+            gmap = new GMap2(document.getElementById('map_preview'));
+
+            $('#map_preview').width(Number($('#id_width').val()));
+            $('#map_preview').height(Number($('#id_height').val()));
+            gmap.checkResize();
+
+            gmap.setCenter(new GLatLng($('#id_center_lat').val(),$('#id_center_lng').val()), Number($('#id_zoom_level').val()));
+
+            switch ($('#id_display_mode').val()) {
+                case 'Map':
+                    gmap.setMapType(G_NORMAL_MAP);
+                    break;
+                case 'Satellite':
+                    gmap.setMapType(G_SATELLITE_MAP);
+                    break;
+                case 'Hybrid':
+                    gmap.setMapType(G_HYBRID_MAP);
+                    break;
+                default:
+                    gmap.setMapType(G_NORMAL_MAP);
+            }
+
+            gmap.addControl(new GSmallMapControl());
+            gmap.addControl(new GMapTypeControl(true));
+
+            GEvent.addListener(gmap, 'zoomend', function(oldZoomLevel, newZoomLevel) {
+                //$('#id_zoom_level').value = newZoomLevel;
+                $('#id_zoom_level').val(newZoomLevel);
+			});
+
+            GEvent.addListener(gmap, 'moveend', function() {
+                $('#id_center_lng').val(gmap.getCenter().lng());
+                $('#id_center_lat').val(gmap.getCenter().lat());
+			});
+
+            GEvent.addListener(gmap, 'maptypechanged', function() {
+                $('#id_display_mode').val(gmap.getCurrentMapType().getName(false));
+			});
+
+            /*
+            $('#map_preview').resizable({
+                'minWidth': 200,
+                'minHeight': 200,
+                'stop': function() {
+                    $('#id_width').val($('#map_preview').width());
+                    $('#id_height').val($('#map_preview').height());
+                    gmap.checkResize();
+                }});*/
+
+            for (currentMarker = 0; currentMarker < numMarkers; currentMarker=currentMarker+1)
+            {
+                latlng = new GLatLng($('#id_markers-'+String(currentMarker)+'-lat').val(),$('#id_markers-'+String(currentMarker)+'-lng').val());
+                markers[currentMarker] = buildMarker(latlng,currentMarker,$('#id_markers-'+String(currentMarker)+'-html').val());
+
+                /*markers[currentMarker] = new GMarker(new GLatLng($('#id_markers-'+String(currentMarker)+'-lat').val(),$('#id_markers-'+String(currentMarker)+'-lng').val()),{draggable:true,bouncy:true});
+                if($('#id_markers-'+String(currentMarker)+'-html').val() != '') {
+                    markers[currentMarker].bindInfoWindowHtml($('#id_markers-'+String(currentMarker)+'-html').val(), {maxWidth: 50});
+                }
+                gmap.addOverlay(markers[currentMarker]);*/
+            }
+
+
+        }
+
+    });
+
+    geocoder = new GClientGeocoder();
+
+    function searchAddress() {
+        geocoder.setViewport(gmap.getBounds());
+        geocoder.getLatLng($('#id_addmarker').val(), addNewMarker);
+    }
+
+    function addMarkerAtCenter() {
+        addNewMarker(gmap.getCenter());
+    }
+
+    function addNewMarker(latlng) {
+
+        if(latlng == null) {
+            alert("Uh-oh, couldn't find the spot to place the marker");
+        }
+
+        if(currentMarker > numMarkerFields - 1) {
+            alert("Hit 'Save and continue editing' to add more markers to the map");
+            return;
+        }
+
+        newMarker = buildMarker(latlng, currentMarker);
+        gmap.setCenter(latlng);
+        numMarkers = numMarkers + 1;
+        currentMarker = currentMarker + 1;
+    }
+
+    function buildMarker(latlng,num,popup) {
+        var marker = new GMarker(latlng, {draggable:true,bouncy:true});
+        if(popup != '') {
+                    //marker.bindInfoWindowHtml(popup, {maxWidth: 50});
+        }
+		gmap.addOverlay(marker);
+
+        GEvent.addListener(marker, 'dragend', function() {
+                $('#id_markers-'+String(num)+'-lng').val(marker.getLatLng().lng());
+                $('#id_markers-'+String(num)+'-lat').val(marker.getLatLng().lat());
+		});
+
+        GEvent.trigger(marker, 'dragend');
+
+        return marker;
+    }
+
+</script>

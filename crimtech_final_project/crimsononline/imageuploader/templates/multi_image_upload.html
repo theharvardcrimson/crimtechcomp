@@ -1,0 +1,73 @@
+{% extends "__bare.html" %}
+{% load compress %}
+
+{% block head_content %}
+  {{ block.super }}
+    {% compress css %}
+      <link href="{{ STATIC_URL }}css/admin/BulkImageUpload.scss" rel="stylesheet" media="all" type="text/x-scss">
+    {% endcompress %}
+
+  <link href="{{ STATIC_URL }}css/admin/jquery-file-upload/jquery.fileupload.css" rel="stylesheet" type="text/css">
+  <script src="{{ STATIC_URL }}js/lib/jquery-1.11.0.min.js"></script>
+  <script src="{{ STATIC_URL }}scripts/jquery-file-upload/vendor/jquery.ui.widget.js"></script>
+  <script src="{{ STATIC_URL }}scripts/jquery-file-upload/jquery.iframe-transport.js"></script>
+  <script src="{{ STATIC_URL }}scripts/jquery-file-upload/jquery.fileupload.js"></script>
+  <script src="{{ STATIC_URL }}scripts/django-dynamic-formset-1.2.2/jquery.formset.js"></script>
+  <script src="{{ STATIC_URL }}scripts/admin/BulkImageUpload.js"></script>
+  {{ bulk_formset.media }}
+
+  <!-- Compiled and minified CSS -->
+  {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"> #}
+
+  <!-- Compiled and minified JavaScript -->
+  {# <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>#}
+
+  {# This should be the prefered method of passing data from Django to Javascript. DF - 2015 #}
+  {% autoescape off %}
+  <script>
+    // Declare namespace
+    var Crimson = Crimson || {};
+    // These will be reused several times by the Select2 widget
+    Crimson.contributor_list = {{ json_contributors }};
+    Crimson.tag_list = {{ json_tags }};
+  </script>
+  {% endautoescape  %}
+{% endblock head_content %}
+
+{% block body_content %}
+  <div id="content-main">
+    <form id="upload" method="post" action="imageuploadsubmit" enctype="multipart/form-data">
+      {# CSRF tokens are used to verify requests come from within thecrimson.com #}
+      {% csrf_token %}
+      {# meta-form to track how many forms there are #}
+      {{ bulk_formset.management_form }}
+
+      {# Form template. Replace __prefix__ with the form id #}
+      <template type="text/html" id="item-template">
+        {% include "empty_image_form.html" %}
+      </template>
+
+      {# All inline forms inserted here #}
+      <div id="items-form-container">
+        {% comment %}
+        {% for form in bulk_formset %}
+          {% include "image_form.html" with form=form %}
+        {% endfor %}
+        {% endcomment %}
+      </div>
+
+      {# Drop target #}
+      <div id="drop">
+        {{ bulk_formset.fields }}
+        <div id="drop-label">Drop Here or</div>
+        <a id="drop-button">Browse</a>
+        {# Note that the 'images' name is the key used to retrieve these images #}
+        <input id="file-input" type="file" name="images" multiple />
+      </div>
+      <div id="submit-container">
+        <input type="submit" value="Submit" id="submit">
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

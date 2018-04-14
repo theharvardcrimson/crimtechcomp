@@ -1,0 +1,10 @@
+{% load static %}
+{% get_static_prefix as STATIC_URL %}
+
+{% if widget.is_d3 %}<script src="{{ STATIC_URL }}scripts/d3/d3.min.js"></script>{% endif %}
+{% if widget.is_highcharts %}
+    <script src="{{ STATIC_URL }}scripts/Highcharts/highcharts.js"></script>
+    <script src="{{ STATIC_URL }}scripts/Highcharts/modules/exporting.js"></script>
+{% endif %}
+{{ rendered_html|safe }}
+<script type="text/javascript">{{ rendered_js|safe }}</script>

@@ -1,0 +1,26 @@
+{% load common %}
+{% load content_filters %}
+{% load cache %}
+
+
+{% if articles.count >= 5 %}
+    <section id="row">
+        <div id="highlights-row">
+            <h2 id="highlights-header">
+                <a href="/section/features/">Features</a>
+            </h2>
+            {% for article in articles %}
+                <div class="row article">
+                    <a href="{{ article.get_absolute_url }}">
+                        <div class="highlights-item">
+                            <img src="{{ article.main_rel_content|img_url:"200,150,200,150" }}">
+                            <div class="highlights-info">
+                                <div class="name">{{ article.title }}</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}

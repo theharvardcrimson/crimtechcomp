@@ -1,0 +1,3 @@
+[{"pk": 33, "model": "auth.group", "fields": {"name": "Superboard", "permissions": []}},
+{"pk": 32, "model": "auth.group", "fields": {"name": "Crimed", "permissions": []}},
+{"pk": 34, "model": "auth.group", "fields": {"name": "Execs (New)", "permissions": []}}]

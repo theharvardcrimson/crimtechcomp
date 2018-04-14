@@ -1,0 +1,29 @@
+{% load common %}
+{% load content_filters %}
+
+{% if topic_arts %}
+<table class="topic-box-table{% if id %} topic-box-table-{{ id }}{% endif %}"><tr><td class="topic-box-table-td{% if right %} topic-box-table-td-right{% endif %}">
+  <table>
+    <tr><td class="topic-box-title">
+      {{ topic_arts.title }}
+    </td></tr>
+    {% for art in topic_arts %}
+      <tr><td class="topic-box-item">
+        <div class="headline">
+          <a href="{{ art.get_absolute_url|absolute_url }}">
+            {{ art.title }}
+          </a>
+        </div>
+        {% comment %}
+        <!-- <div class="show-byline">
+          {{ art|byline:"full" }}
+        </div> -->
+        {% endcomment %}
+        <div class="teaser">
+          <a href="{{ art.get_absolute_url|absolute_url }}">{{ art.description }}</a>
+        </div>
+      </td></tr>
+    {% endfor %}
+  </table>
+</td></tr></table>
+{% endif %}

@@ -1,0 +1,11 @@
+{% load content_filters %}
+{% load common %}
+{% load staticfiles %}
+
+<td class="results-name">Map</td>
+<td class="results-pk">{{ map.pk }}</td>
+<td class="results-image"><span>{{ map|to_map_thumb:"100" }}</span>
+</td>
+<td>{{ map.title }}</td>
+<td class="results-section">{{ map.section }}</td>
+<td>{{ map.issue }}</td>

@@ -1,0 +1,404 @@
+$grey-line-color: #bbbbbb;
+
+#todays-paper {
+  padding: 0px 15px;
+
+
+  &-wrapper {
+    text-align: center;
+  }
+
+  max-width: 1000px;
+  margin: 0px auto;
+  text-align: left;
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    // margin: 0px 10px 5px;
+
+    text-transform: uppercase;
+
+    border-style: solid none solid none;
+    border-width: 1px;
+
+    span {
+      &:nth-of-type(2) {
+        text-align: center;
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &-hero {
+    background-color: #F5F5F5;
+    text-align: center;
+    padding: 30px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 300px;
+    }
+
+    div {
+      width: 300px;
+      display: inline-block;
+      text-align: left;
+
+      h2 {
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      a, button {
+        text-align: center;
+        display: inline-block;
+        font-family: system-ui;
+        font-size: 11px;
+        background-color: #BA261B;
+        color: white;
+        font-weight: bold;
+
+        padding: 5px 70px;
+        line-height: 100%;
+        margin-top: 20px;
+        border: none;
+
+        cursor: pointer;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background: $grey-line-color;
+    margin-bottom: 10px;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+
+    span {
+      padding-bottom: 5px;
+    }
+  }
+
+  &-headlines {
+    order: -1;
+
+    flex-grow: 2;
+    flex-basis: 0;
+
+    margin-right: 20px;
+    position: relative;
+
+    span {
+      font-weight: bold;
+      border-bottom-style: solid;
+      border-width: 1px;
+      border-color: $grey-line-color;
+      width: 100%;
+      display: block;
+
+      margin-bottom: 15px;
+      padding-left: 10px;
+
+      box-sizing: border-box;
+    }
+
+    &-container {
+      padding: 0px 10px;
+
+
+      hr {
+        width: calc(100% + 20px);
+        position: relative;
+
+        left: -10px;
+      }
+    }
+  }
+
+  #issuu {
+    flex-grow: 1;
+    flex-basis: 0;
+
+    #the-print-edition {
+      width: 100%;
+      display: block;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    img {
+      border: solid;
+      border-width: 1px;
+      box-sizing: border-box;
+      border-color: #bbbbbb;
+      margin-bottom: 10px;
+      max-width: none;
+      width: 100%;
+    }
+
+    #read-more {
+      // border: solid;
+      // border-width: 1px;
+      background-color: #F5F5F5;
+      padding: 5px;
+      a span {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+        color: #ba0600;
+      }
+    }
+  }
+
+
+  /*
+      Styling for _base_briefing, daily_briefing, and any other new newsletters
+      - Brian Yu, Hannah Natanson, Derek Xiao, Nathan Lee '19
+  */
+
+  .teaser {
+    font-size: 14px;
+  }
+
+  li {
+    padding-top: 5px;
+  }
+
+  .main-img {
+    width: 100%;
+    // max-height: 360px;
+  }
+
+  .teaser a {
+    color: #327acc;
+    float: right;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+
+  #main {
+    width: 100%;
+    max-width: 601px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+  }
+
+  .header {
+    font-family: 'Big Caslon', 'Crimson Text', 'Times New Roman', serif;
+    font-size: 16px;
+    height: 20px;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+
+  #title {
+    font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', 'Georgia', serif;
+    font-size: 36px;
+    margin: 14px 0 4px 0;
+  }
+
+  .date {
+    float: right;
+  }
+
+  .preview {
+    display: none;
+    max-height: 0px;
+    overflow: hidden;
+  }
+
+  .seal {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    margin-right: 3px;
+  }
+
+  #endline > .center > .seal {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+  }
+
+  .placeholder {
+    font-size: 48px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    line-height: 200px;
+    background-color: #e27878;
+  }
+
+  .briefing-teaser {
+    font-size: 15px;
+    line-height: 19px;
+    margin-bottom: 16px;
+  }
+
+  .story {
+    padding: 6px 0px 6px 0px;
+  }
+
+  .story img {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .see-more {
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 800;
+    margin-top: 4px;
+  }
+
+  .headline {
+    font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', 'Georgia', serif;
+    color: #a62b17;
+    font-size: 22px;
+    line-height: 23px;
+    margin: 6px 0 6px 0;
+  }
+
+  .headline a {
+    text-decoration: none;
+    color: #a62b17;
+  }
+
+  .featured > .headline {
+    font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', 'Georgia', serif;
+    font-size: 29px;
+    line-height: 30px;
+  }
+  .section-header {
+    margin-top: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: #a62b17;
+    width: 100%;
+    padding-bottom: 2px;
+    border-bottom: 4px #a62b17 solid;
+  }
+
+  .story-opinion {
+    background-color: #f0f0f0;
+    padding: 3px 8px 26px 8px;
+  }
+
+  .story-sports {
+    padding: 4px 0px 4px 0px;
+  }
+
+  .contributor {
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 4px;
+  }
+  .contributor a {
+    text-decoration: none;
+    color: #a62b17;
+  }
+  #social {
+    padding: 12px 0 12px 0;
+  }
+  #social > .cta {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', sans-serif;
+    font-size: 18px;
+    padding-bottom: 6px;
+  }
+  #social > .social-images {
+    width: 130px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  #social img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+  #endline {
+    font-size: 11px;
+    margin-top: 20px;
+  }
+  #endline a {
+    text-decoration: none;
+    color: #a62b17;
+  }
+
+  #endline > .center {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 650px) {
+  #todays-paper {
+
+    &-header {
+      flex-direction: column;
+    }
+
+    &-content {
+      flex-direction: column;
+    }
+
+    &-hero {
+      flex-direction: column;
+      div a {
+        display: block;
+      }
+
+      img {
+        margin-top: 20px;
+      }
+    }
+
+    &-headlines {
+      order: 0;
+      flex-grow: 0;
+      margin-right: 0px;
+    }
+  }
+
+  #issuu {
+    flex-grow: auto;
+    order: -1;
+    margin-bottom: 30px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

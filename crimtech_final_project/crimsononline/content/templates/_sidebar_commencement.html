@@ -1,0 +1,36 @@
+<div id="sidebar-menu" class="sidebar-menu">
+    <div id="sidebar-menu-shadow">
+        <p class="sidebar-menu-title">
+            {% if article %}{# Level 3, article #}
+            <a href="{{ article.parent_topic.parent.get_absolute_url }}">
+                {{ article.parent_topic.parent.title }}
+            </a>
+            {% elif topic.parent %}{# Level 2, topicpage #}
+            <a href="{{ topic.parent.get_absolute_url }}">
+                {{ topic.parent.title }}
+            </a>
+            {% else %}{# Level 1, topicpage #}
+            <a href="{{ topic.get_absolute_url }}">
+                {{ topic.title }}
+            </a>
+            {% endif %}
+        </p>
+
+        <ul>
+            {# Nasty cases to display the same info at all levels #}
+            {% if article %}{# Level 3, article #}
+            {% for t in article.parent_topic.parent.get_all_ordered_children %}
+                {% include "models/topicpage/commencement-2015/navlink.html" %}
+            {% endfor %}
+            {% elif topic.parent %}{# Level 2, topicpage #}
+            {% for t in topic.parent.get_all_ordered_children %}
+                {% include "models/topicpage/commencement-2015/navlink.html" %}
+            {% endfor %}
+            {% else %}{# Level 1, topicpage #}
+            {% for t in topic.get_all_ordered_children %}
+                {% include "models/topicpage/commencement-2015/navlink.html" %}
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>

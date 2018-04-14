@@ -1,0 +1,12 @@
+{% extends "models/wrapper.html" %}
+
+{% load content_filters %}
+{% load common %}
+
+{% block wrapper_classes %}wide{% endblock %}
+{% block wrapper_id %}wide{% endblock %}
+{% block wrapper_contents %}
+    <a href="{{flashgraphic.get_absolute_url}}">
+    	{{flashgraphic.pic|to_img_tag:"392,"}}
+    </a>
+{% endblock %}

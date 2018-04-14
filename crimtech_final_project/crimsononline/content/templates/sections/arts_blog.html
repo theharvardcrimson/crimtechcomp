@@ -1,0 +1,119 @@
+{% extends "__base.html" %}
+
+{% load ads_tags %}
+{% load common %}
+{% load content_filters %}
+{% load content_module %}
+{% load module %}
+{% load top_articles %}
+{% load cache %}
+
+{% block title %}Arts Blog | {{ block.super }}{% endblock %}
+
+{% block css %}
+    {# TODO: should we have a more general "blog" stylesheet? #}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/artsblog.scss">
+{% endblock %}
+
+{% block js %}
+    <script src="{{ STATIC_URL }}js/lib/masonry.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var selector = '.blog-entry-wrapper'
+            var container = $('#blog-content');
+            container.imagesLoaded(function() {
+                container.masonry({
+                    itemSelector: selector,
+                    columnWidth: function(containerWidth) {
+                        var width = $(window).innerWidth();
+                        if (width >= 960) {
+                            return containerWidth / 3;
+                        }
+
+                        else if (width >= 640) {
+                            return containerWidth / 2;
+                        }
+
+                        else {
+                            return containerWidth;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{# TODO: change flyby naming to arts-blog #}
+
+{% block content %}
+<section id="blog" data-cg="{% if cg %}true{% else %}false{% endif %}" data-tags="{% if tags %}true{% else %}false{% endif %}" data-feature="{% if featured_content %}true{% else %}false{% endif %}">
+    <div id="blog-header">
+        <div id="blog-masthead">
+            <h1 class="blog-title flyby-title"><a href="/section/arts"><span class="flyby-flyby">Arts Blog</span></a></h1>
+        </div>
+        {% if featured_content %}
+            <div id="blog-cover">
+                <div id="blog-features">
+                    {% include "models/article/arts_featured.html" with article=featured_content %}
+                </div>
+                <div id="blog-featured">
+                    {% include "models/article/arts_featured_side.html" with entries=entries|slice:":3" %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div id="blog-content">
+        {% for article in entries|slice:"3:13" %}
+            {% if forloop.counter == 5 %}
+                <div class="blog-entry-wrapper">
+                    <div class="sidekick-shell">
+                        {% ad_unit "300x250" %}
+                    </div>
+                </div>
+            {% endif %}
+            {% include "sections/arts_block.html" %}
+        {% endfor %}
+
+        {# Always include the first ad unit #}
+        {% if entries|slice:"4:13"|length < 5 %}
+            <div class="blog-entry-wrapper">
+                <div class="sidekick-shell">
+                    {% ad_unit "300x250" %}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="blog-entry-wrapper">
+            <div class="sidekick-shell">
+                {% ad_unit "300x250" %}
+            </div>
+        </div>
+
+        <div class="blog-entry-wrapper tw-wrapper">
+            <div id="tw_widget"></div>
+        </div>
+
+        {% for article in entries|slice:"13:" %}
+            {% include "sections/arts_block.html" %}
+        {% endfor %}
+
+    </div>
+
+
+    {% include "_arts_blog_pager.html" %}
+
+</section>
+
+{% highlights_bar %}
+
+{% endblock %}
+
+
+{% block ad_leaderboard_atf %}
+    {% ad_unit "728x90" %}
+{% endblock %}
+
+{% block ad_leaderboard_btf %}
+    {% ad_unit "728x90" %}
+{% endblock %}

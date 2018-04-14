@@ -1,0 +1,87 @@
+{% extends "__base.html" %}
+
+{% load content_filters %}
+
+{% block title %}March Madness{% endblock %}
+
+{% block outside_css %}
+<link href='http://fonts.googleapis.com/css?family=Graduate' rel='stylesheet' type='text/css'>
+<style type="text/css">
+    #main_feat {
+        background-image: url('{{ bracket_arts.main_feat.main_rel_content|img_url:"1034,371,1034,371" }}');
+    }
+
+    #feat_left {
+        background-image: url('{{ bracket_arts.feat_left.main_rel_content|img_url:"493,329,493,329" }}');
+    }
+
+    #feat_right {
+        background-image: url('{{ bracket_arts.feat_right.main_rel_content|img_url:"493,329,493,329" }}');
+    }
+
+    #other_left0 {
+        background-image: url('{{ bracket_arts.other_left.0.main_rel_content|img_url:"231,174,231,174" }}');
+    }
+
+    #other_left1 {
+        background-image: url('{{ bracket_arts.other_left.1.main_rel_content|img_url:"231,174,231,174" }}');
+    }
+
+    #other_right0 {
+        background-image: url('{{ bracket_arts.other_right.0.main_rel_content|img_url:"231,174,231,174" }}');
+    }
+
+    #other_right1 {
+        background-image: url('{{ bracket_arts.other_right.1.main_rel_content|img_url:"231,174,231,174" }}');
+    }
+</style>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}march-madness/css/style.css" />
+{% endblock %}
+
+{% block js %}
+<script src="{{ STATIC_URL }}march-madness/js/main.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+<div id="stories">
+    <div id="title">
+        <div id="title-first">The March</div>
+        <div id="title-second">To Madness</div>
+    </div>
+
+    <p id="main-teaser">
+        On March 21, 2013, the Harvard men&rsquo;s basketball team upset the University of New Mexico in the second round of the NCAA Tournament, marking the first March Madness win in program history. One season later, with the national spotlight shining bright, the Crimson will look to complete yet another bracket bust, returning to the Big Dance with more weapons than ever. Harvard is deeper, quicker, and stronger than last year, and its 13-1 Ivy League record is a program-best. But, as coach Tommy Amaker has said, &ldquo;it&rsquo;s not what you do going into the tournament, it&rsquo;s what you do within the tournament.&rdquo; What the Crimson will do in the Tournament is still up in the air, but its March to Madness has been one of resilience and redemption, and for the third consecutive season, Harvard fans will get to see their team face off against the best in the country.
+    </p>
+
+    <div class="story-row single cf">
+        {% include '_story.html' with article=bracket_arts.main_feat id='main_feat' %}
+    </div>
+    {% include '_bracket.html' %}
+    <div class="story-row double cf">
+        {% include '_story_cat.html' with article=bracket_arts.feat_left category=s1name id='feat_left' %}
+        {% include '_story_cat.html' with article=bracket_arts.feat_right category=s2name id='feat_right' %}
+    </div>
+    <div class="double-bracket">
+        {% include '_bracket.html' %}
+        {% include '_bracket.html' %}
+    </div>
+    <div class="story-row quad cf">
+        {% include '_story.html' with article=bracket_arts.other_left.0 id="other_left0" %}
+        {% include '_story.html' with article=bracket_arts.other_left.1 id="other_left1" %}
+
+        {% include '_story.html' with article=bracket_arts.other_right.0 id="other_right0" %}
+        {% include '_story.html' with article=bracket_arts.other_right.1 id="other_right1" %}
+
+    </div>
+    <div id="other-articles" class="cf">
+        {% for section in other_sections %}
+        {% include '_column.html' with section=section.title articles=section.articles %}
+        {% endfor %}
+    </div>
+</div>
+<div id="bg"></div>
+<div id="cover"></div>
+{% endblock %}

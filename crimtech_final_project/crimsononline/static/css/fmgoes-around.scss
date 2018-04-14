@@ -1,0 +1,56 @@
+.roundabout-holder {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 5em;
+    width: 60%;
+    margin: 140px auto 222px auto;
+}
+.roundabout-moveable-item {
+    height: 12em;
+    width: 12em;
+    cursor: pointer;
+    background-color: #F39C12;
+    border: 1px solid #888;
+    border-radius: 50%;
+    margin-top: 10px;
+    color: #fff;
+}
+.roundabout-moveable-item > div {
+    margin-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 0.9em;
+    font-family: 'Open Sans', 'sans-serif';
+    text-align: center;
+}
+.roundabout-in-focus {
+    cursor: auto;
+}
+
+.goes-around-button div {
+    width: 120px;
+    border: 1px solid;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    height: 34px;
+    padding-top: 4px;
+    background-color: #F39C12;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.goes-around-button, .goes-around-button:hover, .goes-around-button:active {
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .roundabout-moveable-item {
+        height: 10em;
+        width: 10em;
+    }
+
+    .roundabout-moveable-item > div {
+        font-size: 0.8em;
+    }
+}

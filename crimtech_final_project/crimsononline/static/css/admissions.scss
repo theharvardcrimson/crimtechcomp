@@ -1,0 +1,411 @@
+$crimson: rgba(150, 52, 49, 1);
+
+
+.border-box {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.title-font {
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-transform: uppercase;
+}
+
+.accent-font {
+	font-family: "Open Sans", sans-serif;
+	text-transform: uppercase;
+}
+
+.transitions {
+  -moz-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+$em-ratio: (1em / 16px);
+
+body {
+ 	background: url('../images/admissions/bg.png');
+	font: normal 100% 'PT Serif', 'Georgia', serif;
+	line-height: 1;
+}
+
+a {
+	color: inherit;
+	font: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input[type='submit'],
+button {
+	background: $crimson;
+	border: none;
+	color: #fff;
+	font-size: 1.25em;
+	@extend .title-font;
+
+	&:hover {
+		background: darken($crimson, 10%);
+	}
+}
+
+input[type='text'],
+textarea {
+	@extend .accent-font;
+	font-size: .8em;
+	text-transform: none;
+}
+
+#wrapper {
+	@extend .border-box;
+	max-width: (1160px * $em-ratio);
+	margin: 0 auto;
+
+	background: #fff;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+#content {
+	overflow: hidden;
+	padding: (20px * $em-ratio) 2%;
+}
+
+#header {
+	background: url('../images/admissions/harvard.jpg') center center;
+	background-size: cover;
+	overflow: hidden;
+	position: relative;
+}
+
+#messages {
+	background: $crimson;
+	border-top: 1px solid #fff;
+	color: #fff;
+	list-style-type: none;
+	padding: (10px * $em-ratio) 2%;
+	margin: 0;
+}
+
+#main {
+	float: left;
+	width: 58%;
+}
+
+#modules {
+	float: right;
+	width: 32%;
+}
+
+#footer {
+	padding: (10px * $em-ratio) (15px * $em-ratio);
+	background: #333;
+	color: #fff;
+
+	@extend .accent-font;
+	font-size: .65em;
+}
+
+.header-linkback {
+	background: rgba(0, 0, 0, 0.5);
+	padding: 2px 4px;
+	position: absolute;
+	right: 0;
+	display: block;
+}
+
+.header-linkback img {
+	height: 20px;
+}
+
+.header-title {
+	@extend .border-box;
+	width: 100%;
+	margin: (20px * $em-ratio) 0 (10px * $em-ratio);
+	padding: (4px * $em-ratio) (8px * $em-ratio);
+
+	background: rgba(0, 0, 0, 0.3);
+	color: #fff;
+	font-weight: normal;
+	text-shadow: 2px 2px 16px rgba(0, 0, 0, 0.8), 2px 2px 16px rgba(0, 0, 0, 0.8);
+}
+
+.header-title a {
+	display: inline-block;
+}
+
+.header-title a:hover {
+	text-decoration: none;
+}
+
+.header-brand {
+	font-size: .79em;
+}
+
+.header-name {
+	@extend .title-font;
+	font-size: 1.4em;
+}
+
+.important-link {
+	color: $crimson;
+	font-weight: bold;
+}
+
+.important-title {
+	@extend .title-font;
+	color: #fff;
+	font-size: 3em;
+	font-weight: normal;
+}
+
+.featured-title {
+	font-weight: normal;
+	font-size: 1.2em;
+	margin: 0 0 (4px * $em-ratio);
+}
+
+.featured-image {
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.featured-content {
+	line-height: 1.5;
+	font-size: 0.9em;
+	margin: 3px 0 0;
+}
+
+.module-title {
+	@extend .title-font;
+	margin: 0 0 (5px * $em-ratio);
+	padding: 0;
+}
+
+.module-list {
+	margin: 0;
+	padding: 0 0 0 5%;
+
+	font-size: 0.9em;
+	line-height: 1.4;
+}
+
+ul.module-list {
+	list-style-type: none;
+	padding: 0;
+}
+
+ol.module-list {
+	color: #777;
+}
+
+.module-list a {
+	color: $crimson;
+}
+
+.rule {
+	height: 0;
+	margin: (40px * $em-ratio) 0;
+	border: none;
+	border-bottom: 1px dotted #ccc;
+}
+
+.post-title {
+	margin: 0 0 (2px * $em-ratio);
+
+	font-weight: normal;
+}
+
+.post-subtitle {
+	margin: (2px * $em-ratio) 0 (4px * $em-ratio);
+
+	color: #555;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.post-metadata {
+	color: #777;
+	@extend .accent-font;
+	font-size: .7em;
+}
+
+.post-metadata a {
+	color: #555;
+}
+
+.post-series {
+	color: $crimson;
+	@extend .accent-font;
+	margin: 0 0 (4px * $em-ratio);
+}
+
+.post-content {
+	font-size: (15px * $em-ratio);
+	line-height: 1.4;
+	margin-top: (10px * $em-ratio);
+	overflow: hidden;
+}
+
+.post-content a {
+	color: lighten($crimson, 10%);
+}
+
+.post-content p {
+	margin: 0 0 (20px * $em-ratio);
+}
+
+.post-content p:last-child {
+	margin: 0;
+}
+
+.post-comments a {
+	color: $crimson;
+}
+
+.post-image {
+	display: block;
+}
+
+.post-image img {
+	border: 1px solid #ccc;
+}
+
+.post-image-wide,
+.post-image img {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.post-image-tall {
+	float: left;
+	margin-right: 3%;
+	width: 40%;
+}
+
+.post-social {
+	background: #eee;
+	margin: 15px 0;
+	overflow: hidden;
+	padding: (10px * $em-ratio) 2%;
+
+	.module-title,
+	.module-content {
+		float: left;
+		line-height: 32px;
+		margin: 0;
+	}
+
+	.module-content {
+		margin-left: 10px;
+	}
+}
+
+.paginator {
+	background: #eee;
+	color: $crimson;
+	margin: (20px * $em-ratio) 0;
+	overflow: hidden;
+	padding: (10px * $em-ratio) 2%;
+	text-align: center;
+}
+
+.block-form input,
+.block-form button,
+.block-form textarea {
+	display: block;
+	margin: (5px * $em-ratio) 0;
+}
+
+.module-form textarea {
+	@extend .border-box;
+	height: (200px * $em-ratio);
+	width: 100%;
+}
+
+.block-link,
+.block-link:hover {
+	display: block;
+	text-decoration: none;
+}
+
+.ad {
+	clear: both;
+	margin: 0 auto;
+	overflow: hidden;
+	border: 1px solid #ccc;
+}
+
+.ad-sidekick {
+	height: 250px;
+	width: 300px;
+}
+
+.ad-primary {
+	height: 600px;
+	width: 300px;
+}
+
+.ad-leaderboard {
+	height: 90px;
+	width: 728px;
+}
+
+.ad-leaderboard-atf {
+	margin: 0 auto 20px;
+}
+
+.l-post {
+	.post-title {
+		font-size: 1.8em;
+	}
+}
+
+#modal {
+	font-size: 0.75em;
+	line-height: 1.4;
+
+	button,
+	input {
+		font-size: 0.8em;
+	}
+}
+
+@media screen and (min-width: 1060px) {
+	body {
+		font-size: (17px * $em-ratio);
+	}
+
+	.post-content {
+		line-height: 1.5;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	#content {
+		padding: 0;
+	}
+
+	#main {
+		padding: (20px * $em-ratio);
+		float: none;
+		width: auto;
+	}
+
+	#modules {
+		padding: (20px * $em-ratio);
+		float: none;
+		width: auto;
+
+		background: #f6f6f6;
+	}
+
+	.ad-leaderboard {
+		display: none;
+	}
+}

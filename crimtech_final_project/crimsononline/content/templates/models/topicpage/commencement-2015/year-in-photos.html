@@ -1,0 +1,172 @@
+{% extends "models/topicpage/commencement-2015/__base.html" %}
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+{% load placeholders %}
+{% get_static_prefix as STATIC_URL %}
+
+{% block title %}{{ topic.title }} | {{ block.super }}{% endblock %}
+
+{% block remove_css %}{% endblock %}
+
+{% block addl_css %}
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic|Lato:300,400,700|Lora:400,700,400italic|Open+Sans:300italic,400italic,600italic,400,300,600,700|Raleway:400,200,300,500,600,700' rel='stylesheet' type='text/css'>
+    {% compress css %}
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/lib/magnific-popup.scss">
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/yip-commencement.scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block addl_js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/topicpage/yip-commencement.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.magnific-popup.min.js"></script>
+{% endblock %}
+
+{% block masthead_header %}{% endblock masthead_header %}
+
+{% block content %}
+    <header>
+        <div class="wrapper">
+            <a class="header-logo" href="http://www.thecrimson.com/">
+                <img src="{{ STATIC_URL }}images/header-logo-text.png" height="18" width="215">
+            </a>
+            <ul class="header-nav">
+                <a href="{{ topic.parent.get_absolute_url }}"><li><img class="back-arrow" src="{{ STATIC_URL }}images/left-arrow-white.png"> Back To {{ topic.parent.title }}</li></a>
+                <a href="#featured"><li>Featured</li></a>
+                <a href="#arts"><li>Arts</li></a>
+                <a href="#fm"><li>FM</li></a>
+                <a href="#news"><li>News</li></a>
+                <a href="#sports"><li>Sports</li></a>
+            </ul>
+            <div class="navigation-right">
+                <div class="addthis_toolbox addthis_default_style">
+                    <div class="add-this-inner">
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_button_email"></a>
+                        <a class="addthis_button_print"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="intro" style="background-image: url({{ topic.main_rel_content|img_url:"2000,2000" }}); background-position: 50% 36px;">
+        <div id="intro-text">Year In Photos</div>
+        <div id="view-button"><a href="#">View All</a></div>
+        <p>Photo by {{ topic.main_rel_content.contributors.all|linkify|human_list }}</p>
+        <div class="dark-cover fader"></div>
+    </div>
+
+    <div class="content">
+        <div class="section">
+            <div class="section-anchor" id="featured"></div>
+            <div class="section-header">Featured</div>
+            <div class="featured-container cf">
+
+                <div class="featured-left">
+                    {% placeholder name="featured_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                <div class="featured-right">
+                    {% placeholder name="featured_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">Arts</div>
+            <div class="section-anchor" id="arts"></div>
+            <div class="featured-container cf">
+
+                <div class="featured-left">
+                    {% placeholder name="arts_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                <div class="featured-right">
+                    {% placeholder name="arts_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">Fifteen Minutes</div>
+            <div class="section-anchor" id="fm"></div>
+            <div class="featured-container cf">
+
+                <div class="featured-left">
+                    {% placeholder name="fm_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                <div class="featured-right">
+                    {% placeholder name="fm_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">News</div>
+            <div class="section-anchor" id="news"></div>
+            <div class="featured-container cf">
+
+                <div class="featured-left">
+                    {% placeholder name="news_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                <div class="featured-right">
+                    {% placeholder name="news_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">Sports</div>
+            <div class="section-anchor" id="sports"></div>
+            <div class="featured-container cf">
+                <div class="featured-left">
+                    {% placeholder name="sports_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                <div class="featured-right">
+                    {% placeholder name="sports_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

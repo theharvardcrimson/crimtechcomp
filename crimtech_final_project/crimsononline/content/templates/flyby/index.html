@@ -1,0 +1,93 @@
+{% extends "flyby/__base.html" %}
+
+{% load ads_tags %}
+{% load content_filters %}
+{% load shortcodes_filters %}
+
+{% block content %}
+  {% if cg %}
+    <article class="article article-item">
+      {% if cg.image %}
+        <img style="float: right; padding-left: 20px;" src="{{ cg|img_url:'170,170' }}">
+      {% endif %}
+
+      <header>
+        <h1 class="article-heading">{{ cg.name }}</h1>
+      </header>
+
+      <p style="font-family: lato; font-size: 0.9em;">
+        {{ cg.blurb|safe }}
+      </p>
+
+      <div style="clear:both"></div>
+    </article>
+  {% endif %}
+
+  {% for article in paginated_articles.content %}
+    {% if not forloop.first and forloop.counter0|divisibleby:2 %}
+      <div class="ad ad-leaderboard ad-leaderboard-check-these">
+        {% ad_unit "728x90" %}
+      </div>
+
+      <div class="ad ad-sidekick ad-sidekick-hide-these">
+        {% ad_unit "300x250" "new" ".main" 728 %}
+      </div>
+    {% endif %}
+
+    <article class="article article-item">
+      <header>
+        <time class="article-pubdate" datetime="2015-10-05">
+          <span class="month">{{ article.issue.issue_date|date:'M' }}</span>
+          <span class="day">{{ article.issue.issue_date|date:'j' }}</span><span class="day-year-separator">,</span>
+          <span class="year">{{ article.issue.issue_date|date:'Y' }}</span>
+        </time>
+        <h1 class="article-heading">
+          <a class="article-heading-link" href="{{ article.get_absolute_url }}">
+            {{ article.title }}
+          </a>
+        </h1>
+        <div class="article-author">{{ article|byline:"short" }}</div>
+      </header>
+
+      <div class="article-body">
+        {{ article.text_before_jump|shortcodes|safe }}
+      </div>
+
+      <div class="flex">
+        {% if article.has_jump %}
+          <a class="article-jump-link" href="{{ article.get_absolute_url}}">Read more →</a>
+        {% endif %}
+
+        <h5 class="share-box fancy-heading inline-flex flex-right">
+          <span class="pad-right">Share</span>
+          <div class="addthis_toolbox addthis_default_style addthis_16x16_style addthis-white flex-right">
+            <div class="add-this-inner">
+                <a class="addthis_button_facebook"></a>
+                <a class="addthis_button_twitter"></a>
+                <a class="addthis_button_email"></a>
+                <a class="addthis_button_print"></a>
+                <a class="addthis_button_compact"></a>
+                <a class="addthis_counter addthis_bubble_style"></a>
+            </div>
+          </div>
+        </h5>
+      </div>
+
+      <div style="clear:both"></div>
+    </article>
+  {% endfor %}
+
+  <section class="article-item paginator">
+    {% if paginated_articles.p.has_next %}
+      <a class="next-page" href="{% if cg %}{{ cg.get_absolute_url }}{% else %}/blog/flyby/{% endif %}page/{{ paginated_articles.p.next_page_number }}/">
+        Older →
+      </a>
+    {% endif %}
+
+    {% if paginated_articles.p.has_previous %}
+      <a class="prev-page" href="{% if cg %}{{ cg.get_absolute_url }}{% else %}/blog/flyby/{% endif %}page/{{ paginated_articles.p.previous_page_number }}/">
+        ← Newer
+      </a>
+    {% endif %}
+  </section>
+{% endblock %}

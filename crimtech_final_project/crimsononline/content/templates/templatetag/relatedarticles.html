@@ -1,0 +1,16 @@
+{% load content_filters %}
+
+{% with article.rel_content.all|rel_articles as ras %}
+     {% if ras %}
+        <div class="article-related-shell sidebar">
+            <div class="article-related">
+                <h3>Related Articles</h3>
+                <ul>
+                    {% for article in ras %}
+                        {% include "models/article/thumbnail-list-item.html" %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+{% endwith %}

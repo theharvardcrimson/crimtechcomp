@@ -1,0 +1,74 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% block content %}
+    {% if inlines %}
+        <div class="inline-gallery">
+            {% for inline in inlines %}
+                <img src="{{ inline|img_url:sizespec }}">
+            {% endfor %}
+
+            {% if caption %}
+            <p class="inline-gallery-caption">
+                {{ caption }}
+            </p>
+            {% endif %}
+            {% if byline %}
+                <div class="shortcodes-byline">
+                {{ gallery.contributors.all|linkify|human_list }}
+                </div>
+            {% endif %}
+        </div>
+    {% elif carousel %}
+        <script src="{{ STATIC_URL }}js/galleria-1.5.7.js"></script>
+        <script src="{{ STATIC_URL }}js/galleria.carousel.js"></script>
+        <script type="text/javascript">
+            Galleria.loadTheme('{{ STATIC_URL }}js/galleria.carousel.js');
+            Galleria.run('#galleria-box-{{ id }}');
+            Galleria.configure({
+                lightbox: true,
+                showInfo: true,
+                responsive: true,
+                trueFullscreen: true,
+                _toggleInfo: false,
+                debug: false,
+                height: 0.9
+            });
+        </script>
+
+        <div id="galleria-box-{{ id }}">
+        {% for content in gallery.sorted_contents %}
+             <img src="{{ content|img_url:"LARGE" }}" data-title="{{ content.child.kicker }}" data-description="{{ content.child.caption }} <span class='credit'>{{ content.child|byline_sans_by:"full" }}</span>">
+        {% endfor %}
+        </div>
+        {% if byline %}
+            <div class="shortcodes-byline">
+            {{ gallery.contributors.all|linkify|human_list }}
+            </div>
+        {% endif %}
+    {% else %}
+        <script src="{{ STATIC_URL }}js/galleria-1.5.7.js"></script>
+        <script src="{{ STATIC_URL }}js/galleria.classic.js"></script>
+        <script type="text/javascript">
+            Galleria.loadTheme('{{ STATIC_URL }}js/galleria.classic.js');
+            Galleria.run('#galleria-box-{{ id }}');
+            Galleria.configure({
+                lightbox: true,
+                showInfo: true,
+                responsive: true,
+                trueFullscreen: true,
+                _toggleInfo: false,
+                debug: false,
+                height: 0.9
+            });
+        </script>
+
+        <div id="galleria-box-{{ id }}">
+        {% for content in gallery.sorted_contents %}
+             <img src="{{ content|img_url:"LARGE" }}" data-title="{{ content.child.kicker }}" data-description="{{ content.child.caption }} <span class='credit'>{{ content.child|byline_sans_by:"full" }}</span>">
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

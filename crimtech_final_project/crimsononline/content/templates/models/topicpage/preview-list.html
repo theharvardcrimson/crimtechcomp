@@ -1,0 +1,18 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    {% if topicpage.main_rel_content %}
+        <div class="article-headline-image">
+            <a href="{{ topicpage.get_absolute_url }}">
+                {{ topicpage.main_rel_content|to_img_tag:"150,120,150,120"  }}
+            </a>
+        </div>
+    {% endif %}
+    <h2>{{ topicpage|linkify }}</h2>
+        <div class="article-byline">
+            {{ topicpage|byline:"short" }}
+            <span class="article-date">{{ topicpage|datify }}</span>
+        </div>
+    <p>{{ topicpage.description }}</p>
+</div>

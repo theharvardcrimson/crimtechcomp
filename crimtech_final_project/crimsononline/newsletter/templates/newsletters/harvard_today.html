@@ -1,0 +1,257 @@
+{% extends "newsletters/_base_harvard_today.html" %}
+
+{% load common %}
+{% load content_filters %}
+{% load placeholders %}
+{% load newsletter_ads %}
+
+{% block additional_head %}
+{% endblock %}
+
+{% block header %}
+
+
+<td id="header-wrapper" class="center" align="center">
+<a href="http://www.thecrimson.com/section/flyby/">
+ <h2>Harvard Today</h2>
+</a>
+<span id="today-subhead">*|DATE:F j, Y|*</span>
+</td>
+
+{% endblock header %}
+
+
+
+{% block left_tag %}<a class="top-bar-item" href="http://www.thecrimson.com/">The Harvard Crimson</a>{% endblock %}
+
+{% block middle_tag %}<a class="top-bar-item" href="http://www.thecrimson.com/section/flyby/">Flyby Blog</a>{% endblock %}
+
+{% block social_table %}
+  <table align="right">
+    <tr>
+      <td>
+        <a class="left-button" target="_blank" href="https://www.facebook.com/crimsonflyby">
+          <img height="18" src="http://static.thecrimson.com/newsletter/media/facebook_long.png">
+        </a>
+      </td>
+      <td>
+        <a target="_blank" href="http://twitter.com/crimsonflyby">
+          <img height="18" src="http://static.thecrimson.com/newsletter/media/twitter_long.png">
+        </a>
+      </td>
+    </tr>
+  </table>
+{% endblock %}
+
+
+{% block content %}
+<!-- Needed for LiveIntent. Jessica Wang (tech), Dahlia Huh (biz) -->
+<table border="0" cellpadding="0" cellspacing="0"  align="center" style="margin-left:auto; margin-right:auto;"><tr><td colspan="2"><a href="http://li.thecrimson.com/click?s=257141&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257141&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0" style="display: block; width:100%; height:auto;" width="970" /></a></td></tr><tr style="display:block; height:1px; line-height:1px;"><td><img src="http://li.thecrimson.com/imp?s=257142&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td><td><img src="http://li.thecrimson.com/imp?s=257143&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td></tr><tr><td align="left"><a href="http://li.thecrimson.com/click?s=257144&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257144&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td><td align="right"><a href="http://li.thecrimson.com/click?s=257145&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257145&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td></tr></table>
+
+{% newsletter_ad newsletter_obj 0 %}
+
+<table class="row" id="content">
+  <tr>
+    <td class="wrapper">
+      <strong id="today-headline"> TODAY </strong>
+      <table >
+        <tr>
+          <td id="today-intro" class="text-pad">
+            <table id="today-info-box">
+                <tr class="today-food">
+                  <td colspan=2>
+                  <strong>In the Atmosphere:</strong><br>
+                  {% placeholder name="weather photo" content_range="(0,1)" content_types="image" as weather_photo %}
+                  {% if weather_photo %}
+                    <img src="{{ weather_photo.0|img_url:"50,50,50,50" }}">
+                  {% endif %}
+                  {% endplaceholder %}
+
+                  {{ newsletter_obj.weather_description|safe }}
+                </td></tr>
+                <!-- <td id="today-splitter"></td> -->
+                <tr class="today-food"><td>
+                  <strong>Lunch:</strong>
+                  {{ newsletter_obj.lunch_description|safe }}
+                </td><td>
+                  <strong>Dinner:</strong>
+                  {{ newsletter_obj.dinner_description|safe }}
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+      <table id="today-articles-table">
+        <tr>
+          <td id="today-articles" class="left-text-pad">
+            <strong style="padding-bottom:5px";> IN THE NEWS </strong>
+          {{ newsletter_obj.article_list|safe }}
+
+          {% comment %}
+          {% placeholder name="supplement articles" content_range="(0,10)" content_types="article,external content,topic page" as articles %}
+            <strong>{{ articles.title }}</strong>
+            <ol>
+              {% for a in articles %}
+              <li>
+                <div class="headline">
+                  <a href="{{ a.get_absolute_url|absolute_url }}">
+                    {{ a.title }}
+                  </a>
+                </div>
+                <div class="teaser">
+                  <a href="{{ a.get_absolute_url|absolute_url }}">{{ a.description }}</a>
+                </div>
+              </li>
+              {% endfor %}
+            </ol>
+          {% endplaceholder %}
+
+          {% placeholder name="news articles" content_range="(0,10)" content_types="article,external content,topic page" as articles %}
+            <strong>In The News:</strong>
+            <ol>
+              {% for a in articles %}
+              <li>
+                <div class="headline">
+                  <a href="{{ a.get_absolute_url|absolute_url }}">
+                    {{ a.title }}
+                  </a>
+                </div>
+                <div class="teaser">
+                  <a href="{{ a.get_absolute_url|absolute_url }}">{{ a.description }}</a>
+                </div>
+              </li>
+              {% endfor %}
+            </ol>
+          {% endplaceholder %}
+
+          {% endcomment %}
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+    <td class="wrapper last">
+      {% if newsletter_obj.sponsored_events.all %}
+      <table class="five columns">
+        <tr>
+          <td id="events-container" class="right-text-pad" style:"padding-bottom:0px;">
+            <table id="today-sponsored-events" class="topic-box-table"><tr><td class="topic-box-table-td">
+              <table id="sponsored-events-head">
+                <tr id="sponsored-events-head"><td id="sponsored-events-head">
+                  <strong id="today-headline"> SPONSORED EVENTS</strong>
+
+                </td></tr>
+                <tr><td>
+                  <table class-"five columns" id="sponsored-events-list">
+                    <tr><td id="time-strip"></td>
+                      <td>
+                        <table>
+                {% for e in newsletter_obj.sponsored_events.all %}
+                  <tr><td class="topic-box-item">
+                    <table class="small-red-tag-wrapper"><tr><td>
+                      <table class="small-red-tag"><tr><td>&nbsp;&nbsp;&nbsp;{{ e.time }}&nbsp;&nbsp;</td></tr></table><br>
+                    </td></tr></table>
+                    {{ e.description|safe }}
+                  </td></tr>
+                {% endfor %}
+              </table>
+              </td>
+              </table>
+              </td></tr>
+              </table>
+            </td></tr></table>
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+      {% endif %}
+      <table class="five columns">
+        <tr>
+          <td id="events-container" class="right-text-pad" style:"padding-bottom:0px;">
+            <table id="today-events" class="topic-box-table"><tr><td class="topic-box-table-td">
+              <table id="events-head">
+                <tr id="events-head"><td id="events-head">
+                  <strong id="today-headline"> TODAY'S EVENTS</strong>
+
+                </td></tr>
+                <tr><td>
+                  <table class-"five columns" id="events-list">
+                    <tr><td id="time-strip"></td>
+                      <td>
+                        <table>
+                {% for e in newsletter_obj.events.all %}
+                  <tr><td class="topic-box-item">
+                    <table class="small-red-tag-wrapper"><tr><td>
+                      <table class="small-red-tag"><tr><td>&nbsp;&nbsp;&nbsp;{{ e.time }}&nbsp;&nbsp;</td></tr></table><br>
+                    </td></tr></table>
+                    {{ e.description|safe }}
+                  </td></tr>
+                {% endfor %}
+              </table>
+              </td>
+              </table>
+              </td></tr>
+              </table>
+            </td></tr></table>
+          </td>
+          <td class="expander"></td>
+        </tr>
+         <tr id="other-list">
+    <td>
+      <table>
+        <tr>
+          <td id="others-container">
+    {{ newsletter_obj.others_list|safe }}
+  </td>
+</tr>
+</table>
+  </td>
+</tr>
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+{% comment %}
+<table class="row">
+  <tr>
+    <td id="today-photo-description-table" class="wrapper last">
+      <table class="twelve columns">
+        <tr>
+          <td id="today-photo-description" class="text-pad">
+            {{ newsletter_obj.photo_description|safe }}
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{% endcomment %}
+
+<table id="today-row" class="row">
+  <tr>
+    <td class="wrapper">
+      <table class="twelve columns">
+        <tr>
+          <td class="text-pad">
+
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+{% newsletter_ad newsletter_obj 1 %}
+
+<!-- Needed for LiveIntent. Jessica Wang (tech), Dahlia Huh (biz) -->
+<table cellpadding="0" cellspacing="0" border="0" width="40" height="6"><tbody><tr><td><img src="http://li.thecrimson.com/imp?s=124939700&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939701&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939702&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939703&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939704&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939705&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939706&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939707&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939708&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939709&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939710&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939711&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939712&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939713&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939714&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939715&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939716&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939717&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939718&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939719&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td></tr></tbody></table>
+
+{% endblock content %}

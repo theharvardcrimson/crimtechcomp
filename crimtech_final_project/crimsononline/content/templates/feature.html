@@ -1,0 +1,654 @@
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load ads_tags %}
+
+<!doctype html>
+<html>
+    <head>
+        <title>The Harvard Crimson | Concussions at Harvard</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+        <style>
+            a {text-decoration: none}
+            a:hover {text-decoration: underline;}
+            .clearfix{clear:both;}
+            .border_left{border-left:1px solid #cccccc;}
+            .border_right{border-right:1px solid #cccccc;}
+            html,body{margin:0;padding:0;}
+            body{font-family: Georgia, serif; text-align: left;}
+            div{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+            a{color:#ba0600;transition:0.3s all;-moz-transition:0.3s all;-webkit-transition:0.3s all;}a:hover{color:#870400;}
+            h1,h2,h3,h4,h5,h6{font-weight:normal;}
+            #navigation{position:fixed;top:0;margin:0;padding:12px 12px 6px;background-image:url("{{ STATIC_URL }}images/masthead-inner.jpg");width:100%;box-shadow:0px 2px 4px #333;z-index:1000;}
+            #navigation img{height:16px;padding-right:12px;margin-right:12px;border-right:1px solid #FFF;float:left;}
+            #navigation h2{display:inline-block;color:#FFF;font-size:22px;line-height:22px;font-weight:normal;margin:0;float:left;}
+            #navigation ul{margin:0 20px;padding:0;position:relative;top:-2px;float:right;}
+            #navigation ul li{display:inline-block;margin:0 8px;}#navigation ul li a{font-family:"Open Sans";color:#FFF;font-size:12px;font-weight:300;text-transform:uppercase;text-decoration:none;text-shadow:1px 1px 2px #333;padding:4px 8px;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;transition:0.3s all;-moz-transition:0.3s all;-webkit-transition:0.3s all;}#navigation ul li a:hover{background:rgba(0, 0, 0, 0.3);}
+            #wrapper{max-width:960px;margin:72px auto 0;overflow:hidden;}
+            #wrapper_inner{overflow:hidden;margin:0 auto 40px;}
+            #sidebar{float:left;max-width:300px;}
+            #main{float:right;max-width:640px;padding-left:20px;border-left:1px solid #cccccc;}#main::after{content:" ";clear:both;}
+            .main_left{float:left;padding-right:15px;}
+            .main_right{float:right;padding-left:15px;}
+            .main_third{max-width:200px;}
+            .main_twothirds{max-width:400px;}
+            .main_half{max-width:300px;}
+            .featured_item{margin:20px 0;}.featured_item h3{margin:0;}.featured_item h3 a{text-decoration:none;}
+            .featured_item h4{margin:0 0 12px;font-size:14px;}
+            .featured_item p{margin:0;}.featured_item p:not(:last-child){margin-bottom:12px;}
+            .featured_item:not(:last-child){padding-bottom:20px;border-bottom:1px solid #cccccc;}
+            #header{overflow:auto;margin:40px 0 0;}
+            #title{float:left;}
+            #nav_grid{float:right;}#nav_grid a{position:relative;font-size:14px;}#nav_grid a:not(:last-child){margin-right:10px;}
+            #nav_grid a:hover img{opacity:1;position:relative;top:0px;}
+            #nav_grid a img{border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;opacity:0.7;transition:0.3s all;-moz-transition:0.3s all;-webkit-transition:0.3s all;position:relative;top:10px;}
+            #nav_grid a span{position:absolute;top:-20px;left:0;display:block;text-align:center;background-color:rgba(0, 0, 0, 0.5);color:#FFF;width:80px;}
+            #title h1{color:#ba0600;font-size:48px;line-height:48px;margin:0;}
+            #title h3{margin-top:0;}
+            h5{font-family:"Open Sans";color:#999999;text-transform:uppercase;margin:-10px 0 20px;font-size:12px;}
+            h5 a { color: #999999;}
+            h5 a:hover { color: #665;}
+            #wrapper_inner h2{color:#ba0600;margin-top:0;}
+            hr{border-top:1px solid #cccccc;border-bottom:0;margin-bottom:20px;}
+            .pullquote{background:#FAF0F0;padding:20px;margin-bottom:30px;}.pullquote .quote{font-size:24px;font-weight:100;color:#666666;}.pullquote .quote::before,.pullquote .quote::after{font-size:24px;color:#ba0600;}
+            .pullquote .quote::before{content:"\201C";}
+            .pullquote .quote::after{content:"\201D";}
+            .pullquote .source{text-align:right;}
+            .advert h4{margin:0;font-family:"Open Sans";font-size:10px;text-transform:uppercase;}
+            .advert_wide .advert_inner{width:728px;margin:0 auto;}
+            .advert_side{margin-top:80px;}.advert_side .advert_inner{width:300px;margin:0 auto;padding:0px 0;}
+            .advert_side img{width:300px;}
+            #footer{clear:both;margin:20px auto;max-width:960px;padding-top:20px;border-top:4px solid #ba0600;background:#ffffff url("{{ STATIC_URL }}images/footer.jpg") repeat-x bottom;overflow:auto;}#footer img{padding:8px;float:left;}
+            #footer ul{margin:20px 0 0;padding:0;float:right;list-style-type:none;display:inline-block;max-width:600px;text-align:right;}#footer ul li{display:inline-block;margin:0px 6px;}#footer ul li a{color:#ba0600;font-family:"Open Sans";text-decoration:none;font-size:12px;transition:0.3s all;-moz-transition:0.3s all;-webkit-transition:0.3s all;}#footer ul li a:hover{color:#870400;text-decoration:underline;}
+
+        </style>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#navigation ul li a, #nav_grid a").click(function(event) {
+                    event.preventDefault();
+                    var target = $(this).attr("href")
+                    $("html, body").animate({
+                        scrollTop: $(target).offset().top - 60
+                    }, 500);
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', '{{ ANALYTICS_USER_AGENT }}', 'thecrimson.com');
+            ga('send', 'pageview');
+        </script>
+
+        <script type='text/javascript'>
+            var googletag = googletag || {};
+            googletag.cmd = googletag.cmd || [];
+            (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+            })();
+        </script>
+
+        <script type='text/javascript'>
+            googletag.cmd.push(function() {
+                googletag.defineSlot('/1046082/TheCrimson_AllArticles_ATF_300x250', [300, 250], 'TheCrimson_AllArticles_ATF_300x250').addService(googletag.pubads());
+                googletag.defineSlot('/1046082/TheCrimson_AllArticles_ATF_728x90', [728, 90], 'TheCrimson_AllArticles_ATF_728x90').addService(googletag.pubads());
+                googletag.defineSlot('/1046082/TheCrimson_AllArticles_BTF_300x250', [300, 250], 'TheCrimson_AllArticles_BTF_300x250').addService(googletag.pubads());
+                googletag.defineSlot('/1046082/TheCrimson_AllArticles_BTF_728x90', [728, 90], 'TheCrimson_AllArticles_BTF_728x90').addService(googletag.pubads());
+                googletag.enableServices();
+                googletag.pubads().set("page_url", "{{ request.build_absolute_uri }}");
+            });
+        </script>
+
+        <script language="JavaScript" type="text/javascript">
+        <!--
+        //v1.7
+        // Flash Player Version Detection
+        // Detect Client Browser type
+        // Copyright 2005-2008 Adobe Systems Incorporated.  All rights reserved.
+        var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+        var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+        var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+        function ControlVersion()
+        {
+            var version;
+            var axo;
+            var e;
+            // NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
+            try {
+                // version will be set for 7.X or greater players
+                axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
+                version = axo.GetVariable("$version");
+            } catch (e) {
+            }
+            if (!version)
+            {
+                try {
+                    // version will be set for 6.X players only
+                    axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
+
+                    // installed player is some revision of 6.0
+                    // GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
+                    // so we have to be careful.
+
+                    // default to the first public version
+                    version = "WIN 6,0,21,0";
+                    // throws if AllowScripAccess does not exist (introduced in 6.0r47)
+                    axo.AllowScriptAccess = "always";
+                    // safe to call for 6.0r47 or greater
+                    version = axo.GetVariable("$version");
+                } catch (e) {
+                }
+            }
+            if (!version)
+            {
+                try {
+                    // version will be set for 4.X or 5.X player
+                    axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+                    version = axo.GetVariable("$version");
+                } catch (e) {
+                }
+            }
+            if (!version)
+            {
+                try {
+                    // version will be set for 3.X player
+                    axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+                    version = "WIN 3,0,18,0";
+                } catch (e) {
+                }
+            }
+            if (!version)
+            {
+                try {
+                    // version will be set for 2.X player
+                    axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+                    version = "WIN 2,0,0,11";
+                } catch (e) {
+                    version = -1;
+                }
+            }
+
+            return version;
+        }
+        // JavaScript helper required to detect Flash Player PlugIn version information
+        function GetSwfVer(){
+            // NS/Opera version >= 3 check for Flash plugin in plugin array
+            var flashVer = -1;
+
+            if (navigator.plugins != null && navigator.plugins.length > 0) {
+                if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+                    var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+                    var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+                    var descArray = flashDescription.split(" ");
+                    var tempArrayMajor = descArray[2].split(".");
+                    var versionMajor = tempArrayMajor[0];
+                    var versionMinor = tempArrayMajor[1];
+                    var versionRevision = descArray[3];
+                    if (versionRevision == "") {
+                        versionRevision = descArray[4];
+                    }
+                    if (versionRevision[0] == "d") {
+                        versionRevision = versionRevision.substring(1);
+                    } else if (versionRevision[0] == "r") {
+                        versionRevision = versionRevision.substring(1);
+                        if (versionRevision.indexOf("d") > 0) {
+                            versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
+                        }
+                    }
+                    var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+                }
+            }
+            // MSN/WebTV 2.6 supports Flash 4
+            else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+            // WebTV 2.5 supports Flash 3
+            else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+            // older WebTV supports Flash 2
+            else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+            else if ( isIE && isWin && !isOpera ) {
+                flashVer = ControlVersion();
+            }
+            return flashVer;
+        }
+        // When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+        function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
+        {
+            versionStr = GetSwfVer();
+            if (versionStr == -1 ) {
+                return false;
+            } else if (versionStr != 0) {
+                if(isIE && isWin && !isOpera) {
+                    // Given "WIN 2,0,0,11"
+                    tempArray         = versionStr.split(" ");  // ["WIN", "2,0,0,11"]
+                    tempString        = tempArray[1];           // "2,0,0,11"
+                    versionArray      = tempString.split(",");  // ['2', '0', '0', '11']
+                } else {
+                    versionArray      = versionStr.split(".");
+                }
+                var versionMajor      = versionArray[0];
+                var versionMinor      = versionArray[1];
+                var versionRevision   = versionArray[2];
+                    // is the major.revision >= requested major.revision AND the minor version >= requested minor
+                if (versionMajor > parseFloat(reqMajorVer)) {
+                    return true;
+                } else if (versionMajor == parseFloat(reqMajorVer)) {
+                    if (versionMinor > parseFloat(reqMinorVer))
+                        return true;
+                    else if (versionMinor == parseFloat(reqMinorVer)) {
+                        if (versionRevision >= parseFloat(reqRevision))
+                            return true;
+                    }
+                }
+                return false;
+            }
+        }
+        function AC_AddExtension(src, ext)
+        {
+          if (src.indexOf('?') != -1)
+            return src.replace(/\?/, ext+'?');
+          else
+            return src + ext;
+        }
+        function AC_Generateobj(objAttrs, params, embedAttrs)
+        {
+          var str = '';
+          if (isIE && isWin && !isOpera)
+          {
+            str += '<object ';
+            for (var i in objAttrs)
+            {
+              str += i + '="' + objAttrs[i] + '" ';
+            }
+            str += '>';
+            for (var i in params)
+            {
+              str += '<param name="' + i + '" value="' + params[i] + '" /> ';
+            }
+            str += '</object>';
+          }
+          else
+          {
+            str += '<embed ';
+            for (var i in embedAttrs)
+            {
+              str += i + '="' + embedAttrs[i] + '" ';
+            }
+            str += '> </embed>';
+          }
+          document.write(str);
+        }
+        function AC_FL_RunContent(){
+          var ret =
+            AC_GetArgs
+            (  arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+             , "application/x-shockwave-flash"
+            );
+          AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+        }
+        function AC_SW_RunContent(){
+          var ret =
+            AC_GetArgs
+            (  arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
+             , null
+            );
+          AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+        }
+        function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
+          var ret = new Object();
+          ret.embedAttrs = new Object();
+          ret.params = new Object();
+          ret.objAttrs = new Object();
+          for (var i=0; i < args.length; i=i+2){
+            var currArg = args[i].toLowerCase();
+            switch (currArg){
+              case "classid":
+                break;
+              case "pluginspage":
+                ret.embedAttrs[args[i]] = args[i+1];
+                break;
+              case "src":
+              case "movie":
+                args[i+1] = AC_AddExtension(args[i+1], ext);
+                ret.embedAttrs["src"] = args[i+1];
+                ret.params[srcParamName] = args[i+1];
+                break;
+              case "onafterupdate":
+              case "onbeforeupdate":
+              case "onblur":
+              case "oncellchange":
+              case "onclick":
+              case "ondblclick":
+              case "ondrag":
+              case "ondragend":
+              case "ondragenter":
+              case "ondragleave":
+              case "ondragover":
+              case "ondrop":
+              case "onfinish":
+              case "onfocus":
+              case "onhelp":
+              case "onmousedown":
+              case "onmouseup":
+              case "onmouseover":
+              case "onmousemove":
+              case "onmouseout":
+              case "onkeypress":
+              case "onkeydown":
+              case "onkeyup":
+              case "onload":
+              case "onlosecapture":
+              case "onpropertychange":
+              case "onreadystatechange":
+              case "onrowsdelete":
+              case "onrowenter":
+              case "onrowexit":
+              case "onrowsinserted":
+              case "onstart":
+              case "onscroll":
+              case "onbeforeeditfocus":
+              case "onactivate":
+              case "onbeforedeactivate":
+              case "ondeactivate":
+              case "type":
+              case "codebase":
+              case "id":
+                ret.objAttrs[args[i]] = args[i+1];
+                break;
+              case "width":
+              case "height":
+              case "align":
+              case "vspace":
+              case "hspace":
+              case "class":
+              case "title":
+              case "accesskey":
+              case "name":
+              case "tabindex":
+                ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];
+                break;
+              default:
+                ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+            }
+          }
+          ret.objAttrs["classid"] = classid;
+          if (mimeType) ret.embedAttrs["type"] = mimeType;
+          return ret;
+        }
+        // -->
+        </script>
+        <script language="JavaScript" type="text/javascript">
+        <!--
+        // -----------------------------------------------------------------------------
+        // Globals
+        // Major version of Flash required
+        var requiredMajorVersion = 10;
+        // Minor version of Flash required
+        var requiredMinorVersion = 0;
+        // Revision of Flash required
+        var requiredRevision = 2;
+        // -----------------------------------------------------------------------------
+        // -->
+        </script>
+
+    </head>
+    <body>
+        <div id="navigation">
+            <a href="https://thecrimson.com"><img src="{{ STATIC_URL }}images/feature/thc-logo-large.png" /></a>
+            <h2>The Price of Play</h2>
+            <ul>
+                <li><a href="#scrut">Scrutiny</a></li>
+                <li><a href="#part1">Part One</a></li>
+                <li><a href="#part2">Part Two</a></li>
+                <li><a href="#part3">Part Three</a></li>
+                <li><a href="#part4">Part Four</a></li>
+            </ul>
+        </div>
+        <div id="wrapper">
+            <div class="advert advert_wide">
+                <div class="advert_inner">
+                    <h4>Advertisement</h4>
+                    {% ad_unit "TheCrimson_AllArticles_ATF_728x90" 728 90 %}
+                </div>
+            </div>
+            <div id="header">
+                <div id="title"><span id="intro"></span>
+                    <h1>The Price of Play</h1>
+                    <h3>Coping with Concussions at Harvard</h3>
+                    <h5>By The Crimson Staff</h5>
+                </div>
+                <div id="nav_grid">
+                    <a href="#part1"><img src="{{ STATIC_URL }}images/feature/nowinski.jpg" width="80"/><span>Part 1</span></a>
+                    <a href="#part2"><img src="{{ STATIC_URL }}images/feature/penn.jpg" width="80"/><span>Part 2</span></a>
+                    <a href="#part3"><img src="{{ STATIC_URL }}images/feature/birk.jpg" width="80"/><span>Part 3</span></a>
+                    <a href="#part4"><img src="{{ STATIC_URL }}images/feature/concussions_graphic.jpg" width="80"/><span>Part 4</span></a>
+                </div>
+            </div>
+            <div id="wrapper_inner">
+                <div id="sidebar">
+                    <h2>Videos</h2>
+                    <div id="videos">
+                        <div class="featured_item">
+                            <iframe width="300" height="225" src="https://www.youtube.com/embed/2dvWxOFiRvk" frameborder="0" allowfullscreen></iframe>
+                            <h4>Josephine U. Pucci '13, a Crimson hockey player with Olympic ambitions, talks about the injuries that caused her to withdraw from the College.</h4>
+                        </div>
+                        <div class="featured_item">
+                            <iframe width="300" height="225" src="https://www.youtube.com/embed/4D36bngIPOk" frameborder="0" allowfullscreen></iframe>
+                            <h4>Former Harvard lineman Nick E. Scheidler '13 discusses the effects of multiple concussions and his experiences recovering from them.</h4>
+                        </div>
+                        <div class="featured_item">
+                            <iframe width="300" height="225" src="https://www.youtube.com/embed/zCUCn9t7aQk" frameborder="0" allowfullscreen></iframe>
+                            <h4>AJ Millet '13, a former Harvard soccer player, was knocked out of the game after her second diagnosed concussion.</h4>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div><hr />
+                    <div class="advert advert_side">
+                        <div class="advert_inner">
+                            <h4>Advertisement</h4>
+                            {% ad_unit "TheCrimson_AllArticles_BTF_300x250" 300 250 %}
+                        </div>
+                    </div>
+                </div>
+                <div id="main">
+                    <span id="scrut"></span>
+                    <div class="main_left main_third">
+                        <a href="http://www.thecrimson.com/article/2013/4/4/scrutiny-concussions-athletics-academics/"><img src="https://s3.amazonaws.com/media.thecrimson.com/photos/2013/04/02/191646_1286087.jpg" style="width:640px; margin-top: -50px"/></a>
+                    </div>
+                    <div class="main_right main_twothirds">
+                        <a href="http://www.thecrimson.com/article/2013/4/4/scrutiny-concussions-athletics-academics/">
+                            <h2>Leaving It All Out on the Field</h2>
+                        </a>
+                        <h5>By <a href="http://www.thecrimson.com/writer/1207985/Jacob_D.%20H._Feldman/">Jacob D. H. Feldman<a/>, <a href="http://www.thecrimson.com/writer/1207058/Maya__Jonas-Silver/">Maya Jonas-Silver</a>, <a href="http://www.thecrimson.com/writer/1205009/Martin__Kessler/">Martin Kessler</a></h5>
+                        <div style="text-align: right; padding-left: 10px">
+                            <p>In recent years, the Ivy League and Harvard have made preventing and treating head injuries a priority. Many say that the league’s policies, which seek to limit dangerous contact in sports, are ahead of the curve. Players and coaches also praise what they describe as a greater awareness of the risks of concussions in the Harvard athletic community.</p>
+                            <p>But despite these changes, student-athletes still risk an injury that could jeopardize their futures every time they take the field for the Crimson. Because once athletes take the field of play, Harvard can’t stop people from getting hurt. And every year, the concussions keep coming. <a href="http://www.thecrimson.com/article/2013/4/4/scrutiny-concussions-athletics-academics/">Read more &raquo;</a></p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div><hr /><span id="part1"></span>
+                    <div class="main_right main_third">
+                        <a href="http://www.thecrimson.com/article/2013/4/4/concussions-fight-nowinski/"><img height="313" src="https://s3.amazonaws.com/media.thecrimson.com/photos/2013/04/02/191331_1286084_420x630.jpg" /></a>
+                    </div>
+                    <div class="main_left main_twothirds">
+                        <a href="http://www.thecrimson.com/article/2013/4/4/concussions-fight-nowinski/">
+                            <h2>Concussed: Down and Out</h2>
+                        </a>
+                        <h5>By <a href="http://www.thecrimson.com/writer/1209849/David__Freed/">DAVID FREED</a> and <a href="http://www.thecrimson.com/writer/1209900/Keyon__Vafa/">KEYON VAFA</a></h5>
+                        <div class="pullquote">
+                            <div class="quote">No sport today looks at all like it did 20 years ago, and nobody wants any permanent brain damage because the rules were once written this way.</div>
+                            <div class="source">&mdash;Chris Nowinski</div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="main_full">
+                        <p>Chris Nowinski '00, a Crimson football player and WWE fighter turned safety advocate, is now a public face for the concussion cause. Along with his fellow scientists at the Sports Legacy Institute, Nowinski has succeeded in changing the way the NFL deals with head trauma.</p>
+                        <p style="text-align: right"><a href="http://www.thecrimson.com/article/2013/4/4/concussions-fight-nowinski/">Read more &raquo;</a></p>
+                    </div>
+                    <div class="clearfix"></div><hr /><span id="part2"></span>
+                    <div class="main_full">
+                        <a href="http://www.thecrimson.com/article/2013/4/4/college-football-brain-trauma/">
+                            <h2>College Football Reflects On Head Trauma</h2>
+                        </a>
+                        <h5>By <a href="http://www.thecrimson.com/writer/1209848/Samantha__Lin/">SAMANTHA LIN</a></h5>
+                        <div style="overflow: hidden">
+                        <a href="http://www.thecrimson.com/article/2013/4/4/college-football-brain-trauma/"><img style="width:640px; height:400px; margin: -100px 0px -100px 0px" src="https://s3.amazonaws.com/media.thecrimson.com/photos/2013/04/04/012102_1286163.jpg" /></a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <p>A few months after Penn football star Owen Thomas committed suicide, a brain autopsy revealed that he had developed CTE, a disease which often results from repeated, hard hits to the head. As cases like Thomas' continue to illuminate the long-term effects of concussions and CTE, collegiate football is discussing ways to make the game safer through regulation and education.</p>
+                        <p style="text-align: right"><a href="http://www.thecrimson.com/article/2013/4/4/college-football-brain-trauma/">Read more &raquo;</a></p>
+                    </div>
+                    <div class="clearfix"></div><hr /><span id="part3"></span>
+                        <a href="http://www.thecrimson.com/article/2013/4/4/matt-birk-5-Q/">
+                            <h2>5 Questions with Matt Birk</h2>
+                        </a>
+                        <h5>By <a href="http://www.thecrimson.com/writer/1210331/William_H_Marks/">William H. Marks</a></h5>
+                    <div class="main_left main_half">
+                        <a href="http://www.thecrimson.com/article/2013/4/4/matt-birk-5-Q/">
+                            <img src="https://s3.amazonaws.com/media.thecrimson.com/photos/2013/02/01/021932_1283566_400x500.jpg" width="320"/>
+                        </a>
+                    </div>
+                    <div class="main_right main_half">
+                        Matt R. Birk ’98 was the starting center for the Super Bowl XLVII Champion Baltimore Ravens. The Harvard graduate and economics concentrator has received multiple athletic honors. He was an All-Ivy League player at Harvard, a two-time NFL All-Pro and six-time Pro Bowler, and recipient of the Ed Block Courage Award and Walter Payton Man of the Year Award. FM spoke with Birk about his success on and off the field shortly after he won his first Super Bowl in New Orleans this past February.
+                        <p style="text-align: right"><a href="http://www.thecrimson.com/article/2013/4/4/matt-birk-5-Q/">Read more &raquo;</a></p>
+                    </div>
+                    <div class="clearfix"></div><hr /><span id="part4"></span>
+                    <div class="main_full">
+                        <div align="center">
+                            <h5>By <a href="http://www.thecrimson.com/writer/1210076/Jake__Freyer/">Jake Freyer</a>, <a href="http://www.thecrimson.com/writer/1209763/Michael_D._Ledecky/">Michael D. Ledecky</a> and <a href="http://www.thecrimson.com/writer/1209848/Samantha__Lin/">Samantha Lin</a></h5>
+                            <script language="JavaScript" type="text/javascript">
+                            <!--
+                            var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+                            if(hasRightVersion) {  // if we've detected an acceptable version
+                                // embed the flash movie
+                                AC_FL_RunContent(
+                                    'codebase', 'https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,2,0',
+                                    'width', '610',
+                                    'height', '610',
+                                    'src', '{{ STATIC_URL }}images/feature/concussions_graphic',
+                                    'quality', 'high',
+                                    'pluginspage', 'https://www.adobe.com/go/getflashplayer',
+                                    'align', 'middle',
+                                    'play', 'false',
+                                    'loop', 'false',
+                                    'scale', 'showall',
+                                    'wmode', 'window',
+                                    'devicefont', 'false',
+                                    'id', 'Concussions Graphic',
+                                    'bgcolor', '#999999',
+                                    'name', 'Concussions Graphic',
+                                    'menu', 'true',
+                                    'allowFullScreen', 'true',
+                                    'allowScriptAccess','sameDomain',
+                                    'movie', '{{ STATIC_URL }}images/feature/concussions_graphic',
+                                    'salign', ''
+                                    ); //end AC code
+                            } else {  // flash is too old or we can't detect the plugin
+                                var alternateContent = '<p>This content requires version '
+                                    + requiredMajorVersion + '.' + requiredMinorVersion + '.' + requiredRevision + ' '
+                                    + 'or higher of the Adobe Flash Player.</p>'
+                                    + '<a href="https://www.adobe.com/go/getflashplayer/">Get Flash</a>';
+                                document.write(alternateContent);  // insert non-flash content
+                            }
+                            // -->
+                            </script>
+                            <noscript>
+                                This content requires the Adobe Flash Player.
+                                <a href="https://www.adobe.com/go/getflashplayer/">Get Flash</a>
+                            </noscript>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="advert advert_wide">
+                <div class="advert_inner">
+                    <h4>Advertisement</h4>
+                    {% ad_unit "TheCrimson_AllArticles_BTF_728x90" 728 90 %}
+                </div>
+            </div>
+        </div>
+
+        <!--
+
+        <div id="footer">
+            <a href="http://thecrimson.com"><img src="{{ STATIC_URL }}images/footer-title.png" /></a>
+            <ul>
+                <li><a href="/about/privacy/">Privacy Policy</a></li>
+                <li><a href="/about/permissions/">Rights & Permissions</a></li>
+                <li><a href="/contact/">Contact Us</a></li>
+                <li><a href="/contact/?message_type=correction">Corrections</a></li>
+                <li><a href="/subscribe/">Subscriptions</a></li>
+            </ul>
+        </div>
+
+        -->
+
+    </body>
+
+    <footer>
+    <div id="footer">
+    <table>
+    <tr>
+      <td id="footer-sections">
+        <h1>Sections</h1>
+        <ul>
+          <li><a href="/section/news/">News</a></li>
+          <li><a href="/section/opinion/">Opinion</a></li>
+          <li><a href="/section/features/">Features</a></li>
+          <li><a href="/section/fm/">Magazine</a></li>
+          <li><a href="/section/sports/">Sports</a></li>
+          <li><a href="/section/arts/">Arts</a></li>
+          <li><a href="/section/media/">Multimedia</a></li>
+          <li><a href="/flyby/">Flyby</a></li>
+        </ul>
+      </td>
+
+      <td id="footer-more">
+        <h1>More</h1>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/advertising/" target="_blank">Advertising</a></li>
+          <li><a href="https://subscribe.thecrimson.com/">Subscribe</a></li>
+          <li><a href="http://programs.thecrimson.com/">Journalism Programs</a></li>
+          <li><a href="/classifieds/" rel="nofollow">Classifieds</a></li>
+          <li><a href="http://thecrimson.personforce.com/" target="_blank">Job Board</a></li>
+          <li><a href="http://store.thecrimson.com/" target="_blank">Photo Store</a></li>
+        </ul>
+      </td>
+
+      <td id="footer-resources">
+        <h1>Resources</h1>
+        <ul>
+          <li><a href="/about/privacy/">Privacy Policy</a></li>
+          <li><a href="/about/permissions/">Rights &amp; Permissions</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/contact/">Corrections</a></li>
+          <li><a href="/subscribe/">Email&nbsp;Subscriptions</a></li>
+          <li><a href="https://subscribe.thecrimson.com/">Print&nbsp;Subscriptions</a></li>
+          <li><a href="/sitemap/">Archives</a></li>
+          <li><a href="/sitemap/contributors/">Writers</a></li>
+        </ul>
+      </td>
+
+      <td rowspan="2" id="footer-img">
+        <div id="footerimg"></div>
+      </td>
+    </tr>
+    </table>
+    <br>
+    <center>Copyright © 2017 The Harvard Crimson, Inc.</center>
+    </div>
+  </footer>
+</html>

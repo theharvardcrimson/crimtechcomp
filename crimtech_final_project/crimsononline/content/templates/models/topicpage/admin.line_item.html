@@ -1,0 +1,10 @@
+{% load content_filters %}
+{% load common %}
+{% load staticfiles %}
+
+<td class="results-name">Topic Page</td>
+<td class="results-pk">{{ topicpage.pk }}</td>
+<td class="results-image"><img src="{% static "images/icons/article.gif"%}" alt="topicpage" /></td>
+<td>{{ topicpage.title }}</td>
+<td class="results-section">{{ topicpage.section }}</td>
+<td>{{ topicpage.issue }}</td>

@@ -1,0 +1,63 @@
+{% extends "models/topicpage/top-stories/__base.html" %}
+
+{% load ads_tags %}
+{% load content_filters %}
+{% load content_tags %}
+{% load placeholders %}
+{% load shortcodes_filters %}
+
+{% block content %}
+    <div id="title" style="background-image: url({{ topic.main_rel_content|img_url:"635,630" }})">
+        <div class="title-inner">
+            <h1>
+                {{ topic.title }}
+                <span class="newline">{{ topic.subtitle }}</span>
+            </h1>
+            <p>{{ topic.description|safe }}</p>
+        </div>
+        <div class="image-attr" style="background-image: url({{ STATIC_URL}}images/topicpage/camera.png)"><a href="{{ topic.main_rel_content|img_url:"635,630" }}">{{ topic.main_rel_content|byline:"full" }}</a></div>
+    </div>
+    {% placeholder name="featured" content_range="(0,20)" content_types="article" as feats %}
+    <div id="mainContainer">
+        {% for article in feats %}
+        {% cycle '<div class="titleAndContent">' '<div class="titleAndContent cf">' '' %}
+            <a id="{{ article.slug }}" class="jump"></a>
+            <div class="story {% cycle '' 'half first' 'half second' %}" data-id="{{ article.slug }}">
+                <div class="mainPic" style="background-image: url({{ article.main_rel_content|img_url:"1000,400" }})">
+                    <div class="image-attr gray-bg" style="background-image: url({{ STATIC_URL}}images/topicpage/camera.png)">
+                        {{ article.main_rel_content|byline:"full" }}
+                    </div>
+                </div>
+                <div class="catName">{{ article.title }}</div>
+                <div class="teaser">{{ article.description }}</div>
+            </div>
+
+            <div class="hiddenContent {% cycle '' 'first' 'second' %}">
+            {% if article.rel_content.all.1 %}
+                <div class="headline" style="background-image: url({{ article.rel_content.all.1|img_url:"1000,400" }})">
+            {% else %}
+                <div class="headline" style="background-image: url({{ article.main_rel_content|img_url:"1000,400" }})">
+            {% endif %}
+                    <div class="darken"></div>
+                    <div class="bigText">{{ forloop.counter }}. {{ article.subheadline }}</div>
+                    <div class="image-attr" style="background-image: url({{ STATIC_URL}}images/topicpage/camera.png)">
+                    {% if article.rel_content.all.1 %}
+                        {{ article.rel_content.all.1|byline:"full" }}
+                    {% else %}
+                        {{ article.main_rel_content|byline:"full" }}
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="content_wrapper">
+                    {# Ugly hack to apply article styling #}
+                    <div class="text" id="article">
+                        {{ article.text|shortcodes|safe }}
+                    </div>
+                </div>
+            </div>
+        {% cycle '</div>' '' '</div>' %}
+        {% endfor %}
+    </div>
+
+    {% endplaceholder %}
+{% endblock %}

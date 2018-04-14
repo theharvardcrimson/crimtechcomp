@@ -1,0 +1,42 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% block addl_classes %}{% if caption %}shortcodes-border{% endif %}{% endblock %}
+{% block content %}
+    {% if embed == "False" %}
+        <link rel="stylesheet" media="all" type="text/css" href="{{ STATIC_URL }}pdf/fancybox/jquery.fancybox.css?v=2.1.5">
+        <script type="text/javascript" src=
+        "{{ STATIC_URL }}pdf/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+        <script type="text/javascript">
+            $(".fancybox").fancybox({
+                openEffect : 'fade',
+                openSpeed : 400,
+                closeEffect : 'fade',
+                closeSpeed :  400,
+                iframe : {
+                    preload: false
+                }
+            });
+        </script>
+
+        <a class="fancybox" data-fancybox-type="iframe" href="{{ pdf.document.url }}" target="_blank">
+            <img src="{{ pdf.thumbnail.url }}" title="{{ pdf.title }}-thumbnail" alt="{{ pdf.description }}" />
+        </a>
+    {% else %}
+        <iframe src = "{{ STATIC_URL }}js/ViewerJS/index.html#{{ pdf.document.url }}" width='100%' height='{{ height }}' allowfullscreen webkitallowfullscreen></iframe>
+    {% endif %}
+
+    {% if byline %}
+        <div class="shortcodes-byline">
+            {{ pdf.contributors.all|linkify|human_list }}
+        </div>
+    {% endif %}
+    {% if caption %}
+        <div class="shortcodes-description">
+            {{ caption }}
+        </div>
+    {% endif %}
+{% endblock %}

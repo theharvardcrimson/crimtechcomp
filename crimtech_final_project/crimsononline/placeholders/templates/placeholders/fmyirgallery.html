@@ -1,0 +1,158 @@
+{% load content_filters %}
+{% load fm_yir %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Harvard Crimson | Magazine | Year in Review | {{ gallery.title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <meta property="og:image" content="http://media.thecrimson.com.s3.amazonaws.com/photos/2014/04/27/132702_1296644.png">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic|Lato:300,400,700|Lora:400,700,400italic|Open+Sans:300italic,400italic,600italic,400,300,600,700|Raleway:400,200,300,500,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/yir-article.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/yir-goes-around.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/yir-shortcodes.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/magnific.css">
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/TweenMax.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/scrollmagic.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.roundabout.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/fm-yir-article.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/magnific.js"></script>
+
+    <script src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson" type="text/javascript"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-327124-1', 'thecrimson.com');
+        ga('send', 'pageview');
+
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+
+        googletag.cmd.push(function() {
+            googletag.defineSlot('/1046082/TheCrimson_AllArticles_ATF_728x90', [728, 90], 'TheCrimson_AllArticles_ATF_728x90').addService(googletag.pubads());
+            googletag.defineSlot('/1046082/TheCrimson_AllArticles_BTF_728x90', [728, 90], 'TheCrimson_AllArticles_BTF_728x90').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+
+        addthis.layers({
+            'theme' : 'transparent',
+            'share' : {
+              'position' : 'right',
+              'numPreferredServices' : 5
+            }
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        var disqus_shortname = 'thecrimson';
+        var disqus_url = '{{ article.get_absolute_url }}';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://thecrimson.disqus.com/embed.js';
+            dsq.async = true;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0])
+                .appendChild(dsq);
+        })();
+    </script>
+
+    <style type="text/css">
+        .yir-image {
+            margin-bottom: 1%;
+            width: 100%;
+        }
+
+        .yip-contrib a {
+            color: #fff;
+        }
+    </style>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#intro').css('min-height', $(window).height());
+            $('#intro .dark-cover').height($('#intro').height());
+            $('#intro .intro-text').css('top', $('#intro').height()/2.5 - $('#intro .intro-text').height()/2);
+            $('#intro .dark-cover.fader').delay(200).animate({'opacity': 0}, 5000);
+
+            $('#view-button').delay(3000).fadeTo(1000, 1);
+            $('#view-button a').click(function(e) {
+                e.preventDefault();
+                $('html, body').animate({scrollTop: $("#intro").height()}, 1000);
+            }).delay(3000).fadeTo(1000, 1);
+
+            $('.yip-link').magnificPopup({
+                type: 'image',
+                image: {
+                    verticalFit: true,
+                    titleSrc: 'data-caption'
+                },
+                gallery:{enabled:true}
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+
+<header>
+    <div class="wrapper">
+        <a class="header-logo" href="http://www.thecrimson.com/">
+            <img src="{{ STATIC_URL }}images/whitecrimsonlogofm.png" height="18" width="215">
+        </a>
+        <ul class="header-nav">
+            <a href="/topic/year-in-review-2015"><li><img class="back-arrow" src="{{ STATIC_URL }}images/yir-arrow.png"> Back To YIR</li></a>
+        </ul>
+    </div>
+</header>
+
+<div id="intro" style="background-image: url({{ gallery.sorted_contents|first|img_url:"1200,5000" }});">
+    <div id="intro-text">{{ gallery.title }}</div>
+    <div id="view-button"><a href="#">View All</a></div>
+    <div class="dark-cover fader"></div>
+</div>
+
+<div class="content">
+    <div class="section">
+        <div class="section-header">The Gallery</div>
+        <div class="featured-container cf">
+            <div class="featured-left">
+                {% for photo in gallery.sorted_contents|slice:"1:"|firstthird %}
+                <a href="{{ photo|img_url:"600,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>{{ photo|byline:"short" }}</div>"><img class="yir-image" src="{{ photo|img_url:"650,5000" }}"></a>
+                {% endfor %}
+            </div>
+            <div class="featured-right">
+                {% for photo in gallery.sorted_contents|slice:"1:"|remthird %}
+                <a href="{{ photo|img_url:"600,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>{{ photo|byline:"short" }}</div>"><img class="yir-image" src="{{ photo|img_url:"340,5000" }}"></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>

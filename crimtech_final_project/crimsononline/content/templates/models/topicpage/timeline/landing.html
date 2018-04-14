@@ -1,0 +1,104 @@
+{% extends "__base.html" %}
+
+{% load common %}
+{% load ads_tags %}
+{% load content_filters %}
+{% load content_tags %}
+{% load placeholders %}
+
+{% block title %}
+    {{ topic.headline }} |
+    {% if topic.section %}
+        {{ topic.section }} |
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox.scss">
+<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox-buttons.scss">
+<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox-thumbs.scss">
+<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/timeline.scss">
+{% endblock %}
+
+{% block js %}
+<script src="{{ STATIC_URL }}js/topicpage/spotlight.js"></script>
+<script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox.pack.js"></script>
+<script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-buttons.js"></script>
+<script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-media.js"></script>
+<script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-thumbs.js"></script>
+<script src="{{ STATIC_URL }}js/sticky_bar.js"></script>
+<script src="{{ STATIC_URL }}js/topicpage/timeline.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="topic-head">
+        <h2 class="article-headline">{{ topic.headline }}</h2>
+
+        <div class="byline">
+            <div class="byline-date">{% date topic %}</div>
+
+        </div>
+        <div class="article-description">
+            {{topic.description}}
+        </div>
+        <div class="byline">
+           <span class="top"></span>
+           {% if topic.contributor_override %}
+           {{ topic.contributor_override|safe }}
+           {% else %}
+           <h4>{{ topic|byline:"full" }}</h4>
+           {% if topic.multimedia_contributors.count %}
+           <h4>Multimedia {{ topic|byline_multimedia:"short" }}, Crimson Staff Photographer</h4>
+           {% endif %}
+           {% endif %}
+       </div>
+    </div>
+
+    {% placeholder name="articles" content_range="(0,100)" content_types="article,image,widget,external content" as items %}
+    <div class="timeline-container timeline-container--hide">
+        <div class="timeline">
+            <div class="timeline__background"></div>
+            <div class="timeline__popup"></div>
+            {% for i in items %}
+            <div class="timeline__entry"
+                 data-timeline-entry=""
+                 data-timeline-entry-id="{{ i.slug }}"
+                 data-timeline-entry-title="{{ i.title }}"
+                 data-timeline-entry-date="{{ i.issue.issue_date | date:"U" }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="section">
+        {% for i in items %}
+        <div class="landing-divider"></div>
+        <div class="landing-article" data-timeline-entry-linked="{{ i.slug }}">
+            {% if i.main_rel_content %}
+            <div class="landing-image">
+               <div class="landing-image-media">
+                <a href="{{ i.get_absolute_url }}">
+                    {{ i.main_rel_content|to_img_tag:'300,200,300,200' }}</a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="landing-article-detail">
+                <div class="landing-article-date-byline">{% date i %}</div>
+                <div class="landing-article-title">
+                    <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                </div>
+                <div class="landing-article-teaser">
+                    {{ i.description }}
+                </div>
+                <div class="landing-article-date-byline">
+                    {{ i|byline:"short" }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endplaceholder %}
+    </div>
+</div>
+{% endblock %}

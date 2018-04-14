@@ -1,0 +1,35 @@
+#galleria-wrapper {
+	float:left;
+	width: 66%;
+	margin-bottom: 15px;
+}
+
+#galleria {
+	/*height:500px;*/
+}
+
+@media (min-width:800px) and (max-width: 980px) {
+	#galleria-wrapper {
+        width: 56.5%;
+    }
+}
+
+@media (max-width: 800px) {
+	#galleria-wrapper {
+		width: 100%;
+	}
+
+	#article .sidebar {
+		width: auto;
+	}
+
+	.addthis_toolbox {
+		float: left !important;
+	}
+}
+
+@media (max-width: 480px) {
+	.galleria-info-text {
+		display: none !important;
+	}
+}

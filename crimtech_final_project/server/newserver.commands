@@ -1,0 +1,85 @@
+sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get --purge autoremove
+
+sudo apt-get install python-pip git python-dev
+sudo pip install -U pip virtualenv
+sudo apt-get install fabric
+sudo apt-get install libjpeg8 libjpeg-dev zlib1g zlib1g-dev
+sudo apt-get install mysql-client libmysqlclient18 libmysqlclient-dev
+sudo apt-get install nodejs nodejs-legacy npm
+sudo npm -g install bower
+
+sudo adduser jobelenus
+cd /home/jobelenus
+sudo mkdir .ssh
+cd .ssh
+sudo touch authorized_keys  #copy your keys in here
+cd ..
+sudo chown jobelenus:jobelenus -r authorized_keys
+sudo usermod -a -G sudo jobelenus
+
+sudo adduser crimson --disabled-password --disabled-login
+sudo usermod -a -G www-data crimson
+# copy id_rsa/.pub into home .ssh directory and set permissions appropriately
+
+
+sudo mkdir -p /srv/crimson && sudo chown crimson:www-data /srv/crimson
+
+sudo apt-get install apache2 libapache2-mod-wsgi
+# create 0001-crimson apache file from source
+
+# made a new elastic IP 54.204.42.236
+# and then attached a new Route53 to that IP aws-new-dev-web.thecrimson.com
+
+cd /srv/crimson
+sudo mkdir conf
+cd conf
+sudo touch local_settings.py  # copy local_settings in there, update RAVEN_CONFIG with a key from sentry
+cd /srv/crimson
+sudo mkdir releases
+sudo mkdir log
+sudo chmod 774 log
+sudo mkdir static
+sudo mkdir uploads
+sudo ln -s releases/current/wsgi apache
+
+sudo mkdir repo
+sudo chown crimson:www-data -R *
+cd repo
+sudo bash
+su crimson
+git clone git@github.com:harvard-crimson/crimsononline.git .
+# I am on the provisioning branch so I changed over to it here
+exit
+exit
+cd ..
+
+sudo mkdir venv
+sudo chown crimson:crimson venv
+sudo /usr/local/bin/virtualenv /srv/crimson/venv
+sudo chown crimson:crimson -R venv
+
+sudo bash
+su crimson
+RELEASE=$(date +"/srv/crimson/releases/%Y%m%d%H%M%S")
+mkdir $RELEASE
+cd repo
+git archive --format=tar HEAD | tar -x -C $RELEASE
+cp -r /srv/crimson/conf/* $RELEASE/crimsononline
+ln -s $RELEASE /srv/crimson/releases/current
+
+/srv/crimson/venv/bin/python /srv/crimson/venv/bin/pip install --use-mirrors --log=/srv/crimson/log/pip.log -r /srv/crimson/releases/current/requirements.txt
+
+exit
+exit
+
+# update local_settings in /srv/crimson/conf/ with credentials
+# copy newrelic.ini into /srv/crimson/
+
+sudo a2dissite default
+sudo a2ensite 0001-crimson
+sudo service apache2 restart
+
+# may need this if you set this up off prod db/db backup
+# UPDATE `django_site` SET domain='aws-new-dev-web.thecrimson.com', name='aws-new-dev-web.thecrimson.com' WHERE id=1;
+# fab newdev manage:'syncdb'
+fab newdev deploy

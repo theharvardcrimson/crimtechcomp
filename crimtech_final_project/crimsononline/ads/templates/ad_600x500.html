@@ -1,0 +1,68 @@
+{% load compress %}
+
+{% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/interstitials/ad_600x500.scss">
+{% endcompress %}
+
+<div id="ad_600x500">
+    <script>
+        var Crimson = Crimson || {};
+
+        if (typeof Crimson.interstitial_unit !== 'undefined') {
+            try { // Don't freak out if
+                Crimson.interstitial_unit.oldRenderEnded = Crimson.interstitial_unit.oldRenderEnded || Crimson.interstitial_unit.renderEnded;
+                Crimson.interstitial_unit.renderEnded = function () {
+                    var filled = !($("#interstitial").find("iframe").first().contents().find("body").html() == "" || $("#interstitial").find("iframe").first().contents().find("body").html() == undefined);
+                    if (filled) {
+                        Crimson.Interstitials.display();
+
+                        // timer
+                        var time = 10;
+                        function countdown() {
+                            if (time !== 0){
+                                if (time != 1)
+                                    $('#interstitial .timer').html("closing in " + time + " seconds");
+                                else
+                                    $('#interstitial .timer').html("closing in " + time + " second");
+                                time--;
+                                setTimeout(countdown, 1000);
+                            }
+                            else {
+                                Crimson.Interstitials.hide();
+                            }
+                        }
+                        countdown();
+                    }
+                    else {
+                        Crimson.Interstitials.unmark("ad_600x500");
+                    }
+                };
+            }
+            catch (err) {}
+
+            // push ad if viewport is big enough
+            if ($(window).width() >= 600) {
+                googletag.cmd.push(function() {
+                    googletag.display('ad-TheCrimson_Interstitial_600x500');
+                });
+            }
+            else {
+                Crimson.Interstitials.unmark("ad_600x500");
+            }
+        }
+        else {
+            Crimson.Interstitials.unmark("ad_600x500");
+        }
+    </script>
+    <div id="header">
+        <div class="interstitial-inner">
+            <span class="interstitial-ad-label">Advertisement</span>
+            <span class="timer"></span>
+            <a class="interstitial-close" href="#">Close</a>
+        </div>
+    </div>
+    <div id="ad">
+        <div id="ad-TheCrimson_Interstitial_600x500" style="width:600px; height:500px;">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+.page-title{
+    display: block;
+    text-align: center;
+    color: #ccc;
+    font-size: 50px;
+    font-family: helvetica, arial, sans-serif;
+    padding: 30px 0;
+    line-height: 100%;
+}
+.page-title a{
+    color: #ccc;
+}
+.page-title a:hover{
+    color: #ccc;
+    text-decoration: underline;
+}
+
+.sitemap-year, .sitemap-issue, .sitemap-article{
+    list-style-type: none;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.sitemap-cell{
+    height: 135px;
+    width: 100%;
+    border: 1px solid #ddd;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    font-size: 2em;
+    font-family: helvetica, arial, sans-serif;
+    position: relative;
+    max-width: 100%;
+}
+
+.sitemap-year .sitemap-cell, .sitemap-issue .sitemap-cell{
+    height: 60px;
+    width: 100px;
+}
+
+
+.sitemap-article li.sitemap-cell{
+    line-height: 100%;
+    font-size: 1.5em;
+    width: 33%;
+}
+
+li.sitemap-cell a{
+    display: inline-block;
+}
+
+.sitemap-article li.sitemap-cell a,
+.sitemap-issue li.sitemap-cell a,
+.sitemap-year li.sitemap-cell a{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    vertical-align: middle;
+    padding: 20px 10px;
+}
+
+li.sitemap-cell a:hover{
+    background-color: #eee;
+    text-decoration: none;
+}
+
+li.clear{
+    clear: both;
+}
+
+.col-12{
+    padding-bottom: 30px;
+}
+
+
+@media(max-width: 585px){
+    .page-title{
+        font-size: 30px;
+    }
+    .sitemap-article li.sitemap-cell{
+        width: 100%;
+    }
+}
+
+@media (max-width: 848px) and (min-width: 586px) {
+    .sitemap-article li.sitemap-cell{
+        width: 49%;
+    }
+}

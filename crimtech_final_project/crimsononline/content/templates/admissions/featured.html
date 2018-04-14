@@ -1,0 +1,19 @@
+{% load content_filters %}
+
+{% if featured %}
+	<h2 class="module-title">Featured</h2>
+
+	<h3 class="featured-title">
+		<a href="{{ featured.0.get_absolute_url }}">{{ featured.0.headline }}</a>
+	</h3>
+	{% if featured.0.main_rel_content %}
+		<a href="{{ featured.0.get_absolute_url }}">
+			<img class="featured-image" src="{{ featured.0.main_rel_content|img_url:"400,130,400,130" }}">
+		</a>
+	{% endif %}
+	<p class="featured-content">
+		<a class="block-link" href="{{ featured.0.get_absolute_url }}">{{ featured.0.teaser }}</a>
+	</p>
+
+	<hr class="rule">
+{% endif %}

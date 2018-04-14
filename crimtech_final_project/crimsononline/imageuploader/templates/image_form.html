@@ -1,0 +1,68 @@
+
+        <div id="item-__prefix__" class="item-row">
+          {# Built in django forms aren't flexible enough. Fields need to be broken apart for hiding, inlining #}
+          {{ form.image_ptr }}
+          <div class="fields-default">
+            <div class="image-placeholder">
+              <img src="{{ form.instance.absolute_url }}" alt="Preview">
+              {{ form.file_name }}
+            </div>
+
+            {# Hidden field for file names. This will be matched to the file in the temporary uploads bucket #}
+            {{ form.filename }}
+
+            {# Checkboxes for where to upload, e.g. Admin and Smugmug #}
+            <div class="destination-block">
+              <label>
+                Admin
+                {{ form.publishable }}
+              </label>
+              <label>
+                Smugmug
+                {{ form.sell_online }}
+              </label>
+              <br/>
+              <label>
+                Show Advanced
+                <input type="checkbox" class="advanced">
+              </label>
+            </div>
+
+            {# Block of title metadata #}
+            <div class="title-block">
+              {{ form.title }}
+              {{ form.subtitle }}
+              {{ form.slug }}
+            </div>
+            <div class="description-block">
+              {{ form.description }}
+            </div>
+            <div class="tags-block">
+              {{ form.contributors }}
+              {{ form.multimedia_contributors }}
+              {{ form.tags }}
+            </div>
+          </div>
+
+          {# Fields present only for images going into Admin #}
+          <div class="fields-publishing hidden-animate">
+            <div class="fields-publishing-2">
+              {{ form.section }}
+              {{ form.priority }}
+              {{ form.pub_status }}
+            </div>
+            <div class="fields-publishing-1">
+              {{ form.issue }}
+            </div>
+          </div>
+
+          {# Advanced fields that aren't usually used #}
+          <div class="fields-advanced hidden-animate">
+            {{ form.multimedia_contributors }}
+            {{ form.contributor_override }}
+            {{ form.group }}
+            {{ form.searchable }}
+            {{ form.show_ads }}
+          </div>
+        </div>
+        </div>

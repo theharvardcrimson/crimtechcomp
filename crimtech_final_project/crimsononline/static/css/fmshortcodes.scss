@@ -1,0 +1,297 @@
+/* Shortcodes */
+
+.shortcodes-wrapper {
+    padding: 10px 0;
+}
+.shortcodes-wrapper-large .shortcodes-image-caption {
+	font-size: 1em;
+}
+.shortcodes-wrapper-large {
+    margin: 15px 0;
+    width: 100%;
+}
+
+.shortcodes-wrapper-left {
+	float: left;
+	margin-right: 15px;
+    margin-top: 0;
+}
+.shortcodes-wrapper-center {
+    margin: 15px auto;
+}
+.shortcodes-wrapper-right {
+	float: right;
+	clear: right;
+	margin: 0 0 15px 15px;
+}
+
+.shortcodes-wrapper .shortcodes-object, .shortcodes-wrapper .shortcodes-object img {
+	width: 100%;
+}
+
+.shortcodes-description {
+	font-size: 0.75em;
+	line-height: 1.3;
+    font-family: 'Open Sans', 'Lucida Sans Unicode', sans-serif;
+	margin: 4px 0;
+    clear: both;
+}
+.shortcodes-border {
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+.shortcodes-byline {
+	font: 0.7em 'Open Sans', 'Lucida Sans Unicode', sans-serif;
+	text-transform: uppercase;
+	color: #999;
+	padding-left: 17px;
+	float: right;
+	clear: both;
+	background: transparent url('../img/camera.png') no-repeat;
+}
+
+/* Map-specific shortcodes */
+#map_canvas {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+#map_canvas iframe,
+#map_canvas object,
+#map_canvas embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+iframe.gform {
+    max-width: 100%;
+}
+
+/* Video-specific styles from http://avexdesigns.com/responsive-youtube-embed */
+.shortcodes-iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.shortcodes-iframe-wrapper iframe,
+.shortcodes-iframe-wrapper object,
+.shortcodes-iframe-wrapper embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* NB: order is important here */
+.shortcodes-iframe-wrapper.shortcodes-spotify {
+    padding-bottom: 113%;
+}
+
+.shortcodes-iframe-wrapper.shortcodes-spotify.shortcodes-spotify-compact {
+    padding-bottom: 13%;
+}
+
+.shortcodes-wrapper-small .shortcodes-iframe-wrapper.shortcodes-spotify {
+    padding-bottom: 27%;
+}
+
+.shortcodes-video-byline {
+    margin-top: 5px;
+}
+
+.shortcodes-vine-wrapper {
+    position: relative;
+    padding-bottom: 60%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.shortcodes-vine-wrapper iframe,
+.shortcodes-vine-wrapper object,
+.shortcodes-vine-wrapper embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.shortcodes-iframe-left {
+
+}
+.shortcodes-iframe-center {
+    margin: 0 auto;
+    display: block;
+}
+.shortcodes-iframe-right {
+
+}
+
+blockquote {
+    color: #a70500;
+    font-family: 'Colaborate', sans-serif;
+    font-style: italic;
+    font-size: 1.8em;
+    line-height: 1.1em;
+    text-align: left;
+    padding: 0 0 0 10px;
+    margin: 0;
+    margin-left: 25px;
+    border-left: #a70500 2px solid;
+}
+
+.shortcodes-wrapper-left blockquote {
+    text-align: right;
+    padding: 0 10px 0 0;
+    margin-left: 0;
+    margin-right: 25px;
+    border-right: #a70500 2px solid;
+    border-left: none;
+}
+
+.shortcodes-wrapper-large blockquote,
+.shortcodes-wrapper-center blockquote {
+    border-left: none;
+    border-right: none;
+}
+
+@media (min-width: 981px) {
+    .shortcodes-wrapper-small {
+        width: 33%;
+    }
+    .shortcodes-wrapper-half {
+        width: 50%;
+    }
+    .shortcodes-wrapper-medium {
+        width: 66%;
+    }
+
+    /*.shortcodes-wrapper-small .shortcodes-iframe-wrapper {
+        padding-bottom: 26%;
+    }
+    .shortcodes-wrapper-medium .shortcodes-iframe-wrapper {
+        padding-bottom: 45%;
+    }*/
+    /*.shortcodes-wrapper-large.shortcodes-wrapper-center {
+        width: 61%;
+        margin: 15px 2.5%;
+    }
+    .shortcodes-wrapper-medium.shortcodes-wrapper-center {
+        float: left;
+        margin: 15px 11%;
+    }*/
+    /*.shortcodes-wrapper-center {
+        display: block;
+        margin: 15px auto;
+    }*/
+}
+
+@media (min-width:800px) and (max-width: 980px) {
+    .shortcodes-wrapper-small {
+        width: 33%;
+    }
+    .shortcodes-wrapper-half {
+        width: 50%;
+    }
+    /*.shortcodes-wrapper-small.shortcodes-wrapper-center {
+        width: 33%;
+        margin: 15px auto;
+    }*/
+    .shortcodes-wrapper-medium {
+        width: 66%;
+    }
+
+    /*.shortcodes-wrapper-small .shortcodes-iframe-wrapper {
+        padding-bottom: 26%;
+    }
+    .shortcodes-wrapper-medium .shortcodes-iframe-wrapper {
+        padding-bottom: 45%;
+    }*/
+    /*.shortcodes-wrapper-medium.shortcodes-wrapper-center {
+        float: left;
+        margin: 15px 9.25%;
+    }*/
+    /*.shortcodes-wrapper-large.shortcodes-wrapper-center {
+        float: left;
+        margin: 15px 10%;
+    }*/
+}
+
+@media (max-width: 799px) {
+    .shortcodes-wrapper-small {
+        width: 50%;
+    }
+    .shortcodes-wrapper-half {
+        width: 50%;
+    }
+    /*.shortcodes-wrapper-small.shortcodes-wrapper-center {
+        width: 50%;
+        margin: 15px auto;
+    }*/
+    .shortcodes-wrapper-medium {
+        width: 66%;
+    }
+    .shortcodes-wrapper-medium.shortcodes-wrapper-left{
+        /*margin: 0 auto;*/
+        /*width: 100%; */
+    }
+
+    /*.shortcodes-wrapper-small .shortcodes-iframe-wrapper {
+        padding-bottom: 31%;
+    }
+    .shortcodes-wrapper-medium .shortcodes-iframe-wrapper {
+        padding-bottom: 40%;
+    }*/
+}
+
+@media (max-width: 500px) {
+    .shortcodes-wrapper-large, .shortcodes-wrapper-medium {
+        float: none;
+        clear: none;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /*.shortcodes-wrapper-medium .shortcodes-iframe-wrapper {
+        padding-bottom: 56.25%;
+    }*/
+
+    /*.shortcodes-wrapper-small.shortcodes-wrapper-center .shortcodes-object {
+        width: 80%;
+    }*/
+}
+
+@media (max-width: 480px) {
+    .shortcodes-wrapper-small,
+    .shortcodes-wrapper-small.shortcodes-wrapper-center .shortcodes-object {
+        float: none;
+        clear: none;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .shortcodes-wrapper-half,
+    .shortcodes-wrapper-half.shortcodes-wrapper-center .shortcodes-object {
+        float: none;
+        clear: none;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /*.shortcodes-wrapper-small .shortcodes-iframe-wrapper {
+        padding-bottom: 56.25%;
+    }*/
+
+    .galleria-info-text {
+        display: none !important;
+    }
+}

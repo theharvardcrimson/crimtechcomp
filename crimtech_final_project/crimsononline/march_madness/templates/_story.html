@@ -1,0 +1,19 @@
+{% load content_filters %}
+{% load common %}
+
+<div class="story-wrapper cf">
+    {% block category %}{% endblock category %}
+    <div class="story" id="{{ id }}">
+        <a class="cover-link"href="{{ article.get_absolute_url }}" target="_blank"></a>
+        <div class="story-inner">
+            <div class="title">{{ article.title }}</div>
+            <div class="teaser">
+                <div class="article-byline">
+                    {{ article|byline:"short" }}
+                    {% date article %}
+                </div>
+                {{ article.description }}
+            </div>
+        </div>
+    </div>
+</div>

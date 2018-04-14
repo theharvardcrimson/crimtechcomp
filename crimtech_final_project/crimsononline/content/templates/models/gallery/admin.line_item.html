@@ -1,0 +1,14 @@
+{% load content_filters %}
+{% load common %}
+{% load staticfiles %}
+
+<td class="results-name">Gallery</td>
+<td class="results-pk">{{ gallery.pk }}</td>
+<td class="results-image">
+{% for img in gallery.contents.all|slice:":3" %}
+    {{ img|to_thumb_tag }}
+{% endfor %}
+</td>
+<td>{{ gallery.title }}</td>
+<td class="results-section">{{ gallery.section }}</td>
+<td>{{ gallery.issue }}</td>

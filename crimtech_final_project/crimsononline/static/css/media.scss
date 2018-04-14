@@ -1,0 +1,115 @@
+/*
+Media-specific styles
+*/
+#main.media {
+	margin: 25px 0;
+	width: 100%;
+	background-color: #111;
+}
+#main.media a {
+	color: white;
+}
+#main #media {
+	padding: 25px 0;
+	color: #ccc;
+}
+#media #media-nav ul {
+	margin: 15px 0 0;
+	padding: 0;
+	zoom: 1;
+	float: right;
+}
+#media #media-nav ul:before, #media #media-nav ul:after {
+	display: table;
+	content: "";
+}
+#media #media-nav ul:after {
+	clear: both;
+}
+#media #media-nav ul li {
+	list-style: none;
+	display: inline;
+	float: left;
+}
+#media #media-nav ul li a, #media #media-filter {
+	font: 0.85em 'Colaborate Light', 'Lucida Sans Unicode', sans-serif;
+	text-transform: uppercase;
+	display: block;
+	padding: 10px 15px;
+	color: #ccc;
+}
+#media #media-nav ul li a:hover, #media #media-nav ul li a:active, #media #media-nav ul li a.active {
+	color: white;
+}
+#media #media-nav ul li a.active {
+	background-color: #000;
+}
+#media #media-media, #media #media-description {
+	padding: 15px;
+	background-color: #000;
+	clear: both;
+}
+#media #media-media #media-inner {
+	margin: 0 auto;
+	width: 560px;
+}
+#media #media-description {
+	margin-bottom: 15px;
+}
+#media #media-description .media-credit {
+	text-align: right;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #333;
+}
+#media #media-description h2 {
+	padding-top: 15px;
+}
+#media #media-tags, #media ul.pager {
+	border: 1px solid #333;
+	font: 0.85em 'Colaborate Light', 'Lucida Sans Unicode', sans-serif;
+	text-transform: uppercase;
+	padding: 5px;
+	box-sizing: border-box;
+	margin: 15px 0;
+}
+#media #media-tags h3 {
+	color: #ba0600;
+	font: bold 1em 'Colaborate', 'Lucida Sans Unicode', sans-serif;
+	width: 50px;
+	float: left;
+	padding: 5px;
+}
+#media #media-tags p {
+	margin: 0;
+	padding: 5px;
+}
+#media #media-filter {
+	margin: 0;
+	padding: 0;
+}
+#media #media-filter li {
+	list-style: none;
+}
+#media #media-filter li a {
+	padding: 0 10px;
+}
+#media #media-list {
+	padding: 15px;
+	border: 1px solid #333;
+	zoom: 1;
+}
+#media #media-list:before, #media #media-list:after {
+	display: table;
+	content: "";
+}
+#media #media-list:after {
+	clear: both;
+}
+#media .media-entry {
+	margin: 15px 0;
+}
+#media .media-entry .media-section, #media #media-description .media-credit {
+	font: 0.85em 'Colaborate Light', 'Lucida Sans Unicode', sans-serif;
+	text-transform: uppercase;
+	color: #ccc;
+}

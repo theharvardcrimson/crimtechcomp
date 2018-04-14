@@ -1,0 +1,105 @@
+$crimson: #ba0600;
+$dark_crimson: #870400;
+
+.navigationwrapper {
+    font: 0.9em/1.3em Georgia,serif;
+    position: fixed;
+    width: 100%;
+    z-index: 101;
+}
+
+.navigation {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    margin: 0;
+    padding: 6px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: opacity 0.2s;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+.first-screen .navigation {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navigation-inner {
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.navigation h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 auto;
+    font-family: "Crimson", Georgia, serif;
+    color: #000;
+}
+
+.navigation a {
+    color: #000;
+    display: inline;
+    line-height: 24px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navigation a:hover {
+    color: $crimson;
+    text-decoration: none;
+}
+
+.navigation-center {
+    text-align: center;
+    width: 40%;
+}
+
+.navigation-left {
+    text-align: left;
+    float: left;
+    width: 30%;
+}
+
+.navigation-right {
+    float: right;
+    width: 20%;
+}
+
+.navigation-right div {
+    float: right;
+}
+
+.navigation .navlogo a {
+    font-family: Crimson, Georgia, Serif;
+    color: $crimson;
+    text-shadow: none;
+}
+
+.navigation .navlogo a:hover {
+    color: $dark_crimson;
+}
+
+.navigation span.at4-icon {
+    width: 24px;
+    height: 24px;
+    background-size: 24px !important; // important to override addthis's important
+}
+
+.navigation .addthis_toolbox.addthis_default_style {
+    padding: 0;
+}
+
+.addthis_toolbox a {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 600px), (max-height: 600px) {
+    .navigationwrapper, .navigation {
+        display: none;
+    }
+}

@@ -1,0 +1,46 @@
+from django.conf.urls import patterns, url
+from django.views.generic import RedirectView
+
+from crimsononline.content.views import FMView
+
+urlpatterns = patterns(
+    'crimsononline.content.views',
+    url(r'news/$', 'section_news', name='content.section.news'),
+    url(r'^sports/$', 'section_sports', name='content.section.sports'),
+    url(r'^sports/list/$', 'sports_list', name='content.section.sports_list'),
+    url(r'^media/$', 'section_media', name='content.section.multimedia'),
+    url(r'^opinion/$', 'section_opinion', name='content.section.opinion'),
+    url(r'^features/$', 'section_features', name='content.section.features'),
+    # sponcon1
+    url(r'^sponsored/$', 'section_sponsored', name='content.section.sponsored'),
+    url(r'^opinion/postcards/(?P<year>\d+)?/?$', 'opinion_postcards',
+        name='content.section.opinion_postcards'),
+    url(r'^flyby/$', RedirectView.as_view(url='/flyby/'), name='blog'),
+    url(r'^fm_paginate$', 'fm_paginate', name='content.section.fm_paginate'),
+    url(r'^fm/$', FMView.as_view(section_name='magazine'),
+        name='content.section.magazine'),
+    url(r'^fm/levity/$', FMView.as_view(section_name='fm_levity'),
+        name='content.section.fm_levity'),
+    url(r'^fm/around-town/$', FMView.as_view(section_name='fm_around_town'),
+        name='content.section.fm_around_town'),
+    url(r'^fm/introspection/$',
+        FMView.as_view(section_name='fm_introspection'),
+        name='content.section.fm_introspection'),
+    url(r'^fm/conversations/$',
+        FMView.as_view(section_name='fm_conversations'),
+        name='content.section.fm_conversations'),
+    url(r'^fm/retrospection/$',
+        FMView.as_view(section_name='fm_retrospection'),
+        name='content.section.fm_retrospection'),
+    url(r'^fm/issues/$',
+        FMView.as_view(section_name='fm_issues'),
+        name='content.section.fm_issues'),
+    url(r'^fm/the-scoop/$',
+        FMView.as_view(section_name='fm_the_scoop'),
+        name='content.section.fm_the_scoop'),
+    url(r'^arts/$', 'section_arts', name='content.section.arts'),
+    url(r'^arts/blog/$', 'section_arts_blog',
+        name='content.section.arts.blog'),
+    url(r'^arts/blog/page/(?P<page>\d+)/$', 'section_arts_blog',
+        name='content.section.arts.blog'),
+)

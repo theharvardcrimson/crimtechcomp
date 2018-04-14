@@ -1,0 +1,7 @@
+dependencies:
+  override:
+    - pip install --requirement developer-requirements.txt
+
+test:
+  override:
+    - pre-commit run --all-files

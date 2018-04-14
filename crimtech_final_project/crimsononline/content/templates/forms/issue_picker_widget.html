@@ -1,0 +1,29 @@
+<div id="{{attrs.id}}-wrapper">
+    <p class="meta">
+        <input type="radio" name="{{attrs.id}}-meta" value="daily" {% if not is_editable %}DISABLED{% endif %}/> Daily / Web Issue<br />
+        <input type="radio" name="{{attrs.id}}-meta" value="special" {% if not is_editable %}DISABLED{% endif %}/> Special Issue (like Commencement, Election, etc.)
+    </p>
+
+    <p class="daily">
+        <input type="text" class="issue_picker" id="{{attrs.id}}-input" value="{{issue_date|date:"m/d/Y"}}" {% if not is_editable %}DISABLED{% endif %}/>
+    </p>
+    <p class="special">
+        Special issues from the year <input type="text" size="4" value="{{year}}"/>
+        <select>
+            {{ special_choices }}
+        </select>
+    </p>
+    {{hidden}}
+    {% if is_editable %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            set_issue_picker("{{attrs.id}}",
+                "/admin/content/issue/special_issue_list/");
+
+            $("#{{attrs.id}}-wrapper .meta input[value={{meta_select}}]").trigger('click');
+
+        });
+        var static_url = '{{ static_url }}';
+    </script>
+    {% endif %}
+</script>

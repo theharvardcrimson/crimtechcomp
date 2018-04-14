@@ -1,0 +1,63 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% block content %}
+	{% if size == "fullscreen" or size == "parallax"%}
+
+		{% if size == "parallax" %}
+            <div class="shortcodes-image-parallax" style="background: url(' {{ image|img_url:"2000,2000" }} ') 50% 0% no-repeat; background-size: cover; ">
+        {% else %}
+            <div class="shortcodes-image-fullscreen" style="background: url(' {{ image|img_url:"2000,2000" }} ') 50% 0% no-repeat; background-size: cover; ">
+        {% endif %}
+		<div class="shortcodes-caption-fullscreen">
+            {% if quote or caption and not nofilm %}
+				<div class="shortcodes-captionWrapper-fullscreen shortcodes-captionWrapper-fullscreen-{{ pos }} shortcodes-captionWrapper-fullscreen-{{ theme }}">
+					<div class="shortcodes-captionInner-fullscreen">
+                        {% if quote %}
+                            <p>&ldquo;{{ quote }}&rdquo;</p>
+                            {% if quotebyline %}
+								<div class="shortcodes-caption-byline-fullscreen">&mdash;{{ quotebyline }}</div>
+                            {% endif %}
+                        {% elif caption %}
+                            <p>{{ caption }}</p>
+                            {% if byline %}
+								<div class="shortcodes-caption-byline-fullscreen">&mdash;{{ image.contributors.all|linkify|human_list }}</div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if caption or byline %}
+        <div class="fullscreen-caption">
+            {{ caption|default_if_none:"" }}
+            {% if byline %}
+                <div class="shortcodes-byline">
+                {{ image.contributors.all|linkify|human_list }}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+
+    {% else %}
+
+        <a href="{{ image.get_absolute_url }}" class="shortcodes-block">
+            {{ image|to_img_tag:"1500, 1500" }}
+        </a>
+        {% if caption or byline %}
+            <div class="shortcodes-description">
+                {{ caption|default_if_none:"" }}
+                {% if byline %}
+                    <div class="shortcodes-byline">
+                    {{ image.contributors.all|linkify|human_list }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    {%endif %}
+{% endblock %}

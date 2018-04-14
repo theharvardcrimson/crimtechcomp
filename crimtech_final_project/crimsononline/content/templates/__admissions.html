@@ -1,0 +1,130 @@
+{% load ads_tags %}
+{% load common %}
+{% load content_filters %}
+{% load compress %}
+{% load top_articles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>
+			{% block title %}College Admissions | The Harvard Crimson Admissions Blog{% endblock title %}
+		</title>
+
+		<!-- generated at {% now "DATETIME_FORMAT" %} -->
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One|PT+Serif:400,700,400italic,700italic|Open+Sans:400,700,300">
+		<link rel="shortcut icon" href="{{ STATIC_URL }}images/admissions/icon.png">
+
+		{% block meta %}
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{% endblock %}
+
+		{% compress css %}
+			<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/lib/normalize.scss">
+			<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/interstitials/interstitials.scss">
+			<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/admissions.scss">
+		{% endcompress %}
+
+		{% compress js %}
+			<script type="text/javascript">
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+				ga('create', '{{ ANALYTICS_USER_AGENT }}', 'thecrimson.com');
+				ga('send', 'pageview');
+			</script>
+			{% ads_head %}
+			<script src="{{ STATIC_URL }}js/lib/jquery.js"></script>
+			<script src="{{ STATIC_URL }}js/lib/jquery.cookie.js"></script>
+			<script src="{{ STATIC_URL }}js/interstitials.js"></script>
+			<script src="{{ STATIC_URL }}js/responsive.js"></script>
+			<script src="{{ STATIC_URL }}js/admissions.js"></script>
+			<script src="{{ STATIC_URL }}js/external-links.js"></script>
+		{% endcompress %}
+
+		{% block js %}{% endblock js %}
+
+		{% if debug %}
+			<script src="{{ STATIC_URL }}js/lib/less.js"></script>
+		{% endif %}
+	</head>
+
+	<body class="{% block body_class %}{% endblock %}">
+		<div id="wrapper">
+			<div id="header">
+				<a href="/" class="header-linkback"><img src="{{ STATIC_URL }}images/thc-logo.png"></a>
+				<h1 class="header-title">
+					<a href="/admissions">
+						<div class="header-brand">The Harvard Crimson</div>
+						<div class="header-name">Admissions Blog</div>
+					</a>
+				</h1>
+			</div>
+
+			{% if messages %}
+				<ul id="messages">
+					{% for message in messages %}
+						<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+
+			<div id="content">
+				<div class="ad ad-leaderboard ad-leaderboard-atf">
+					{% ad_unit "728x90" %}
+				</div>
+
+				{% block before_content %}
+				{% endblock before_content %}
+
+				<div id="main">
+					{% block content %}
+					{% endblock content %}
+				</div>
+
+				<div id="modules">
+					{% block sidebar %}
+						{% include "admissions/featured.html" %}
+
+						<div class="ad ad-primary">
+							{% ad_unit "300x600" %}
+						</div>
+
+						<hr class="rule">
+
+						{% most_read_admissions %}
+
+						<hr class="rule">
+
+						<div class="ad ad-sidekick">
+							{% ad_unit "300x250" %}
+						</div>
+
+						<hr class="rule">
+
+						{% include "admissions/social.html" %}
+
+					{% endblock %}
+				</div>
+
+				<div class="ad ad-leaderboard">
+					{% ad_unit "728x90" %}
+				</div>
+			</div>
+
+			<div id="modal">
+				<div id="interstitial"></div>
+			</div>
+
+			<div id="footer">
+				&copy; {% now "Y" %}
+				<a href="/">The Harvard Crimson</a>
+			</div>
+		</div>
+	</body>
+</html>

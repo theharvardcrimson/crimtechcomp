@@ -1,0 +1,16 @@
+{% load common %}
+{% load content_filters %}
+
+<h3><a href="{{ article.get_absolute_url }}" class="red-text light-red-text-hover">{{ article.headline }}</a></h3>
+<p class="byline">By {{ article.contributors.all|linkify|human_list }}</p>
+<p class="dateline">{{ article.issue.issue_date|date }}</p>
+{% if article.main_rel_content %}
+    <div class="image">{{ article.main_rel_content|render:"blog_image" }}</div>
+{% endif %}
+<span class="teaser">
+    {% for para in article.text|paragraphs|slice:":2" %}
+        {{ para }}
+    {% endfor %}
+    <p><a href="{{ article.get_absolute_url }}">(Continued)</a></p>
+</span>
+<span class="clear"></span>

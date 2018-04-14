@@ -1,0 +1,17 @@
+<ul class="pager">
+    <li class="pager-newest{% if not p.has_previous %} disabled{% endif %}">
+        {% if p.has_previous %}<a href="{{ url_base }}p={{p.previous_page_number}}">{% endif %}&laquo; {{ first_page }}{% if p.has_previous %}</a>{% endif %}
+    </li>
+    <li class="pager-newer{% if not p.has_previous %} disabled{% endif %}">
+        {% if p.has_previous %}<a href="{{ url_base }}p={{p.previous_page_number}}">{% endif %}&lsaquo; {{ prev_page }}{% if p.has_previous %}</a>{% endif %}
+    </li>
+
+    <li class="pager-current">{{p.start_index}}-{{p.end_index}} of {{paginator.count}}</li>
+
+    <li class="pager-older{% if not p.has_next %} disabled{% endif %}">
+        {% if p.has_next %}<a href="{{ url_base }}p={{p.next_page_number}}">{% endif %}{{ next_page }} &rsaquo;{% if p.has_next %}</a>{% endif %}
+    </li>
+    <li class="pager-oldest{% if not p.has_next %} disabled{% endif %}">
+        {% if p.has_next %}<a href="{{ url_base }}p={{paginator.num_pages}}">{% endif %}{{ last_page }} &raquo;{% if p.has_next %}</a>{% endif %}
+    </li>
+</ul>

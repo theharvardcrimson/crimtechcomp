@@ -1,0 +1,24 @@
+{% if range|length > 1 %}
+	{% spaceless %}
+	    <div class="pagination {% if range|length > 10 %}large{% endif %}">
+	        <div class="pagination-spacer"></div>
+	        <div class="pagination-navigation">
+	            <a class="pagination-prev {% if page == 1 %}disabled{% endif %}"
+	                href="?page={% if not page == 1 %}{{ previous }}{% endif %}"
+	                rel="prev">&laquo; Previous</a>
+	            <span class="pagination-pages">
+	                {% for p in range %}
+	                <span> <a
+	                                {% if p = page %}class="pagination-current"{% endif %}
+	                                href="?page={{ p }}">{{ p }}</a>
+	                </span>
+	                {% endfor %}
+	            </span>
+	            <a
+	                        class="pagination-next {% if page == max %}disabled{% endif %}"
+	                        href="?page={% if not page == max %}{{ next }}{% endif %}"
+	                        rel="next">Next &raquo;</a>
+	        </div>
+	    </div>
+	{% endspaceless %}
+{% endif %}

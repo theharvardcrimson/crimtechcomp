@@ -1,0 +1,23 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    <div class="article-headline-image">
+        <a href="{{ flashgraphic.get_absolute_url }}">
+            {{ flashgraphic|to_img_tag:"60,60,60,60" }}
+        </a>
+    </div>
+    <div class="article-section">
+        <a href="{{ flashgraphic.subsection.get_absolute_url }}">{{ flashgraphic.subsection }}</a>
+    </div>
+    <h2>
+        <a href="{{ flashgraphic.get_absolute_url }}">
+            {% if image.title %}{{ flashgraphic.headline }}    {% else %}Untitled{% endif %}
+        </a>
+    </h2>
+    <div class="article-byline">
+        {{ flashgraphic|byline:"short" }}
+        <span class="article-date">{{ flashgraphic|datify }}</span>
+    </div>
+    <p>{% if image.caption != " " %}{{ flashgraphic.caption }}{% else %}No caption{% endif %}</p>
+</div>

@@ -1,0 +1,23 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load module %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/sitemap.scss">
+{% endblock %}
+
+{% block title %}Sitemap{% endblock %}
+
+{% block content %}
+<div class="col-12">
+	{% module 12 "" %}
+<span class="page-title"><a href="../../">Writers</a> &rarr; Page {{page}}</span>
+<ul class="sitemap-article">
+{% for contrib in contribs %}
+<li class="sitemap-cell">{{contrib|linkify}}</li>
+{% endfor %}
+<li class="clear" />
+</ul>
+{% endmodule %}
+</div>
+{% endblock %}

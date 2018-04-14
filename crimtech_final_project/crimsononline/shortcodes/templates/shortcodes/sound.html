@@ -1,0 +1,24 @@
+<script type="text/javascript">
+	// Load soundcloud asynchronously:
+	$(document).ready(function () {
+		$.getScript("http://connect.soundcloud.com/sdk.js", function (data, textStatus, jqxhr ){
+			SC.initialize({
+			  client_id: 'ada558c8bedabace03c9fd59de16851e'
+			});
+
+			var track_url = '{{ url }}';
+			SC.oEmbed(track_url, {'visual': false, 'show_artwork': true, 'maxheight': 166}, function(oEmbed) {
+			  if (oEmbed) {
+			    $("#sound-{{ id }}").html(oEmbed.html);
+			  }
+			  else {
+			  	$("#sound-{{ id }}").parent().remove();
+			  }
+			});
+		});
+	});
+</script>
+
+<div class="shortcodes-wrapper shortcodes-wrapper-{{ size }} shortcodes-wrapper-{{ pos }}">
+    <div id="sound-{{ id }}" class="shortcodes-object"></div>
+</div>

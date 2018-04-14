@@ -1,0 +1,294 @@
+.opeds-submit {
+    padding: 10px;
+    text-align: center;
+    font-family: 'Colaborate Thin', 'Lucida Sans Unicode', sans-serif;
+    color: #963431;
+}
+
+#oped-box {
+    padding: 10px;
+    margin: 0 5px 10px;
+    width: auto;
+}
+
+#upper-first {
+    clear: left;
+    padding: 10px;
+}
+
+.feature.half {
+    min-height: 200px;
+}
+
+.feature.half > a {
+    display: block;
+    text-align: center;
+}
+
+.feature.half > a > img {
+    width: 90%;
+}
+
+.feature.half > p {
+    font-size: 16px;
+    text-align: right;
+    padding-right: 26px;
+}
+
+#content .feature.half h2 {
+    text-transform: uppercase;
+    font: 17px 'Colaborate Light', 'Lucida Sans Unicode', sans-serif;
+    color: #666;
+    display: block;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.feature.cartoon-box a {
+    font-size: 1em !important;
+}
+
+
+/* FEATURE POSTCARD CSS */
+
+#content .feature.half h3 {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.postcard img {
+    width: auto;
+}
+
+.postcard {
+    position: relative;
+    width: 322px;
+    height: 204px;
+    margin: 5px auto;
+}
+
+.postcard-type1 {
+    background-image: url('../images/postcard1.png');
+}
+
+.postcard-type2 {
+    background-image: url('../images/postcard2.png');
+}
+
+#content .postcard-container h3 {
+    margin-bottom: 15px;
+}
+
+.postcard .postcard-first {
+    width: 146px;
+    height: 204px;
+    margin-left: 10px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.postcard .postcard-first .ellipsis {
+    overflow: hidden;
+    margin: 14px 0 7px 0;
+}
+
+.postcard .postcard-first .more {
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-size: 10pt;
+    text-align: right;
+}
+
+.postcard .postcard-second {
+    position: absolute;
+    /*border: 1px solid #000000;*/
+    left: 165px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.postcard .postcard-second img:first-child {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 60px;
+}
+
+.postcard .postcard-second .default {
+    width: 60px;
+}
+
+.postcard .postcard-second .postmark {
+    width: auto;
+}
+
+.postcard .postcard-second .postmark.postmark1 {
+    position: absolute;
+    right: 50px;
+    top: 3px;
+}
+
+.postcard .postcard-second .postmark-location {
+    position: absolute;
+    left: 44px;
+    top: 31px;
+    font-size: 10px;
+    font-family: monospace;
+}
+
+.postcard .postcard-second .postmark.postmark2 {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+}
+
+.postcard .postcard-second .lines {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 22px;
+    padding-left: 6px;
+}
+
+.postcard .postcard-second p {
+    border-bottom: 2px solid black;
+    margin: 0 0 9px 0;
+    padding-left: 2px;
+    text-align: left;
+    font: 12px monospace;
+}
+
+.postcard .postcard-second p:first-child {
+    margin-top: 14px;
+}
+
+/* END FEATURE POSTCARD CODE */
+
+.upper-supplements {
+    margin: 15px 0;
+    zoom: 1;
+    text-align: center;
+    clear: both;
+}
+
+.upper-supplements:before, .upper-supplements:after {
+    content: "";
+    display: table;
+}
+
+.upper-supplements:after {
+    clear: both;
+}
+
+.upper-supplement {
+    border: 1px solid #ccc;
+    -moz-box-shadow: 0 3px 3px #eee;
+    -o-box-shadow: 0 3px 3px #eee;
+    -webkit-box-shadow: 0 3px 3px #eee;
+    box-shadow: 0 3px 3px #eee;
+    zoom: 1;
+}
+
+.upper-supplement:before, .upper-supplement:after {
+    content: "";
+    display: table;
+}
+
+.upper-supplement:after {
+    clear: both;
+}
+
+.upper-supplement h2 a {
+    text-transform: uppercase;
+    font: 0.6em 'Colaborate Light', 'Lucida Sans Unicode', sans-serif;
+    color: #666;
+    display: block;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.upper-supplement h2 a:hover, .upper-supplement h2 a:active {
+    color: #333;
+}
+
+.upper-supplement img {
+    width: auto;
+}
+
+/*
+Media query: Boilerplates for landscape phone to landscape tablet and desktop
+*/
+@media (min-width: 481px) and (max-width: 979px) {
+    .upper-supplements.two-supplements .upper-supplement, .upper-supplement.one-supplement .upper-supplement-column {
+        width: 40%;
+        float: left;
+        padding: 5px 10px;
+        margin: 10px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+    #media-shell, #fm-shell, #most-read-shell, .blog-shell, .sidekick-shell {
+        width: 100%;
+        clear: both;
+    }
+}
+
+/*
+Media query: Large desktop
+*/
+@media (min-width: 980px) {
+    #upper-first {
+        width: 21%;
+    }
+
+    .upper-supplements {
+        width: 74%;
+        float: right;
+    }
+
+    .upper-supplements .upper-supplement-column {
+        width: 193px;
+        float: left;
+        margin: 10px;
+        padding: 5px 10px;
+    }
+
+    .feature.half {
+        width: 74%;
+        float: right;
+    }
+
+    .feature.cartoon-box {
+        float: left;
+        width: 100%;
+        background-color: #FEFFEA;
+
+    }
+}
+
+.site-separator {
+    border: 0;
+    border-top: 3px solid black;
+    height: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 960px;
+
+  }
+.interlude {
+    margin: 0 auto;
+    max-width: 960px;
+    overflow: hidden;
+
+    .ad-sidekick {
+      float: right;
+    }
+}
+
+#editors-choice-box {
+    h3 {
+        font-size: 30px !important;
+    }
+}

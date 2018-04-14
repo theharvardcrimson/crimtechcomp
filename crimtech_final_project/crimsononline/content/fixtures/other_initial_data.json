@@ -1,0 +1,2090 @@
+[{
+    "pk": 15,
+    "model": "auth.group",
+    "fields": {
+        "name": "IT Exec",
+        "permissions": []
+    }
+},
+{
+    "pk": 16,
+    "model": "auth.group",
+    "fields": {
+        "name": "IT",
+        "permissions": [
+            89,
+            90,
+            25,
+            26,
+            95,
+            96,
+            97,
+            92,
+            93,
+            94
+        ]
+    }
+},
+{
+    "pk": 17,
+    "model": "auth.group",
+    "fields": {
+        "name": "News",
+        "permissions": []
+    }
+},
+{
+    "pk": 18,
+    "model": "auth.group",
+    "fields": {
+        "name": "Photo",
+        "permissions": []
+    }
+},
+{
+    "pk": 19,
+    "model": "auth.group",
+    "fields": {
+        "name": "Arts",
+        "permissions": []
+    }
+},
+{
+    "pk": 20,
+    "model": "auth.group",
+    "fields": {
+        "name": "FM",
+        "permissions": []
+    }
+},
+{
+    "pk": 21,
+    "model": "auth.group",
+    "fields": {
+        "name": "Design",
+        "permissions": []
+    }
+},
+{
+    "pk": 22,
+    "model": "auth.group",
+    "fields": {
+        "name": "Sports",
+        "permissions": []
+    }
+},
+{
+    "pk": 23,
+    "model": "auth.group",
+    "fields": {
+        "name": "Biz",
+        "permissions": []
+    }
+},
+{
+    "pk": 24,
+    "model": "auth.group",
+    "fields": {
+        "name": "Ed",
+        "permissions": []
+    }
+},
+{
+    "pk": 25,
+    "model": "auth.group",
+    "fields": {
+        "name": "Execs",
+        "permissions": [
+            83,
+            84,
+            85,
+            71,
+            74,
+            28,
+            41,
+            62,
+            53,
+            56,
+            50,
+            47,
+            65,
+            77,
+            80,
+            44,
+            38,
+            59,
+            72,
+            75,
+            29,
+            42,
+            63,
+            54,
+            57,
+            51,
+            48,
+            66,
+            78,
+            81,
+            45,
+            39,
+            60,
+            31,
+            76,
+            58,
+            79,
+            82,
+            90,
+            26
+        ]
+    }
+},
+{
+    "pk": 26,
+    "model": "auth.group",
+    "fields": {
+        "name": "Editors",
+        "permissions": [
+            71,
+            74,
+            28,
+            62,
+            53,
+            56,
+            50,
+            65,
+            77,
+            80,
+            59,
+            72,
+            75,
+            29,
+            42,
+            63,
+            54,
+            57,
+            51,
+            66,
+            78,
+            81,
+            60,
+            76,
+            58
+        ]
+    }
+},
+{
+    "pk": 27,
+    "model": "auth.group",
+    "fields": {
+        "name": "Superexecs",
+        "permissions": [
+            71,
+            74,
+            28,
+            35,
+            32,
+            41,
+            62,
+            53,
+            56,
+            50,
+            47,
+            65,
+            68,
+            77,
+            80,
+            44,
+            38,
+            59,
+            72,
+            75,
+            29,
+            36,
+            33,
+            42,
+            63,
+            54,
+            57,
+            51,
+            48,
+            66,
+            69,
+            78,
+            81,
+            45,
+            39,
+            60,
+            31,
+            73,
+            76,
+            30,
+            37,
+            34,
+            43,
+            64,
+            55,
+            58,
+            52,
+            49,
+            67,
+            70,
+            79,
+            82,
+            46,
+            40,
+            61,
+            90,
+            91,
+            13,
+            14,
+            15,
+            25,
+            26,
+            27,
+            95,
+            96,
+            97,
+            92,
+            93,
+            94
+        ]
+    }
+},
+{
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+        "username": "crim",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2009-07-25 08:45:37",
+        "groups": [6],
+        "user_permissions": [],
+        "password": "sha1$79fbe$f91c04c41ea3f61ba9266cbee9373e96cdb059fc",
+        "email": "andylei@gmail.com",
+        "date_joined": "2008-09-24 16:47:56"
+    }
+},
+{
+    "pk": 2,
+    "model": "auth.user",
+    "fields": {
+        "username": "stelmach",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": true,
+        "last_login": "2009-07-25 08:42:03",
+        "groups": [],
+        "user_permissions": [19, 20, 21, 4, 10, 1, 7, 5, 11, 2, 8, 6, 12, 3, 9, 68, 72, 41, 28, 35, 32, 44, 56, 59, 53, 50, 62, 65, 75, 78, 47, 38, 81, 71, 69, 73, 42, 29, 36, 33, 45, 57, 60, 54, 51, 63, 66, 76, 79, 48, 39, 82, 31, 70, 74, 43, 30, 37, 34, 46, 58, 61, 55, 52, 64, 67, 77, 80, 49, 40, 83, 84, 85, 86, 13, 14, 15, 25, 26, 27, 16, 17, 18, 22, 23, 24, 87, 88, 89],
+        "password": "sha1$dccda$6374c83ca74ec7d3b43bf54796622faefb97a930",
+        "email": "",
+        "date_joined": "2009-07-25 08:41:16"
+    }
+},
+{
+    "pk": "32ec5746a77d06d9f9732fddac4adf6d",
+    "model": "sessions.session",
+    "fields": {
+        "expire_date": "2009-08-08 08:45:37",
+        "session_data": "gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1LmNiN2FjMGNjZTcwYWE4YjQzYzJj\nNzA4MjM1MTYwZTRh\n"
+    }
+},
+{
+    "pk": 65,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-25 08:48:04",
+        "object_repr": "The Professor, the Policeman, and the President",
+        "object_id": "15",
+        "change_message": "Changed contributors, issue, rotatable and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 64,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-25 08:47:46",
+        "object_repr": "The Professor, the Policeman, and the President",
+        "object_id": "15",
+        "change_message": "Changed contributors, issue, rotatable and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 63,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-25 08:47:36",
+        "object_repr": "The Professor, the Policeman, and the President",
+        "object_id": "15",
+        "change_message": "Changed contributors, issue, rotatable and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 62,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-25 08:45:53",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue, rotatable, pub_status and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 61,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-25 08:41:46",
+        "object_repr": "stelmach",
+        "object_id": "2",
+        "change_message": "Changed is_staff and user_permissions.",
+        "user": 1,
+        "content_type": 3
+    }
+},
+{
+    "pk": 60,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 08:41:16",
+        "object_repr": "stelmach",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 3
+    }
+},
+{
+    "pk": 59,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-25 08:34:50",
+        "object_repr": "Robert C. Haas",
+        "object_id": "4",
+        "change_message": "Changed issue, pub_status and contributors.",
+        "user": 1,
+        "content_type": 18
+    }
+},
+{
+    "pk": 58,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-25 08:24:22",
+        "object_repr": "Robert C. Haas",
+        "object_id": "4",
+        "change_message": "Changed issue, pub_status and contributors.",
+        "user": 1,
+        "content_type": 18
+    }
+},
+{
+    "pk": 57,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 08:20:47",
+        "object_repr": "The Professor, the Policeman, and the President",
+        "object_id": "15",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 56,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 08:20:17",
+        "object_repr": "Daniel E. Herz-Roiphe",
+        "object_id": "6",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 55,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:12:58",
+        "object_repr": "Harvard Student Missing in Ecuador Rescued",
+        "object_id": "14",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 54,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:11:53",
+        "object_repr": "Harvard University Press Closes Display Room, Goes Digital",
+        "object_id": "13",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 53,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:10:46",
+        "object_repr": "Bonnie J. Kavoussi",
+        "object_id": "5",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 52,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:09:52",
+        "object_repr": "Harvard Considers Swapping in Tighter Credit Line",
+        "object_id": "12",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 51,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:09:43",
+        "object_repr": "finance",
+        "object_id": "8",
+        "change_message": "",
+        "user": 1,
+        "content_type": 13
+    }
+},
+{
+    "pk": 50,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:08:47",
+        "object_repr": "HMS Suspends Funding for Primary Care Division",
+        "object_id": "11",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 49,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:08:37",
+        "object_repr": "budget cuts",
+        "object_id": "7",
+        "change_message": "",
+        "user": 1,
+        "content_type": 13
+    }
+},
+{
+    "pk": 48,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:08:34",
+        "object_repr": "hms",
+        "object_id": "6",
+        "change_message": "",
+        "user": 1,
+        "content_type": 13
+    }
+},
+{
+    "pk": 47,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:07:36",
+        "object_repr": "NHL First-Round Pick Leblanc Harvard Bound",
+        "object_id": "10",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 46,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:07:17",
+        "object_repr": "ice hockey",
+        "object_id": "5",
+        "change_message": "",
+        "user": 1,
+        "content_type": 13
+    }
+},
+{
+    "pk": 45,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:07:12",
+        "object_repr": "sports",
+        "object_id": "4",
+        "change_message": "",
+        "user": 1,
+        "content_type": 13
+    }
+},
+{
+    "pk": 44,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:06:51",
+        "object_repr": "Jake I. Fisher",
+        "object_id": "4",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 43,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:06:00",
+        "object_repr": "Charge Against Gates To Be Dropped",
+        "object_id": "9",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 42,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-25 00:04:19",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue, pub_status and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 41,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:04:07",
+        "object_repr": "Harvard Students, Professors Eye Racial Factors in Gates' Arrest",
+        "object_id": "8",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 40,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:03:52",
+        "object_repr": "student life",
+        "object_id": "3",
+        "change_message": "",
+        "user": 1,
+        "content_type": 13
+    }
+},
+{
+    "pk": 39,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:02:31",
+        "object_repr": "Suspect in Harvard Shooting Pleads Not Guilty to All Charges",
+        "object_id": "7",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 38,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:01:56",
+        "object_repr": "Athena Y. Jiang",
+        "object_id": "3",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 37,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-25 00:00:48",
+        "object_repr": "Obama Chides Cambridge Police for Gates' Arrest",
+        "object_id": "6",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 36,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 23:59:33",
+        "object_repr": "Police Commissioner Defends Officer but Will Assemble Panel To Review Gates' Arrest",
+        "object_id": "5",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 35,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 23:59:30",
+        "object_repr": "Robert C. Haas",
+        "object_id": "4",
+        "change_message": "",
+        "user": 1,
+        "content_type": 18
+    }
+},
+{
+    "pk": 34,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 22:57:02",
+        "object_repr": "Skip Gates Gallery",
+        "object_id": "3",
+        "change_message": "Changed images, contributors and issue.",
+        "user": 1,
+        "content_type": 19
+    }
+},
+{
+    "pk": 33,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 22:45:35",
+        "object_repr": "Skip Gates Gallery",
+        "object_id": "3",
+        "change_message": "",
+        "user": 1,
+        "content_type": 19
+    }
+},
+{
+    "pk": 32,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:49:56",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue, section and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 31,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:46:25",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 30,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:46:02",
+        "object_repr": "Skip Gates",
+        "object_id": "1",
+        "change_message": "Changed issue and contributors.",
+        "user": 1,
+        "content_type": 18
+    }
+},
+{
+    "pk": 29,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:45:25",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 28,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:45:19",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 27,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:44:55",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 26,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 20:44:51",
+        "object_repr": "Peter F. Zhu",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 25,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:43:53",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 24,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:39:22",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 23,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:35:28",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 22,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:35:16",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 21,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:25:50",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue, section and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 20,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 20:25:29",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 19,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 20:10:49",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 18,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 20:09:45",
+        "object_repr": "Maxwell L. Child",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 17,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 3,
+        "action_time": "2009-07-24 20:09:29",
+        "object_repr": "Maxwell L. Child",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 16,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 3,
+        "action_time": "2009-07-24 20:09:29",
+        "object_repr": "Maxwell L. Child",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 15,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 3,
+        "action_time": "2009-07-24 20:09:29",
+        "object_repr": "Peter F. Zhu",
+        "object_id": "3",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 14,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 16:30:10",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 13,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 16:29:50",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 12,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 16:27:34",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 11,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 16:27:23",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 10,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 16:25:38",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 9,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 16:25:26",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 8,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2009-07-24 16:25:09",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "Changed contributors, issue and rel_content.",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 7,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 16:24:53",
+        "object_repr": "Obama Backs Off Gates Remarks After Police Ask for Apology",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    }
+},
+{
+    "pk": 6,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 16:24:49",
+        "object_repr": "Skip Gates",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 18
+    }
+},
+{
+    "pk": 5,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 16:22:40",
+        "object_repr": "college",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 13
+    }
+},
+{
+    "pk": 4,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 16:22:23",
+        "object_repr": "crime",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 13
+    }
+},
+{
+    "pk": 3,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 16:21:52",
+        "object_repr": "Peter F. Zhu",
+        "object_id": "3",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 2,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 16:21:43",
+        "object_repr": "Maxwell L. Child",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 1,
+    "model": "admin.logentry",
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2009-07-24 15:58:27",
+        "object_repr": "Maxwell L. Child",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 15
+    }
+},
+{
+    "pk": 1,
+    "model": "sites.site",
+    "fields": {
+        "domain": "example.com",
+        "name": "example.com"
+    }
+},
+{
+    "pk": 1,
+    "model": "flatpages.flatpage",
+    "fields": {
+        "registration_required": false,
+        "title": "About",
+        "url": "/about/",
+        "template_name": "",
+        "sites": [1],
+        "content": "<h1>About Us</h1>\r\n<table id=\"table1\" width=\"100%\" border=\"0\" cellpadding=\"4\" cellspacing=\"4\"> \r\n<tbody> \r\n<tr> \r\n<td valign=\"top\" width=\"40%\"><strong><font size=\"2\" color=\"#660000\" face=\"Arial\">HISTORY OF THE CRIMSON</font></strong><br><font class=\"text\">The Harvard Crimson, the nation's oldest continuously published daily college newspaper, was founded in 1873 and incorporated in 1967. The newspaper traces its history to the first issue of \"The Magenta,\" published January 24, 1873, and changed its name to \"The Crimson\" to reflect the new color of the college on May 21, 1875. The Crimson has a rich tradition of journalistic integrity and counts among its ranks of editorship some of America's greatest journalists. The faces of Pulitzer Prize-winning Crimson editors line the walls of The Crimson. Past editors include John F. Kennedy '40. The name of Franklin D. Roosevelt, Class of 1904, is proudly engraved upon The Crimson's president's chair. One hundred and thirty-five years after its founding, having grown from a fortnightly newspaper to a daily, The Harvard Crimson continues to flourish with a strong body of undergraduate staff volunteers. </font><br><br><strong><font size=\"2\" color=\"#660000\" face=\"Arial\">WHAT WE PRINT</font></strong><br><font class=\"text\">The Harvard Crimson is the only breakfast-table daily newspaper in Cambridge, MA. The Crimson publishes every morning, Monday through Friday, except on federal and University holidays. In addition to the daily newspaper, The Crimson publishes an extended sports section on Mondays; Fifteen Minutes, the weekend magazine of The Crimson on Thursdays; and an arts section on Fridays. Our presses are also available for third-party contract printing. Call 617-576-6600 for more information. <br></font><br><strong><font size=\"2\" color=\"#660000\" face=\"Arial\">JOINING THE CRIMSON</font></strong><br><font class=\"text\">If you are a Harvard College student you are eligible to join The Crimson. Please click <a href=\"/info/comp.aspx\"><u>here</u></a> to learn more about our comp process.<br><br></font><strong><font size=\"2\" color=\"#660000\" face=\"Arial\">WHAT SHOULD I DO IF THE CRIMSON MAKES A MISTAKE IN A STORY?</font></strong><font class=\"text\"><br>In the event that we run something that is factually inaccurate, we are eager to correct the error. When a correction is necessary, it will run in a corrections box on page two. Please e-mail Managing Editor&nbsp;Paras D. Bhayani&nbsp;(pbhayani@fas.harvard.edu) about corrections.<br></font></td> \r\n<td valign=\"top\" width=\"60%\"> \r\n<div class=\"almond_box\"> \r\n<table id=\"table3\" width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr> \r\n<td width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">President</font></strong></div></td> \r\n<td width=\"2%\"> \r\n<p align=\"right\">&nbsp;</p></td> \r\n<td width=\"48%\"><font size=\"2\">Malcom&nbsp;A.&nbsp;Glenn '09<br></font></td></tr> \r\n<tr> \r\n<td width=\"50%\">&nbsp;</td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\">&nbsp;</td></tr> \r\n<tr> \r\n<td width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Managing Editor</font></strong></div></td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\"><font size=\"2\">Paras&nbsp;D.&nbsp;Bhayani '09<br></font></td></tr> \r\n<tr> \r\n<td width=\"50%\">&nbsp;</td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\">&nbsp;</td></tr> \r\n<tr> \r\n<td width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Business Manager</font></strong></div></td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\"><font size=\"2\">Gideon&nbsp;L. Lowin '09</font><br></td></tr> \r\n<tr> \r\n<td width=\"50%\">&nbsp;</td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\">&nbsp;</td></tr></tbody></table> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>NEWS</strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Associate Managing Editors</font></strong><strong><font size=\"2\"><br><br>News Executives<br>&nbsp;<br>&nbsp;<br><br><br>Senior Story Editors<br><br></font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"\"><font size=\"2\">Laurence H. M. Holland&nbsp;'09</font><br><font size=\"2\">Samuel&nbsp;P.&nbsp;Jacobs '09<br></font><span class=\"\"><font size=\"2\">Johannah S. Cornblatt&nbsp;'09</font></span><br><font size=\"2\">Claire&nbsp;M.&nbsp;Guehenno '09<br>Victoria&nbsp;B.&nbsp;Kabak '09<br>Madeline W. Lissner '09<br>Laura A. Moore&nbsp;'09<br></font><span class=\"\"><font size=\"2\">Noah S. Bloom '09</font></span><br><p class=\"MsoNormal\"></p><span class=\"\"> \r\n<p class=\"MsoNormal\" style=\"font-family: Times New Roman;\"><font size=\"2\"></font></p><span> \r\n<p style=\"font-family: Times New Roman;\"><font size=\"2\"></font></p><span> \r\n<p style=\"font-family: Times New Roman;\"></p><span><span style=\"font-family: Times New Roman;\"></span></span></span></span> \r\n<p class=\"MsoNormal\"><font style=\"font-family: Times New Roman;\" size=\"2\"></font><o:p></o:p></p><span><span></span> \r\n<p style=\"font-family: Times New Roman;\"><font size=\"2\"></font></p></span> \r\n<p class=\"MsoNormal\" style=\"font-family: Times New Roman;\"><font size=\"2\"></font></p></span> \r\n<p class=\"MsoNormal\"><o:p></o:p></p> \r\n<p class=\"MsoNormal\"><o:p></o:p></p></td></tr> \r\n<tr> \r\n<td colspan=\"3\"> \r\n<div style=\"text-align: center;\">&nbsp;<br><strong>EDITORIAL</strong> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Editorial Chairs<br>&nbsp;<br>Associate Editorial Editors<br><br><br><br><br></font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n \r\n \r\n<td class=\"\"><font style=\"font-family: Times New Roman;\" size=\"5\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span></font><font style=\"font-family: Times New Roman;\" size=\"2\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span><span><span style=\"font-size: 5pt;\"></span><span><span><span><span></span><span></span></span></span></span></span></font><font size=\"2\">Emma&nbsp;M.&nbsp;Lind '09<br>Ramya Parthasarathy '09<br>Daniel E. Herz-Roiphe '10<br>Ronald K. Kamdem '10<br>Robert G. King '09-'10<br>J. Maxwell Larkin '10<br>Noah M. Silver '10<font size=\"3\">&nbsp;</font><br>James M. Wilsterman '10</font></td></tr></tbody></table><strong><br>ARTS</strong></div> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Arts Chairs<br><br>Associate Arts </font></strong><strong><font size=\"2\">Editors</font></strong><br><strong><font size=\"2\"><br><br><br><br><br><br></font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Patrick R. Chesnut '09<br>Jake G. Cohen '09</font><br><font size=\"2\">Anna K. Barnet&nbsp;'10<br>Sanders I. Bernstein&nbsp;'10<br>Joshua Kearney&nbsp;'10<br>Beryl C. D. Lipton&nbsp;'10<br>Nayeli E. Rodriguez&nbsp;'10<br>Claire J. Saffitz&nbsp;'09<br>John D. Selig '10<br></font></td></tr></tbody></table></td></tr> \r\n<tr align=\"center\"> \r\n<td colspan=\"3\">&nbsp;<span style=\"font-weight: bold;\"><br>DESIGN</span> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Design Chairs<br>&nbsp;<br>Associate Design </font></strong><strong><font size=\"2\">Editors</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"\"><font style=\"font-family: Times New Roman;\" size=\"5\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span></font><font style=\"font-family: Times New Roman;\" size=\"2\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span><span><span style=\"font-size: 5pt;\"></span><span><span><span><span></span><span></span></span></span></span></span></font><font size=\"2\">Aditi Banga&nbsp;'09<br></font><font size=\"2\">Samantha P. Krug&nbsp;'10</font><br><font size=\"2\">Sarah B. Joselow&nbsp;'10</font><font size=\"2\"><br>Julia V. Guren&nbsp;'10<br>Devon L. Hein&nbsp;'09<br>Alee Lockman&nbsp;'10<br>Elisa M. Orr '10<br>Katharine E. Lauderdale '11<br></font></td></tr></tbody></table></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>INFORMATION TECHNOLOGY</strong> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">IT Chair<br>Associate IT </font></strong><strong><font size=\"2\">Editors</font></strong><br><strong><font size=\"2\">&nbsp;<br><br></font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"\"><font style=\"font-family: Times New Roman;\" size=\"5\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span></font><font style=\"font-family: Times New Roman;\" size=\"2\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span><span><span style=\"font-size: 5pt;\"></span><span><span><span><span></span><span></span></span></span></span></span></font><font size=\"2\">Daniel C. Carroll&nbsp;'09&nbsp;<br>Cindy C. Cheng '10<br>Andy Y. Lei '10<br>Cary Y. Lin '10</font></td></tr></tbody></table><strong></strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>MAGAZINE</strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Magazine Chairs<br>&nbsp;<br>Associate Magazine Editors</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Nicola C. Perlman&nbsp;'09<br>Nicole G. White&nbsp;'09<br>Asli A. Bashir '10<br>Kate E. Cetrulo&nbsp;'09<br>Gracye Y. Cheng '10<br>Jessica L. Fleischer '10<br>Emily C. Graff '10<br>Jun Li '10<br>Charles R. Melvoin '10<br>Mark A. Pacult '10</font><br><br><font size=\"2\"></font></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>PHOTOGRAPHY</strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Photography Chairs<br><br>Associate Photography </font></strong><strong><font size=\"2\">Editors</font></strong><br><strong><font size=\"2\">&nbsp;</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Hillary W Berkowitz '09</font><br><font size=\"2\">Meghan T. Purdy '09</font><font size=\"2\"><br>Alan C. Chiu '10<br>Natasha L. Coleman '09<br></font><font size=\"2\">Rachel M. Douglas '09<br>Jessica S. Lin '09<br></font><font size=\"2\">Peter R. Raymond '09</font><br><font size=\"2\">Sarah M. Roberts '09<br>Raquel Rodriguez '09<br>Adam D. Sidman '10<br>Terrell Woods '11<br></font></td></tr> \r\n<tr align=\"center\"> \r\n<td colspan=\"3\"><strong><br>SPORTS</strong> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Sports Chairs<br><br>Associate Sports </font></strong><strong><font size=\"2\">Editors</font></strong><br><strong><font size=\"2\">&nbsp;</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Brad Hinshelwood '09<br></font><font size=\"2\">Madeleine I. Shapiro&nbsp;'09</font><font size=\"2\"><br></font><font size=\"2\">Loren Amor '10<br>Robert T. Hamlin '10<br>Dixon McPhillips&nbsp;'10<br>Julia R. Senior '10<br></font><font size=\"2\">Courtney D. Skinner '10<br></font><font size=\"2\">Walter E. Howell '09<br>Ted Kirby&nbsp;'09<br><br></font></td></tr></tbody></table></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>BUSINESS</strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Associate Business Manager<br>Director of Business Development<br>Director of Staff Development<br>Advertising Managers<br>&nbsp;<br>&nbsp;<br>Circulation Managers<br>&nbsp;<br>Contract Printing Managers<br><br>Operations Managers<br>&nbsp;<br>Sales Managers<br>&nbsp;</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Tyler W. Bosmeny '09<br></font><font size=\"2\">Katherine R. Hill '09<br></font><font size=\"2\"><br>Robert J. Prior '09<br>Katherine A. Petti '10<br>Jessica H. Roe '09<br>Amartya Sengupta '10<br>Aparicio J. Davis '10<br>Jesse Ge '10<br>Philip J. Daniel '10<br>Thomas J. Lawless '10<br>Maxwell L. Child '10<br>Steven J. Stelmach '10<br>Wenna Jia '10<br>Bohao D. Pan '10<br>Xin Pan '10<br>John C. Zhou '10<br></font></td></tr> \r\n<tr valign=\"top\" align=\"center\"> \r\n<td class=\"board\" colspan=\"3\"><br></td></tr> \r\n<tr> \r\n<td style=\"text-align: left;\"><br></td> \r\n<td><br></td> \r\n<td><br></td></tr></tbody></table></div></td></tr> \r\n<tr> \r\n<td>&nbsp;</td> \r\n<td>&nbsp;</td></tr></tbody></table>",
+        "enable_comments": false
+    }
+},
+{
+    "pk": 3,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [1],
+        "tags": [1, 2],
+        "created_on": "2009-07-24",
+        "section": 4,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "picture-gates-gallery"
+    }
+},
+{
+    "pk": 5,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [1, 2],
+        "tags": [1, 2],
+        "created_on": "2009-07-24",
+        "section": 4,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "gates-haas-department"
+    }
+},
+{
+    "pk": 6,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [2],
+        "tags": [1, 2],
+        "created_on": "2009-07-24",
+        "section": 4,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "gates-police-cambridge"
+    }
+},
+{
+    "pk": 7,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [2, 3],
+        "tags": [1, 2],
+        "created_on": "2009-07-24",
+        "section": 4,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "shooting-copney-carney"
+    }
+},
+{
+    "pk": 8,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "created_on": "2009-07-24",
+        "group": null,
+        "contributors": [2],
+        "tags": [1, 2, 3],
+        "section": 4,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "police-professor-gates"
+    }
+},
+{
+    "pk": 9,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [2],
+        "tags": [1, 2],
+        "section": 4,
+        "priority": 4,
+        "created_on": "2009-07-24",
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "gates-police-cambridge-2"
+    }
+},
+{
+    "pk": 10,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [4],
+        "created_on": "2009-07-24",
+        "tags": [2, 4, 5],
+        "section": 5,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "leblanc-hockey-nhl"
+    }
+},
+{
+    "pk": 11,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [2],
+        "created_on": "2009-07-24",
+        "tags": [6, 7],
+        "section": 4,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "care-primary-hms"
+    }
+},
+{
+    "pk": 12,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "created_on": "2009-07-24",
+        "contributors": [3],
+        "tags": [7, 8],
+        "section": 4,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "credit-line-harvard"
+    }
+},
+{
+    "pk": 13,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [5],
+        "tags": [2, 7],
+        "created_on": "2009-07-24",
+        "section": 4,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "hup-scribd-display"
+    }
+},
+{
+    "pk": 14,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [2],
+        "created_on": "2009-07-24",
+        "tags": [2, 3],
+        "section": 4,
+        "priority": 1,
+        "pub_status": 1,
+        "issue": 1,
+        "slug": "mother-group-missing"
+    }
+},
+{
+    "pk": 15,
+    "model": "content.content",
+    "fields": {
+        "rotatable": false,
+        "group": null,
+        "contributors": [6],
+        "tags": [1, 2],
+        "created_on": "2009-07-24",
+        "section": 2,
+        "priority": 4,
+        "pub_status": 1,
+        "issue": 8,
+        "slug": "gates-police-racial"
+    }
+},
+{
+    "pk": 1,
+    "model": "content.contenthits",
+    "fields": {
+        "content": 2,
+        "date": "2009-07-24",
+        "hits": 21
+    }
+},
+{
+    "pk": 2,
+    "model": "content.contenthits",
+    "fields": {
+        "content": 1,
+        "date": "2009-07-25",
+        "hits": 4
+    }
+},
+{
+    "pk": 1,
+    "model": "content.tag",
+    "fields": {
+        "text": "crime"
+    }
+},
+{
+    "pk": 2,
+    "model": "content.tag",
+    "fields": {
+        "text": "college"
+    }
+},
+{
+    "pk": 3,
+    "model": "content.tag",
+    "fields": {
+        "text": "student life"
+    }
+},
+{
+    "pk": 4,
+    "model": "content.tag",
+    "fields": {
+        "text": "sports"
+    }
+},
+{
+    "pk": 5,
+    "model": "content.tag",
+    "fields": {
+        "text": "ice hockey"
+    }
+},
+{
+    "pk": 6,
+    "model": "content.tag",
+    "fields": {
+        "text": "hms"
+    }
+},
+{
+    "pk": 7,
+    "model": "content.tag",
+    "fields": {
+        "text": "budget cuts"
+    }
+},
+{
+    "pk": 8,
+    "model": "content.tag",
+    "fields": {
+        "text": "finance"
+    }
+},
+{
+    "pk": 1,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 1,
+        "name": "Arts"
+    }
+},
+{
+    "pk": 2,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 2,
+        "name": "Biz"
+    }
+},
+{
+    "pk": 3,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 3,
+        "name": "Design"
+    }
+},
+{
+    "pk": 4,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 4,
+        "name": "Ed"
+    }
+},
+{
+    "pk": 5,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 5,
+        "name": "FM"
+    }
+},
+{
+    "pk": 6,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 6,
+        "name": "IT"
+    }
+},
+{
+    "pk": 7,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 7,
+        "name": "News"
+    }
+},
+{
+    "pk": 8,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 8,
+        "name": "Photo"
+    }
+},
+{
+    "pk": 9,
+    "model": "admin_cust.board",
+    "fields": {
+        "group": 9,
+        "name": "Sports"
+    }
+},
+{
+    "pk": 1,
+    "model": "content.contributor",
+    "fields": {
+        "profile_pic": "",
+        "first_name": "Maxwell",
+        "last_name": "Child",
+        "middle_name": "L.",
+        "boards": [],
+        "is_active": true,
+        "class_of": null,
+        "phone": "",
+        "created_on": "2009-07-24",
+        "profile_text": "",
+        "userdata": null,
+        "board_number": null,
+        "type": "",
+        "email": ""
+    }
+},
+{
+    "pk": 2,
+    "model": "content.contributor",
+    "fields": {
+        "profile_pic": "",
+        "first_name": "Peter",
+        "last_name": "Zhu",
+        "middle_name": "F.",
+        "boards": [],
+        "is_active": true,
+        "class_of": null,
+        "phone": "",
+        "created_on": "2009-07-24",
+        "profile_text": "",
+        "userdata": null,
+        "board_number": null,
+        "type": "",
+        "email": ""
+    }
+},
+{
+    "pk": 3,
+    "model": "content.contributor",
+    "fields": {
+        "profile_pic": "",
+        "first_name": "Athena",
+        "last_name": "Jiang",
+        "middle_name": "Y.",
+        "boards": [],
+        "is_active": true,
+        "class_of": null,
+        "phone": "",
+        "created_on": "2009-07-25",
+        "profile_text": "",
+        "userdata": null,
+        "board_number": null,
+        "type": "",
+        "email": ""
+    }
+},
+{
+    "pk": 4,
+    "model": "content.contributor",
+    "fields": {
+        "profile_pic": "",
+        "first_name": "Jake",
+        "last_name": "Fisher",
+        "middle_name": "I.",
+        "boards": [],
+        "is_active": true,
+        "class_of": null,
+        "phone": "",
+        "created_on": "2009-07-25",
+        "profile_text": "",
+        "userdata": null,
+        "board_number": null,
+        "type": "",
+        "email": ""
+    }
+},
+{
+    "pk": 5,
+    "model": "content.contributor",
+    "fields": {
+        "profile_pic": "",
+        "first_name": "Bonnie",
+        "last_name": "Kavoussi",
+        "middle_name": "J.",
+        "boards": [],
+        "is_active": true,
+        "class_of": null,
+        "phone": "",
+        "created_on": "2009-07-25",
+        "profile_text": "",
+        "userdata": null,
+        "board_number": null,
+        "type": "",
+        "email": ""
+    }
+},
+{
+    "pk": 6,
+    "model": "content.contributor",
+    "fields": {
+        "profile_pic": "",
+        "first_name": "Daniel",
+        "last_name": "Herz-Roiphe",
+        "middle_name": "E.",
+        "boards": [],
+        "is_active": true,
+        "class_of": null,
+        "phone": "",
+        "created_on": "2009-07-25",
+        "profile_text": "",
+        "userdata": null,
+        "board_number": null,
+        "type": "",
+        "email": ""
+    }
+},
+{
+    "pk": 1,
+    "model": "content.section",
+    "fields": {
+        "audiodizer_id": null,
+        "name": "Arts"
+    }
+},
+{
+    "pk": 2,
+    "model": "content.section",
+    "fields": {
+        "audiodizer_id": null,
+        "name": "Opinion"
+    }
+},
+{
+    "pk": 3,
+    "model": "content.section",
+    "fields": {
+        "audiodizer_id": null,
+        "name": "FM"
+    }
+},
+{
+    "pk": 4,
+    "model": "content.section",
+    "fields": {
+        "audiodizer_id": null,
+        "name": "News"
+    }
+},
+{
+    "pk": 5,
+    "model": "content.section",
+    "fields": {
+        "audiodizer_id": null,
+        "name": "Sports"
+    }
+},
+{
+    "pk": 1,
+    "model": "content.issue",
+    "fields": {
+        "issue_date": "2009-07-25",
+        "arts_name": null,
+        "comments": null,
+        "fm_name": null,
+        "special_issue_name": null,
+        "web_publish_date": "2009-07-25 06:00:00"
+    }
+},
+{
+    "pk": 2,
+    "model": "content.issue",
+    "fields": {
+        "issue_date": "2009-07-24",
+        "arts_name": null,
+        "comments": null,
+        "fm_name": null,
+        "special_issue_name": null,
+        "web_publish_date": "2009-07-24 06:00:00"
+    }
+},
+{
+    "pk": 5,
+    "model": "content.issue",
+    "fields": {
+        "issue_date": "2009-07-15",
+        "arts_name": null,
+        "comments": null,
+        "fm_name": null,
+        "special_issue_name": null,
+        "web_publish_date": "2009-07-15 06:00:00"
+    }
+},
+{
+    "pk": 8,
+    "model": "content.issue",
+    "fields": {
+        "issue_date": "2009-07-09",
+        "arts_name": null,
+        "comments": null,
+        "fm_name": null,
+        "special_issue_name": null,
+        "web_publish_date": "2009-07-09 06:00:00"
+    }
+},
+{
+    "pk": 4,
+    "model": "content.issue",
+    "fields": {
+        "issue_date": "2009-07-08",
+        "arts_name": null,
+        "comments": null,
+        "fm_name": null,
+        "special_issue_name": null,
+        "web_publish_date": "2009-07-08 06:00:00"
+    }
+},
+{
+    "pk": 6,
+    "model": "content.issue",
+    "fields": {
+        "issue_date": "2009-07-07",
+        "arts_name": null,
+        "comments": null,
+        "fm_name": null,
+        "special_issue_name": null,
+        "web_publish_date": "2009-07-07 06:00:00"
+    }
+},
+{
+    "pk": 7,
+    "model": "content.issue",
+    "fields": {
+        "issue_date": "2009-07-02",
+        "arts_name": null,
+        "comments": null,
+        "fm_name": null,
+        "special_issue_name": null,
+        "web_publish_date": "2009-07-02 06:00:00"
+    }
+},
+{
+    "pk": 3,
+    "model": "content.issue",
+    "fields": {
+        "issue_date": "2009-07-01",
+        "arts_name": null,
+        "comments": null,
+        "fm_name": null,
+        "special_issue_name": null,
+        "web_publish_date": "2009-07-01 06:00:00"
+    }
+},
+{
+    "pk": 3,
+    "model": "content.gallery",
+    "fields": {
+        "tags": [1, 2],
+        "description": "Gallery of a picture of skip gates",
+        "contributors": [1],
+        "title": "Skip Gates Gallery"
+    }
+},
+{
+    "pk": 1,
+    "model": "content.gallerymembership",
+    "fields": {
+        "content": 1,
+        "gallery": 3,
+        "order": 0
+    }
+},
+{
+    "pk": 5,
+    "model": "content.article",
+    "fields": {
+        "byline_type": "cstaff",
+        "contributors": [1, 2],
+        "tags": [1, 2],
+        "headline": "Police Commissioner Defends Officer but Will Assemble Panel To Review Gates' Arrest",
+        "text": "Cambridge Police Department Commissioner Robert C. Haas announced at a press conference this afternoon that the Department would be assembling a panel of \"independent notable professionals\" in coming days to review and analyze the controversial arrest of black Harvard Professor Henry Louis \"Skip\" Gates, Jr. at his own home last Thursday.\r\n\r\nHaas said the panel would attempt to \"look at the situation in its totality,\" try to provide a factual basis for what transpired, and give recommendations for improvements within the department when faced with similar circumstances in the future.\r\n\r\nNevertheless, Haas said that the Department had been \"deeply pained\" by recent criticism of the police's handling of the incident\u2014including from President Barack Obama\u2014and added that the department took its professionalism seriously. He said that such attention is \"not the kind of notoriety we want to come to this city,\" and maintained that Sergeant James Crowley, the officer who made the arrest, had done nothing wrong in his handling of the incident.\r\n\r\n\"I believe that Sergeant Crowley acted in a way that is consistent with his training at the Department, consistent with national standards of law enforcement protocol,\" he said. \"I do not believe that his actions were in any way racially motivated.\" Instead, Haas said that Crowley had \"assessed the situation, tried to de-escalate the situation, and made a determination that the only way to stop the situation was to make an arrest.\"\r\n\r\nHaas said that the Department would provide the review panel with all necessary records, documentation, and police staff, and that the final report would be available for public review.\r\n\r\n\"I believe that there is always a better way of doing things in the future,\" he said.\r\n\r\nHaas also revealed new information at the press conference today, noting that Gates' home had previously been broken into, before the arrest, while the professor was away. He said that he was not exactly sure when the break-in took place, and that it had been investigated by Harvard University Police Department.\r\n\r\nLast Thursday's incident had transpired when a woman reported to police that she saw two men apparently trying to pry open the front door to Gates' home. But the men entering were likely Gates, who had returned to Cambridge after a trip to China, and his car driver, who was helping him force his way through a jammed front door. When officers arrived to investigate, tensions flared as Gates, who had by then entered the home, angrily and loudly accused the officer of targeting him because he was black, according to police reports.\r\n\r\nBut Gates and his lawyer have said that the professor cooperated fully, providing both his Harvard identification and a drivers license to prove he lived in the home. They said the officer refused to identify himself and lured Gates out of the home to arrest him.\r\n\r\nHaas said that the incident was less a matter of providing proper identification, however, and that Crowley made the arrest \"as a last resort\" after unsuccessfully trying to de-escalate the tension at the scene.\r\n\r\nEarlier Thursday, President Obama said he was \"surprised\" by the controversy that had erupted over his comments at a press conference last night, where he had said that the Cambridge Police acted \"stupidly\" in arresting Gates. Haas said at the conference that his officers took the comments to heart and were \"stunned\" and \"deflated.\"\r\n\r\nHaas said that the City and police decided on Tuesday to drop the disorderly conduct charge filed against Gates because \"we basically felt this was a situation that we needed to move on from.\"\r\n\r\n\"We didn't want this to be a prolonged situation, [and we] needed to focus back on what we do in terms of providing safety and protection for this community,\" Haas said.\r\n\r\nHe said that the decision to drop the charges had been made in consultation with the Cambridge City Council, Manager, and Solicitor, and said that the Department had been approached by Gates' attorney first.\r\n\r\nWhile Gates called the officer who arrested him a \"rogue cop,\" Haas said that Crowley was a \"stellar member of this Department\" and that he relied on Crowley's judgment everyday. Nevertheless, he said that the Department regretted that the incident took place, and said that \"nobody's happy about this situation.\"",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Cambridge Police Department Commissioner Robert C. Haas announced at a press conference this afternoon that the Department would be assembling ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 6,
+    "model": "content.article",
+    "fields": {
+        "byline_type": null,
+        "contributors": [2],
+        "tags": [1, 2],
+        "headline": "Obama Chides Cambridge Police for Gates' Arrest",
+        "text": "Tensions surrounding last week's arrest of black Harvard professor Henry Louis Gates, Jr. escalated sharply Wednesday, with the officer involved unequivocally denying any wrongdoing while Gates forcefully called for an apology and U.S. President Barack Obama chastised Cambridge police on national television for arresting the professor.\r\n\r\n\"I think [the officer] owes me an apology for what he did,\" Gates told a Boston television reporter Tuesday night. \"He should look into his heart and know that he is not telling the truth and he should beg my forgiveness.\" Gates has raised the possibility of filing a lawsuit over the arrest.\r\n\r\nObama, speaking at a White House press conference aimed at boosting support for health care reform, said that the Cambridge Police Department \"acted stupidly in arresting somebody when there was already proof that they were in their own home\" and noted that racial profiling remained a fact in American society. Mass. Gov. Deval L. Patrick '78 also said today that he was troubled by the incident, and Cambridge Mayor E. Denise Simmons said she spoke to Gates and apologized on behalf of the city.\r\n\r\nBut Sergeant James Crowley, the Cambridge police officer who arrested Gates, said Wednesday that he would not apologize for his actions, saying that he was not a racist and that he was disappointed by the national media intense coverage of the incident. The Cambridge Police Superior Officers Association, which represents 50 police sergeants and lieutenants, also came to Crowley's defense, saying he was a \"highly respected veteran supervisor with a distinguished record\" and that \"his actions at the scene of this matter were consistent with his training, with the informed policies and practices of the Department, and with applicable legal standards.\"\r\n\r\nReaders commenting online about the ongoing tumult appear to have divided opinions as well, with some criticizing police for what they see as a racially motivated and imprudent arrest, and others writing that the professor had overreacted to a legitimate police inquiry.\r\n\r\nThe City of Cambridge and the Cambridge Police Department dropped the disorderly conduct charge filed against Gates on Tuesday, calling the incident \"regrettable and unfortunate.\" But police spokespeople have repeatedly declined to say whether the move represented an admission of wrongdoing, and Crowley could not be reached for comment at his home by The Crimson on Wednesday.\r\n\r\nGates has thus far declined to speak to The Crimson, writing in an e-mailed statement Wednesday night that he has been \"overwhelmed by email and phone calls\" and \"unfortunately\" could not address each request individually at the current time. His lawyer and friend, law school professor Charles J. Ogletree, Jr., did not respond to repeated requests for comment by The Crimson.\r\n\r\nGates, who has accused Crowley of fabricating information in the police report documenting the incident, has offered to personally educate the officer on the \"history of racism in America and the issue of racial profiling.\" He also said he has been inspired to film a documentary on the subject.\r\n\r\nThe arrest took place last Thursday when a woman reported to police that she saw two men apparently trying to pry open the front door to Gates' home. But in reality, the men entering were likely Gates, who had returned to Cambridge after a trip to China, and his car driver, who was helping him force his way through a jammed front door. When officers arrived to investigate, tensions flared as Gates, who had by then entered the home, angrily and loudly accused the officer of targeting him because he was black, according to police reports.\r\n\r\nBut Gates and his lawyer have said that the professor cooperated fully, providing both his Harvard identification and a drivers license to prove he lived in the home. They said the officer refused to identify himself and lured Gates out of the home to arrest him.\r\n\r\nGates told CNN Wednesday evening that even though the incident had upset him greatly, he would \"do the same thing exactly again.\" ",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Tensions surrounding last week's arrest of black Harvard professor Henry Louis Gates, Jr. escalated sharply Wednesday, with the officer involved ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 7,
+    "model": "content.article",
+    "fields": {
+        "byline_type": null,
+        "contributors": [2, 3],
+        "tags": [1, 2],
+        "headline": "Suspect in Harvard Shooting Pleads Not Guilty to All Charges",
+        "text": "Jabrai J. Copney, 20, a suspect in the May 18 Kirkland House shooting that left a Cambridge resident dead, pleaded not guilty to five charges, including first-degree murder, at his Middlesex Superior Court arraignment Wednesday morning.\r\n\r\nCopney, who was kept out of view during the arraignment, will continue to be held without bail and is scheduled to appear in Superior Court again on Sept. 10. His defense attorney, J. W. Carney, Jr. said after the arraignment that further hearings will likely take place before the trial, and that more evidence may be exchanged between the prosecution and defense at the hearings. Carney said he expects the trial to begin in September or October of 2010.\r\n\r\nIn addition to murder, Copney also faces charges of armed robbery, accessory after the fact of murder, attempt to commit a crime, and possession of a firearm for his alleged involvement in the death of Justin Cosby, 21. Prosecutors have said in previous statements that Cosby was the victim of a failed drug rip.\r\n\r\nCarney said after the hearing that he has yet to see \"any evidence whatsoever\" from the Commonwealth indicating that his client was \"a participant in the murder.\" He added that Copney's mood is \"surprisingly good\" considering that he has been jailed without bail for roughly two months.\r\n\r\n\"He really does believe that God has a purpose in having him charged with this crime,\" Carney said, adding that his client has a great deal of religious faith. \"He doesn't know what that purpose is yet, but he is confident it will turn out all right for him.\"\r\n\r\nCarney said that while \"today wasn't the day to make a bail argument,\" he does reserve the right to do so in the future.\r\n\r\nA statement of the case, written by prosecutors and released at the arraignment, has provided a more detailed account of the alleged events surrounding the shooting.\r\n\r\nAccording to the statement, an unnamed witness observed Copney leaving Kirkland immediately after the shooting carrying a gun. Police said they later recovered a gun which they determined was in Copney's possession immediately after the murder. That gun, a 9 mm semiautomatic pistol, was of the same caliber as casings found at the scene, the report said. A jacket that Copney wore the day of the shooting has also tested positive for gunshot residue, according to the statement.\r\n\r\nCopney and Blayn Jiggetts, the second man arrested so far in connection with the murder, reportedly fled Massachusetts soon after the shooting with a third suspect, whom police are still working to locate and apprehend.\r\n\r\nJiggetts, who is being held in New York, has refused to return to Massachusetts voluntarily to face charges, which also include first-degree murder. Corey Welford, a spokesman for the Middlesex District Attorney's office, said that prosecutors are continuing to work to extradite Jiggetts.\r\n\r\nThe statement also said that, according to phone records, several calls had been made immediately before the shooting from Cosby's phone\u2014calls that police later traced to Copney's phone. Even though Cosby reportedly had the phone right before being shot, the phone was not found on his body or at the scene of the shooting, the report said. Welford said he was not sure if the phone had since been recovered.\r\n\r\nThe statement also said that roughly four ounces of marijuana, wrapped in a \"bloody work shirt with a Sunoco logo,\" was found near Cosby after the shooting. The statement did not say whether the work shirt has been linked to Copney.\r\n\r\nCarney said after the arraignment that Copney is a Christian and reads the Bible every morning and every night before going to bed, and added that his time in jail had given him material for his songwriting. Copney graduated from a performing arts high school in New York City, and at 15, he wrote \"Feelin' It,\" a song performed by the R&B/pop group New Edition.\r\n\r\nCarney and Welford both declined to confirm or comment on any involvement of Chanequa N. Campbell '09 and Brittany J. Smith '09 in the shooting. While authorities and media outlets have not explicitly linked Campbell and Smith to the shooting, the two were denied diplomas at Commencement ceremonies in June, and the district attorney's office has stated that two female Harvard students allowed Cosby and the suspects to enter Kirkland.",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Jabrai J. Copney, 20, a suspect in the May 18 Kirkland House shooting that left a Cambridge resident dead, pleaded ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 8,
+    "model": "content.article",
+    "fields": {
+        "byline_type": null,
+        "contributors": [2],
+        "tags": [1, 2, 3],
+        "headline": "Harvard Students, Professors Eye Racial Factors in Gates' Arrest",
+        "text": "Allegations of racial profiling continued to mount after the arrest of prominent black Harvard professor Henry Louis \"Skip\" Gates, Jr. last week, but students and faculty interviewed Tuesday were cautious about leveling blame, even while acknowledging the possibility of police misconduct.\r\n\r\n\"It's definitely questionable,\" said Mackenzie J. Lowry '11, who is working as a mentor in Cambridge for the summer. \"Situations like these are difficult to comment on when you don't know the entire story. But I certainly hope this wasn't a racially based situation. If it was...there needs to be disciplinary action taken against the people who humiliated this renowned professor.\"\r\n\r\nGates, an African American studies professor who has earned 50 honorary degrees for his work and is arguably Harvard's most renowned black scholar, was arrested last Thursday at his home for disorderly conduct. Police reports and statements from Gates' lawyer suggest that police officers, investigating a tip of a possible break-in at Gates' Cambridge home, got into a confrontation with the 58-year-old professor, who was returning home from a trip to China and forced his way through a jammed front door with a car driver's help.\r\n\r\nCambridge authorities and prosecutors agreed to drop the charge on Tuesday, saying that the incident was \"regrettable and unfortunate\" but not one that should be viewed as demeaning to the \"character and reputation of Professor Gates or the character of the Cambridge Police Department.\"\r\n\r\nNevertheless, Spencer H. Hardwick '11, president of the Black Students Association and also a Crimson news writer, said that \"the situation clearly requires an investigation into the motives of the officers involved and the policies and procedures of the Cambridge Police Department\" in order to \"prevent further incidents of arbitrary and unfair treatment against innocent citizens.\" He said that his organization has opened a dialogue with the University administration to explore how the BSA could help address these issues.  [CORRECTION APPENDED]\r\n\r\nStudents interviewed were wary of passing judgment on police or the professor without more definitive information, but several said that the professor had been treated unfairly. Kyle A. Martin '11, a proctor at Harvard for the summer, said \"it certainly would appear to me to be some sort of racial bias against Professor Gates exhibited by the police officer.\" And Amaka C. Uzoh '11, an intern at the Harvard Foundation for Intercultural and Race Relations, said that she sympathized with Gates and that he did not deserve to face charges from police.\r\n\r\n\"Those actions definitely have a racial precedent,\" Uzoh said. \"It's not uncommon, it has even happened to me in California.\" She added that in the past, she and her parents have been pulled over while driving for police questioning about how they obtained their vehicle. \"Black men especially are sometimes questioned by police unnecessarily,\" Uzoh said.\r\n\r\nFaculty in the department of African and African American Studies interviewed Tuesday commented more explicitly about the persistence of racial profiling in American society, noting that the police actions were indicative of a lapse of communication and racial understanding plaguing much of the country.\r\n\r\n\"This is not all that surprising that this would happen to an African American man, and even to somebody of Skip Gates' stature,\" said James H. Sidanius, a psychology and African American studies professor whose area of study includes institutional discrimination and group conflict. \"These things happen all too often, where African Americans are disproportionally stopped by police more than others, disproportionally detained for arrest, and disproportionately found guilty and sentenced to prison.\"\r\n\r\nSidanius said he believes the incident should have stopped when Gates provided the officer with his Harvard identification and driver's license as proof that he lived in the home, and \"the fact it went beyond that is unsettling.\"\r\n\r\nWalter Johnson, another African American studies professor, wrote in an e-mailed statement that the charge of disorderly conduct in one's own home was absurd and that \"the structure of ideas and institutions which render such action commonsensical in this society are appalling.\" And Mich\u00e8le Lamont, a sociology and African American studies professor who specializes in American race relations, called the arrest \"egregious\" and said that the incident helped expose the need for broader racial dialogue not only within the Harvard community but also in the broader Cambridge area.\r\n\r\nLamont noted that \"Boston is not reputed to have perfectly warm interracial relationships.\"\r\n\r\nThe University has grappled with racial profiling issues a few times in recent years, although those cases involved the Harvard University Police Department, not the Cambridge Police Department. Last summer, HUPD officers, in a confrontation allegedly \"laced with obscenities,\" approached a young black man attempting to remove a lock from a bicycle who turned out to be a Boston area high school student working at the University for the summer. The incident helped trigger a University task force review of community and police relations, and prompted HUPD to reach out to the community, drawing praise from black student organizations.\r\n\r\nGates spoke publicly to a few media outlets on Tuesday for the first time since the arrest, framing his experience as part of a \"racial narrative\" in a biased criminal justice system and reprimanding the police officer for having a \"broad imagination\" in filing his report. Police accounts say that Gates was uncooperative and loud when questioned by police, yelling \"[t]his is what happens to black men in America\" and telling the police officer \"[y]ou don't know who your [sic] messing with.\"\r\n\r\nNot everyone reflecting on the incident immediately concurred that the arrest exemplified on-going societal prejudices. Gates' lawyer, law school professor Charles J. Ogletree, Jr., has declined to say whether he believes the incident was racially motivated, and Cambridge police representatives carefully kept to their prepared statement, which said that the dropping of charges was \"a just resolution to an unfortunate set of circumstances.\"\r\n\r\nDamaris J. Taylor '12, alumni and public relations chair for the Harvard Black Students Association, said that based on police reports, he personally didn't think the arrest was racially motivated and that \"the officer was just doing his job.\" But he also said that while the professor may have overreacted or even acted rudely, the police should not have issued an arrest.\r\n\r\nHarvard President Drew G. Faust said in a statement Tuesday that she continues to be \"deeply troubled by the incident,\" although she is gratified that the charges have been dropped. She added that \"legacies of racial injustice remain an unfortunate and painful part of the American experience\" and that \"we can and must do better.\" [CLARIFICATION APPENDED]\r\n\r\n\u2014Molly M. Strauss contributed to the reporting of this story.\r\n\r\n\u2014Staff writer Peter F. Zhu can be reached at pzhu@fas.harvard.edu.\r\n\r\nCORRECTION\r\n\r\nAn earlier version of this story incorrectly stated that Spencer Hardwick is a member of the Class of '12.  He is, in fact, from the Class of '11.\r\n\r\nCLARIFICATION\r\n\r\nAn earlier version of this story incorrectly attributed Faust's quotation saying \"we can and must do better\" to U.S. President Barack Obama. Harvard spokesman John Longbrake said that those words, which were taken from a larger Faust statement saying \"[a]s President Obama has remarked, ours is an imperfect union, and while perfect justice may always elude us, we can and must do better,\" were not meant as an Obama reference. He said that \"imperfect union\" was intended as a paraphrased reference to a speech given by Obama in Philadelphia.",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Allegations of racial profiling continued to mount after the arrest of prominent black Harvard professor Henry Louis \"Skip\" Gates, Jr. ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 9,
+    "model": "content.article",
+    "fields": {
+        "byline_type": "cstaff",
+        "contributors": [2],
+        "tags": [1, 2],
+        "headline": "Charge Against Gates To Be Dropped",
+        "text": "The City of Cambridge and the Cambridge Police Department have recommended to the Middlesex District Attorney that the disorderly conduct charge against Harvard professor Henry Louis Gates, Jr. be dropped, according to a joint press release.\r\n\r\nThe District Attorney's office has agreed to no longer pursue the case, the statement said.\r\n\r\n\"The City of Cambridge, the Cambridge Police Department, and Professor Gates acknowledge that the incident of July 16, 2009 was regrettable and unfortunate,\" the statement said. \"This incident should not be viewed as one that demeans the character and reputation of Professor Gates or the character of the Cambridge Police Department. All parties agree that this is a just resolution to an unfortunate set of circumstances.\"\r\n\r\nGates, who was returning to Cambridge on Thursday after a trip to China, reportedly had difficulty opening his jammed front door and forced his way into his home with the help of his car driver. A woman reportedly saw the professor and alerted police to a possible break-in attempt. When officers arrived, the situation escalated, with Gates accusing police of racial profiling, according to police reports.\r\n\r\nBut according to law school Professor Charles J. Ogletree, Jr., who is serving as Gates' representative, Gates cooperated with police, providing both his Harvard identification and driver's license. Ogletree said police nevertheless arrested Gates when he stepped out onto his porch to ask for the officer's name and badge number.\r\n\r\nSergeant James DeFrancesco of the Cambridge Police declined to say whether the agreement represented any sort of admission of wrongdoing, or if there was a plea made, and said that police would have no further comment on the matter beyond the statement issued.\r\n\r\nGates, who served as chair of the department of African and African American studies from 1991 to 2006, earned his M.A. and Ph.D. in English literature from the University of Cambridge after completing his undergraduate studies in history summa cum laude at Yale. Gates was awarded a MacArthur Foundation \"Genius Grant\" in 1981 and was named one of Time magazine's \"25 Most Influential Americans\" in 1997.\r\n\r\nHe is one of roughly 20 Harvard faculty members who hold prestigious University professorships, which are given to honor academic achievements that cross disciplinary boundaries. ",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "The City of Cambridge and the Cambridge Police Department have recommended to the Middlesex District Attorney that the disorderly conduct ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 10,
+    "model": "content.article",
+    "fields": {
+        "byline_type": "cstaff",
+        "contributors": [4],
+        "tags": [2, 4, 5],
+        "headline": "NHL First-Round Pick Leblanc Harvard Bound",
+        "text": "Seconds before the Montreal Canadiens made their first-round pick in the 2009 NHL Entry Draft, the television cameras cut to Louis Leblanc. Leblanc, an incoming Harvard freshman and highly-rated NHL prospect, looked around Montreal\u2019s Bell Centre in silent anticipation. The Kirkland, Que. native would soon learn whether his hometown team would be selecting him with the 18th pick overall.\r\n\r\n\u201cI was pretty nervous throughout,\u201d Leblanc said. \u201cI didn\u2019t know where I was getting [selected]. It was crazy\u2014I had goose bumps.\u201d\r\n\r\nAs Trevor Timmons, the Director of Player Recruitment for the Habs, spoke into microphone on June 26, the crowd fell silent. Then Leblanc\u2019s name came out of Timmons\u2019 mouth, and the audience erupted into applause and cheers. \u201cLouis, Louis, Louis,\u201d boomed through the arena. It was the first time since 1988 that Montreal had drafted a Quebecois skater in the first round.\r\n\r\nLeblanc relaxed and let out a smile.\r\n\r\n\u201cI was back home in [Montreal] for that weekend,\u201d captain Alex Biega wrote in an e-mail. \u201cThe place was going nuts. [Leblanc] is a celebrity there.\u201d\r\n\r\nLeblanc, possibly Harvard\u2019s best recruit in 20 years, is only the second skater in Crimson history and seventh player in ECAC history to be selected in the first round of the NHL draft.\r\n\r\nA 6-foot, 170-pound center, Leblanc was named MVP of his Quebec Midget AAA league for the 2007-08 season. For the 2008-09 campaign, Leblanc recorded 59 points in 60 games for the Omaha Lancers and was named the United States Hockey League\u2019s Rookie of the Year.\r\n\r\nBut none of these accomplishments came close to the honor of being selected by the Habs, a team he\u2019s been a lifelong fan of.\r\n\r\n\u201cFor sure, no question about it,\u201d Leblanc said. \u201cIt was the best moment of my hockey life so far.\u201d\r\n\r\n\u201cI didn\u2019t know what to think,\u201d the 18-year-old added. \u201cIt was a dream come true. The fans were already chanting my name.\u201d\r\n\r\nLeblanc is one of six drafted players on the Crimson, including Biega, who was selected by the Buffalo Sabres and senior Doug Rogers, who was picked by the New York Islanders. The last Crimson player taken in the first round was Chis Biotti \u201989.\r\n\r\nIn terms of preparing for the NHL, Leblanc pretty much had his pick of the litter. He could have played amateur hockey or at any school in the nation, including Boston University and Boston College, the past two NCAA Champions. But Leblanc chose Harvard with the goal of finding a balance between hockey and education.\r\n\r\n\u201cI thought it was better for me\u2014for my life\u2014to get a Harvard education,\u201d Leblanc said. \u201cEven if I play 20 years in the NHL, life still goes on after that.\u201d\r\n\r\nLeblanc\u2019s ultimate goal is to play in the NHL, but he wants to get as much out of Harvard as he can before transitioning into a life of full-time hockey.\r\n\r\n\u201cI don\u2019t know if I\u2019m going to graduate in four years,\u201d he said. \u201cIf I stay two years, my degree will be started and I can go back and finish. My education is really important to me.\u201d\r\n\r\nLast season, Leblanc got his first taste of living in the United States when he played amateur hockey for the Omaha Lancers of the USHL.\r\n\r\n\u201cI went to Omaha. [It was] pretty far away and not much to do there,\u201d Leblanc said. \u201c[But] it was a good stepping stone to college hockey\u2014the highest level of hockey I\u2019ve played.\u201d\r\n\r\nThe Crimson will be counting on Leblanc and the rest of the freshman class to make strong contributions to the team this year. Harvard has a talented senior class, and Leblanc will need to adapt quickly for the team to make a run at the ECAC title.\r\n\r\n\u201cHe will be an impact player right away for us,\u201d Biega said in an e-mail. \u201cThe qualities he has is exactly what [our] team will be about this year. He is a blue collar player who has a tremendous amount of skill who will be able to score some goals for us next year.\u201d",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Seconds before the Montreal Canadiens made their first-round pick in the 2009 NHL Entry Draft, the television cameras cut to ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 11,
+    "model": "content.article",
+    "fields": {
+        "byline_type": null,
+        "contributors": [2],
+        "tags": [6, 7],
+        "headline": "HMS Suspends Funding for Primary Care Division",
+        "text": "Harvard Medical School has suspended funding for its Primary Care Division as part of a broader departmental restructuring effort, prompting students and faculty to circulate a petition calling on HMS Dean Jeffrey S. Flier to reaffirm the School's commitment to primary care education.\r\n\r\nAccording to Nancy J. Tarbell, dean for academic and clinical affairs at HMS, the School had provided roughly $200,000 in funding each year to the Division. She said that the Division, which has not been disbanded but whose structure and administration is being reviewed, will remain affiliated with HMS. The Division has always been funded exclusively by the Medical School, according to HMS spokesman David J. Cameron.\r\n\r\n\"The reorganization of this division is really a narrow administrative issue,\" said HMS Dean of Medical Education Jules L. Dienstag. \"It has nothing to do with the commitment of HMS to primary care, which is unchanged, undiluted, and undiminished.\"\r\n\r\nNevertheless, as of Thursday afternoon, over 450 individuals had signed the online petition, including students, residents, faculty, and physicians from HMS and its affiliated hospitals. The petition calls for the School's administration to present a detailed plan of action for expanding institutional support despite the budget cut, expand loan forgiveness initiatives that financially enable students to pursue primary care specialties, support efforts to strengthen primary care in a reformed national health care system, and solicit and implement proposals from the HMS community to improve primary care education.\r\n\r\n\"We all realize right now that any serious health care reform that's going to take place in this country will require invigoration of the field of primary care,\" said Andrew F. Singer, a third-year medical resident training in primary care at the Harvard affiliated Brigham and Women's Hospital. \"We think that HMS and other leading medical institutions have an important role to play in paving the way forward for primary care.\"\r\n\r\nSinger, who said he has signed the petition, is also leading the recently-organized Harvard Primary Care Reform Working Group, which aims to collect and synthesize specific ideas and recommendations from individuals across HMS and its affiliated hospital community in order to aid the administration in promoting primary care education.\r\n\r\nThe Division was previously part of the HMS-HPHC jointly administered Department of Ambulatory Care and Prevention (DACP), which Tarbell said was recently restructured and renamed as the Department of Population Medicine and placed solely under HPHC's administrative purview in order to better reflect its core research and teaching activities. Sharon Torgerson, a spokeswoman for HPHC, said that there are no plans for her organization to financially support the Primary Care Division since they have not in the past, but she did emphasize that HPHC has always supported DACP, and will continue to support it under its new name.\r\n\r\nTarbell, who seemed unclear about what actual services were provided by the Division, said that the HMS administration is conducting a \"comprehensive review\" of the its programs and that the Division has historically been \"relatively small.\"\r\n\r\n'When you look at [HMS's primary care initiatives] as a whole, at the big picture, you can't make the argument that funding has decreased for primary care training at HMS,\" Tarbell said, adding that the school is expanding its funding this year for a required third-year medical clerkship from $600,000 to $800,000. Tarbell and Dienstag said that the number of people taking the clerkship, which lasts for eight months and provides students with one-on-one faculty interaction in treating patients, would be increasing by 20 percent this year.\r\n\r\n\"That [increase] is us making sure that our students are getting the maximal required attention to having this major component in their medical education on primary care,\" Tarbell said.\r\n\r\nShe also emphasized that the Primary Care Division was not singled out for budget cuts, noting that other divisions have seen reductions as well while some traditionally receive no funding whatsoever. She said that HMS may resume funding for the Division in the future, after administrators and the Division's leadership reevaluate how the unit is structured and how primary care education and research can best be fit into HMS's broader educational mission. HMS traditionally uses divisions to help researchers, educators, and departments convene and collaborate from across HMS and its affiliated institutions.\r\n\r\nBut despite administrators' reassurances that primary care education remains a top priority at the Medical School, some students and faculty maintain that the cut sends a negative message about the School's priorities, which they say have traditionally centered on specialty medicine and research. And the petition expressed concern about the future of outreach activities previously coordinated by the Division, including a Primary Care Mentorship Program, if funding or a Divisional home were to be eliminated.\r\n\r\n\"Primary care, from the perspective of the Medical School, was sort of a stepchild [in the past], and not much was done to provide students with information about primary care careers or to connect them with role models in primary care,\" said Susan Edgman-Levitan, executive director at The John D. Stoeckle Center for Primary Care Innovation. \"[The cut] comes at a time when there is huge national concern about the role of primary care in the health care system going forward. Most other schools and organizations are doing everything they can to strengthen the primary care base, attracting not only doctors but other professionals in primary care, and here we are cutting the division.\"\r\n\r\nThe Primary Care Division previously collaborated with the Stoeckle Center in organizing the monthly Cabot Primary Care Lecture Series for faculty and students, but Edgman-Levitan said that because of the funding cuts, her Center would likely be forced to sponsor all the lectures in the fall.\r\n\r\nHealth care experts and faculty interviewed by The Crimson cited the growing primary care crisis in the U.S. and the accelerating health care reform movement as factors driving the enthusiasm behind the growing petition, as well as reasons that HMS ought to commit more firmly to improving primary care education. According to a 2008 study published in the Journal of the American Medical Association, only 2 percent of medical students said that they were planning on becoming general internal medicine physicians, even while the number of older Americans who depend on such first-stop doctors is expected to double between 2005 and 2030. A similar study two decades earlier had seen roughly 9 percent of students saying they would be entering primary care, according to a 2008 Associated Press report.\r\n\r\nExperts say that this dwindling supply of primary care doctors, largely due to the traditionally unappealing pay and work hours for those in the field, has exacerbated a crisis in the nation's health care system, which is already dealing with tens of millions of aging baby boomers and uninsured Americans. Increasing the number of primary care doctors and researchers is seen as vital to supporting a reformed national health care system, as well as improving patients' everyday health.\r\n\r\n\"The data shows that primary care, effective primary care, is central to an effective health care system. Where primary care is strong, the data shows that costs are lower, outcomes are better, and there's less disparity of care,\" said Allan H. Goroll, a professor at MGH and a general internist at Mass. General Hospital, where he initiated the nation's first residency track in primary care internal medicine. He also said that while the financing of health care reform may be controversial, the need to strengthen and reform primary care is well-recognized and enjoys bipartisan support.\r\n\r\nYet at Harvard, where specialty medicine and research have traditionally been heralded, some continue to feel that HMS can and needs to do more to support primary care by providing financial support and elevating the field's stature within the community. The HMS Joseph B. Martin Loan Forgiveness Initiative allows third-year students pursuing specialties in primary care, family medicine, and psychiatry to receive up to $60,000 in debt reduction, but the circulating petition states that loan forgiveness can only be \"one component of a multi-pronged strategy to boost student interest\" and that HMS must work to do so throughout the four years of medical education.\r\n\r\n\"Harvard's goal has always been to create leaders in medicine, with regards to basic science and new developing fields. Primary care has never really been a major emphasis, although I think on a global basis, Harvard has put a major emphasis on reaching out to the rest of the world,\" said Martin P. Solomon, an assistant clinical professor of medicine at the Brigham. \"People like Jim Kim and Paul Farmer are all very important and have had an enormous impact on primary care worldwide, but in our own backyard, Harvard has had very little impact. [Primary care] is not as glamorous, but it's the grease that keeps the system going.\"\r\n\r\nBut Solomon said that he has been in frequent contact and communication with Dean Flier, whom he known for over two decades, and says that the Dean definitely \"understands the value and importance of primary care\" and is looking to find ways to support primary care in a difficult financial environment.\r\n\r\n\"They're sensitive to [the value of primary care education], and they're trying to come up with something working with the entire Harvard community to develop a realistic approach to supporting primary care,\" Solomon said. \"In the meantime, it's incumbent on people in the community to support this.\"\r\n\r\nDavid H. Gellis, a former Crimson managing editor and MD/MBA joint-degree candidate who helped organize the petition, said that \"we have not gotten a response from the Dean providing further explanation of the funding cut or the status of the Division of Primary Care, so I think there still is a lot of uncertainty within the community about where things stand exactly.\"\r\n\r\nHe said that once Singer's working group provides formal proposals to support primary care education, the HMS administration should provide a detailed response and action plan for implementation going forward.\r\n\r\n\"The message we're trying to send is that we believe that primary care is integral to the mission of Harvard Medical School and that more than specific programs or services, Harvard needs a high-profile, centralized home for efforts to raise the profile of primary care at the institution,\" Gellis said. ",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Harvard Medical School has suspended funding for its Primary Care Division as part of a broader departmental restructuring effort, prompting ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 12,
+    "model": "content.article",
+    "fields": {
+        "byline_type": "cstaff",
+        "contributors": [3],
+        "tags": [7, 8],
+        "headline": "Harvard Considers Swapping in Tighter Credit Line",
+        "text": "Harvard is considering replacing a $2 billion revolving line of credit with a smaller line of credit that charges a higher interest rate\u2014a move that may constrain the University's cash flexibility during severe economic downturns.\r\n\r\nAccording to Bloomberg, Harvard is negotiating terms on a $1.75 billion line of credit and is willing to pay back any loans at 1.25 percentage points above the London Interbank Offered Rate, a common reference point for setting floating interest rates. The University's current $2 billion line of credit, set to expire next month, allows it to borrow $250 million more at an interest rate 0.25 percentage points higher than LIB.\r\n\r\nThe move comes after months of scrutiny and criticism over the University's decision to sell billions of dollars in bonds at high interest rates late last year, as the financial crisis deepened, in order to boost liquidity.\r\n\r\nBloomberg also reported that Harvard may pay an upfront fee to the creditors funding the loan on top of the interest, as well as 0.1 percent interest on any untapped loans.\r\n\r\nUniversity spokesman John D. Longbrake declined to discuss the specific terms of the negotiations, but confirmed that the University will renew its revolving line of credit\u2014which allows Harvard to draw additional funds after previous loans are repaid\u2014for the next year.\r\n\r\nCitigroup and Bank of America will set up the line of credit for the next year, Bloomberg said. In a report published last April, credit ratings agency Moody's Investors Service said the previous line of credit was funded by a consortium of banks, but it is unclear whether Citigroup and Bank of America participated. Spokesmen from Bank of America and Citigroup declined to comment.\r\n\r\nThe Moody's report noted that the $2 billion line of credit served as a source of \"additional liquidity flexibility,\" though it does not qualify as \"same-day liquidity\"\u2014a measure of an institution's ability to meet cash demands quickly. At the time, the ratings agency issued a stable outlook for Harvard's credit rating based in part on its \"maintenance of strong liquidity and capital ratios.\"\r\n\r\nDuring December and January, Harvard completed a $2.5 billion bond offering to bolster its cash reserves, as well as to refinance riskier forms of debt. Several media outlets have suggested that the University held insufficient cash reserves, and Forbes magazine wrote that Harvard had found itself in a \"cash-raising panic\" in the midst of the economic recession.\r\n\r\nEarlier this year, the University's Chief Financial Officer Daniel S. Shore rejected this depiction of Harvard's finances, saying that the bond offering had been issued \"quite competitively given market conditions at the time.\"\r\n\r\nThe recession and the projected 30 percent decline in endowment value have forced Harvard to enact sweeping budget cuts, from laying off workers to slowing down ambitious capital projects in Allston.\r\n",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Harvard is considering replacing a $2 billion revolving line of credit with a smaller line of credit that charges a ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 13,
+    "model": "content.article",
+    "fields": {
+        "byline_type": "cstaff",
+        "contributors": [5],
+        "tags": [2, 7],
+        "headline": "Harvard University Press Closes Display Room, Goes Digital",
+        "text": "Harvard University Press, whose sales have fallen approximately 10 percent this past year, closed its 61-year-old display room in the Holyoke Center on June 30 after its yearly lease expired at the end of May, according to HUP sales director Susan Donnelly.\r\n\r\nTwo of the display room's three staffers took the University's early retirement incentive package, Donnelly said, and the third was fired this summer as part of the 275 University-wide layoffs.\r\n\r\nDonnelly explained that the display room has always been a net loss for HUP, but it was a cost that they were willing to subsidize until now. She said publishers have been dealt a \u201cdouble-whammy\u201d by the financial crisis and the transition to digital media.\r\n\r\nThe display room\u2019s costs consisted of rent and staff salaries, according to Donnelly. In addition to the display room worker who was laid off, HUP fired three staffers in marketing, two in editorial, and one in design\u2014a total of seven layoffs. But HUP is not planning on reducing publishing output, Donnelly emphasized.\r\n\r\nThe display room had featured a full bookcase of Greek and Latin works from the Loeb Classical Library, as well as other nationally renowned titles.\r\n\r\nBrandon K. B. Seah '11 said that \u201cas a poor student,\u201d he enjoyed going to the \u201cBargain Alcove,\u201d a shelf where damaged books were sold for as little as $4 or $5. He said he would be disappointed if a restaurant or other commercial chain replaces the display room in the Holyoke Center.\r\n\r\n\u201cThen it becomes just like any other place in the Square: very commercial, no local flavor,\u201d Seah said. \u201cIt would be catering more to the tourists than the students, which kind of defeats the purpose.\u201d\r\n\r\nHUP has also recently signed a deal with Scribd, an online startup founded and headed by a young Harvard duo: John R. \u201cTrip\u201d Adler '06 and Jared Friedman, a Harvard dropout who was a Computer Science concentrator in Cabot House. The deal would put nearly 1,000 of HUP\u2019s books online, making them downloadable at costs determined by HUP.\r\n\r\nScribd would take 20 percent of the profits, and HUP 80 percent. Approximately 300 of HUP\u2019s books are already on Scribd\u2019s web site, according to Adler.\r\n\r\n\u201cWe think it\u2019s exciting to get a big publisher like Harvard involved, especially because we went to school there,\u201d said Adler, a former Biophysics concentrator.\r\n\r\nNYU and MIT's University Presses have also already signed on with Scribd. The company started discussing a deal with HUP about a month ago, according to Adler, after HUP started uploading books to the Web site on their own.\r\n\r\nScribd, which attracted the attention of venture capitalists soon after it was launched in March 2007, currently has almost 50 million users, according to Adler. Books purchased through Scribd can be read on electronic devices, including the iPhone and Amazon Kindle.\r\n\r\nScribd is also looking to expand into the classroom\u2014Adler said that the company is currently developing an annotation feature, which will allow users to write notes and highlight text on the virtual books using electronic devices. Hopefully, he said, this will allow material on Scribd to compete with physical textbooks.\r\n\r\n\u201cWe\u2019re hoping to work with Harvard University Press to make textbooks cheaper so [students] can buy them online rather than buying these expensive thick textbooks,\u201d Adler said.\r\n",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Harvard University Press, whose sales have fallen approximately 10 percent this past year, closed its 61-year-old display room in the ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 14,
+    "model": "content.article",
+    "fields": {
+        "byline_type": null,
+        "contributors": [2],
+        "tags": [2, 3],
+        "headline": "Harvard Student Missing in Ecuador Rescued",
+        "text": "Jocelyn G. Karlan '12, a Harvard student who had been tutoring children in Ecuador for nearly six weeks and was reported missing Sunday morning during a hike in the Andes mountains, was found by a helicopter and rescued Monday evening, her mother said in an interview with The Crimson.\r\n\r\n\"They're all a bit beaten up, dehydrated and exhausted,\" she said. \"Jocey had some scrapes but nothing that required a hospital visit...she's back in the hostel.\"\r\n\r\nKarlan, one of three missing students and the only Harvard student in the group, had set out with a group of roughly a dozen hikers on Sunday to climb Imbabura, an inactive volcano and tourist attraction in northern Ecuador, her mother said. The group enjoyed lunch on the mountain after reaching the summit late Sunday morning but then split up on the way down. Karlan and her companions reportedly got lost in the rainforest and were forced to scale down waterfalls using roots and sleep in dried riverbeds before they were able to continue their trek down the mountain on Monday, Karlan's mother said.\r\n\r\nEventually, a helicopter spotted the three missing students after missing them on an earlier pass, Karlan's mother said, noting that cold weather, rain, and fog may have hampered the efforts. She emphasized that the U.S. Embassy and the Ecuadorian government put together a highly coordinated effort to find the students, sending out search teams by foot as well.\r\n\r\nKarlan and her companions had been staying in the indigenous village of Otavalo working with local children as part of the humanitarian group Village Education Project. Her mother said that the trip was originally planned as a day hike, so the group had not brought much water or food. She said that her daughter had been traveling with fellow students each weekend.\r\n\r\nAfter talking to her daughter earlier this evening, Karlan's mother said that \"[Jocelyn] is extraordinarily resilient and always has been.\" She added that the missing students were good athletes and that Karlan played club soccer at Harvard.\r\n\r\n\"[Jocelyn]'s had a great summer, and she said she's not coming home a day earlier,\" Karlan's mother said. \"And she wouldn't let me come down to give her a hug.\"",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "Jocelyn G. Karlan '12, a Harvard student who had been tutoring children in Ecuador for nearly six weeks and was ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 15,
+    "model": "content.article",
+    "fields": {
+        "byline_type": "cstaff",
+        "contributors": [6],
+        "tags": [1, 2],
+        "headline": "The Professor, the Policeman, and the President",
+        "text": "The arrest of Henry Louis \u201cSkip\u201d Gates Jr. has quickly become the best-publicized case of disorderly conduct to hit Middlesex County since the Boston Tea Party. A week after the Harvard University Professor was taken into custody on his front porch, the shockwaves are still rippling.\r\n\r\nThe intense interest in the Gates case is not surprising\u2014the bitter irony of a man renowned for his erudite scholarship on race becoming the victim of alleged racial profiling turns what would otherwise be a forgotten jot in a police blotter into a centerpiece of the conversation on race in America.\r\n\r\nAt Harvard, though, the Gates arrest is nothing new\u2014it bears an uncanny resemblance to what has come before it. Last August, a black high school student was, like Gates, confronted by police for attempting to \"steal\" his own property while trying to unlock his bike. And in the spring of 2007, students called the police on the Black Men\u2019s Forum and Association of Black Harvard Women barbeque in the Quad following a heated discussion on the Cabot House email list in which many expressed skepticism that the picnickers were actually Harvard students\u2014the same sort of skepticism that may have compelled Gates's neighbor to phone in a burglary when she saw a black man attempting to force open a door.\r\n\r\nThese racial flare-ups were all the product of implicit assumptions about who belongs in a wealthy neighborhood or Harvard quadrangle and who does not\u2014judgments made by police and nervous white neighbors\u2014and the understandable indignation that African-Americans express when confronted with these assumptions. Gates grew angry when the cops come to ask him what he was doing in his own home because he, of all people, knew exactly why they were there.\r\n\r\nIt may not be helpful or accurate to say that this slightly sordid history proves that Cambridge\u2019s police officers are racists, though. James Crowley, the officer who arrested Gates, seems to be a model citizen. Sources describe him as a \u201cstellar\u201d policeman who coaches youth softball and, ironically, teaches a class on racial profiling at the Lowell Police Academy. It is possible that he may have, as he claims, followed police protocol when taking the professor down; the actual course of events of the arrest is difficult to piece together given the conflicting accounts offered by Gates and Crowley.\r\n\r\nYet regardless of Sergeant Crowley\u2019s moral character, Gates was the victim of racial prejudice, just as the picnickers in the Quad were the victims of racial prejudice, just as every black student who has ever been asked to show ID to prove that he belongs in Harvard Yard has been the victim of racial prejudice. But the prejudice involved in these cases is subtle rather than overt.\r\n\r\nAs psychologists have been quick to note in the aftermath of the Gates arrest, racial biases are often implicit and unconscious, and their effects insidiously creep into even the most tolerant among us. Several studies find that even when we erase prejudice from our conscious mental processing, it lingers in the older, murkier corners of our cognitive architecture. In one experiment, researchers discovered that even subjects who demonstrated no racist attitudes still had increased activity in the amygdala\u2014a part of the brain associated with fear and emotion\u2014when shown images of black faces, and the results of implicit association tests consistently demonstrate that even progressive whites have more difficulty grouping images of African-Americans with positive adjectives than with negative ones. It turns out racism persists, in part, because the human mind is a tough nut to crack.\r\n\r\nPerhaps the most interesting element of the entire affair, though, was hearing the Commander-in-Chief weigh in. Barack Obama usually treats discussions of race like trips to the dentist\u2014occasional, unpleasant necessities to be avoided whenever possible. But on Wednesday night, in a primetime news conference, the President was strikingly candid.\r\n\r\nAt first, we saw the post-racial Obama, diffusing the situation with a joke about how he would \u201cget shot\u201d if he tried to jimmy open the door of his current residence. But then he moved away from the script. His eyes narrowed, his voice grew somber, and he explained how the Cambridge police had \u201cacted stupidly,\u201d how the incident demonstrated that \u201crace remains a factor in this society.\u201d\r\n\r\nObama later backed away from his comments, claiming that his statement was \u201cpretty straightforward commentary that you probably don\u2019t need to handcuff a guy, a middle-aged man who uses a cane, who\u2019s in his own home.\u201d But the fact that the unflappable Barack Obama, even for a minute, was willing to confront uncomfortable facts about race in America shows how close to home the Gates arrest hits for the President.\r\n\r\nObama preaches an ethic of personal responsibility premised on the belief that in America, hope is audacious and anything is possible. Speaking at the NAACP last week, he told African-Americans, \u201cYour destiny is in your hands\u2014you cannot forget that. That\u2019s what we have to teach all of our children. No excuses.\u201d\r\n\r\nObama\u2019s optimism is buttressed by his own story, which he often claims would be inconceivable in any other country. For that reason, he probably feels an affinity with Professor Gates, the son of a mill worker who went on to graduate from Yale and Cambridge and become one of the most distinguished scholars in America.\r\n\r\nAnd yet, even though Gates followed the instructions Obama gave to the NAACP about \u201cputting away the Xbox\u201d and hitting the books as well as anyone possibly could, that couldn\u2019t stop him from being arrested in his own home. It is the sort of ugly fact that does not fit in well with Obama\u2019s rosy, American vision.\r\n\r\nThe persistent, subtle effects of implicit racial biases highlight the limits of the meritocracy. Gates\u2019s arrest is a troubling reminder that overcoming the flaws of our society and minds requires more than talent and effort. Sometimes, try as we may, we can\u2019t.\r\n",
+        "web_only": false,
+        "subheadline": "",
+        "teaser": "The arrest of Henry Louis \u201cSkip\u201d Gates Jr. has quickly become the best-publicized case of disorderly conduct to hit Middlesex ...",
+        "sne": 1,
+        "proofer": 1,
+        "page": ""
+    }
+},
+{
+    "pk": 2,
+    "model": "content.articlecontentrelation",
+    "fields": {
+        "article": 5,
+        "related_content": 4,
+        "order": 0
+    }
+},
+{
+    "pk": 3,
+    "model": "content.articlecontentrelation",
+    "fields": {
+        "article": 2,
+        "related_content": 1,
+        "order": 0
+    }
+},
+{
+    "pk": 1,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.topstories",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 2,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.rotater",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 3,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.morenews",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 4,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.opinion",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 5,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": "",
+        "default_content": "",
+        "name": "index.featured",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 6,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.arts",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 7,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.sports",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 8,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.fm",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 9,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "news_bottom_left",
+        "expiration": "2009-07-27 09:06:59"
+    }
+},
+{
+    "pk": 10,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "news_bottom_mid",
+        "expiration": "2009-07-27 09:06:59"
+    }
+}]

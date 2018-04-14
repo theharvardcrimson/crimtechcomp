@@ -1,0 +1,56 @@
+{% extends "flyby/__base.html" %}
+
+{% block ad_desktop %}{% endblock ad_desktop %}
+
+{% block before_ad_desktop %}
+  <h1 class="fancy-heading flex">
+    <span>Harvard Today</span>
+    <span class="flex-right" style="font-size: 0.8em">{{ harvard_today.send_date|date:"M j, Y" }}</span>
+  </h1>
+
+  <article class="article article-item article-flatpage">
+    {{ harvard_today.text|safe }}
+  </article>
+{% endblock before_ad_desktop %}
+
+{% block content %}
+  <article class="article article-item article-flatpage" id="section-news">
+    <h2 class="no">In the News</h2>
+    {{ harvard_today.article_list|safe }}
+  </article>
+{% endblock %}
+
+{% block sidebar %}
+  <section class="widget widget-primary" id="section-lunch">
+    <header class="widget-header">
+      <h1><span class="fa fa-cutlery"></span> In the Dining Halls</h1>
+    </header>
+
+    <h2 style="margin-bottom: -0.8em">Lunch</h2>
+    {{ harvard_today.lunch_description|safe }}
+
+    <h2 style="margin-bottom: -0.8em">Dinner</h2>
+    {{ harvard_today.dinner_description|safe }}
+  </section>
+
+  <section class="widget" id="section-weather">
+    <header class="widget-header">
+      <h1 class="widget-heading"><span class="fa fa-cloud"></span> In the Atmosphere</h1>
+    </header>
+
+    {{ harvard_today.weather_description|safe }}
+  </section>
+
+  <section class="widget" id="section-events">
+    <header class="widget-header">
+      <h1 class="widget-heading"><span class="fa fa-calendar"></span> Today's Events</h1>
+    </header>
+
+    {% for event in harvard_today.events.all %}
+      <h2 class="widget-subheading">{{ event.time }}</h2>
+      {{ event.description|safe }}
+    {% empty %}
+      No events today!
+    {% endfor %}
+  </section>
+{% endblock sidebar %}

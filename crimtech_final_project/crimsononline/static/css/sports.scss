@@ -1,0 +1,169 @@
+#features {
+    margin-bottom: 15px;
+}
+
+.article.feature.vertical img {
+    /*width: 100%;*/
+}
+
+.sports-list {
+    border: 1px solid #CCC;
+    box-shadow: 2px 2px 2px #DDD;
+    background-color: white;
+    text-align: center;
+    margin: 0 5px 5px 0;
+}
+
+.sports-list .sports-list-block {
+    display: block;
+    background-color: #EBEBEB;
+    padding: 1px;
+    font-family: 'Lato', sans-serif !important;
+    font-weight: lighter !important;
+    text-transform: uppercase;
+}
+
+.sports-list ul li a img {
+    float: left;
+    padding: 10 px;
+}
+
+.sports-list .sports-list-block:first-child {
+    font-size: 24px;
+    padding: 9px 0 7px;
+}
+
+.sports-list a.sports-list-block {
+    font-size: 18px;
+    padding: 8px;
+}
+
+#sports-list {
+    list-style: none;
+    padding-left: 0px;
+}
+
+#sports-list li {
+    font-size: 18px;
+    padding: 7px;
+}
+
+.upper-supplement {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    -moz-box-shadow: 0 3px 3px #eee;
+    -o-box-shadow: 0 3px 3px #eee;
+    -webkit-box-shadow: 0 3px 3px #eee;
+    box-shadow: 0 3px 3px #eee;
+    clear: both;
+}
+
+.upper-supplement .article {
+    margin-bottom: 15px;
+}
+
+#content .upper-supplement h2 {
+    margin-bottom: 10px;
+}
+
+.upper-supplement .article img {
+    width: 50%;
+    margin-bottom: 7px;
+}
+
+#sports-timeline {
+    padding: 0px 5px;
+    margin: 0px auto;
+}
+
+@media (min-width: 980px) {
+    .upper-supplements.two-supplements .upper-supplement {
+        width: 47%;
+        float: left;
+    }
+
+    .article.feature.vertical {
+        width: 73.6%;
+        float: right;
+    }
+
+    #upper-first {
+        padding-top: 0;
+    }
+
+    .sports-list {
+        width: 24%;
+        float: left;
+    }
+}
+
+@media (max-width: 979px) and (min-width: 481px) {
+    .sports-list {
+        width: 26%;
+        float: left;
+        margin-left: 10px;
+        margin-right: 0;
+    }
+
+    .article.feature.vertical {
+        width: 68.5%;
+        float: right;
+    }
+
+    .subsection-icon {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        height: auto;
+        padding: 10px;
+        width: 28.5%;
+        margin-bottom: 0;
+        padding-top: 0;
+    }
+
+    .subsection-icon:nth-child(3n+1) {
+        clear: left;
+    }
+
+    .twitter-timeline {
+        width: 100% !important; /* Need to override the width that twitter chooses */
+    }
+}
+
+@media (max-width: 800px) and (min-width: 481px) {
+    .sports-list {
+        width: 24%;
+    }
+
+    #sports-timeline {
+        max-width: 520px; /* Twitter's default max width */
+    }
+
+    .twitter-timeline {
+        width: 100% !important; /* Need to override the width that twitter chooses */
+    }
+}
+
+@media (max-width: 480px) {
+    .sports-list {
+        margin: 5px 10px;
+    }
+
+    .subsection-icon {
+        margin-bottom: 0;
+        height: auto;
+    }
+    .subsection-icon:nth-child(2n+1) {
+        clear: left;
+    }
+
+    .twitter-timeline {
+        width: 100% !important;
+    }
+}

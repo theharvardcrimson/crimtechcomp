@@ -1,0 +1,297 @@
+{% comment %}
+  TODO(benesch, 26 aug 2015): Move this to the newsletter app.
+{% endcomment %}
+
+{% load compress %}
+
+{% compress css %}
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/interstitials/interstitials.scss">
+{% endcompress %}
+
+<div id="interstitial-spiel">
+	<div id="interstitial-close"><a class="interstitial-close" href="#">Close</a></div>
+	<h1>{{ tagline.0 }}</h1>
+	<p>{{ tagline.1 }}</p>
+</div>
+<section id="interstitial-form">
+	<form method="post">
+        <input type="hidden" name="UTM_SRC" value="{{ utm_src }}">
+        <input type="hidden" name="FORM_VRSN" value="">
+
+		<div class="interstitial-step">
+			<label for="email">Your e-mail <span class="req">*</span></label>
+			<div>
+				<input name="email" size="50" />
+			</div>
+
+		<div id="harvard-affiliation">
+			<fieldset>
+				<legend>Harvard Affiliation <span class="req">*</span></legend>
+				<div id="interstitial-affiliation">
+					<div id="interstitial-affiliation-left">
+						<span>
+							<label>
+								<input name="UNIVAFFIL" type="radio" value="Student" />
+								Student
+							</label>
+						</span>
+						<span>
+							<label>
+								<input name="UNIVAFFIL" type="radio" value="Alum" />
+								Alum
+							</label>
+						</span>
+						<span>
+							<label>
+								<input name="UNIVAFFIL" type="radio" value="Faculty/Staff" />
+								Faculty/Staff
+							</label>
+						</span>
+					</div>
+					<div id="interstitial-affiliation-right">
+						<span>
+							<label>
+								<input name="UNIVAFFIL" type="radio" value="Parent/Family" />
+								Parent/Family
+							</label>
+						</span>
+						<span>
+							<label>
+								<input name="UNIVAFFIL" type="radio" value="Prospective Student" />
+								Prospective Student
+							</label>
+						</span>
+						<span>
+							<label>
+								<input name="UNIVAFFIL" type="radio" value="Other" />
+								Other/Multiple Affiliations
+							</label>
+						</span>
+					</div>
+				</div>
+			</fieldset>
+			<label>School Affiliation:</label>
+			<div>
+				<select name="SCHLAFFIL" tabindex="12">
+					<option value="" selected="selected"></option>
+					<option value="College">College</option>
+					<option value="Business School">Business School</option>
+					<option value="Divinity School">Divinity School</option>
+					<option value="Extension School">Extension School</option>
+					<option value="Graduate School of Arts &amp; Sciences">Graduate School of Arts &amp; Sciences</option>
+					<option value="Graduate School of Design">Graduate School of Design</option>
+					<option value="Graduate School of Education">Graduate School of Education</option>
+					<option value="Kennedy School">Kennedy School</option>
+					<option value="Law School">Law School</option>
+					<option value="Medical School">Medical School</option>
+					<option value="School of Dental Medicine">School of Dental Medicine</option>
+					<option value="School of Engineering &amp; Applied Sciences">School of Engineering &amp; Applied Sciences</option>
+					<option value="School of Public Health">School of Public Health</option>
+					<option value="Multiple School Affilitaions">Multiple School Affiliations</option>
+				</select>
+			</div>
+			<label>Class Year:</label>
+			<div>
+				<input name="CLASS" type="text" size="50" /><br />
+				<!-- <label>Enter a number between <var>1900</var> and <var>2016</var>.</label> -->
+			</div>
+			<label>ZIP Code:</label>
+			<div>
+				<input name="ZIPCODE" type="text" size="50" />
+			</div>
+			</div>
+
+			<fieldset id="newsletter-selection">
+				<legend>Choose Your Harvard Alerts</legend>
+				<div>
+					<div class="newsletter-line">
+						<label>
+							<input name="groups" type="checkbox" value="Daily Headlines" checked="checked" />
+							Daily Headlines
+							<div class="newsletter-description">
+							<div id="newsletter-italics">Sent daily. Best for all Harvard affiliates.</div>See The Crimson&rsquo;s top stories every morning we publish.</div>
+						</label>
+					</div>
+					<div class="newsletter-line">
+						<label>
+							<input name="groups" type="checkbox" value="Breaking News Alerts" checked="checked" />
+							Breaking News Alerts
+							<div class="newsletter-description">
+							<div id="newsletter-italics">Sent as needed. Best for all Harvard affiliates.</div>Receive alerts for the most important Harvard-related news, minutes after it breaks.</div>
+						</label>
+					</div>
+					<div class="newsletter-line">
+						<label>
+							<input name="groups" type="checkbox" value="Harvard Today" checked="checked" />
+							Harvard Today
+							<div class="newsletter-description"><div id="newsletter-italics">Sent daily. Best for Harvard College students.</div>Sign up for the daily newsletter produced by The Crimson&rsquo;s blog, Flyby, to get everything you need for the day ahead—including The Crimson&rsquo;s latest stories, Flyby&rsquo;s best content, the dining hall menu, and the day&rsquo;s on-campus events.</div>
+						</label>
+					</div>
+					<div class="newsletter-line">
+						<label>
+							<input name="groups" type="checkbox" value="Fifteen Minutes Newsletter" checked="checked" />
+							Fifteen Minutes Magazine Newsletter
+							<div class="newsletter-description"><div id="newsletter-italics">Sent weekly. Best for all Harvard affiliates.</div>Read some of The Crimson&rsquo;s best longform and in-depth journalism by subscribing to this newsletter, which publishes all content from the latest issue of Fifteen Minutes, our magazine, every Thursday.</div>
+						</label>
+					</div>
+					<div class="newsletter-line">
+			            <label>
+			              <input name="groups" type="checkbox" value="Arts Newsletter" checked="checked" />
+			              Arts Newsletter
+			              <div class="newsletter-description"><div id="newsletter-italics">Sent weekly. Best for Harvard affiliates interested in the arts.</div>Keep up with The Crimson&rsquo;s arts coverage—both on-campus and nationwide—through this weekly newsletter that includes reviews, features, and more every Tuesday.</div>
+			            </label>
+			          </div>
+					<div class="newsletter-line">
+						<label>
+							<input name="groups" type="checkbox" value="Sports Newsletter and Sports Alerts" checked="checked" />
+							Sports Newsletter
+							<div class="newsletter-description"><div id="newsletter-italics">Sent weekly. Best for Harvard affiliates interested in University sports.</div>Keep up-to-date with news and analysis of Harvard&rsquo;s 42 varsity sports with our sports newsletter, sent every Monday.</div>
+						</label>
+					</div>
+					<div class="newsletter-line">
+						<label>
+							<input name="groups" type="checkbox" value="Alumni Newsletter" checked="checked" />
+							Alumni Newsletter
+							<div class="newsletter-description"><div id="newsletter-italics">Sent weekly. Best for Harvard alumni.</div>Stay connected to Harvard Yard with the Alumni Newsletter, sent on Fridays. This newsletter is curated by the Managing Editor and includes his or her top picks from The Crimson&rsquo;s coverage that week.</div>
+						</label>
+					</div>
+		          <div class="newsletter-line">
+		            <label>
+		              <input name="groups" type="checkbox" value="Parents Newsletter" checked="checked" />
+		              Parents Newsletter
+		              <div class="newsletter-description"><div id="newsletter-italics">Sent weekly. Best for Harvard parents.</div>Stay up-to-date with your son or daughter through this weekly newsletter—sent every Friday—which highlights major undergraduate campus news.</div>
+		            </label>
+		          </div>
+				</div>
+			</fieldset>
+			<div id=button-holder><input type="submit" value="Subscribe" disabled /></div>
+			<div id="email-error-message">Please enter a valid email address.</div>
+			<div id="univaffil-error-message">Please indicate your Harvard Affiliation.</div>
+
+		</div>
+
+		<div class="interstitial-step interstitial-done">
+			<p>Thanks for subscribing!</p>
+			<div>
+				<span class="interstitial-inline-only">
+					<label>
+						<a href="http://www.thecrimson.com/">
+							<img width="16px" src="{{ STATIC_URL }}images/favicon.ico">
+							Read us at thecrimson.com
+						</a>
+					</label>
+				</span>
+				<span>
+					<label>
+						<a href="http://www.facebook.com/theharvardcrimson/">
+							<img src="{{ STATIC_URL }}images/icons/icon-facebook.gif">
+							"Like" us on Facebook
+						</a>
+					</label>
+				</span>
+				<span>
+					<label>
+						<a href="http://www.twitter.com/thecrimson/">
+							<img src="{{ STATIC_URL }}images/icons/icon-twitter.png">
+							Follow us on Twitter
+						</a>
+					</label>
+				</span>
+			</div>
+			<input class="interstitial-close" type="button" value="Close" />
+		</div>
+	</form>
+</section>
+
+<script>
+	$('#interstitial-form .interstitial-step').hide().first().show();
+	$('#interstitial-form form').submit(function() {
+		$(".interstitial-step:visible", this).slideUp(300, function() {
+			var next = $(this).next();
+			if (next.hasClass('interstitial-done')) {
+			    console.log($('#interstitial-form form').serialize());
+				$.post('/subscribe/online/', $('#interstitial-form form').serialize());
+			}
+			next.slideDown(300);
+		});
+		return false;
+    });
+
+	function emailValidate() {
+		var regex = /^([^\s\\/])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{1,5})+$/;
+	 	var valid = regex.test($('[name="email"]').val());
+	 	var button = $('#interstitial-form [type="submit"]');
+	 	if (valid) {
+	 		$('#email-error-message').hide();
+			button.removeAttr('disabled');
+			if ($('.interstitial-subscribe-track').length < 1) {
+				$('body')
+					.append('<img height="1" width="1" alt="" style="display:none" class="interstitial-subscribe-track" src="https://www.facebook.com/offsite_event.php?id=6008715636942&amp;value=0&amp;currency=USD" />')
+					.append('<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1024005553/?value=0&amp;label=zZlBCI_9qwUQsauk6AM&amp;guid=ON&amp;script=0"/>');
+	 		}
+	 	}
+	 	else {
+      		$('#email-error-message').show();
+	 		button.attr('disabled', true);
+	 	}
+	}
+
+	// requires a univ affil to be checked off
+	function univaffilValidate() {
+	 	var numberChecked = $('[name="UNIVAFFIL"]:checked').length;
+	 	console.log(numberChecked);
+	 	var button = $('#interstitial-form [type="submit"]');
+
+        if (numberChecked == 1) {
+	 		$('#univaffil-error-message').hide();
+			button.removeAttr('disabled');
+        } else {
+	 		$('#univaffil-error-message').show();
+	 		button.attr('disabled', true);
+        }
+	}
+
+	$('[name="email"]').on("input", emailValidate);
+	$('[name="UNIVAFFIL"]').on("click", univaffilValidate);
+
+	Crimson.Interstitials.onHide = function () {
+		$.post('/subscribe/online/', $('#interstitial-form form').serialize());
+	}
+
+	// autofill email field from interstitial based on URL
+	function querySt(ji) {
+	    hu = window.location.search.substring(1);
+	    gy = hu.split("UTM_SRC=&FORM_VRSN=&");
+
+	    for (i = 0; i < gy.length; i++) {
+	        ft = gy[i].split("=");
+	        if (ft[0] == ji) {
+	            return ft[1];
+	        }
+	    }
+	}
+
+	var autofill = querySt("email");
+
+	if (autofill) {
+		autofill = autofill.replace("%f40", "@");
+ 		$("[name='email']").val(autofill);
+ 		emailValidate();
+ 	}
+
+ // 	// make Harvard Affiliation radio buttons uncheckable
+	// var radioBtns = $('[name="UNIVAFFIL"]');
+ //    var radioBtn;
+
+ //    for (x = 0; x < radioBtns.length; x++) {
+ //        radioBtns[x].onclick = function() {
+ //            if (radioBtn == this) {
+ //                this.checked = false;
+ //                radioBtn = null;
+ //            } else {
+ //                radioBtn = this;
+ //            }
+ //        };
+ //    }
+
+</script>

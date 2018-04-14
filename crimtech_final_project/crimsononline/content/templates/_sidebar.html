@@ -1,0 +1,21 @@
+{% load content_tags %}
+
+<div id="sidebar-menu" class="sidebar-menu">
+    <div id="sidebar-menu-shadow">
+        <p class="sidebar-menu-title">
+            <a href="{{ article.parent_topic.parent.get_absolute_url }}">
+                Sections
+            </a>
+        </p>
+
+        <ul>
+            <li class="nav-published">{% section_link "News" is nav %}</li>
+            <li class="nav-published">{% section_link "Opinion" is nav %}</li>
+            <li class="nav-published">{% section_link "Magazine" is nav %}</li>
+            <li class="nav-published">{% section_link "Sports" is nav %}</li>
+            <li class="nav-published">{% section_link "Arts" is nav %}</li>
+            <li class="nav-published">{% section_link "Multimedia" is nav %}</li>
+            <li class="nav-published">{% section_link "Flyby" is nav %}</li>
+        </ul>
+    </div>
+</div>

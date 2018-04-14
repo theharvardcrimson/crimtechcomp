@@ -1,0 +1,11 @@
+{% load content_filters %}
+
+{% include "_pager.html" %}
+
+<div class="articles">
+{% for article in content %}
+    {{ article|render:"preview-list" }}
+{% endfor %}
+</div>
+
+{% include "_pager.html" %}

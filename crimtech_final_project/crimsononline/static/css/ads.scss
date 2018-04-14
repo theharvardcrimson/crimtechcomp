@@ -1,0 +1,73 @@
+/*
+Ad spaces
+*/
+.leaderboard, .sidekick, .mobile-banner {
+	border: 1px solid #e0e0e0;
+	margin: 0 auto 10px;
+	padding: 5px;
+}
+.leaderboard {
+	clear: both;
+	height: 90px;
+	width: 728px;
+	display: none;
+	margin: 15px auto 10px;
+}
+.leaderboard-wrap {
+	width: 728px;
+	margin: 15px auto 10px;
+	clear: both;
+}
+.leaderboard-wrap .leaderboard {
+	margin: 0;
+	clear: none;
+}
+
+.sidekick {
+	width: 300px;
+	clear: both;
+}
+
+.sidekick-bottom {
+	display: none;
+}
+.sizing-sidekick-shell {
+	width: 320px;
+	margin: 0 auto;
+}
+
+.mobile-banner {
+	width: 320px;
+	height: 100px;
+	margin: 15px auto 10px;
+	clear: both;
+}
+
+#anchor-ad {
+	position: fixed;
+	bottom: 0px;
+	left: 50%;
+	margin-left: -160px;
+}
+
+@media(min-width: 801px) {
+	.leaderboard, .sidekick-bottom {
+		display: block;
+	}
+	.mobile-banner {
+		display: none;
+	}
+	#anchor-ad {
+		display: none;
+	}
+}
+
+.ad-label {
+	font-family: 'Colaborate Light', 'Lato', sans-serif;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	color: #555;
+}
+.sidekick-shell .ad-label {
+	padding-left: 4px;
+}

@@ -1,0 +1,8 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="feature horizontal">
+	<a href="{{ image.get_absolute_url }}">
+		{{ image|to_img_tag:"148,100,148,100" }}
+	</a>
+</div>

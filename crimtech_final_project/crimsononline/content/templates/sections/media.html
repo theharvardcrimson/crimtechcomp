@@ -1,0 +1,58 @@
+{% extends "__base.html" %}
+{% load ads_tags %}
+{% load common %}
+{% load content_filters %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/media_page.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/gallery.scss">
+{% endblock css %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}scripts/media_viewer.js"></script>
+    <script src="{{ STATIC_URL }}scripts/gallery.js"></script>
+    <base target="_parent" />
+{% endblock js %}
+
+{% block content %}
+    <div id="gallery_viewer_wrapper">
+        <div id="gallery_viewer" class="blackground">
+            <div class="col-8">
+                <div id="viewer_main" class="">{{ content.0|render:"media_viewer" }}</div>
+            <span class="clear"></span>
+            </div>
+            <div id="viewer_sidebar_wrapper" class="col-4">
+                <div id="viewer_sidebar" class="">
+                    <span id="type_filters" class="filters">
+                        <span class="filter_label">TYPES:</span>
+                        <a href="all"><span class="thclabel thclabel_redtive">All</span></a>
+                        <a href="gallery"><span class="thclabel thclabel_red">Galleries</span></a>
+                        <a href="video"><span class="thclabel thclabel_red">Videos</span></a>
+                        &nbsp;&nbsp;<span id="toggle_filters">Filter</span>
+                    </span>
+                    <div id="filter_spans" style="display:none">
+                        <span id="sort_filters" class="filters">
+                            <span class="filter_label">MOST:</span>
+                            <a href="recent"><span class="thclabel thclabel_redtive">Recent</span></a>
+                            <a href="read"><span class="thclabel thclabel_red">Viewed</span></a>
+                        </span>
+                        <span id="section_filters" class="filters">
+                            <span class="filter_label">SECTIONS:</span>
+                            <a href="all"><span class="thclabel thclabel_redtive">All</span></a>
+                            <a href="news"><span class="thclabel thclabel_red">News</span></a>
+                            <a href="sports"><span class="thclabel thclabel_red">Sports</span></a>
+                            <a href="fm"><span class="thclabel thclabel_red">Magazine</span></a>
+                            <a href="arts"><span class="thclabel thclabel_red">Arts</span></a>
+                        </span>
+                    </div>
+                    <div id="sidebar_galleries">
+                        {% include "ajax/media_viewer_page.html" %}
+                    </div>
+                </div>
+            </div>
+            <span class="clear"></span>
+        </div>
+    </div>
+    {% highlights_bar %}
+{% endblock content %}

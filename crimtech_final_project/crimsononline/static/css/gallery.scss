@@ -1,0 +1,163 @@
+
+#viewer_main{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 0;
+}
+#viewer_main .tags_heading {
+    font-family:arial;
+    font-size:10px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+#gallery_viewer_wrapper {
+     width: 973px; margin: 0 auto; padding: 20px 0; overflow: hidden;
+}
+#media_viewer a, #gallery_viewer a{
+    text-decoration: none;
+}
+
+#viewer_main .viewer_header {
+    padding: 0 0 8px;
+}
+
+.viewer_header{
+    margin: 10px 0px 10px 0px;
+}
+
+#viewer_main .viewer_header h1 {
+    display: inline;
+    font-size: 20px;
+}
+#viewer_main .viewer_top {
+    display: block;
+    position: relative;
+    /*width: 629px;*/
+    height: 450px;
+    overflow: hidden;
+    background-color: black;
+    border: 1px solid #666;
+    text-align: center;
+}
+
+#viewer_main .viewer_info {
+    font-size: 13px;
+}
+
+.viewer_info .left{padding-top:4px;}
+.viewer_info .left h3{
+    margin: 0 1px 10px;
+    font-size: 18px;
+}
+
+.viewer_info .right {
+    float: right;
+    width: 240px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+#viewer_main .viewer_info .right .byline {
+    margin-bottom: 5px;
+    float: right;
+    text-align: right;
+    width: 180px;
+}
+
+
+#viewer_main .buyline {
+    float: left;
+    width: 40px;
+}
+#viewer_main .buyline span{
+    font-size: 10px;
+    font-family: helvetica;
+}
+#viewer_main .buyline img{
+    vertical-align: bottom;
+}
+
+#viewer_main .tags_heading{
+    clear:both;
+    width:220px;
+}
+#viewer_main .tags a{
+    text-decoration: underline;
+}
+
+/* carousel */
+.gallery_control{
+    position: absolute;
+    margin-top: 450px;
+    z-index: 100;
+    width: 100%;
+}
+
+.arrow{
+    /*margin-top: 205px;*/
+    width:40px;
+    height:100%;
+    position: absolute;
+    z-index: 1000;
+    cursor: pointer;
+}
+.a_left{
+    margin-left: 10px;
+    background-image: url(../images/rotator/arrow_left_off.png)
+}
+.a_left:hover{
+    background-image: url(../images/rotator/arrow_left_on.png)
+}
+.a_right{
+    margin-left: 570px;
+    background-image: url(../images/rotator/arrow_right_off.png)
+}
+.a_right:hover{
+    background-image: url(../images/rotator/arrow_right_on.png)
+}
+
+.gallery_control #inside{
+   height: 26px;
+    width: 100%;
+    margin-top: -26px;
+	background-image: url('../images/semitransparent.png');
+}
+
+.viewer_image{
+    height: 450px;
+    position: relative;
+}
+
+.gallery_control .arrow{
+    width: 15px;
+    display: block;
+    float:left;
+}
+ .gallery_control .carousel_frame{
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+}
+
+.carousel_frame ul{
+    margin: 0 auto;
+    text-align:center;
+
+}
+
+.carousel_frame li{
+    list-style:none;
+    display:inline;
+}
+
+.carousel_frame li a {
+    display: inline-block;
+    margin: 0;
+    width: 20px;
+    font-size: 20px;
+    line-height: 26px;
+    color: #999;
+}
+.gallery_control .carousel_frame a:hover,
+.gallery_control .carousel_frame a.active {
+    color: white;
+}

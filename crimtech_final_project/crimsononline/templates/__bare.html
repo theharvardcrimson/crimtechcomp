@@ -1,0 +1,37 @@
+{% comment %}
+  //////////////////////////////////////////////////////////////////////
+  All templates should inherit from this minimal HTML skeleton. No
+  exceptions!
+
+  If you need to create a new template to achieve the HTML you want,
+  this template is not minimal enough. Remove the offending lines from
+  this template, and then inherit your new template from this one.
+
+  This template *does* enforce mobile compatibility via the "viewport"
+  meta tag. This is by design--don't go removing this line because you
+  didn't create a mobile-compatible template.
+
+  NOTE(benesch, 26 aug 2015): Not all templates have yet been ported to
+  use this template.
+  //////////////////////////////////////////////////////////////////////
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head_content %}
+      {% block meta %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      {% endblock meta %}
+
+      <title>{% block title %}The Harvard Crimson{% endblock %}</title>
+    {% endblock %}
+  </head>
+
+  <body class="{% block body_class %}first-screen{% endblock %}">
+    {% block body_content %}{% endblock body_content %}
+  </body>
+</html>
+<!-- Generated at {% now "DATETIME_FORMAT" %} -->

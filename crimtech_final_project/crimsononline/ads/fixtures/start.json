@@ -1,0 +1,620 @@
+[
+    {
+        "fields": {
+            "code": "TheCrimson_AllArticles_AllPositions_300x600",
+            "display_on": 0,
+            "network_id": "21396962",
+            "size": "300x600"
+        },
+        "model": "ads.adunit",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FlybyLanding_AllPositions_300x600",
+            "display_on": 0,
+            "network_id": "21398402",
+            "size": "300x600"
+        },
+        "model": "ads.adunit",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FlybyLanding_AllPositions_300x250",
+            "display_on": 0,
+            "network_id": "21398642",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_AllArticles_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21399122",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_AllArticles_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21399242",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_AllArticles_ATF_300x250",
+            "display_on": 0,
+            "network_id": "21399362",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_AllArticles_BTF_300x250",
+            "display_on": 0,
+            "network_id": "21399482",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_NewsLanding_ATF_300x250",
+            "display_on": 0,
+            "network_id": "21399602",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_NewsLanding_BTF_300x250",
+            "display_on": 0,
+            "network_id": "21399722",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_NewsLanding_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21399842",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_NewsLanding_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21399962",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_OpinionLanding_ATF_300x250",
+            "display_on": 0,
+            "network_id": "21400082",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_OpinionLanding_BTF_300x250",
+            "display_on": 0,
+            "network_id": "21400202",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_OpinionLanding_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21400322",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_OpinionLanding_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21400442",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 15
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FMLanding_ATF_300x250",
+            "display_on": 0,
+            "network_id": "21400562",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 16
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FMLanding_BTF_300x250",
+            "display_on": 0,
+            "network_id": "21400682",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 17
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FMLanding_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21400802",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 18
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FMLanding_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21400922",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 19
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_SportsLanding_ATF_300x250",
+            "display_on": 0,
+            "network_id": "21401042",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 20
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_SportsLanding_BTF_300x250",
+            "display_on": 0,
+            "network_id": "21401162",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 21
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_SportsLanding_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21401282",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 22
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_SportsLanding_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21401402",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 23
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_ArtsLanding_ATF_300x250",
+            "display_on": 0,
+            "network_id": "21401522",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 24
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_ArtsLanding_BTF_300x250",
+            "display_on": 0,
+            "network_id": "21401642",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 25
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_ArtsLanding_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21401762",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 26
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_ArtsLanding_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21401882",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 27
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FlybyLanding_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21402002",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 28
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FlybyLanding_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21402122",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 29
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_MediaLanding_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21402242",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 30
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_MediaLanding_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21402362",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 31
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Homepage_ATF_728x90",
+            "display_on": 0,
+            "network_id": "21402482",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 32
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Homepage_BTF_728x90",
+            "display_on": 0,
+            "network_id": "21402602",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 33
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Homepage_ATF_300x250",
+            "display_on": 0,
+            "network_id": "21402722",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 34
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Homepage_BTF_300x250",
+            "display_on": 0,
+            "network_id": "21402842",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 35
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_NewsLanding_TextLink_300x180",
+            "display_on": 0,
+            "network_id": "21404642",
+            "size": "300x180"
+        },
+        "model": "ads.adunit",
+        "pk": 36
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_OpinionLanding_TextLink_300x180",
+            "display_on": 0,
+            "network_id": "21404762",
+            "size": "300x180"
+        },
+        "model": "ads.adunit",
+        "pk": 37
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FMLanding_TextLink_300x180",
+            "display_on": 0,
+            "network_id": "21404882",
+            "size": "300x180"
+        },
+        "model": "ads.adunit",
+        "pk": 38
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_SportsLanding_TextLink_300x180",
+            "display_on": 0,
+            "network_id": "21405122",
+            "size": "300x180"
+        },
+        "model": "ads.adunit",
+        "pk": 39
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_ArtsLanding_TextLink_300x180",
+            "display_on": 0,
+            "network_id": "21405242",
+            "size": "300x180"
+        },
+        "model": "ads.adunit",
+        "pk": 40
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FlybyLanding_TextLink_300x180",
+            "display_on": 0,
+            "network_id": "21405362",
+            "size": "300x180"
+        },
+        "model": "ads.adunit",
+        "pk": 41
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Homepage_TextLink_300x180",
+            "display_on": 0,
+            "network_id": "21405482",
+            "size": "300x180"
+        },
+        "model": "ads.adunit",
+        "pk": 42
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_15Hottest_728x90",
+            "display_on": 0,
+            "network_id": "32325242",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 43
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_15Hottest_300x250",
+            "display_on": 0,
+            "network_id": "32325362",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 44
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_FlybyLanding_BTF_300x250",
+            "display_on": 0,
+            "network_id": "53111642",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 45
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_All_ATF_Mobile_468x60",
+            "display_on": 0,
+            "network_id": "54352682",
+            "size": "468x60"
+        },
+        "model": "ads.adunit",
+        "pk": 46
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Admissions_ATF_300x250",
+            "display_on": 0,
+            "network_id": "58672322",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 47
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Admissions_BTF_300x250",
+            "display_on": 0,
+            "network_id": "58672442",
+            "size": "300x250"
+        },
+        "model": "ads.adunit",
+        "pk": 48
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Admissions_ATF_728x90",
+            "display_on": 0,
+            "network_id": "58672562",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 49
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Admissions_BTF_728x90",
+            "display_on": 0,
+            "network_id": "58672682",
+            "size": "728x90"
+        },
+        "model": "ads.adunit",
+        "pk": 50
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_AllArticles_BTF_300x600",
+            "display_on": 0,
+            "network_id": "21671403949",
+            "size": "300x600"
+        },
+        "model": "ads.adunit",
+        "pk": 51
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Interstitial_600x500",
+            "display_on": 0,
+            "network_id": "86410802",
+            "size": "600x500"
+        },
+        "model": "ads.adunit",
+        "pk": 52
+    },
+    {
+        "fields": {
+            "code": "TheCrimson_Admissions_AllPositions_300x600",
+            "display_on": 0,
+            "network_id": "58672802",
+            "size": "300x600"
+        },
+        "model": "ads.adunit",
+        "pk": 53
+    },
+    {
+        "fields": {
+            "ad_units": [43, 44],
+            "name": "15Hottest"
+        },
+        "model": "ads.adzone",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "ad_units": [49, 47, 48, 50],
+            "name": "Admissions"
+        },
+        "model": "ads.adzone",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "ad_units": [26, 24, 25, 27],
+            "name": "ArtsLanding"
+        },
+        "model": "ads.adzone",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "ad_units": [28, 3, 45, 29],
+            "name": "FlybyLanding"
+        },
+        "model": "ads.adzone",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "ad_units": [18, 16, 17, 19],
+            "name": "FMLanding"
+        },
+        "model": "ads.adzone",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "ad_units": [32, 34, 35, 33, 52],
+            "name": "Homepage"
+        },
+        "model": "ads.adzone",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "ad_units": [30, 31],
+            "name": "MediaLanding"
+        },
+        "model": "ads.adzone",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "ad_units": [10, 8, 9, 11],
+            "name": "NewsLanding"
+        },
+        "model": "ads.adzone",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "ad_units": [14, 12, 13, 15],
+            "name": "OpinionLanding"
+        },
+        "model": "ads.adzone",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "ad_units": [22, 20, 21, 23],
+            "name": "SportsLanding"
+        },
+        "model": "ads.adzone",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "ad_units": [4, 1, 6, 7, 5, 53],
+            "name": "content"
+        },
+        "model": "ads.adzone",
+        "pk": 12
+    }
+]

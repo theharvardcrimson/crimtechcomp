@@ -1,0 +1,168 @@
+{% extends "newsletters/_base_briefing.html" %}
+
+{% load common %}
+{% load content_filters %}
+{% load placeholders %}
+{% load newsletter_ads %}
+{% load compress %}
+{% load static %}
+
+{% get_static_prefix as STATIC_URL %}
+
+{% block left_tag %}{{ newsletter_name }}{% endblock %}
+
+{% block content %}
+
+<div id="title">
+  Daily Briefing
+</div>
+
+{% placeholder name="Main Teaser (EXTRA TEXT ONLY)" content_range="(1,1)" content_types="article,external content,topic page" as main %}
+<div class="briefing-teaser">
+  {% with teasers=main.extra_text|parse_json %}
+    {% for faux_article, main_teaser in main|zip:teasers %}
+      {{ main_teaser }}
+    {% endfor %}
+  {% endwith %}
+</div>
+{% endplaceholder %}
+
+<hr/>
+
+<!-- Needed for LiveIntent. Jessica Wang (tech), Dahlia Huh (biz) -->
+<table border="0" cellpadding="0" cellspacing="0"  align="center" style="margin-left:auto; margin-right:auto;"><tr><td colspan="2"><a href="http://li.thecrimson.com/click?s=257136&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257136&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0" style="display: block; width:100%; height:auto;" width="{INSERT TEMPLATE MAX WIDTH HERE AS INTEGER}" /></a></td></tr><tr style="display:block; height:1px; line-height:1px;"><td><img src="http://li.thecrimson.com/imp?s=257137&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td><td><img src="http://li.thecrimson.com/imp?s=257138&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td></tr><tr><td align="left"><a href="http://li.thecrimson.com/click?s=257139&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257139&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td><td align="right"><a href="http://li.thecrimson.com/click?s=257140&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257140&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td></tr></table>
+
+
+<hr/>
+
+{% placeholder name="Featured" content_range="(1,1)" content_types="article,external content,topic page" as feat %}
+<div class="story featured">
+  <div class="headline">
+      <a href="{{ feat.0.get_absolute_url|absolute_url }}">
+        {{ feat.0.title }}
+      </a>
+  </div>
+  <a href="{{ feat.0.get_absolute_url|absolute_url }}">
+    <img class="main-img" src="{{ feat.0.main_rel_content|img_url:"1200,800,1200,800" }}">
+  </a>
+  <div class="teaser">
+    <ul>
+    {% with teasers=feat.extra_text|parse_json %}
+      {% for feature, teaser in feat|zip:teasers %}
+        {% for bullet in teaser %}
+        <li>
+          {{ bullet }}
+        </li>
+        {% endfor %}
+      {% endfor %}
+    {% endwith %}
+      <a class="see-more" href="{{ feat.0.get_absolute_url|absolute_url }}">Read Story &#10142;</a>
+    </ul>
+  </div>
+</div>
+{% endplaceholder %}
+
+{% placeholder name="News" content_range="(1,4)" content_types="article,external content,topic page" as stories %}
+{% with teasers=stories.extra_text|parse_json %}
+{% for story, teaser in stories|zip:teasers %}
+<div class="story">
+  <div class="headline">
+      <a href="{{ story.get_absolute_url|absolute_url }}">
+        {{ story.title }}
+      </a>
+  </div>
+  <div class="teaser">
+    <ul>
+      {% for bullet in teaser %}
+        <li>
+          {{ bullet }}
+        </li>
+      {% endfor %}
+      <a class="see-more" href="{{ story.get_absolute_url|absolute_url }}">Read Story &#10142;</a>
+    </ul>
+  </div>
+</div>
+{% endfor %}
+{% endwith %}
+{% endplaceholder %}
+
+{% placeholder name="Overflow" content_range="(1,10)" content_types="article,external content,topic page" as extras %}
+{% for extra in extras %}
+<div class="story">
+  <div class="headline">
+      <a href="{{ extra.get_absolute_url|absolute_url }}">
+        {{ extra.title }}
+      </a>
+  </div>
+  <div class="teaser">
+    <ul>
+        <li>
+          {{ extra.description }}
+        </li>
+      <a class="see-more" href="{{ story.get_absolute_url|absolute_url }}">Read Story &#10142;</a>
+    </ul>
+  </div>
+</div>
+{% endfor %}
+{% endplaceholder %}
+
+<div class="section-header">Opinion</div>
+{% placeholder name="Opinion" content_range="(1,5)" content_types="article,external content,topic page" as editorials %}
+{% with teasers=editorials.extra_text|parse_json %}
+{% for editorial, teaser in editorials|zip:teasers %}
+<div class="story-opinion">
+  <div class="headline">
+      <a href="{{ editorial.get_absolute_url|absolute_url }}">
+        {{ editorial.title }}
+      </a>
+  </div>
+  <div class="contributor">
+      {{ editorial|byline:"full" }}
+  </div>
+  <div class="teaser">
+    {% for bullet in teaser %}
+      {{ bullet }}
+      <br>
+    {% endfor %}
+    <a class="see-more" href="{{ editorial.get_absolute_url|absolute_url }}">Read Story &#10142;</a>
+  </div>
+</div>
+{% endfor %}
+{% endwith %}
+{% endplaceholder %}
+
+<div class="section-header">Sports</div>
+{% placeholder name="Sports" content_range="(1,5)" content_types="article,external content,topic page" as sports %}
+{% with teasers=sports.extra_text|parse_json %}
+{% for sport, teaser in sports|zip:teasers %}
+<div class="story-sports">
+  <div class="headline">
+      <a href="{{ sport.get_absolute_url|absolute_url }}">
+        {{ sport.title }}
+      </a>
+  </div>
+  <div class="teaser">
+    <ul>
+      {% for bullet in teaser %}
+        <li>
+          {{ bullet }}
+        </li>
+      {% endfor %}
+      <a class="see-more" href="{{ story.get_absolute_url|absolute_url }}">Read Story &#10142;</a>
+    </ul>
+  </div>
+</div>
+{% endfor %}
+{% endwith %}
+{% endplaceholder %}
+<br>
+<br>
+<hr/>
+
+<!-- Needed for LiveIntent. Jessica Wang (tech), Dahlia Huh (biz) -->
+<table border="0" cellpadding="0" cellspacing="0"  align="center" style="margin-left:auto; margin-right:auto;"><tr><td colspan="2"><a href="http://li.thecrimson.com/click?s=257136&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257136&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0" style="display: block; width:100%; height:auto;" width="{INSERT TEMPLATE MAX WIDTH HERE AS INTEGER}" /></a></td></tr><tr style="display:block; height:1px; line-height:1px;"><td><img src="http://li.thecrimson.com/imp?s=257137&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td><td><img src="http://li.thecrimson.com/imp?s=257138&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td></tr><tr><td align="left"><a href="http://li.thecrimson.com/click?s=257139&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257139&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td><td align="right"><a href="http://li.thecrimson.com/click?s=257140&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257140&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td></tr></table>
+
+
+<hr/>
+
+{% endblock %}

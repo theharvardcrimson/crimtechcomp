@@ -1,0 +1,15 @@
+{% load common %}
+
+{% if mostreadarticles %}
+<section class="widget">
+  <header class="widget-header">
+    <h1 class="widget-heading">Most Read</h1>
+  </header>
+
+  <ol class="ol">
+    {% for article in mostreadarticles %}
+      <li>{{ article|linkify }}</li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}

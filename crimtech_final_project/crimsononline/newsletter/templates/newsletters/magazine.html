@@ -1,0 +1,212 @@
+{% extends "newsletters/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+{% load placeholders %}
+{% load newsletter_ads %}
+
+{% block additional_head %}
+<style type="text/css">
+  {% include "newsletters/magazine_style.css" %}
+</style>
+{% endblock %}
+
+{% block header %}
+<td class="center" align="center">
+  <table align="center" id="fm-header-table" background="http://features-dev.thecrimson.com/email/logo-white.png">
+    <tr>
+      <td class="first-td">
+      <a href="http://www.thecrimson.com/section/fm/"></a>
+      </td>
+    </tr>
+    <tr>
+      <td id="magazine-subhead">
+        <a href="http://www.thecrimson.com/section/fm/" target="_blank">magazine</a>
+      </td>
+    </tr>
+    <tr>
+      <td class="third-td">
+      </td>
+    </tr>
+  </table>
+</td>
+{% endblock header %}
+
+{% block left_tag %}<a class="top-bar-item" href="http://www.thecrimson.com/">The Harvard Crimson</a>{% endblock %}
+
+{% block social_table %}
+  <table align="right">
+    <tr>
+      <td>
+        <a class="left-button" target="_blank" href="https://www.facebook.com/fmcrimson">
+          <img height="18" src="http://static.thecrimson.com/newsletter/media/facebook_long.png">
+        </a>
+      </td>
+      <td>
+        <a target="_blank" href="https://twitter.com/crimsonFM">
+          <img height="18" src="http://static.thecrimson.com/newsletter/media/twitter_long.png">
+        </a>
+      </td>
+    </tr>
+  </table>
+{% endblock %}
+
+
+{% block content %}
+<!-- Needed for LiveIntent. Jessica Wang (tech), Dahlia Huh (biz), Theodore Liu (tech) -->
+<table border="0" cellpadding="0" cellspacing="0"  align="center" style="margin-left:auto; margin-right:auto;"><tr><td colspan="2"><a href="http://li.thecrimson.com/click?s=257151&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257151&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0" style="display: block; width:100%; height:auto;" width="{INSERT TEMPLATE MAX WIDTH HERE AS INTEGER}" /></a></td></tr><tr style="display:block; height:1px; line-height:1px;"><td><img src="http://li.thecrimson.com/imp?s=257152&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td><td><img src="http://li.thecrimson.com/imp?s=257153&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td></tr><tr><td align="left"><a href="http://li.thecrimson.com/click?s=257154&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257154&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td><td align="right"><a href="http://li.thecrimson.com/click?s=257155&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=257155&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td></tr></table>
+{% placeholder name="scrutiny" content_range="(1,1)" content_types="article,external content,topic page" as scrut %}
+
+<table class="row" id="fm-cover-row">
+  <tr>
+    <td class="wrapper last">
+      <table class="twelve columns">
+        <tr>
+          <td>
+            <a href="{{ scrut.0.get_absolute_url|absolute_url }}"></a>
+            <table id="fm-cover-table" background="{{ scrut.0.main_rel_content|img_url:"600,225,600,225" }}"><tr><td>
+            <table><tr><td id="scrut-title"><a href="{{ scrut.0.get_absolute_url|absolute_url }}">{{ scrut.0.title }}</a></td></tr></table>
+            </td></tr></table>
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table class="row article-body-row">
+  <tr>
+    <td class="wrapper last teaser-wrapper">
+      <table class="twelve columns">
+        <tr>
+          <td class="text-pad teaser">
+            <a href="{{ scrut.0.get_absolute_url|absolute_url }}">{{ scrut.0.description }}</a>
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{% endplaceholder %}
+
+<table class="row">
+  <tr>
+    <td class="wrapper last">
+      <table class="twelve columns">
+        <tr>
+          <td align="center" class="center">
+            <center><div class="fm-rule"></div></center>
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+<table class="row">
+  <tr>
+    <td class="wrapper">
+      <table class="six columns">
+        <tr>
+          <td>
+            {% placeholder name="topic box 1" content_range="(0,6)" content_types="article,external content,topic page" as topic_arts %}
+              {% include "newsletters/magazine_topic.html" with id=1 %}
+            {% endplaceholder %}
+
+            {% placeholder name="topic box 3" content_range="(0,6)" content_types="article,external content,topic page" as topic_arts %}
+              {% include "newsletters/magazine_topic.html" with id=3 %}
+            {% endplaceholder %}
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+    <td class="wrapper last">
+      <table class="six columns">
+        <tr>
+          <td>
+            {% placeholder name="topic box 2" content_range="(0,6)" content_types="article,external content,topic page" as topic_arts %}
+              {% include "newsletters/magazine_topic.html" with right=1 id=2 %}
+            {% endplaceholder %}
+
+            {% placeholder name="topic box 4" content_range="(0,6)" content_types="article,external content,topic page" as topic_arts %}
+              {% include "newsletters/magazine_topic.html" with right=1 id=4 %}
+            {% endplaceholder %}
+          </td>
+
+          {% comment %}
+          <td class="right-text-pad">
+            <table id="fm-right-column">
+            {% placeholder name="right" content_range="(0,4)" content_types="article,external content,topic page" as right_arts %}
+              {% for art in right_arts %}
+              <tr><td class="topic-box-item">
+                <table class="fm-red-tag-wrapper"><tr><td>
+                  <table class="fm-red-tag"><tr><td>{{ art.subsection }}</td></tr></table><br>
+                </td></tr></table>
+                <div class="headline">
+                  <a href="{{ article.get_absolute_url|absolute_url }}">
+                    {{ art.title }}
+                  </a>
+                </div>
+                <!-- <div class="show-byline">
+                  {{ art|byline:"full" }}
+                </div> -->
+                <div class="teaser">
+                  <a href="{{ art.get_absolute_url|absolute_url }}">{{ art.description }}</a>
+                </div>
+              </td></tr>
+              {% endfor %}
+            {% endplaceholder %}
+            </table>
+          </td>
+          {% endif %}
+          {% endcomment %}
+
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+{% placeholder name="overflow" content_range="(0,20)" content_types="article,external content,topic page" as overflow_arts %}
+  {% for a in overflow_arts %}
+    {% cycle 1 0 as left_image silent %}
+    {% cycle 0 1 as right_image silent %}
+    {% if forloop.first %}
+      {% include "newsletters/article_line.html" with article=a %}
+    {% elif forloop.last %}
+      {% include "newsletters/article_line.html" with article=a last=1 %}
+    {% else %}
+      {% include "newsletters/article_line.html" with article=a %}
+    {% endif %}
+
+    {% if not forloop.last %}
+    <table class="row">
+      <tr>
+        <td class="wrapper last">
+          <table class="twelve columns">
+            <tr>
+              <td align="center" class="center">
+                <center><div class="light-fm-rule"></div></center>
+              </td>
+              <td class="expander"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    {% endif %}
+  {% endfor %}
+{% endplaceholder %}
+
+{% newsletter_ad newsletter_obj 1 %}
+
+<!-- Needed for LiveIntent. Jessica Wang (tech), Dahlia Huh (biz), Theodore Liu (tech) -->
+<table cellpadding="0" cellspacing="0" border="0" width="40" height="6"><tbody><tr><td><img src="http://li.thecrimson.com/imp?s=124939900&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939901&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939902&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939903&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939904&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939905&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939906&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939907&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939908&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939909&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939910&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939911&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939912&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939913&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939914&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939915&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939916&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939917&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939918&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=124939919&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td></tr></tbody></table>
+
+{% endblock content %}

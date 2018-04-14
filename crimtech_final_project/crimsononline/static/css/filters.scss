@@ -1,0 +1,116 @@
+div.column-wrapper {
+
+}
+
+span.typecolumn {
+	text-align: left;
+	display: inline-block;
+	position: relative;
+	left: 15px;
+}
+
+span.seccolumn {
+	text-align: left;
+	display: inline-block;
+}
+
+#loadingimg {
+	display: block;
+	width: 128px;
+	margin: 0px auto;
+}
+
+.tag-header{
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #CCC;
+	margin-bottom: 15px;
+}
+
+.tag-header h1{
+	font-size: 3em;
+	font-weight: bold;
+	display:inline-block;
+
+}
+
+.tag-subscribe{
+	text-transform:uppercase;
+	vertical-align:middle;
+	float:right;
+}
+
+.section-header{
+	width:100%;
+}
+
+.filter-list-actions{
+	padding:10px 10px;
+	list-style-type: none;
+}
+
+.filter-list-actions li{
+	padding-top:10px;
+	padding-bottom:10px;
+	width:100%;
+}
+
+.filter-list-actions .seccolumn{
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.section-header{
+	background-color: #963431;
+	color: #FFF;
+	padding: 5px 5px;
+	font: 1.5em "Colaborate Thin","Lucida Sans Unicode",sans-serif;
+}
+
+.section-header .section-name{
+	display: inline-block;
+	padding-left:10px;
+	padding-right:30px;
+}
+
+.section-header-checkbox{
+	padding-right: 30px;
+	float:right;
+	font:0.9em "Colaborate Thin","Lucida Sans Unicode",sans-serif;
+}
+
+.filter-list-actions #sectionform,#typeform{
+	padding-top:20px;
+}
+
+
+
+.checkbox_section{
+	padding-left:15px;
+}
+.checkbox_section input{
+	position:relative;
+	top:0px;
+}
+.checkbox_section label{
+	text-transform:uppercase;
+	display:inline-block;
+	vertical-align: middle;
+	margin-bottom: 4px;
+	font-size:0.8em;
+}
+
+
+.article-item{
+	padding: 10px 10px;
+	margin: 5px 0px;
+	border: 1px solid #F7F7F7;
+	border-radius: 5px;
+	background-color: #F7F7F7;
+}
+
+body #articlezone .articles .list-article{
+	border: none;
+	padding: 0px;
+	display: block;
+}

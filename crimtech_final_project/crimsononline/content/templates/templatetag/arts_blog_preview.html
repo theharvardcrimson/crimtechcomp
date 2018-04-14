@@ -1,0 +1,66 @@
+{% load content_filters %}
+
+<div class="blog-shell">
+    <div class="blog-box">
+        <h2 class="blog-title" id="flyby-title">
+            <a href="/section/arts/blog">
+                ARTS BLOG
+            </a>
+        </h2>
+        {% with article=feature %}
+            <div class="blog-feature">
+                <div class="article-image">
+                    <a href="{{ article.get_absolute_url }}">
+                        {{ article.main_rel_content|to_img_tag:"305,207,305,207" }}
+                    </a>
+                </div>
+                <div class="blog-entry">
+                    <h3><a href="{{ article.get_absolute_url }}">{{ article.title|truncatewords:20 }}</a></h3>
+                    <div class="article-byline">
+                        <span class="article-date">{{ article|datify }}</span>
+                    </div>
+                </div>
+            </div>
+        {% endwith %}
+        <div class="blog-more">
+            {% for article in posts|slice:":1" %}
+            <div class="blog-another left">
+                <div class="article-thumbnail">
+                    <div class="article-image">
+                        <a href="{{ article.get_absolute_url }}">
+                            {{ article.main_rel_content|to_img_tag:"305,207,305,207" }}
+                        </a>
+                    </div>
+                    <div class="blog-entry">
+                        <h4>
+                            <a href="{{ article.get_absolute_url }}">{{ article.title|truncatechars:80 }}</a>
+                        </h4>
+                        <div class="article-byline">
+                            <span class="article-date">{{ article|datify }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% for article in posts|slice:"1:2" %}
+            <div class="blog-another right">
+                <div class="article-thumbnail">
+                    <div class="article-image">
+                        <a href="{{ article.get_absolute_url }}">
+                            {{ article.main_rel_content|to_img_tag:"305,207,305,207" }}
+                        </a>
+                    </div>
+                    <div class="blog-entry">
+                        <h4>
+                            <a href="{{ article.get_absolute_url }}">{{ article.title|truncatechars:80 }}</a>
+                        </h4>
+                        <div class="article-byline">
+                            <span class="article-date">{{ article|datify }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

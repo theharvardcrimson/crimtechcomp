@@ -1,0 +1,11 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    <h2>{{ widget|linkify }}</h2>
+        <div class="article-byline">
+            {{ widget|byline:"short" }}
+            <span class="article-date">{{ widget|datify }}</span>
+        </div>
+    <p>{{ widget.teaser }}</p>
+</div>

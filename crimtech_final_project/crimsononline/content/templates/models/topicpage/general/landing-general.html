@@ -1,0 +1,132 @@
+{% extends "__base.html" %}
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+{% load placeholders %}
+{% get_static_prefix as STATIC_URL %}
+
+{% block title %}{{ topic.title }} | {{ block.super }}{% endblock %}
+
+{% block meta_social %}
+    {% if topic.main_rel_content %}
+        <meta property="og:image" content="{{ topic.main_rel_content|img_url:"635,630" }}">
+        <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ topic.title }}">
+    <meta name="twitter:description" content="{{ topic.description }}">
+    {% if article.main_rel_content %}
+        <meta name="twitter:image" content="{{ topic.main_rel_content|img_url:"480,480" }}">
+    {% endif %}
+    <meta property="og:image" content="{{ STATIC_URL}}images/seal.jpg">
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/general.scss">
+{% endblock %}
+s
+{% block js %}
+    {{ block.super }}
+    {% compress js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/TweenMax.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/scrollmagic.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/topicpage/commencement2014.js"></script>
+    {% endcompress %}
+{% endblock %}
+
+{% block outside_css %}
+    {{ block.super }}
+    <style type="text/css">
+        {% for t in topic.get_all_ordered_children|slice:":4" %}
+        .supp-link-left a:nth-child({{ forloop.counter }}) > div {
+            background-image: url({{ t.image|img_url:"500,10000" }});
+            height: {% scalebox topic.get_all_ordered_children|slice:":4" forloop.counter0 800 %}px;
+            {% if t.pub_status != 1 %}cursor: default;{% endif %}
+        }
+        {% endfor %}
+
+        {% for t in topic.get_all_ordered_children|slice:"4:" %}
+        .supp-link-right a:nth-child({{ forloop.counter }}) > div {
+            background-image: url({{ t.image|img_url:"500,10000" }});
+            height: {% scalebox topic.get_all_ordered_children|slice:"4:" forloop.counter0 800 %}px;
+            {% if t.pub_status != 1 %}cursor: default;{% endif %}
+        }
+        {% endfor %}
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<div class="content">
+    {% if page == 1 %}
+        <div class="section no-pad">
+            <div class="section-anchor" id="supp-link"></div>
+            <div class="section-header">Sections</div>
+            <div class="supp-link-container cf">
+                <div class="supp-link-left">
+                    {% for t in topic.get_all_ordered_children|slice:":4" %}
+                    <a href="{% if t.pub_status = 1 %}{{ t.get_absolute_url }}{% endif %}"><div>
+                        <div class="supp-link-title"><div>{{ t.title }}</div></div>
+                    </div></a>
+                    {% endfor %}
+                </div>
+                <div class="supp-link-right">
+                    {% for t in topic.get_all_ordered_children|slice:"4:" %}
+                    <a href="{% if t.pub_status = 1 %}{{ t.get_absolute_url }}{% endif %}"><div>
+                        <div class="supp-link-title"><div>{{ t.title }}</div></div>
+                    </div></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% include "models/topicpage/pager.html" %}
+    {% endif %}
+
+
+    <div class="section{% if page != 1 %} no-pad{% endif %}">
+        {% placeholder name="articles" content_range="(0,100)" content_types="article,image,widget,external content" as items %}
+            {% for i in items|slice:limits %}
+                {% if i.content_type.name = "article" %}
+                <div class="landing-article">
+                    <div class="landing-article-title">
+                        <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                    </div>
+                    <div class="landing-article-teaser">
+                        {{ i.description }}
+                    </div>
+                    <div class="landing-article-byline">
+                        {{ i|byline:"short" }}
+                    </div>
+                </div>
+                {% elif i.content_type.name = "image" %}
+                <div class="landing-work">
+                    <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                    <div class="landing-work-body">
+                        <img class="landing-image" src="{{ i|img_url:"800,10000"}}">
+                    </div>
+                </div>
+                {% elif i.content_type.name = "widget" %}
+                <div class="landing-work">
+                    <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                    {{ i|render:"plain" }}
+                </div>
+                {% endif %}
+            {% empty %}
+
+            {% endfor %}
+        {% endplaceholder %}
+    </div>
+    {% include "models/topicpage/pager.html" %}
+
+</div>
+{% endblock %}

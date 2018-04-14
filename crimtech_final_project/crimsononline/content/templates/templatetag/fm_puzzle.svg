@@ -1,0 +1,149 @@
+<svg version="1.1" id="puzzle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1200.211px" height="796.775px" viewBox="1545.5 1168.877 1200.211 796.775"
+	 enable-background="new 1545.5 1168.877 1200.211 796.775" xml:space="preserve">
+<g>
+
+		<image overflow="visible" width="4288" height="2848" xlink:href="{{ STATIC_URL }}images/fm_puzzle_bg.jpg"  transform="matrix(0.2799 0 0 0.2799 1545.4995 1168.877)">
+	</image>
+    <a xlink:href="/article/2013/9/19/harvard-square-music-performers">
+	<g class="piece-group" id="piece1">
+		<path class="piece" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" d="M2415.637,1854.515
+			c0,20.544-16.652,37.198-37.195,37.198c-9.994,0-25.172-3.941-38.123-10.359v84.3h-794.816v-544.706h161.078
+			c-6.61,13.09-10.689,28.613-10.689,38.781c0,20.539,16.654,37.194,37.194,37.194c20.544,0,37.198-16.655,37.198-37.194
+			c0-10.168-4.079-25.691-10.69-38.781h164.433v130.92c13.52-7.288,30.261-11.85,41.009-11.85c20.541,0,37.194,16.652,37.194,37.195
+			s-16.654,37.195-37.194,37.195c-10.749,0-27.49-4.562-41.009-11.85v112.701h188.572c-7.291,13.52-11.849,30.257-11.849,41.003
+			c0,20.543,16.651,37.195,37.194,37.195c20.541,0,37.195-16.652,37.195-37.192c0-10.749-4.561-27.486-11.849-41.006h177.028
+			v112.419c12.949-6.418,28.127-10.358,38.123-10.358C2398.985,1817.32,2415.637,1833.975,2415.637,1854.515z"/>
+		<text class="headline" transform="matrix(1 0 0 1 1556.8101 1950.9717)" fill="#FFFFFF" font-size="72.7393">Let Me Entertain You</text>
+        <g class="preview">
+            <text transform="matrix(1 0 0 1 1556.8101 1522.1016)" fill="#FFFFFF" font-size="22.3813">Harvard Square has an uncanny </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1548.959)" fill="#FFFFFF" font-size="22.3813">ability to attract entertainers of </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1575.8164)" fill="#FFFFFF" font-size="22.3813">different backgrounds. Unlike </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1602.6748)" fill="#FFFFFF" font-size="22.3813">Boston’s Faneuil Hall, which </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1629.5322)" fill="#FFFFFF" font-size="22.3813">admits performers on an </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1656.3896)" fill="#FFFFFF" font-size="22.3813">audition-only basis and makes </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1683.248)" fill="#FFFFFF" font-size="22.3813">them schedule their performance </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1710.1045)" fill="#FFFFFF" font-size="22.3813">times far in advance, Harvard </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1736.9629)" fill="#FFFFFF" font-size="22.3813">Square does not discriminate: </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1763.8203)" fill="#FFFFFF" font-size="22.3813">Performers who have never been </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1790.6777)" fill="#FFFFFF" font-size="22.3813">in front of an audience before and </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1817.5352)" fill="#FFFFFF" font-size="22.3813">those who have spent their entire </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1844.3926)" fill="#FFFFFF" font-size="22.3813">careers in entertainment have </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1871.25)" fill="#FFFFFF" font-size="22.3813">equal access to its streets.</text>
+        </g>
+	</g>
+    </a>
+    <a xlink:href="/article/2013/9/14/omphalos-harvard-square">
+	<g class="piece-group" id="piece2">
+		<path class="piece" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" d="M2412.57,1573.42 c0,20.543-16.651,37.194-37.194,37.194c-9.216,0-22.838-3.353-35.058-8.905v113.552H2163.29
+			c7.288,13.52,11.849,30.257,11.849,41.006c0,20.54-16.653,37.192-37.194,37.192c-20.543,0-37.195-16.652-37.195-37.195
+			c0-10.746,4.557-27.483,11.848-41.003h-188.571v-112.7c13.52,7.287,30.261,11.849,41.009,11.849
+			c20.541,0,37.194-16.652,37.194-37.195s-16.654-37.194-37.194-37.194c-10.749,0-27.49,4.561-41.009,11.849v-130.92h192.973
+			c-5.867-12.505-9.432-26.695-9.432-36.199c0-20.54,16.652-37.194,37.195-37.194c20.54,0,37.195,16.654,37.195,37.194
+			c0,9.504-3.564,23.694-9.432,36.199h167.793v124.183c12.221-5.553,25.843-8.904,35.058-8.904
+			C2395.919,1536.225,2412.57,1552.876,2412.57,1573.42z"/>
+        <g class="headline">
+            <text transform="matrix(1 0 0 1 1932.7412 1457.1348)" fill="#FFFFFF" font-size="29.3755">Underfunded and</text>
+            <text transform="matrix(1 0 0 1 1932.7412 1492.3857)" fill="#FFFFFF" font-size="29.3755">Overlooked: The Plight of </text>
+            <text transform="matrix(1 0 0 1 1932.7412 1527.6357)" fill="#FFFFFF" font-size="29.3755">a Harvard Square Sculpture</text>
+        </g>
+        <g class="preview">
+            <text transform="matrix(1 0 0 1 2008.7412 1567.2646)" enable-background="new    "><tspan x="0" y="0" fill="#FFFFFF" font-size="20.9825">Few students, if any, glance up and </tspan><tspan x="0" y="25.179" fill="#FFFFFF" font-size="20.9825">notice the massive, multi-colored</tspan><tspan x="0" y="50.358" fill="#FFFFFF" font-size="20.9825">stone sculpture that towers over </tspan><tspan x="0" y="75.537" fill="#FFFFFF" font-size="20.9825">Out of Town News—one they pass </tspan><tspan x="0" y="100.716" fill="#FFFFFF" font-size="20.9825">nearly every day. </tspan></text>
+            <text transform="matrix(1 0 0 1 2013.7471 1543.2803)" fill="#FFFFFF" font-size="20.9825"> </text>
+            <text transform="matrix(1 0 0 1 2013.7471 1623.0879)" fill="#FFFFFF" font-size="20.9825">. </text>
+        </g>
+	</g>
+    </a>
+    <a xlink:href="/article/2013/9/19/top-five-greasy-spoon-breakfast-joints">
+	<g class="piece-group" id="piece3">
+		<path class="piece" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" d="M2745.141,1743.381v222.271h-404.821v-84.299
+			c12.95,6.416,28.128,10.358,38.123,10.358c20.544,0,37.194-16.654,37.194-37.198c0-20.541-16.651-37.193-37.194-37.193
+			c-9.995,0-25.173,3.94-38.123,10.358v-84.299h193.422c-5.956,12.578-9.582,26.927-9.582,36.513
+			c0,20.543,16.652,37.194,37.195,37.194s37.194-16.651,37.194-37.194c0-9.586-3.627-23.935-9.582-36.513L2745.141,1743.381
+			L2745.141,1743.381z"/>
+        <g class="headline">
+            <text transform="matrix(1.0036 0 0 1 2463.5898 1903.6416)" fill="#FFFFFF" font-size="34.6681">Top Five Greasy</text>
+            <text transform="matrix(1.0036 0 0 1 2352.6016 1945.2432)" fill="#FFFFFF" font-size="34.6681">Spoon Breakfast Joints</text>
+        </g>
+	</g>
+    </a>
+    <a xlink:href="/article/2013/9/19/cambridge-restaurant-scene">
+	<g class="piece-group" id="piece4">
+		<path class="piece" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" d="M1887.064,1294.716
+			c0,20.543,16.651,37.195,37.194,37.195c10.515,0,26.756-4.362,40.113-11.372v100.408h-204.781
+			c6.61,13.09,10.688,28.613,10.688,38.78c0,20.54-16.653,37.195-37.196,37.195c-20.541,0-37.195-16.655-37.195-37.195
+			c0-10.167,4.079-25.69,10.69-38.78H1545.5v-252.07h418.872v100.017c-13.356-7.011-29.601-11.373-40.113-11.373
+			C1903.716,1257.521,1887.064,1274.173,1887.064,1294.716z"/>
+        <g class="headline">
+            <text transform="matrix(1 0 0 1 1556.8101 1366.293)" fill="#FFFFFF" font-size="34.9708">Open Table: Cambridge’s</text>
+            <text transform="matrix(1 0 0 1 1556.8101 1408.2578)" fill="#FFFFFF" font-size="34.9708">High-Powered Chefs</text>
+        </g>
+
+        <g class="preview">
+            <text transform="matrix(1 0 0 1 1556.8101 1221.6982)" fill="#FFFFFF" font-size="20.9825">With so many top chefs jockeying for a </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1246.877)" fill="#FFFFFF" font-size="20.9825">position, Cambridge can now lay claim to </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1272.0566)" fill="#FFFFFF" font-size="20.9825">being a fine dining destination. And</text>
+            <text transform="matrix(1 0 0 1 1556.8101 1297.2354)" fill="#FFFFFF" font-size="20.9825">you thought Harvard college life </text>
+            <text transform="matrix(1 0 0 1 1556.8101 1322.4141)" fill="#FFFFFF" font-size="20.9825">was competitive</text>
+        </g>
+	</g>
+    </a>
+    <a xlink:href="/article/2013/9/19/get_out_somerville_cambridge_food">
+	<g class="piece-group" id="piece5">
+		<path class="piece" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" d="M2335.931,1282.918
+			c0,20.541,16.651,37.195,37.194,37.195c10.189,0,25.764-4.099,38.874-10.737v111.571h-239.476
+			c5.866-12.506,9.432-26.695,9.432-36.199c0-20.541-16.654-37.195-37.194-37.195c-20.544,0-37.195,16.654-37.195,37.195
+			c0,9.504,3.564,23.693,9.431,36.199h-152.623v-100.408c-13.356,7.011-29.6,11.372-40.113,11.372
+			c-20.544,0-37.195-16.652-37.195-37.195s16.652-37.194,37.195-37.194c10.514,0,26.757,4.36,40.113,11.373v-100.018H2412v87.584
+			c-13.11-6.639-28.686-10.738-38.874-10.738C2352.582,1245.723,2335.931,1262.375,2335.931,1282.918z"/>
+        <g class="headline">
+            <text transform="matrix(1 0 0 1 1973.0195 1212.5361)" fill="#FFFFFF" font-size="34.9708">Get Out! Somerville and </text>
+            <text transform="matrix(1 0 0 1 1973.0195 1254.501)" fill="#FFFFFF" font-size="34.9708">Cambridge Food Edition</text>
+        </g>
+    <g class="preview">
+        <text transform="matrix(1 0 0 1 1973.0195 1288.0723)" fill="#FFFFFF" font-size="20.9825">For those of you with a hankering for</text>
+        <text transform="matrix(1 0 0 1 1973.0195 1313.251)" fill="#FFFFFF" font-size="20.9825">new eateries this side of the Charles,</text>
+        <text transform="matrix(1 0 0 1 1973.0195 1338.4307)" fill="#FFFFFF" font-size="20.9825">these are worth a visit.</text>
+    </g>
+	</g>
+</a>
+<a xlink:href="/article/2013/9/19/5q-dean-pfister">
+	<g class="piece-group" id="piece6">
+		<path class="piece" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" d="M2745.14,1420.947h-137.243
+			c7.951,13.837,12.987,31.753,12.987,43.051c0,20.54-16.651,37.194-37.194,37.194c-20.541,0-37.194-16.654-37.194-37.194
+			c0-11.298,5.038-29.214,12.985-43.051H2412v-111.571c-13.11,6.639-28.686,10.737-38.874,10.737
+			c-20.543,0-37.194-16.654-37.194-37.194c0-20.543,16.651-37.194,37.194-37.194c10.188,0,25.764,4.099,38.874,10.737v-87.584
+			h333.141L2745.14,1420.947L2745.14,1420.947z"/>
+        <g class="headline">
+            <text transform="matrix(1 0 0 1 2422.7949 1365.293)" fill="#FFFFFF" font-size="34.9708">10 Questions for </text>
+            <text transform="matrix(1 0 0 1 2422.7949 1407.2578)" fill="#FFFFFF" font-size="34.9708">Dean Pfister</text>
+        </g>
+        <g class="preview">
+            <text transform="matrix(1 0 0 1 2422.7939 1222.9932)" fill="#FFFFFF" font-size="20.9825">Those who read the first email </text>
+            <text transform="matrix(1 0 0 1 2422.7939 1248.1719)" fill="#FFFFFF" font-size="20.9825">that Interim Dean Donald H. </text>
+            <text transform="matrix(1 0 0 1 2422.7939 1273.3516)" fill="#FFFFFF" font-size="20.9825">Pfister sent to the College may </text>
+            <text transform="matrix(1 0 0 1 2422.7939 1298.5303)" fill="#FFFFFF" font-size="20.9825">recall that he’s a big fan of fungi </text>
+            <text transform="matrix(1 0 0 1 2422.7939 1323.709)" fill="#FFFFFF" font-size="20.9825">jokes. But, who is Pfister really? </text>
+            <text transform="matrix(1 0 0 1 2422.7939 1337.1357)" fill="#FFFFFF" font-size="20.9825"> </text>
+            <text transform="matrix(1 0 0 1 2422.7939 1362.3145)" fill="#FFFFFF" font-size="20.9825"> </text>
+        </g>
+	</g>
+</a>
+<a xlink:href="/article/2013/9/19/paul-harding-coop">
+	<g class="piece-group" id="piece7">
+		<path class="piece" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" d="M2745.141,1743.381h-156.174
+			c5.956,12.578,9.582,26.927,9.582,36.512c0,20.543-16.652,37.195-37.195,37.195s-37.194-16.652-37.194-37.195
+			c0-9.585,3.627-23.934,9.582-36.512h-193.423v-141.672c12.222,5.554,25.843,8.905,35.059,8.905
+			c20.543,0,37.195-16.651,37.195-37.194c0-20.544-16.652-37.195-37.195-37.195c-9.215,0-22.837,3.353-35.059,8.904v-124.183
+			h219.164c-7.947,13.837-12.986,31.754-12.986,43.051c0,20.54,16.654,37.194,37.193,37.194c20.545,0,37.195-16.654,37.195-37.194
+			c0-11.297-5.035-29.214-12.986-43.051h137.242V1743.381L2745.141,1743.381z"/>
+        <g class="headline">
+            <text transform="matrix(1 0 0 1 2350.6289 1530.6357)" fill="#FFFFFF" font-size="32.1732">From Expos to the Pulitzer</text>
+        </g>
+        <g class="preview">
+            <text transform="matrix(1 0 0 1 2417.7939 1582.6357)" enable-background="new    "><tspan x="0" y="0" fill="#FFFFFF" font-size="18">Ten years ago, Paul Harding was known</tspan><tspan x="0" y="21.6" fill="#FFFFFF" font-size="18">as a talented, if demanding, Expos </tspan><tspan x="0" y="43.2" fill="#FFFFFF" font-size="18">preceptor. Back in town this week for</tspan><tspan x="0" y="64.8" fill="#FFFFFF" font-size="18">a reading upon the release of his second</tspan><tspan x="0" y="86.4" fill="#FFFFFF" font-size="18">book, “Enon,” the Pulitzer Prize-winning</tspan><tspan x="0" y="108" fill="#FFFFFF" font-size="18">author bore little resemblance to his</tspan><tspan x="0" y="129.6" fill="#FFFFFF" font-size="18">former self.</tspan></text>
+        </g>
+	</g>
+</g>
+</a>
+</svg>

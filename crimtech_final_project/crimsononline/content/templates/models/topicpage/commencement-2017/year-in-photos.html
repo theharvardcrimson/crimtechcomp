@@ -1,0 +1,205 @@
+{% extends "models/topicpage/commencement-2017/__base.html" %}
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+{% load placeholders %}
+{% get_static_prefix as STATIC_URL %}
+
+{% block title %}{{ topic.title }} | {{ block.super }}{% endblock %}
+
+{% block remove_css %}{% endblock %}
+
+{% block addl_css %}
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic|Lato:300,400,700|Lora:400,700,400italic|Open+Sans:300italic,400italic,600italic,400,300,600,700|Raleway:400,200,300,500,600,700' rel='stylesheet' type='text/css'>
+    {% compress css %}
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/lib/magnific-popup.scss">
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/yip-commencement-2016.scss">
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/commencement2017.scss">
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/shortcodes.scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block addl_js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/topicpage/yip-commencement.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.magnific-popup.min.js"></script>
+{% endblock %}
+
+{% block masthead_header %}{% endblock masthead_header %}
+
+{% block content %}
+    <header>
+        <div class="wrapper">
+            <a class="header-logo" href="http://www.thecrimson.com/">
+                <img src="{{ STATIC_URL }}images/header-logo-text.png" height="18" width="215">
+            </a>
+            <ul class="header-nav">
+                <a href="{{ topic.parent.get_absolute_url }}"><li><img class="back-arrow" src="{{ STATIC_URL }}images/left-arrow-white.png"> Back To {{ topic.parent.title }}</li></a>
+                <a href="#featured"><li>Featured</li></a>
+                <a href="#section1"><li>Sept &amp Oct</li></a>
+                <a href="#section2"><li>Nov &amp Dec</li></a>
+                <a href="#section3"><li>Jan &amp Feb</li></a>
+                <a href="#section4"><li>Mar &amp Apr</li></a>
+            </ul>
+        </div>
+    </header>
+
+    <div id="intro" style="background-image: url({{ topic.main_rel_content|img_url:"2000,2000" }}); background-position: 50% 36px;">
+        <div id="intro-text">Year In Photos</div>
+        <div id="view-button"><a href="#">View All</a></div>
+        <div class="dark-cover fader"></div>
+        <div class="shortcodes-byline" id="intro">{{ topic.main_rel_content.contributors.all|linkify|human_list }}</div>
+    </div>
+    <div class="content">
+        <div class="section" id="yip">
+            <div class="featured-container cf">
+                <div class="section1-left" id="featured">
+                    {% placeholder name="feature_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                 <div class="section1-right">
+                    {% placeholder name="feature_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shortcodes-wrapper-fullscreen">
+        <div class="shortcodes-object-fullscreen">
+            {% placeholder name="section1_header" content_range="(1,1)" content_types="image" as photos %}
+                <div class="shortcodes-image-parallax" id="section1" style="background: url(' {{ photos.0|img_url:"2000,2000" }} ') 50% 0% no-repeat; background-size: cover; ">
+                </div>
+                <div class="section-title">
+                    September &amp October
+                </div>
+                <div class="shortcodes-byline">{{ photos.0.contributors.all|linkify|human_list }}</div>
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div class="content">
+        <div class="section" id="yip">
+            <div class="featured-container cf">
+                <div class="section1-left">
+                    {% placeholder name="section1_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                 <div class="section1-right">
+                    {% placeholder name="section1_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shortcodes-wrapper-fullscreen">
+        <div class="shortcodes-object-fullscreen">
+            {% placeholder name="section2_header" content_range="(1,1)" content_types="image" as photos %}
+                <div class="shortcodes-image-parallax" id="section2" style="background: url(' {{ photos.0|img_url:"2000,2000" }} ') 50% 0% no-repeat; background-size: cover; ">
+                </div>
+                <div class="section-title">
+                    November &amp December
+                </div>
+                <div class="shortcodes-byline">{{ photos.0.contributors.all|linkify|human_list }}</div>
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div class="content">
+        <div class="section" id="yip">
+            <div class="featured-container cf">
+                <div class="section2-left">
+                    {% placeholder name="section2_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                <div class="section2-right">
+                    {% placeholder name="section2_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shortcodes-wrapper-fullscreen">
+        <div class="shortcodes-object-fullscreen">
+            {% placeholder name="section3_header" content_range="(1,1)" content_types="image" as photos %}
+                <div class="shortcodes-image-parallax" id="section3" style="background: url(' {{ photos.0|img_url:"2000,2000" }} ') 50% 0% no-repeat; background-size: cover; ">
+                </div>
+                <div class="section-title">
+                    January &amp February
+                </div>
+                <div class="shortcodes-byline">{{ photos.0.contributors.all|linkify|human_list }}</div>
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div class="content">
+        <div class="section" id="yip">
+            <div class="featured-container cf">
+                <div class="section3-left">
+                    {% placeholder name="section3_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                <div class="section3-right">
+                    {% placeholder name="section3_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shortcodes-wrapper-fullscreen">
+        <div class="shortcodes-object-fullscreen">
+            {% placeholder name="section4_header" content_range="(1,1)" content_types="image" as photos %}
+                <div class="shortcodes-image-parallax" id="section4" style="background: url(' {{ photos.0|img_url:"2000,2000" }} ') 50% 0% no-repeat; background-size: cover; ">
+                </div>
+                <div class="section-title">
+                    March &amp April
+                </div>
+                <div class="shortcodes-byline">{{ photos.0.contributors.all|linkify|human_list }}</div>
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div class="content">
+        <div class="section" id="yip">
+            <div class="featured-container cf">
+                <div class="section4-left">
+                    {% placeholder name="section4_photo_left" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+                <div class="section4-right">
+                    {% placeholder name="section4_photo_right" content_range="(1,100)" content_types="image" as photos %}
+                        {% for photo in photos %}
+                            <a href="{{ photo|img_url:"1000,600" }}" class="yip-link" data-caption="{{ photo.caption }}<br><div class='yip-contrib'>By {{ photo.contributors.all|linkify|human_list }}</div>"><img class="yir-image" src="{{ photo|img_url:"500,500" }}"></a>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

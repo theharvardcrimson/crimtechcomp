@@ -1,0 +1,99 @@
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+#commencement-nav {
+    margin: 0px auto;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+#commencement-nav ul {
+    list-style: none;
+    padding: 0px;
+}
+
+#commencement-nav ul li {
+    display: inline-block;
+    width: 12.5%;
+    float: left;
+}
+
+#commencement-nav ul li img {
+    display: block;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 60px;
+}
+
+#commencement-nav ul li p {
+    text-align: center;
+    margin: 0px;
+    padding: 0px 5px;
+}
+
+#magazine-scrutiny-inner {
+    width: auto;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+#magazine-secondary .magazine-category {
+    margin-top: 51px;
+}
+
+#magazine-secondary .magazine-story {
+    margin: 0px auto;
+}
+
+@media (min-width: 1000px) {
+    #magazine-cover-stories {
+        position: relative;
+        top: 15px;
+    }
+}
+
+
+@media (max-width: 1000px) and (min-width: 641px) {
+    #magazine-cover-stories {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    #commencement-title {
+        margin: 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    #commencement-title img {
+        padding: 0px;
+    }
+
+    #border {
+        display: none;
+    }
+
+    #commencement-nav ul li:nth-child(5) {
+        clear: left;
+    }
+    #commencement-nav ul li {
+        width: 25%;
+    }
+}
+
+#commencement-title {
+    margin: 40px 20px;
+    text-align: center;
+    position: relative;
+    max-width: none;
+}

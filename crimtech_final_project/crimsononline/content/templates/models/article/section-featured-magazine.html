@@ -1,0 +1,21 @@
+{% load common %}
+{% load content_filters %}
+
+<div id="magazine-spread">
+	<!--<a href="#">-->{{ article.main_rel_content|to_img_tag:"838,445,838,445" }}<!--</a>-->
+</div>
+<div id="magazine-primary-first-content">
+	<div id="magazine-scrutiny">
+		<div id="magazine-scrutiny-content">
+			<h1>Fifteen Minutes</h1>
+			<div id="magazine-scrutiny-inner">
+				<div class="magazine-subsection article-subsection"><a href="/tag/scrutiny">Scrutiny</a></div>
+				<h2>{{ article|linkify }}</h2>
+				<div class="magazine-byline article-byline">{{ article|byline:"short" }}</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="magazine-scrutiny-teaser">
+	<p>{{ article.teaser }}</p>
+</div>

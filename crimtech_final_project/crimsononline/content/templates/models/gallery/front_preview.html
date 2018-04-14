@@ -1,0 +1,8 @@
+
+{% load common %}
+{% load content_filters %}
+
+<div class="front_gallery">
+    <a href="{{gallery.get_absolute_url}}">{{gallery.cover_image|to_img_tag:"143,120,5,4" }}</a>
+    <h3 style="font-size:13px;"><a href="{{gallery.get_absolute_url}}">{{gallery.title}}</a></h3>
+</div>

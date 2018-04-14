@@ -1,0 +1,21 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    {% if externalcontent.main_rel_content or externalcontent|img_url:"60,60,60,60" %}
+        <div class="article-headline-image">
+            <a href="{{ externalcontent.get_absolute_url }}">
+                {{ externalcontent.main_rel_content|to_img_tag:"60,60,60,60" }}
+            </a>
+        </div>
+    {% endif %}
+    <div class="article-section">
+        <a href="{{ externalcontent.subsection.get_absolute_url }}">{{ externalcontent.subsection }}</a>
+    </div>
+    <h2>{{ externalcontent|linkify }}</h2>
+        <div class="article-byline">
+            {{ externalcontent|byline:"short" }}
+            <span class="article-date">{{ externalcontent|datify }}</span>
+        </div>
+    <p>{{ externalcontent.description }}</p>
+</div>

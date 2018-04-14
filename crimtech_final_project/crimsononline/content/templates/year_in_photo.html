@@ -1,0 +1,43 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load compress %}
+{% load content_filters %}
+{% load flyby_preview %}
+{% load top_articles %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/year-in-photos.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/year-in-photos-lightbox-cust.scss">
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="/feature/commencement-2013/year-in-photos/?json"></script>
+    <script src="{{ STATIC_URL }}js/year-in-photos.js"></script>
+    <script src="{{ STATIC_URL }}js/year-in-photo-lightbox-cust.js"></script>
+{% endblock %}
+
+{% block content %}
+<!-- <h1>Year in Photos</h1> -->
+{% include 'templatetag/commencement_nav.html' %}
+
+<div id="gallery-background">
+    <div id="gallery-wrapper" class="clearfix">
+        <div id="current-photo">
+        </div>
+        <ul id="sections">
+            <li><a href="#">The Year in Photos</a></li>
+            <li><a href="#">Boston Marathon</a></li>
+            <li><a href="#">Breaking News</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Fifteen Minutes</a></li>
+            <li><a href="#">Campus Life</a></li>
+            <li><a href="#">Arts</a></li>
+        </ul>
+        <ul id="photos">
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

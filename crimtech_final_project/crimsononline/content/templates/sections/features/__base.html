@@ -1,0 +1,176 @@
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1">
+
+        <title>{% block title %}The Harvard Crimson | Features{% endblock %}</title>
+
+        <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson" type="text/javascript"></script>
+
+        {% compress js %}
+            {% ads_head %}
+            <script src="{{ STATIC_URL }}js/lib/jquery.js"></script>
+            <script src="{{ STATIC_URL }}js/table.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/spotlight.js"></script>
+            <script src="{{ STATIC_URL }}js/responsive.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox.pack.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-buttons.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-media.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-thumbs.js"></script>
+            <script src="{{ STATIC_URL }}js/sticky_bar.js"></script>
+
+
+            <script>
+                // Google Analytics
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', '{{ ANALYTICS_USER_AGENT }}', 'thecrimson.com');
+                ga('send', 'pageview');
+            </script>
+        {% endcompress %}
+        <link href='http://fonts.googleapis.com/css?family=PT+Serif|Lato:300,400,700|Lora:400,700,400italic' rel='stylesheet' type='text/css'>
+
+        {% compress css %}
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/fonts.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/features.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/responsive.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox-buttons.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox-thumbs.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/specific_shortcodes.scss">
+        {% endcompress %}
+
+        {{ custom_html|safe }}
+    </head>
+    <body class="{% block body_class %}{% endblock %}">
+        <div class="is-light">
+            {% include "_sidebar.html" %}
+        </div>
+        {% block masthead_header %}
+    <header>
+      <div id="masthead">
+        <div id="masthead-first-wrapper">
+          <div id="masthead-first">
+            <div id="masthead-first-container">
+              <h1>
+                <a id="masthead-logo" href="/">
+                  <img src="{{ STATIC_URL }}images/masthead.png" width="415">
+                </a>
+              </h1>
+              <br>
+              <div id="masthead-search">
+                <form action="/search/" id="cse-search-box">
+                  <input type="hidden" name="cx" value="013815813102981840311:aw6l9tjs1a0" />
+                  <input type="hidden" name="cof" value="FORID:10" />
+                  <input type="hidden" name="ie" value="UTF-8" />
+                  <input type="text" class="query" name="q" />
+                  <button class="search-submit" type="submit" name="sa">Search</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="masthead-second">
+          <nav id="masthead-nav-mobile">
+            <ul>
+              <li><a href="#">Sections</a></li>
+            </ul>
+          </nav>
+          <nav id="masthead-nav" class="mobile-hidden">
+            {% spaceless %}
+              <ul>
+                <li>{% section_link "NEWS" is nav %}</li>
+                <li>{% section_link "Opinion" is nav %}</li>
+                <li>{% section_link "Features" is nav %}</li>
+                <li>{% section_link "Magazine" is nav %}</li>
+                <li>{% section_link "Sports" is nav %}</li>
+                <li>{% section_link "Arts" is nav %}</li>
+                <li>{% section_link "Flyby" is nav %}</li>
+              </ul>
+            {% endspaceless %}
+          </nav>
+        </div>
+      </div>
+    </header>
+  {% endblock masthead_header %}
+
+        {% block content %}
+        {% endblock %}
+
+        <div class="leader-ad">
+            {% ad_unit "728x90" %}
+        </div>
+
+        <div id="comments">
+            <div id="disqus_thread"></div>
+        </div>
+
+        <footer>
+    <div id="footer">
+    <table>
+    <tr>
+      <td id="footer-sections">
+        <h1>Sections</h1>
+        <ul>
+          <li><a href="/section/news/">News</a></li>
+          <li><a href="/section/opinion/">Opinion</a></li>
+          <li><a href="/section/features/">Features</a></li>
+          <li><a href="/section/fm/">Magazine</a></li>
+          <li><a href="/section/sports/">Sports</a></li>
+          <li><a href="/section/arts/">Arts</a></li>
+          <li><a href="/section/media/">Multimedia</a></li>
+          <li><a href="/flyby/">Flyby</a></li>
+        </ul>
+      </td>
+
+      <td id="footer-more">
+        <h1>More</h1>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/advertising/" target="_blank">Advertising</a></li>
+          <li><a href="https://subscribe.thecrimson.com/">Subscribe</a></li>
+          <li><a href="http://programs.thecrimson.com/">Journalism Programs</a></li>
+          <li><a href="/classifieds/" rel="nofollow">Classifieds</a></li>
+          <li><a href="http://thecrimson.personforce.com/" target="_blank">Job Board</a></li>
+          <li><a href="http://store.thecrimson.com/" target="_blank">Photo Store</a></li>
+        </ul>
+      </td>
+
+      <td id="footer-resources">
+        <h1>Resources</h1>
+        <ul>
+          <li><a href="/about/privacy/">Privacy Policy</a></li>
+          <li><a href="/about/permissions/">Rights &amp; Permissions</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/contact/">Corrections</a></li>
+          <li><a href="/subscribe/">Email&nbsp;Subscriptions</a></li>
+          <li><a href="https://subscribe.thecrimson.com/">Print&nbsp;Subscriptions</a></li>
+          <li><a href="/sitemap/">Archives</a></li>
+          <li><a href="/sitemap/contributors/">Writers</a></li>
+        </ul>
+      </td>
+
+      <td rowspan="2" id="footer-img">
+        <div id="footerimg"></div>
+      </td>
+    </tr>
+    </table>
+    <br>
+    <center>Copyright © 2017 The Harvard Crimson, Inc.</center>
+    </div>
+  </footer>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+/* pop-up message directing you to turn off adblock*/
+.adblock {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(100, 100, 100, 0.7);
+  color: white;
+
+  @mixin font-size($fs) {
+    font-size: $fs;
+    line-height: $fs * 1.2;
+  }
+
+  &__image {
+    position: relative;
+    right: 0px;
+    top: 20px;
+    text-align: right;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 700px;
+    width: 95%;
+    padding: 2rem;
+    padding-top: 0;
+    transform: translateX(-50%) translateY(-50%);
+    background: #A80500;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__message {
+    position: relative;
+    @include font-size(2rem);
+    margin-bottom: 1rem;
+    padding-right: 5rem;
+    justify-content: left;
+  }
+
+  &__link {
+    @include font-size(1rem);
+    background: none;
+    border: none;
+    margin-top: 0.5rem;
+    color: white;
+    font-weight: 4px;
+  }
+  &__link:hover, &__link:active {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: underline;
+    -moz-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    -webkit-transition: color 0.3s;
+  }
+
+  &__links {
+    display: inline;
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  &__helplink {
+    float: left;
+  }
+
+  &__ignore {
+    float: right;
+  }
+}
+
+body.adblocker-enabled {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Simple banner message replacing the ads */
+.adblock-banner {
+  position: relative;
+  z-index: 100;
+  height: 90px;
+  background: #A80500;
+  margin: auto;
+}
+.leaderboardclone .adblock-banner {
+  max-width: 100%;
+}
+
+.mobile-banner .adblock-banner {
+  width: 320px;
+  height: 100px;
+}
+
+.leaderboardclone {
+  border: 1px solid #e0e0e0;
+  margin: 0 auto 10px;
+  padding: 5px;
+  clear: both;
+  height: 90px;
+  width: 728px;
+  display: none;
+  margin: 15px auto 10px;
+}
+
+@media(min-width: 801px) {
+  .leaderboardclone {
+    display: block;
+  }
+  .mobile-banner {
+    display: none;
+  }
+}

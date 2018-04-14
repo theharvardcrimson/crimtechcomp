@@ -1,0 +1,55 @@
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+{% load flyby_preview %}
+{% load top_articles %}
+
+{% block meta %}{% endblock %}
+
+{% block body %}
+<section id="upper">
+    <div id="upper-body">
+
+        <div id="section-bar">
+            <h1>Classifieds</h1>
+        </div>
+
+        <div id="Partner_API_CampusAve" partnerid="2398" partnerdomain="http://thecrimson.campusave.com/">
+            Loading classifieds…
+        </div>
+
+        <div id="Partner_API_CampusAve_BI">
+            <a href="https://harvard.uloop.com" target="_blank">
+                <img src="https://thecrimson.campusave.com/images/powered-by-uloop3.gif" alt="Harvard University Classifieds in Cambridge, Massachusetts" title="Harvard University Classifieds in Cambridge, Massachusetts"/>
+            </a>
+        </div>
+        <script type="text/javascript" src="https://thecrimson.campusave.com/includes/api.js"></script>
+    </div>
+{% endblock %}
+
+{% comment %}
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+{% load flyby_preview %}
+{% load top_articles %}
+
+{% block meta %}{% endblock %}
+
+{% block headline %}Classifieds{% endblock %}
+
+{% block body %}
+
+    <div id="Partner_API_CampusAve" partnerid="2398" partnerdomain="http://thecrimson.campusave.com/">
+        Loading classifieds…
+    </div>
+
+    <div id="Partner_API_CampusAve_BI">
+        <a href="http://harvard.uloop.com" target="_blank">
+            <img src="http://thecrimson.campusave.com/images/powered-by-uloop3.gif" alt="Harvard University Classifieds in Cambridge, Massachusetts" title="Harvard University Classifieds in Cambridge, Massachusetts"/>
+        </a>
+    </div>
+    <script type="text/javascript" src="http://thecrimson.campusave.com/includes/api.js"></script>
+
+{% endblock %}
+{% endcomment %}

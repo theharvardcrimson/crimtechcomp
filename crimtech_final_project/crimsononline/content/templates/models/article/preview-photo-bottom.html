@@ -1,0 +1,33 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="article-content">
+    {% if "bigger" in classes or "feature" in classes %}
+        <h2>{{ article|linkify }}</h2>
+    {% else %}
+        <h3>{{ article|linkify }}</h3>
+    {% endif %}
+
+    <div class="article-byline">
+        {{ article|byline:"short" }}
+        {% if article.multimedia_contributors.count %}
+            <br>Multimedia {{ article|byline_multimedia:"short" }}
+        {% endif %}
+        {% if not no_date %}
+            {% date article %}
+        {% endif %}
+    </div>
+
+    {% if not no_teaser %}
+        <p>{{ article.description|striptags }}</p>
+    {% endif %}
+</div>
+
+{% if image and article.main_rel_content %}
+    <div class="article-image">
+        <a href="{{ article.get_absolute_url }}">
+            <div style="background-image: url('{{ article.main_rel_content|img_url:"1500,1500" }}');  background-repeat: no-repeat; background-size: cover; min-height: 100%; min-width: 100%; background-position: center; position: relative; width: 100%; padding-top: 60%; margin-bottom: 5px;">
+            </div>
+        </a>
+    </div>
+{% endif %}

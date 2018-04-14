@@ -1,0 +1,19 @@
+<ul class="pager">
+    <li class="pager-newest{% if not p.has_previous %} disabled{% endif %}">
+
+        <!-- WTF are &laquo, &lsaquo, etc.??? -->
+        <a {% if p.has_previous %}href="{{url_base}}"{% endif %}>&laquo; Newest</a>
+    </li>
+    <li class="pager-newer{% if not p.has_previous %} disabled{% endif %}">
+        <a {% if p.has_previous %}href="{{url_base}}/page/{{p.previous_page_number}}"{% endif %}>&lsaquo; Newer</a>
+    </li>
+
+    <li class="pager-current">{{p.start_index}}-{{p.end_index}} of {{paginator.count}}</li>
+
+    <li class="pager-older{% if not p.has_next %} disabled{% endif %}">
+        <a {% if p.has_next %}href="{{url_base}}/page/{{p.next_page_number}}"{% endif %}>Older &rsaquo;</a>
+    </li>
+    <li class="pager-oldest{% if not p.has_next %} disabled{% endif %}">
+        <a {% if p.has_next %}href="{{url_base}}/page/{{paginator.num_pages}}"{% endif %}>Oldest &raquo;</a>
+    </li>
+</ul>

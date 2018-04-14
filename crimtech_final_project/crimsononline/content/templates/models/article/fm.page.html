@@ -1,0 +1,133 @@
+{% extends "fm/__base.html" %}
+
+{% load ads_tags %}
+{% load common %}
+{% load content_filters %}
+{% load top_articles %}
+
+{% block meta %}
+  {{ block.super }}
+  {% if not article.searchable or request.GET.page = "single" %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+{% endblock meta %}
+
+{% block meta_social %}
+  {% if article.main_rel_content %}
+    <meta property="og:image" content="{{ article.main_rel_content|img_url:"635,630" }}">
+    <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+  {% else %}
+    <meta property="og:image" content="{{ STATIC_URL}}images/seal.jpg">
+  {% endif %}
+  <meta property="og:title" content="{{ article.title }} |{% if article.section %} {{ article.section }} |{% endif %} The Harvard Crimson">
+  <meta property="og:description" content="{{ article.description }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@thecrimson">
+  <meta name="twitter:title" content="{{ article.title }}">
+  <meta name="twitter:description" content="{{ article.description }}">
+  {% if article.main_rel_content %}
+    <meta name="twitter:image" content="{{ article.main_rel_content|img_url:"480,480" }}">
+  {% endif %}
+{% endblock %}
+
+{% block title %}
+  {{ article.headline }} |
+  {% if article.section %}
+    {{ article.section }} |
+  {% endif %}
+  {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+  {% if not article.main_rel_content %}
+    <div class="ad ad-leaderboard">
+      {% ad_unit "728x90" %}
+    </div>
+  {% endif %}
+
+  {% if article.main_rel_content and article.main_rel_content.height < article.main_rel_content.width %}
+    <section class="article-primary article-primary-right {% if not article.main_rel_content %} article-primary-bare {% endif %}">
+      <img src="{{ article.main_rel_content|img_url:'960,560' }}">
+      <div class="article-primary-caption">
+        <span class="article-primary-byline">{{ article.main_rel_content.contributors.all|linkify|human_list }}</span>
+        {{ article.main_rel_content.caption }}
+      </div>
+    </section>
+  {% endif %}
+
+
+  {% if article.main_rel_content %}
+    <div class="ad ad-leaderboard">
+      {% ad_unit "728x90" %}
+    </div>
+  {% endif %}
+
+  <div class="article-container">
+    <article class="article-body">
+      <div class="primary-text">
+        <h1 class="primary-heading">{{ article|linkify }}</h1>
+        <br><br>
+        <span class="primary-teaser">{{ article.description }}</span>
+        <br><br>
+        <span class="primary-byline">
+          {{ article|byline:'short' }}
+          <span class="primary-date">{{ article.issue.issue_date|date:'M j, Y' }}</span>
+        </span>
+        <br>
+        <hr></hr>
+      </div>
+      {% for paragraph in paragraphs %}
+        {{ paragraph }}
+      {% endfor %}
+    </article>
+    <aside class="article-sidebar">
+      <div class="ad ad-sidekick">
+        {% ad_unit "300x600" %}
+      </div>
+      {% most_read_articles %}
+    </aside>
+  </div>
+
+  <div class="container">
+    {% if article.rec_articles.all %}
+      <div class="article-cards">
+        {% for article in article.rec_articles.all|slice:":6" %}
+          <div class="card-wrapper">
+            <article class="card{% if not article.main_rel_content %} card-imageless{% endif %}">
+              <a href="{{ article.get_absolute_url }}">
+                <img class="card-image" src="{{ article.main_rel_content|img_url:'360,240,360,240' }}">
+              </a>
+
+              <div class="card-text">
+                <a class="card-section" href="{{ article.fm_subsection.get_absolute_url }}">{{ article.fm_subsection }}</a>
+
+                {% if not article.main_rel_content %}
+                  <div class="card-spacer"></div>
+                {% endif %}
+
+                <h1 class="card-heading">{{ article|linkify }}</h1>
+                <span class="card-byline">{{ article|byline:'short' }}</span>
+              </div>
+            </article>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="article-comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = '{{ DISQUS_SHORTNAME }}';
+        var disqus_url = 'http://www.thecrimson.com{{ request.path }}';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://thecrimson.disqus.com/embed.js';
+            dsq.async = true;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0])
+                .appendChild(dsq);
+        })();
+      </script>
+    </div>
+  </div>
+{% endblock content %}

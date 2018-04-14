@@ -1,0 +1,70 @@
+{% load compress %}
+
+{% compress css %}
+<style type="text/x-scss">
+  @media (max-width: 680px) {
+    #editors-choice-box {
+      margin-top: 20px;
+    }
+  }
+
+  #editors-choice-box {
+    counter-reset: editors-choice;
+    display: block;
+
+    h3 {
+      font-size: 22px;
+      margin: 0 0 15px;
+      font-weight: bold;
+    }
+
+    ol {
+      line-height: 1.5;
+      margin: 0;
+      padding: 0 0 0 35px;
+    }
+
+    li {
+      font-size: 18px;
+      list-style-type: none;
+      margin: 4px 0;
+
+      a {
+        color: black;
+      }
+
+      &:before {
+        background: #333;
+        color: white;
+        content: counter(editors-choice);
+        counter-increment: editors-choice;
+        display: inline-block;
+        font-weight: bold;
+        margin-left: -35px;
+        position: absolute;
+        text-align: center;
+        width: 28px;
+      }
+    }
+
+    .article-listitem-thumbnail {
+      display: none;
+    }
+
+    .article-listitem-text {
+      display: inline;
+    }
+  }
+</style>
+{% endcompress %}
+
+<div>
+  <div id="editors-choice-box">
+    <h3>{{ title }}</h3>
+    <ol>
+      {% for article in articles %}
+        {% include "models/article/thumbnail-list-item.html" %}
+      {% endfor %}
+    </ol>
+  </div>
+</div>

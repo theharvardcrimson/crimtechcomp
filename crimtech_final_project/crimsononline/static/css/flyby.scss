@@ -1,0 +1,838 @@
+////////////////////////////////////////////////////////////////////////
+// NOTE(benesch, 27 aug 2015):
+// Please do not write CSS like this. The 2015 Flyby redesign was
+// completed on a tight deadline and hasn't yet been cleaned up.
+//
+// :(
+////////////////////////////////////////////////////////////////////////
+
+@import "bourbon/bourbon";
+
+$color-background: #e6eaed;
+$color-primary: #b3282b;
+$color-primary-dark: #840f0f;
+
+@import "addthis_white";
+
+body {
+  background: $color-background;
+  font-family: lato, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.content a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p a,
+li a,
+.article-body a {
+  color: $color-primary;
+}
+
+h1, h2 {
+  line-height: 1.05;
+}
+
+p {
+  line-height: 1.4;
+}
+
+.article-body {
+  font-family: georgia, serif;
+  line-height: 1.4;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1072px;
+  padding: 0 2em;
+}
+
+.nameplate {
+  background: #fff;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.nameplate-nav {
+  background: $color-primary;
+  color: #fff;
+  z-index: 1000000;
+}
+
+.nameplate-heading {
+  color: $color-primary;
+  display: inline-block;
+  font-family: georgia, serif;
+  font-weight: normal;
+  margin: 0 0 20px;
+  padding-top: 0.5em;
+  text-transform: lowercase;
+}
+
+.nameplate-heading-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nameplate-subheading-link {
+  color: #777;
+  text-decoration: none;
+
+  &:hover {
+    color: #555;
+    text-decoration: underline;
+  }
+}
+
+.nameplate-heading-logo {
+  color: #b3282b;
+  vertical-align: -47%;
+  width: 170px;
+}
+
+.nameplate-subheading {
+  color: #888;
+  display: inline-block;
+  font-family: georgia, serif;
+  font-size: 1.3em;
+  font-weight: normal;
+  margin: 0 0 0 1em;
+}
+
+.ad {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.ad-leaderboard {
+  height: 90px;
+  line-height: 90px;
+  margin: 0 auto 2em;
+  text-align: center;
+  width: 728px;
+}
+
+.ad-leaderboard-bottom {
+  margin-top: 2em;
+}
+
+.ad-sidekick {
+  margin: 0 auto 2em;
+  min-height: 250px;
+  width: 300px;
+}
+
+.ad-mobile-banner {
+  display: none;
+  height: 100px;
+  margin: 1em auto;
+  width: 320px;
+}
+
+.nameplate-list {
+  li {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.nameplate-link {
+  color: #fff;
+  font-size: 1rem;
+  display: inline-block;
+  padding: 8px 18px;
+  text-decoration: none;
+
+  &.selected,
+  &:hover {
+    background: $color-primary-dark;
+  }
+}
+
+.nameplate-link-rp {
+  padding: 7px 14px;
+}
+
+input.nav-search-box {
+  -webkit-appearance: none;
+  background: $color-primary-dark;
+  border: 1px solid transparent;
+  border-width: 1px 0 1px 1px;
+  border-radius: 3px 0 0 3px;
+  color: #fff;
+  font-size: 0.8em;
+  margin: 0;
+  outline: 0;
+  padding: .3em 3px .3em .3em;
+  width: 10em;
+
+  &:focus,
+  &:focus + button {
+    border-color: darken($color-primary-dark, 8%);
+  }
+}
+
+.nav-search-button {
+  background: $color-primary-dark;
+  border: 1px solid transparent;
+  border-width: 1px 1px 1px 0;
+  border-radius: 0 3px 3px 0;
+  cursor: button;
+  font-size: 0.8em;
+  margin: 0 0 0 -7px;
+  padding: .3em .5em;
+
+  .fa {
+    color: #fff;
+    vertical-align: 5%;
+  }
+
+  &:hover .fa {
+    color: #ccc;
+  }
+}
+
+.article-item {
+}
+
+.article {
+  img {
+    max-width: 100%;
+  }
+  border-radius: 7px;
+  border: 1px solid darken($color-background, 10%);
+  position: relative;
+  background: #fff;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 2em;
+  margin-left: 0;
+  padding: 1em;
+}
+
+.article-heading {
+  font-size: 1.6rem;
+  margin: 3px 0 0;
+}
+
+.article-heading-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.article-pubdate {
+  color: $color-primary;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.article-author {
+  color: #887f81;
+  font-size: 0.85em;
+  margin: 0.2em 0 1em;
+}
+
+.article-author a {
+  color: darken(#887f81, 15%);
+}
+
+.article-jump-link {
+  color: $color-primary;
+}
+
+.strip {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ol {
+  margin: 0;
+  padding-left: 1.7em;
+}
+
+.footer {
+  background: #555;
+  color: #fff;
+  padding: 2em 1em;
+  position: relative;
+  margin-top: 2em;
+  z-index: 1;
+
+  &:after {
+    background: url('http://static.thecrimson.com/images/header-logo.png?590de66dd39f&590de66dd39f') no-repeat -75px -75px;
+    background-size: 50%;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: .4;
+    z-index: -1;
+  }
+}
+
+.container-flex {
+  @include display(flex);
+}
+
+.widget {
+  @include flex-basis(47%);
+
+  background: #fff;
+  box-sizing: border-box;
+  border: 1px solid darken($color-background, 10%);
+  border-radius: 7px;
+  font-weight: lighter;
+  margin-bottom: 2em;
+  padding: 0.5em;
+
+  h2 {
+    font-size: 1.2em;
+    margin: 1em 0 0;
+  }
+}
+
+.widget-header {
+  margin: 0 0 0.7em;
+  text-align: center;
+}
+
+.widget-heading {
+  background: $color-primary;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0.3em 1em;
+  text-align: center;
+}
+
+.widget-primary {
+  @include flex-basis(100%);
+
+  background: $color-primary;
+  border: 0;
+  color: #fff;
+  overflow: hidden;
+
+  a {
+    color: #fff;
+    float: right;
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 1.1em;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+  li {
+    font-size: 0.9em;
+  }
+}
+
+.widget-expand {
+  @include flex-basis(100%);
+}
+
+.widget-clear {
+  background: none;
+  padding: 0;
+}
+
+.three-col {
+  @include column-count(3);
+}
+
+.sidebar {
+  @include display(flex);
+  @include flex(1 0 252px);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+  @include align-content(flex-start);
+  overflow: hidden;
+  margin-left: 2em;
+}
+
+.widget {
+  @include flex-basis(100%);
+}
+
+.main {
+  @include flex(14 1);
+}
+
+.three-col {
+  @include column-count(2);
+}
+
+
+article:last-child {
+  margin-bottom: 0;
+}
+
+.article:first-child {
+  margin-top: 0;
+}
+
+.footer-list {
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline;
+  }
+
+  li:not(:first-child):before {
+    content: "·";
+  }
+}
+
+.footer-list-big {
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline;
+    padding: 0 5px;
+  }
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.shortcodes-description {
+  color: #666;
+  font-family: lato, sans-serif;
+  font-size: 13px;
+}
+
+.shortcodes-byline {
+  font: 0.95em lato, sans-serif;
+  color: #999;
+  padding-left: 17px;
+  float: none;
+  clear: both;
+  display: inline;
+  background: transparent url('../images/camera.png') no-repeat left center;
+}
+
+.shortcodes-border {
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.article-flatpage h1:not(.no),
+.article-flatpage h2:not(.no),
+.fancy-heading {
+  background: $color-primary;
+  border: 5px solid darken($color-primary, 10%);
+  border-width: 0 0 0 5px;
+  border-radius: 3px;
+  font-family: lato, sans-serif;
+  color: #fff;
+  padding: 0.5em;
+  margin-top: 0;
+  display: inline-block;
+
+  &.full-width {
+    display: block;
+  }
+}
+
+.article > :first-child {
+  margin-top: 0;
+}
+
+.widget > :last-child,
+.article > :last-child {
+  margin-bottom: 0;
+}
+
+.article-flatpage h1:not(.no),
+.article-flatpage h2:not(.no) {
+  max-width: 60%;
+  display: block;
+}
+
+.flex {
+  @include display(flex);
+  @include align-items(center);
+}
+
+.inline-flex {
+  @include display(inline-flex);
+  @include align-items(center);
+}
+
+.flex-right {
+  margin-left: auto;
+}
+
+.p-subscribe {
+  font-size: 0.9em;
+}
+
+.share-box {
+  margin-bottom: 0;
+}
+
+.nav-logo {
+  vertical-align: -20%;
+  width: 50px;
+}
+
+.is-sticky .nav-hide-sticky {
+  display: none;
+}
+
+.nav-hide-fixed {
+  display: none !important;
+}
+
+.is-sticky .nav-hide-fixed {
+  display: inline-block !important;
+}
+
+.pad-right {
+  padding-right: 1em;
+}
+
+.next-page,
+.prev-page {
+  color: $color-primary;
+}
+
+.next-page {
+  float: right;
+}
+
+.prev-page {
+  float: left;
+}
+
+.paginator {
+  margin-top: -22px;
+  overflow: hidden;
+}
+
+.series-heading {
+  color: $color-primary;
+  font-size: 1.6em;
+}
+
+.series-container {
+  @include display(flex);
+  @include flex-flow(row wrap);
+  @include justify-content(flex-start);
+  margin: -10px;
+}
+
+.series-link {
+  @include display(flex);
+
+  background-size: cover;
+  box-sizing: border-box;
+  border: 10px solid white;
+  width: 50%;
+  font-size: 1.5em;
+  color: #fff !important;
+  text-align: center;
+  line-height: 100%;
+  font-family: lato, sans-serif;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+    float: left;
+  }
+
+  &:hover {
+    color: #ccc;
+    text-decoration: none !important;
+
+    span {
+      border-color: #ccc !important;
+      color: #ccc !important;
+    }
+  }
+
+  span {
+    border: 1px solid #fff;
+    border-width: 1px 0;
+    display: block;
+    margin: auto;
+    padding: 10px 0;
+    width: 90%;
+  }
+}
+
+.primary-link {
+  color: $color-primary;
+}
+
+.widget h2.widget-subheading {
+  margin-bottom: -12px;
+}
+
+
+@media (min-width: 1072px) {
+  .ad-leaderboard-bottom {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1040px) {
+  body {
+    font-size: 1.05em;
+  }
+
+  .article-item {
+    margin-left: 4.8em;
+  }
+
+  .article-flatpage.article {
+    margin-left: 0;
+  }
+
+  .article-heading {
+    margin-top: 0;
+  }
+
+  .article-pubdate {
+    background: $color-primary;
+    border-radius: 7px;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    padding: 0.3em 0;
+    position: absolute;
+    top: 0;
+    left: -5.2em;
+    width: 4.3em;
+    text-align: center;
+
+    .month,
+    .day,
+    .year {
+      display: block;
+    }
+
+    .month,
+    .year {
+      font-size: 0.8em;
+    }
+
+    .day-year-separator {
+      display: none;
+    }
+
+    .day {
+      font-size: 1.5em;
+      margin-top: 0.05em;
+      margin-bottom: 0.1em;
+    }
+  }
+
+  .series-link {
+    width: 33%;
+  }
+}
+
+.footer-right {
+  float: right;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 959px) {
+  .three-col {
+    @include column-count(1);
+  }
+
+  .container {
+    padding: 0 1em;
+  }
+
+  .sidebar {
+    margin-left: 1em;
+  }
+
+  .widget {
+    margin-bottom: 1em;
+  }
+
+  .footer {
+    margin-top: 1em;
+  }
+
+  .nameplate {
+    margin-bottom: 1em;
+  }
+
+  .article-item {
+    margin-bottom: 1em;
+  }
+
+  .ad-sidekick {
+    margin-bottom: 1em;
+  }
+}
+
+@media (max-width: 800px) {
+  .content {
+    @include flex-direction(column);
+  }
+
+  .sidebar {
+    @include flex(1);
+    margin-top: 1em;
+    margin-left: 0;
+  }
+
+  .paginator {
+    margin-top: -16px;
+    overflow: hidden;
+  }
+
+  .main {
+    width: auto;
+  }
+
+  .hide-small {
+    display: none !important;
+  }
+}
+
+.show-tiny {
+  display: none !important;
+}
+
+@media (max-width: 560px) {
+  .nameplate-heading {
+    display: block;
+    margin: 0 0 5px;
+    padding-top: 0.25em;
+  }
+
+  .nameplate-subheading {
+    font-size: 1em;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .nameplate-heading-logo {
+    width: 130px;
+  }
+
+  .hide-tiny {
+    display: none !important;
+  }
+
+  .show-tiny {
+    display: block !important;
+  }
+
+  .show-tiny-flex {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 770px) {
+  .ad-mobile-banner {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .paginator {
+    margin: 4px 0;
+    margin-bottom: 20px !important;
+    overflow: hidden;
+  }
+
+  .main > .fancy-heading {
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .nameplate {
+    margin-bottom: 0;
+  }
+
+  input.nav-search-box {
+    width: 6em;
+  }
+
+  .article-item {
+    border-radius: 0;
+    border-width: 0 0 1px;
+    margin-bottom: 0;
+    padding: 0.8em;
+  }
+
+  .sidebar {
+    margin-top: 0;
+  }
+
+  .widget {
+    border-radius: 0;
+    margin-bottom: 0;
+    border-width: 0 0 1px;
+    padding: 0.8em;
+  }
+
+  .ad + .widget {
+    border-top-width: 1px;
+  }
+
+  .ad-sidekick {
+    margin-top: 1em;
+  }
+
+  .footer {
+    margin-top: 0;
+  }
+
+  .footer-right {
+    float: none;
+  }
+
+  .footer-list {
+    li {
+      font-size: 0.9em;
+    }
+  }
+}
+
+@media (max-width: 322px) {
+  .ad-mobile-banner {
+    border-width: 1px 0;
+  }
+}

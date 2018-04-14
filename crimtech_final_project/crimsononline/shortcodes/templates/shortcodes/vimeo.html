@@ -1,0 +1,19 @@
+{% extends "shortcodes/_base.html" %}
+
+
+{% block content %}
+<div class="shortcodes-iframe-wrapper">
+    <iframe src="http://player.vimeo.com/video/{{ video_id }}?color=ffffff"
+            width="650" height="360"
+            frameborder="0"
+            webkitAllowFullScreen
+            mozallowfullscreen
+            allowFullScreen>
+    </iframe>
+</div>
+{% if caption %}
+    <div class="shortcodes-description">
+        {{ caption }}
+    </div>
+{% endif %}
+{% endblock %}

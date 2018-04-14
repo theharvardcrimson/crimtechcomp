@@ -1,0 +1,21 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    {% if video.child.main_rel_content %}
+        <div class="article-headline-image">
+            <a href="{{ article.get_absolute_url }}">
+                {{ video.child.main_rel_content|to_img_tag:"60,60,60,60" }}
+            </a>
+        </div>
+    {% endif %}
+    <div class="article-section">
+        <a href="{{ video.subsection.get_absolute_url }}">{{ video.subsection }}</a>
+    </div>
+    <h2>{{ video|linkify }}</h2>
+        <div class="article-byline">
+            {{ video|byline:"short" }}
+            <span class="article-date">{{ video|datify }}</span>
+        </div>
+    <p>{{ video.child.teaser }}</p>
+</div>

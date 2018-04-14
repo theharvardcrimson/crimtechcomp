@@ -1,0 +1,5 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="fm_image_thumb"><a href="{{video.get_absolute_url}}">{{video|render:"fm_thumb"}}</a></div>
+<h5 style="font-size:9px;">{{ video|linkify }}</h5>

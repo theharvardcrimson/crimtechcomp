@@ -1,0 +1,25 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="section-article">
+    {% if image and article.main_rel_content %}
+        <div class="article-image">
+            <a href="{{ article.get_absolute_url }}">
+                {{ article.main_rel_content|to_img_tag:"550,356,550,356" }}
+            </a>
+        </div>
+    {% endif %}
+    <div class="article-content">
+        {% if not no_section %}
+            <div class="article-section">
+                <a href="{{ article.subsection.get_absolute_url }}">{{ article.subsection }}</a>
+            </div>
+        {% endif %}
+        <h3>{{ article|linkify }}</h3>
+        <div class="article-byline">
+            {{ article|byline:"short" }}
+            {% date article %}
+        </div>
+        {% if teaser %}<p>{{ article.teaser|striptags }}</p>{% endif %}
+    </div>
+</div>

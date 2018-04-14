@@ -1,0 +1,310 @@
+/* Overriding previous CSS */
+#magazine-secondary .stories2 {
+    width: 90%;
+}
+
+#magazine-primary h1 {
+    text-indent: -9999px;
+    margin: 0px;
+    margin-left: -10px;
+    background: transparent url('../images/yis-header.png') no-repeat;
+    height: 400px;
+    width: 618px;
+}
+
+#magazine-scrutiny-inner {
+    top: -152px;
+    width: 100%;
+}
+
+#magazine-tertiary-first {
+    width: 100%;
+}
+
+#magazine-tertiary-first .magazine-story.article h4,
+#magazine-tertiary-third .magazine-story.article h4,
+#sports-recaps .magazine-story.article h4, #awards .magazine-story.article h4 {
+    max-width: 265px;
+    margin: 0px auto;
+}
+
+#magazine-tertiary-first .magazine-story.article img,
+#magazine-tertiary-third .magazine-story.article img,
+#sports-recaps .magazine-story.article img,
+#awards .magazine-story.article img {
+    width: 139px;
+}
+
+
+#magazine-tertiary-first .magazine-story.article {
+    width: 18%;
+    margin: 1%;
+    float: left;
+}
+
+#magazine-tertiary-third {
+    width: 100%;
+}
+
+#magazine-tertiary-third .magazine-story.article,
+#magazine-tertiary-third .magazine-story.article {
+    width: 31%;
+    margin: 1%;
+    float: left;
+}
+
+#magazine-tertiary-third .magazine-story.article.no-img {
+    margin: 1%;
+}
+
+#sports-recaps {
+    width: 100%;
+    max-width: 960px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+#sports-recaps .season .magazine-story.article.no-img {
+    margin-top: 30px;
+}
+
+#first-season .magazine-story.article {
+    width: 23%;
+    margin: 1%;
+    float: left;
+}
+
+#second-season .magazine-story.article {
+    width: 18%;
+    margin: 1%;
+    float: left;
+}
+
+#third-season .magazine-story.article {
+    width: 23%;
+    margin: 1%;
+    float: left;
+}
+
+#awards {
+    width: 100%;
+    max-width: 960px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+#awards .magazine-story.article {
+    width: 23%;
+    margin: 1%;
+    float: left;
+}
+
+
+@media (min-width: 741px) {
+    #magazine-tertiary-first .magazine-story.article:nth-child(7) {
+        clear: left;
+    }
+
+    #second-season .magazine-story.article:nth-child(7) {
+        clear: left;
+    }
+}
+
+@media (min-width: 581px) {
+    #first-season .magazine-story.article:nth-child(6) {
+        clear: left;
+    }
+
+    #first-season .magazine-story.article:last-child,
+    #first-season .magazine-story.article:nth-last-child(2),
+    #first-season .magazine-story.article:nth-last-child(3){
+        width: 31%;
+    }
+
+    #third-season .magazine-story.article:nth-child(6),
+    #third-season .magazine-story.article:nth-child(10) {
+        clear: left;
+    }
+
+    #third-season .magazine-story.article:last-child {
+        clear: left;
+        width: 100%;
+    }
+
+    #awards .magazine-story.article:nth-child(4n+2) {
+    clear: left;
+    }
+
+    #awards .magazine-story.article:last-child,
+    #awards .magazine-story.article:nth-last-child(2),
+    #awards .magazine-story.article:nth-last-child(3) {
+        width: 31%;
+    }
+}
+
+@media (max-width: 740px) and (min-width: 581px) {
+    #magazine-tertiary-first .magazine-story.article {
+        width: 23%;
+        margin: 1%;
+        float: left;
+    }
+
+
+    #magazine-tertiary-first .magazine-story.article:nth-child(6),
+    #magazine-tertiary-first .magazine-story.article:nth-child(10) {
+        clear: left;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:last-child,
+    #magazine-tertiary-first .magazine-story.article:nth-last-child(2) {
+        width: 48%;
+    }
+
+    #second-season .magazine-story.article {
+        width: 23%;
+        margin: 1%;
+        float: left;
+    }
+
+    #second-season .magazine-story.article:nth-child(6),
+    #second-season .magazine-story.article:nth-child(10) {
+        clear: left;
+    }
+
+    #second-season .magazine-story.article:last-child,
+    #second-season .magazine-story.article:nth-last-child(2) {
+        width: 48%;
+    }
+}
+
+/* Overriding previous CSS */
+@media (max-width: 820px) and (min-width: 521px) {
+    #magazine-secondary .magazine-story-container {
+        width: 50%;
+    }
+}
+
+@media (max-width: 580px) and (min-width: 471px) {
+    #magazine-tertiary-first .magazine-story.article {
+        width: 31%;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:nth-child(3n+2) {
+        clear: left;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:last-child {
+        width: 100%;
+    }
+
+    #first-season .magazine-story.article {
+        width: 31%;
+    }
+
+    #first-season .magazine-story.article:nth-child(3n+2) {
+        clear: left;
+    }
+
+    #first-season .magazine-story.article:last-child {
+        width: 100%;
+    }
+
+    #second-season .magazine-story.article {
+        width: 31%;
+    }
+
+    #second-season .magazine-story.article:nth-child(3n+2) {
+        clear: left;
+    }
+
+    #sports-recaps #second-season .magazine-story.article:last-child {
+        width: 100%;
+        margin-top: -15px;
+    }
+
+    #third-season .magazine-story.article {
+        width: 31%;
+    }
+
+    #third-season .magazine-story.article:nth-child(3n+2) {
+        clear: left;
+    }
+
+    #third-season .magazine-story.article:last-child {
+        width: 100%;
+    }
+
+    #awards .magazine-story.article {
+        width: 31%;
+    }
+
+    #awards .magazine-story.article:nth-child(3n+2) {
+        clear: left;
+    }
+}
+
+@media (max-width: 470px) {
+    #magazine-tertiary-first .magazine-story.article {
+        width: 48%;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #magazine-tertiary-third .magazine-story.article {
+        width: 48%;
+    }
+
+    #magazine-tertiary-third .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #magazine-tertiary-third .magazine-story.article:last-child {
+        width: 100%;
+    }
+
+    #first-season .magazine-story.article {
+        width: 48%;
+    }
+
+    #first-season .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #first-season .magazine-story.article:last-child {
+        width: 100%;
+    }
+
+    #second-season .magazine-story.article {
+        width: 48%;
+    }
+
+    #second-season .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #third-season .magazine-story.article {
+        width: 48%;
+    }
+
+    #third-season .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #third-season .magazine-story.article:last-child {
+        width: 100%;
+    }
+
+    #awards .magazine-story.article {
+        width: 48%;
+    }
+
+    #awards .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #awards .magazine-story.article:last-child {
+        width: 100%;
+    }
+}

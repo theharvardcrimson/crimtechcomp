@@ -1,0 +1,16 @@
+{% extends "models/article/section-featured.html" %}
+{% load content_filters %}
+
+{% block logo %}
+    <div id="fm-logo">
+        <a href="/section/fm/"><img src="{{ STATIC_URL }}images/fm-logo.png" /></a>
+    </div>
+{% endblock logo %}
+
+{% block image %}
+    {% if article.main_rel_content %}
+        {{ article.main_rel_content|to_img_tag:"310,210,310,210" }}
+    {% else %}
+        <img src="{{ STATIC_URL }}images/spacer.gif" alt="" height="210" width="300" />
+    {% endif %}
+{% endblock image %}

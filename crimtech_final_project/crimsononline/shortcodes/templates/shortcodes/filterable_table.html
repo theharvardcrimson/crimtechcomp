@@ -1,0 +1,88 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% comment %}
+
+All CSS for this shortcode is located in /static/css/content.css
+Additional Javascript for this shortcode is located in /static/js/table.js
+
+{% endcomment %}
+
+{% block content %}
+<script>
+	// IIFE for scope purposes
+	(function() {
+		// JSON object
+		var table_data;
+		// jquery object
+		var table;
+
+		$(document).ready(function() {
+			table = $('#filterable-table-{{ count }}');
+
+			// Get JSON file containing table data
+			$.getJSON("{{ table.json_file.url }}", function(data) {
+				table_data = data;
+
+				// Populate table. See /static/js/table.js
+				Crimson.Table.update_head(table, table_data);
+				Crimson.Table.update_body(table, table_data);
+
+				// Input box placeholder should read "Filter by [column]"
+				$('input', table).attr("placeholder",
+					"Filter by " + table_data.head[{{ filter_column }}]);
+
+				// freeze column widths
+				table.find('th').each(function() {
+					$(this).width($(this).width());
+				});
+			});
+
+			// Focus on the search field when any part of the table is clicked
+			table.click(function(e) {
+				$('input', table).focus();
+			});
+
+			// Handle changes in the search term
+			$('input', table).keyup(function() {
+
+				// Get the text in the input box
+				var query = $('input', table).val();
+
+				// Get rows containing "query" in the {{ filter_column }}th column
+				var filtered_data = Crimson.Table.filter_rows(table_data, query,
+					{{ filter_column }});
+
+				// Update body with filtered data
+				Crimson.Table.update_body(table, filtered_data, query);
+			});
+		});
+	})();
+</script>
+<div class="filterable-table" id="filterable-table-{{ count }}">
+	<form onsubmit="false;">
+		<input type="text" id="filter-schools" placeholder="Filter">
+	</form>
+	<div class="table-wrapper" style="height: {{ height }}px;">
+		<table>
+			<thead>
+				<tr><th>Loading...</th></tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</div>
+{% if byline %}
+    <div class="shortcodes-byline">
+        {{ table.contributors.all|linkify|human_list }}
+    </div>
+{% endif %}
+{% if caption %}
+    <div class="shortcodes-description">
+        {{ caption }}
+    </div>
+{% endif %}
+{% endblock %}

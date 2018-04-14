@@ -1,0 +1,23 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load module %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/sitemap.scss">
+{% endblock %}
+
+{% block title %}Sitemap{% endblock %}
+
+{% block content %}
+<div class="col-12">
+	{% module 12 "" %}
+	<div class="page-title">Archives</div>
+<ul class="sitemap-year">
+{% for year in years %}
+<li class="sitemap-cell "><a href="/sitemap/{{year}}/">{{year}}</a></li>
+{% endfor %}
+<li class="clear"/>
+</ul>
+	{% endmodule %}
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'Colaborate Thin';
+    src: url('../fonts/ColabThi-webfont.eot');
+    src: url('../fonts/ColabThi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ColabThi-webfont.woff') format('woff'),
+         url('../fonts/ColabThi-webfont.ttf') format('truetype'),
+         url('../fonts/ColabThi-webfont.svg#ColaborateThinRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.timeline {
+    position: relative;
+    margin-left: 150px;
+}
+
+.timeline .vbar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    right: 0;
+    border-left: 4px solid #ba0600;
+    margin-top: 10px;
+}
+
+.timeline .timeline-events {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline .timeline-event {
+    margin-bottom: 15px;
+}
+
+.timeline .timeline-event:before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    left: -6;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border: 3px solid #ba0600;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #FF534D;
+    /*background-color: white;*/
+}
+
+.timeline .timeline-event .time {
+    font-family: 'Colaborate Thin', sans-serif;
+    font-size: 1.2em;
+    position: absolute;
+    width: 150px;
+    left: -164px;
+    text-align: right;
+}
+
+.timeline .timeline-event .time > span {
+    font-size: 0.5em;
+}
+
+.timeline .timeline-event .time > span:before {
+    content: "\a";
+    white-space: pre;
+}
+
+.timeline .timeline-event .ttext {
+    display: block;
+    margin-left: 24px;
+    font-family: 'Lato';
+    font-style: italic;
+    font-size: 17px;
+    position: relative;
+    top: -20px;
+}

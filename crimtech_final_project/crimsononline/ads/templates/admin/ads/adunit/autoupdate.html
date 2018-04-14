@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls admin_static admin_list %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% if not is_popup %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_label|capfirst|escape }}</a>
+&rsaquo; {% if has_change_permission %}<a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+&rsaquo; {% trans 'Auto-update' %} {{ opts.verbose_name_plural }}
+</div>
+{% endblock %}
+{% endif %}
+
+{% block content %}
+<div id="content-main">
+	<p>Attempt to pull in the latest ad units from our ad network? This should take about a minute.</p>
+	<p><strong>Warning:</strong> If our ad network has been misconfigured, this may cause ads to break. Proceed with caution and with tech staff on hand!</p>
+	<form action="." method="post">
+		{% csrf_token %}
+		<input type="submit" value="Auto-update ad units">
+	</form>
+</div>
+{% endblock %}

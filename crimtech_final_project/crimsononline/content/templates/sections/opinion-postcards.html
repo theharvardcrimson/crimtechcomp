@@ -1,0 +1,147 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load flyby_preview %}
+{% load content_filters %}
+{% load top_articles %}
+{% load ads_tags %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/opinion-postcards.scss">
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/lib/dotdotdot.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var card = $('.postcard .postcard-first');
+        card.each(function(){
+            var div_height = $(this).height();
+            var margin_top = parseFloat($(this)
+                .find('.ellipsis').css('margin-top'));
+            var margin_bott = parseFloat($(this)
+                .find('.ellipsis').css('margin-bottom'));
+            var other = $(this).find('.more').height() + parseFloat($(this)
+                .find('.more').css('margin-bottom'));
+            $(this).find('.ellipsis')
+                .css('height', div_height - margin_top - margin_bott - other);
+        });
+
+        $('.ellipsis').dotdotdot();
+    });
+</script>
+{% endblock %}
+
+
+{% block content %}
+<section id="upper">
+    <div id="upper-body">
+        <div id="section-bar">
+            <h1>Summer Postcards {{ year }}</h1>
+            <!-- <nav id="section-nav">
+                <ul>
+                    <li><a href="/tag/Editorials/">Staff Editorials</a></li>
+                    <li><a href="/tag/Op-Eds/">Op-Eds</a></li>
+                    <li><a href="/tag/Columns/">Columns</a></li>
+                    <li><a href="/tag/Cartoon/types/image">Cartoons</a></li>
+                </ul>
+            </nav> -->
+        </div>
+        <div id="upper-first">
+            {% for card in postcards %}
+            {% if card %}
+                <div class='postcard-container'>
+                    <h3>{{ card.article|linkify }}</h3>
+                    <div class="postcard {{ card.class }}">
+                        <div class="postcard-first">
+                            <p class="ellipsis">{{ card.article.teaser }}</p>
+                            <p class="more"><a href="{{ card.article.get_absolute_url }}">Read more</a></p>
+                        </div>
+                        <div class="postcard-second">
+                            <a href="{{ card.article.get_absolute_url }}">
+                                {% if not card.article.main_rel_content %}
+                                <img class="default" src="{{ STATIC_URL }}images/seal.jpg">
+                                {% else %}
+                                    {{ card.article.main_rel_content|to_img_tag:"60,50,60,50" }}
+                                {% endif %}
+                                <img class="postmark {{ card.postmark }}" src="{{ STATIC_URL }}images/{{ card.postmark }}.png">
+                            </a>
+                            {% if card.postmark == 'postmark1' %}
+                            <span class='postmark-location'>{{ card.country }}</span>
+                            {% endif %}
+                            <div class="lines">
+                                <p>{{ card.article|byline_sans_by:"short" }}</p>
+                                <p>{{ card.city }}{% if card.country %},{% endif %}</p>
+                                {% if card.country %}
+                                <p>{{ card.country }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div id="upper-second">
+            <div class="upper-column">
+                <div class="subsection">
+                    {% for article in other_postcards %}
+                        {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- <div id="pagination"></div> -->
+        <ul class="pager">
+            {% if p.has_prev %}
+            <li class="pager-newest">
+                <a href="/section/opinion/postcards/{{ year }}">&laquo; First Page</a>
+            </li>
+            {% elif p.has_prev_year %}
+            <li class="pager-newest">
+                <a href="/section/opinion/postcards/{{ p.prev_year }}">&laquo; Next Year</a>
+            </li>
+            {% else %}
+            <li class="pager-newest disabled">
+                &laquo; Next Year
+            </li>
+            {% endif %}
+
+            <li class="pager-newer{% if not p.has_prev %} disabled{% endif %}">
+                {% if p.has_prev %}<a href="/section/opinion/postcards/{{ year }}?p={{p.previous_page_number}}">{% endif %}&lsaquo; Previous Page{% if p.has_prev %}</a>{% endif %}
+            </li>
+
+            <li class="pager-current">Page {{ p.page }} of {{ p.last }}</li>
+
+            <li class="pager-older{% if not p.has_next %} disabled{% endif %}">
+                {% if p.has_next %}<a href="/section/opinion/postcards/{{ year }}?p={{p.next_page_number}}">{% endif %}Next Page &rsaquo;{% if p.has_next %}</a>{% endif %}
+            </li>
+
+            {% if p.has_next %}
+            <li class="pager-oldest">
+                <a href="/section/opinion/postcards/{{ year }}?p={{p.last}}">Last Page &raquo;</a>
+            </li>
+            {% elif p.has_next_year %}
+            <li class="pager-oldest">
+                <a href="/section/opinion/postcards/{{ p.next_year }}">Previous Year &raquo;</a>
+            </li>
+            {% else %}
+            <li class="pager-oldest disabled">
+                Previous Year &raquo;
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="upper-sidebar">
+        {% most_read_articles %}
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "TheCrimson_OpinionLanding_ATF_300x250" 300 250 %}
+            </div>
+        </div>
+        {% media_box %}
+    </div>
+</section>
+{% highlights_bar %}
+
+{% endblock %}

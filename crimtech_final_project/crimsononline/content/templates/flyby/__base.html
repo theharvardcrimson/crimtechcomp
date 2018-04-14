@@ -1,0 +1,247 @@
+{% extends "__bare.html" %}
+
+{% load ads_tags %}
+{% load compress %}
+{% load top_articles %}
+
+{% block title %}Flyby | The blog of The Harvard Crimson{% endblock %}
+
+{% block head_content %}
+  {{ block.super }}
+
+  {% compress css %}
+    <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/shortcodes.scss">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/flyby.scss" type="text/x-scss">
+  {% endcompress %}
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+
+  {% ads_head %}
+
+  {% compress js %}
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '{{ ANALYTICS_USER_AGENT }}', 'thecrimson.com');
+        ga('send', 'pageview');
+    </script>
+    <script src="{{ STATIC_URL }}js/lib/jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery.sticky.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery.cookie.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/moment.js"></script>
+    <script>
+      function checkAds() {
+        $('.ad').each(function () {
+          if ($(this).width() > $(this).parent().width()) {
+            $(this).hide();
+          } else if (!$(this).hasClass('ad-mobile-banner')) {
+            $(this).show();
+          }
+        });
+
+        if ($('#ad-small-desktop:visible').length && $('#ad-desktop:visible').length) {
+          $('#ad-small-desktop:visible').hide();
+        }
+
+        if ($('.ad-leaderboard-check-these:visible').length) {
+          $('.ad-sidekick-hide-these').hide();
+        }
+      }
+
+      $(checkAds);
+      $(window).resize(checkAds);
+
+      $(function () {
+        $('#nav-bar').sticky({ topOffset: 0 });
+      });
+    </script>
+  {% endcompress %}
+
+  {% block meta_social %}{% endblock %}
+
+  <script src="//platform.twitter.com/widgets.js" async></script>
+  <script src="//instansive.com/widget/js/instansive.js" async></script>
+  <script src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=97233827414" async></script>
+  <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+{% endblock %}
+
+{% block body_content %}
+  <header class="nameplate">
+    <div class="container">
+      <h1 class="nameplate-heading">
+        <a class="nameplate-heading-link" href="/flyby/">
+          <img class="nameplate-heading-logo" src="{{ STATIC_URL }}images/flyby-2015/logo.svg" alt="Flyby">
+        </a>
+      </h1>
+      <h2 class="nameplate-subheading">
+        The blog of <a class="nameplate-subheading-link" href="/">The Harvard Crimson</a>
+      </h2>
+    </div>
+
+      <nav id="nav-bar" class="nameplate-nav">
+        <div class="container">
+          <ul class="strip nameplate-list">
+            <li class="nav-hide-sticky">
+              <a class="nameplate-link{% if nav == 'home' %} selected{% endif %}" href="/flyby/">
+                Home
+              </a>
+            </li>
+            <li class="nav-hide-fixed">
+              <a class="nameplate-link nameplate-link-rp {% if nav == 'home' %} selected{% endif %}" href="/flyby/">
+                <img class="nav-logo" src="{{ STATIC_URL }}images/flyby-2015/logo-white.svg" alt="Flyby">
+              </a>
+            </li>
+            <li class="hide-small">
+              <a class="nameplate-link{% if flatpage %} selected{% endif %}" href="/flyby/about/">About</a>
+            </li>
+            <li>
+              <a class="nameplate-link{% if nav == 'series' %} selected{% endif %}" href="/flyby/series/">Series</a>
+            </li>
+            <li>
+              <a class="nameplate-link{% if view.template_name == 'flyby/harvard_today.html' %} selected{% endif %}" href="/flyby/today/">Harvard Today</a>
+            </li>
+            <li class="hide-small">
+              <a class="nameplate-link" href="/">thecrimson.com</a>
+            </li>
+            <li class="hide-tiny">
+              <form action="/flyby/search/">
+                <input class="nav-search-box" name="q">
+                <button class="nav-search-button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="ad-small-desktop" class="ad ad-leaderboard">
+    </div>
+
+    <div class="ad ad-mobile-banner">
+      {% ad_unit "320x100" %}
+    </div>
+  </div>
+
+  <div class="content container container-flex">
+    <section class="main">
+      {% block before_ad_desktop %}{% endblock before_ad_desktop %}
+
+      {% block ad_desktop %}
+        <div id="ad-desktop" class="ad ad-leaderboard">
+          {% ad_unit "728x90" %}
+        </div>
+      {% endblock ad_desktop %}
+
+      {% block content %}{% endblock content %}
+    </section>
+
+    <aside class="sidebar">
+      {% block sidebar %}
+        <section class="widget widget-primary">
+          <header class="widget-header">
+            <h1>Today's Menu</h1>
+          </header>
+
+          <h2 style="margin-bottom: -0.8em">Lunch</h2>
+          {{ harvard_today.lunch_description|safe }}
+
+          <h2 style="margin-bottom: -0.8em">Dinner</h2>
+          {{ harvard_today.dinner_description|safe }}
+
+          <a href="/flyby/today/"><strong>See full Harvard Today →</strong></a>
+        </section>
+
+        {% most_read_flyby %}
+
+        <div class="ad ad-sidekick">
+          {% ad_unit "300x250" %}
+        </div>
+
+        <section class="widget">
+          <header class="widget-header">
+            <a class="footer-link" href="https://twitter.com/CrimsonFlyby"><h1 class="widget-heading"><span class="fa fa-twitter" style="vertical-align: -5%;"></span> Twitter</h1></a>
+          </header>
+          <a class="twitter-timeline" href="https://twitter.com/CrimsonFlyby" data-widget-id="627003969399709696" data-chrome="noborders noheader" data-tweet-limit="6">Tweets by @CrimsonFlyby</a>
+        </section>
+
+        <section class="widget">
+          <header class="widget-header">
+            <a class="footer-link" href="https://facebook.com/CrimsonFlyby"><h1 class="widget-heading"><span class="fa fa-facebook-square" style="vertical-align: -5%;"></span> Facebook</h1></a>
+          </header>
+            <div
+              class="fb-page"
+              data-href="https://www.facebook.com/CrimsonFlyby"
+              data-small-header="true"
+              data-adapt-container-width="true"
+              data-hide-cover="true"
+              data-show-facepile="true"
+              data-show-posts="false"></div>
+        </section>
+
+        <div class="ad ad-sidekick">
+          {% ad_unit "300x600" %}
+        </div>
+      {% endblock sidebar %}
+    </aside>
+  </div>
+
+  <div class="container">
+    <div class="ad ad-leaderboard ad-leaderboard-bottom">
+      {% ad_unit "728x90" %}
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-right">
+        <ul class="footer-list-big">
+          <li>
+            <a class="footer-link" href="https://instagram.com/crimsonflyby"><span class="fa fa-instagram"></span></a>
+            <a class="footer-link" href="https://instagram.com/crimsonflyby">Instagram</a>
+          </li>
+          <li>
+            <a class="footer-link" href="https://facebook.com/crimsonflyby"><span class="fa fa-facebook-square"></span></a>
+            <a class="footer-link" href="https://facebook.com/crimsonflyby">Facebook</a>
+          </li>
+          <li>
+            <a class="footer-link" href="https://twitter.com/crimsonflyby"><span class="fa fa-twitter-square"></span></a>
+            <a class="footer-link" href="https://twitter.com/crimsonflyby">Twitter</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="show-tiny">
+        <strong><a class="footer-link" href="/flyby/">Flyby Blog</a></strong><br>
+        <ul class="footer-list">
+          <li>
+            <a class="footer-link" href="/flyby/about/">About</a>
+          </li>
+          <li>
+            <a class="footer-link" href="/flyby/search/">Search</a>
+          </li>
+        </ul>
+        <br>
+      </div>
+
+      <strong><a class="footer-link" href="/about/">The Harvard Crimson</a></strong><br>
+      <ul class="footer-list">
+        <li>
+          <a class="footer-link" href="/about/privacy/">Privacy Policy</a>
+        </li>
+        <li>
+          <a class="footer-link" href="/about/permissions/">Rights & Permissions</a>
+        </li>
+        <li>
+          <a class="footer-link" href="/contact/">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block title %}Page not found | {{ block.super }}{% endblock %}
+{% block body %}
+
+<section id="main">
+    <div id="body">
+        <h1>Page not found</h1>
+        <div id="article-content">
+            <p>Perhaps you mistyped the URL?</p>
+            <p>Please <a href="mailto:president@thecrimson.com">let us know</a> if you got here from an internal link.</p>
+        </div>
+    </div>
+
+{% endblock body %}

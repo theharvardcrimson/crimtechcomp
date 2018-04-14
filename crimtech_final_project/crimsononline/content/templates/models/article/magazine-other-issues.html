@@ -1,0 +1,31 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="issue">
+	<div class="mag_cover">
+		<a href='/section/fm/issue/{{ issue.year }}/{{ issue.month }}/{{ issue.day }}/'>
+			<div class="cover_image">
+				{% if issue.cover %}
+					{{ issue.cover|first|fm_img_tag:"150,195,150,195"}}
+				{% else %}
+					{{ issue.scrutiny|get_image_obj|fm_img_tag:"150,195,150,195" }}
+				{% endif %}
+			</div>
+		</a>
+		<div class="preview">
+	    	<div class="article">
+	        	<h2>{{ issue.scrutiny|linkify }}</h2>
+	            <div class="article-byline">{{ issue.scrutiny|byline:"short" }}</div>
+	            <p>{{ issue.scrutiny.teaser|shortentext:150 }}</p>
+	        </div>
+	    </div>
+	</div>
+	<div class="other_articles">
+	{% for article in issue.articles %}
+		<div class="article">
+			<h4>{{ article|linkify }}</h4>
+		    <div class="article-byline">{{ article|byline:"short" }}</div>
+		</div>
+	{% endfor %}
+	</div>
+</div>

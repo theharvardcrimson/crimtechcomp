@@ -1,0 +1,17 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="subsection-icon">
+    <div class="icon-image">
+        <a href="{{ column.get_absolute_url }}">
+            {% if column.image %}
+                {{ column|to_img_tag:"60,60,60,60" }}
+            {% else %}
+                <img src="{{ STATIC_URL}}images/noface.jpg" />
+            {% endif %}
+        </a>
+    </div>
+    <div class="icon-byline">{{ column|linkify:column.subname }}</div>
+    <h3>{{ column|linkify:column.name }}</h3>
+    <div class="icon-date">{{ column.recent|date }}</div>
+</div>

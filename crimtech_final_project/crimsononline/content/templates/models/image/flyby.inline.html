@@ -1,0 +1,7 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="fb_inline_image {% block class %}{% endblock %}">
+    {{ image|to_img_tag:"200," }}
+    <div class="fb_inline_caption">{{ image.caption }}</div>
+</div>

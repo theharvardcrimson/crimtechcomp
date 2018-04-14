@@ -1,0 +1,15 @@
+{% load common %}
+{% load content_filters %}
+
+
+{% if gallery.cover_image %}
+<div class="image_thumb"><a href="{{gallery.get_absolute_url}}">{{gallery.cover_image|render:"thumb"}}</a></div>
+{% endif %}
+<div class="title">{{gallery|linkify}}</div>
+<div class="dateline">
+    {{ gallery.issue.issue_date|date:"F j, Y" }}
+
+</div>
+<div class="count">
+{{ gallery.contents.count }} photo{% ifnotequal gallery.contents.count 1 %}s{% endifnotequal %}
+</div>

@@ -1,0 +1,7 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="fb_inline_image {% block class %}{% endblock %}">
+    <a href="{{ video.get_absolute_url }}">{{ video.pic|to_img_tag:"200," }}</a>
+    <div class="fb_inline_caption">{{ video.description }}</div>
+</div>

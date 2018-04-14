@@ -1,0 +1,244 @@
+{% extends "newsletters/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+{% load placeholders %}
+{% load newsletter_ads %}
+
+{% block left_tag %}
+{% placeholder name="label" content_types="article" content_range="(0,0)" as ph %}{{ ph.title }}{% endplaceholder %}
+{% endblock %}
+
+{% block content %}
+  {% newsletter_ad newsletter_obj 0 %}
+
+  {% placeholder name="top" content_range="(2,2)" content_types="article,external content,topic page" as top_arts %}
+  {% include "newsletters/article_line.html" with article=top_arts.0 left_image=1 %}
+
+  <table class="row">
+    <tr>
+      <td class="wrapper last">
+        <table class="twelve columns">
+          <tr>
+            <td id="main-stories" class="text-pad">
+              <table class="article">
+                <tr>
+                  <td class="headline">
+                    <a href="{{ top_arts.1.get_absolute_url|absolute_url }}">
+                      {{ top_arts.1.title }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="teaser">
+                    <a href="{{ top_arts.1.get_absolute_url|absolute_url }}">{{ top_arts.1.description }}</a>
+                  </td>
+                </tr>
+              </table>
+              {% endplaceholder %}
+
+              {% placeholder name="featured" content_range="(0,1)" content_types="article,external content,topic page" as feat %}
+              {% if feat %}
+              <table id="getting-better" class="article">
+                <tr>
+                  <td class="headline">
+                    <a href="{{ feat.0.get_absolute_url|absolute_url }}">
+                      {{ feat.0.title }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="article-pic">
+                    <a href="{{ feat.0.get_absolute_url|absolute_url }}">
+                      <img height="250" width="580" src="{{ feat.0.main_rel_content|img_url:"580,250,580,250" }}">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="teaser">
+                    <a href="{{ feat.0.get_absolute_url|absolute_url }}">{{ feat.0.description }}</a>
+                  </td>
+                </tr>
+              </table>
+              {% endif %}
+              {% endplaceholder %}
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  {% placeholder name="overflow" content_range="(0,10)" content_types="article,external content,topic page" as overflows %}
+  {% for article in overflows %}
+
+  <table{% if forloop.first %} id="first-overflow"{% endif %} class="row">
+    <tr>
+      <td class="wrapper last">
+        <table class="twelve columns">
+          <tr>
+            <td class="overflow text-pad">
+              <table class="article">
+                <tr>
+                  <td class="headline">
+                    <a href="{{ article.get_absolute_url|absolute_url }}">
+                      {{ article.title }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="teaser">
+                    <a href="{{ article.get_absolute_url|absolute_url }}">{{ article.description }}</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  {% endfor %}
+  {% endplaceholder %}
+
+  <!-- SPORTS -->
+  {% placeholder name="sports" content_range="(0,2)" content_types="article,external content,topic page" as sports %}
+  {% if sports %}
+  <table class="row">
+    <tr>
+      <td class="wrapper last">
+        <table class="twelve columns">
+          <tr>
+            <td style="padding-bottom:0;" class="text-pad">
+              <table class="section-marker-top">
+                <tr>
+                  <td class="redtag sports-redtag">
+                    Sports
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  {% if sports.0 %}
+  <table class="row">
+    <tr>
+      <td class="wrapper last">
+        <table class="twelve columns">
+          <tr>
+            <td class="text-pad headline">
+              <a href="{{ sports.0.get_absolute_url|absolute_url }}">
+                {{ sports.0.title }}
+              </a>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table class="row">
+    <tr>
+      {% if sports.0.main_rel_content %}
+      <td class="wrapper">
+        <table class="four columns">
+          <tr>
+            <td class="left-text-pad">
+              <a href="{{ sports.0.get_absolute_url|absolute_url }}"><img width="180" height="120" src="{{ sports.0.main_rel_content|img_url:"450,300,450,300" }}" alt=""></a>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="wrapper last">
+        <table class="eight columns">
+           <tr>
+             <td class="right-text-pad teaser">
+               <a href="{{ sports.0.get_absolute_url|absolute_url }}">{{ sports.0.description }}</a>
+             </td>
+             <td class="expander"></td>
+           </tr>
+        </table>
+      </td>
+      {% else %}
+      <td class="wrapper last">
+        <table class="twelve columns teaser-wrapper">
+           <tr>
+             <td class="text-pad teaser">
+               <a href="{{ sports.0.get_absolute_url|absolute_url }}">{{ sports.0.description }}</a>
+             </td>
+             <td class="expander"></td>
+           </tr>
+        </table>
+      </td>
+      {% endif %}
+    </tr>
+  </table>
+  {% endif %}
+
+  {% if sports.1 %}
+  <table class="row">
+    <tr>
+      <td class="wrapper last">
+        <table class="twelve columns">
+          <tr>
+            <td class="overflow text-pad">
+              <table class="article">
+                <tr>
+                  <td class="headline">
+                    <a href="{{ sports.1.get_absolute_url|absolute_url }}">
+                      {{ sports.1.title }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="byline"></td>
+                </tr>
+                <tr>
+                  <td class="teaser">
+                    <a href="{{ sports.1.get_absolute_url|absolute_url }}">{{ sports.1.description }}</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  {% endif %}
+
+  <table class="row">
+    <tr>
+      <td style="padding-top:0;" class="wrapper last">
+        <table class="twelve columns">
+          <tr>
+            <td class="text-pad">
+              <table class="section-marker-bottom">
+                <tr>
+                  <td></td>
+                </tr>
+              </table>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  {% endif %}
+  {% endplaceholder %}
+
+
+  {% newsletter_ad newsletter_obj 1 %}
+
+{% endblock content %}

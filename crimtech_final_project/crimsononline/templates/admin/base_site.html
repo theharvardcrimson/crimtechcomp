@@ -1,0 +1,42 @@
+{% extends "admin/base.html" %}
+
+{% load admin_static %}
+{% load compress %}
+
+{% block bodyclass %}{% if is_development %}page-development{% else %}page-production{% endif %}{% endblock %}
+
+{% block extrahead %}
+  {% comment %}
+    The Django admin also provides an "extrastyle" block, which occurs
+    after admin's base styles but before any page-specific styles. This
+    prevents overriding these page-specific styles. So we instead use
+    extrahead, which appears after all standard admin styles.
+  {% endcomment %}
+  {% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}admin_cust/css/admin.scss">
+  {% endcompress %}
+
+  {% comment %}
+    Some widgets expect a global jQuery object. To avoid nasty ordering
+    bugs with the load of Django admin's namespaced jQuery
+    (`django.jQuery`), we load a global jQuery here, before any widget
+    JavaScript is loaded.
+  {% endcomment %}
+  <script src="{% static 'scripts/jquery.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+  {{ title }} | {% if is_development %}[DEV] {% endif %}{{ site_title }}
+{% endblock %}
+
+{% block branding %}
+  <h1 id="site-name">
+    <a href="{% url 'admin:index' %}">{{ site_header }}</a>
+
+    {% if is_development %}
+      <div class="badge">
+        Development
+      </div>
+    {% endif %}
+  </h1>
+{% endblock %}

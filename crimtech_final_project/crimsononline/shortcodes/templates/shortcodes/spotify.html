@@ -1,0 +1,11 @@
+{% extends "shortcodes/_base.html" %}
+
+{% block content %}
+<div class="shortcodes-iframe-wrapper shortcodes-spotify {% if compact %}shortcodes-spotify-compact{% endif %}">
+    <iframe
+            src="http://embed.spotify.com/?uri={{ uri }}&theme=white"
+            width="600" height="680"
+            frameborder="0" allowtransparency="true">
+    </iframe>
+</div>
+{% endblock %}

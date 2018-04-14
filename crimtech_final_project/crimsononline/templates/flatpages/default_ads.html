@@ -1,0 +1,41 @@
+{% extends "__standard2.html" %}
+{% load common %}
+{% load content_filters %}
+{% load content_module %}
+{% load flatpages %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/flatpages.scss">
+{% endblock %}
+
+{% get_flatpages as flatpages %}
+
+{% block title %}{{ flatpage.title }} | {{ block.super }}{% endblock %}
+
+{% block body %}
+  <section id="main">
+    <div id="body" class="flatpage">
+      <h1>{{ flatpage.title }}</h1>
+      <div id="article-content">
+          {{ flatpage.content }}
+      </div>
+    </div>
+{% endblock body %}
+
+{% block sidebar %}
+  <div id="sidebar">
+    <div class="flatpage-module flatpage-menu more-news">
+      <h3>Menu</h3>
+      <ul>
+        {% flatpage_nav about flatpage.url toplevelonly %}
+          {% contentmodule flatpage_nav %}{% endcontentmodule %}
+        {% endflatpage_nav %}
+      </ul>
+    </div>
+    <div class="flatpage-module flatpage-masthead">
+      <img src="{{ STATIC_URL}}images/footer-title.png" width="250">
+      {% contentmodule masthead %}{% endcontentmodule %}
+    </div>
+  </div>
+{% endblock %}

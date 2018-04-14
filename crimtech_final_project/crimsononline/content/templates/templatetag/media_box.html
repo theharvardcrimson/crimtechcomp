@@ -1,0 +1,15 @@
+{% load cache %}
+
+{% cache 3600 media_box %}
+<div id="media-shell">
+    <div id="media-box">
+        <h2 class="media-title"><a href="/section/media/">Video</a></h2>
+        {% include "models/video/feature.html" with video=videos|first %}
+        <div class="media-more">
+            {% for video in videos|slice:"1:3" %}
+                {% include "models/video/preview.html" %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endcache %}

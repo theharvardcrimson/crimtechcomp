@@ -1,0 +1,18 @@
+<div class="article-column">
+    <div class="column-inner">
+        <h3>{{ section }}</h3>
+        <div class="articles">
+        	{% if section == "Levity" %}
+	            <p class="headline"><a href="http://www.thecrimson.com/article/2013/9/19/sweet-suites/">Sweet Suites</a></p>
+	            <p class="headline"><a href="http://www.thecrimson.com/article/2013/9/19/fm-imagines-oci-job-search/">FM Imagines: OCI Job Search</a></p>
+	            <p class="headline"><a href="http://www.thecrimson.com/article/2013/9/19/ocs-buzzwords/">OCS Buzzwords</a></p>
+        	{% elif section == "Introspection" %}
+	            <p class="headline"><a href="http://www.thecrimson.com/article/2013/9/19/how-someone-elses-velvet-jacket-got-me-rejected-from-yale/">How Someone Else's Velvet Jacket Got Me Rejected From Yale</a></p>
+	            <p class="headline"><a href="http://www.thecrimson.com/article/2013/9/19/how-i-gave-my-number-to-a-man-on-the-street-for-pizza/">Modern Love</a></p>
+        	{% elif section == "Retrospection" %}
+	            <p class="headline"><a href="http://www.thecrimson.com/article/2013/9/11/seamus-heaney-gates-unbarred/">The Gates Unbarred: Seamus Heaney at Harvard</a></p>
+	            <p class="headline"><a href="http://www.thecrimson.com/article/2013/9/12/tbt-harvard-brewing/">FM Throwback Thursday</a></p>
+        	{% endif %}
+        </div>
+    </div>
+</div>

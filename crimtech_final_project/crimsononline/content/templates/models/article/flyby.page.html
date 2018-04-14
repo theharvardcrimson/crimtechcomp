@@ -1,0 +1,103 @@
+{% extends "flyby/__base.html" %}
+
+{% load ads_tags %}
+{% load content_filters %}
+
+{% block js %}
+    <script type="text/javascript">
+        {% if not article.show_ads %}
+            Crimson.ADS_ENABLED = false;
+        {% endif %}
+    </script>
+{% endblock js %}
+
+{% block meta_social %}
+    {% if article.main_rel_content %}
+      <meta property="og:image" content="{{ article.main_rel_content|img_url:"635,630" }}">
+      <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    {% else %}
+      <meta property="og:image" content="{{ STATIC_URL}}images/seal.jpg">
+    {% endif %}
+    <meta property="og:title" content="{{ article.title }} |{% if article.section %} {{ article.section }} |{% endif %} The Harvard Crimson">
+    <meta property="og:description" content="{{ article.description }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ article.title }}">
+    <meta name="twitter:description" content="{{ article.description }}">
+    {% if article.main_rel_content %}
+        <meta name="twitter:image" content="{{ article.main_rel_content|img_url:"480,480" }}">
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+  <article class="article article-item">
+    <header>
+      <time class="article-pubdate" datetime="2015-10-05">
+        <span class="month">{{ article.issue.issue_date|date:'M' }}</span>
+        <span class="day">{{ article.issue.issue_date|date:'j' }}</span><span class="day-year-separator">,</span>
+        <span class="year">{{ article.issue.issue_date|date:'Y' }}</span>
+      </time>
+      <h1 class="article-heading">
+        <a class="article-heading-link" href="{{ article.get_absolute_url }}">
+          {{ article.title }}
+        </a>
+      </h1>
+      <div class="article-author">{{ article|byline:"short" }}</div>
+    </header>
+
+    <h5 class="share-box fancy-heading inline-flex">
+      <span class="pad-right">Share</span>
+      <div class="addthis_toolbox addthis_default_style addthis_16x16_style addthis-white flex-right">
+        <div class="add-this-inner">
+            <a class="addthis_button_facebook"></a>
+            <a class="addthis_button_twitter"></a>
+            <a class="addthis_button_email"></a>
+            <a class="addthis_button_print"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+      </div>
+    </h5>
+
+    <div class="article-body">
+      {% for paragraph in paragraphs %}
+        {{ paragraph }}
+      {% endfor %}
+    </div>
+
+    <h3 class="fancy-heading share-box inline-flex">
+      <span class="pad-right">Share</span>
+      <div class="addthis_toolbox addthis_default_style addthis_24x24_style flex-right addthis-white flex-right">
+          <div class="add-this-inner">
+              <a class="addthis_button_facebook"></a>
+              <a class="addthis_button_twitter"></a>
+              <a class="addthis_button_email"></a>
+              <a class="addthis_button_print"></a>
+              <a class="addthis_button_compact"></a>
+              <a class="addthis_counter addthis_bubble_style"></a>
+          </div>
+      </div>
+    </h3>
+
+    <p class="p-subscribe">
+      Stay up-to-date on Harvard campus happenings, all the time.<br>
+      <a href="/subscribe/">Sign up for the Harvard Today email newsletter.</a>
+    </p>
+  </article>
+
+  <article class="article article-item">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+            var disqus_shortname = '{{ DISQUS_SHORTNAME }}';
+            var disqus_url = 'https://www.thecrimson.com{{ request.path }}';
+            (function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.src = 'https://thecrimson.disqus.com/embed.js';
+                dsq.async = true;
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0])
+                    .appendChild(dsq);
+            })();
+    </script>
+  </article>
+{% endblock %}

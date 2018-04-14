@@ -1,0 +1,33 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+{% load content_tags %}
+
+{% block addl_classes %}hideme{% endblock %}
+{% block content %}
+<div class="boxquote">
+  <div class="card">
+     {% if not image%}
+    {% if relContent %}
+      {% if relContent.content_type.name = "image" %}
+        <div class="card-image">
+          <a href="{{relContent.get_absolute_url}}">
+          {{ relContent|to_img_tag:"800,800,800,800"}}
+        </a>
+        </div>
+      {% else %}
+        <div class="card-image" style:"max-height: 30%;">
+          {{ relContent.main_rel_content|to_img_tag:"800,800,800,800"}}
+        </div>
+      {% endif %}
+    {% endif %}
+    {% endif %}
+    <div class="card-content">
+       <a href="{{relContent.get_absolute_url}}"><span class="card-title" {% if font %} style="font-family:{{ font }}"{% endif %}> "{{ relContent.title }}"</span></a>
+       <p style="font-size:15px; padding-top: 5px; margin-top:10px; color:#666; border-top: solid 1px #aaa">{{ relContent|datify }} </p>
+    </div>
+  </div>
+  </a>
+</div>
+{% endblock %}

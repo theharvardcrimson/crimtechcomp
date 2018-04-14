@@ -1,0 +1,42 @@
+.redactor-box {
+  border: 1px solid #cccccc;
+  max-width: 610px;
+}
+
+.redactor-toolbar {
+    background: #e2e2e2;
+    background: linear-gradient(#fff, #e2e2e2);
+    border-bottom: 1px solid #cccccc;
+    box-shadow: none;
+}
+
+.redactor-toolbar li a {
+    color: #666;
+}
+
+.redactor-toolbar li a:hover {
+    background: #333;
+    background: linear-gradient(#666, #333);
+    color: #e2e2e2;
+}
+
+.redactor-toolbar li a:active,
+.redactor-toolbar li a.redactor-act {
+    background: #666;
+    background: linear-gradient(#333, #666);
+    color: #e2e2e2;
+}
+
+.redactor-editor {
+  border: none;
+}
+
+.redactor-editor p {
+  font-family: Helvetica Neue, Helvetica, Arial, serif;
+}
+
+.redactor-shortcode {
+  color: #a5215d;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.95em;
+}

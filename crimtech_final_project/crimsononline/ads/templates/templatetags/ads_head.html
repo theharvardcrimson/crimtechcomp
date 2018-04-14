@@ -1,0 +1,44 @@
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+    '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+  })();
+</script>
+
+<script>
+  var Crimson = Crimson || {};
+
+  googletag.cmd.push(function() {
+    var code, size, divId;
+    {% for ad_unit in ad_units %}
+      code = '/{{ user_id|escapejs }}/{{ ad_unit.code|escapejs }}';
+      size = {{ ad_unit.dimensions|safe }};
+      divId = 'ad-{{ ad_unit.code|escapejs }}';
+      googletag.defineSlot(code, size, divId).addService(googletag.pubads());
+    {% endfor %}
+
+    // interstitial ad unit
+    code = '/{{ user_id|escapejs }}/TheCrimson_Interstitial_600x500';
+    size = [600, 500];
+    divId = 'ad-TheCrimson_Interstitial_600x500';
+    Crimson.interstitial_unit = googletag.defineSlot(code, size, divId).addService(googletag.pubads());
+
+    if (window.location.search.match(/(\?|&)dfp-debug/)) {
+      {# XXX document this #}
+      googletag.pubads().setTargeting('debug', ['true']);
+    }
+
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+
+  Crimson.ADS_ENABLED = true;
+</script>

@@ -1,0 +1,92 @@
+{% extends "__base2.html" %}
+{% load ads_tags %}
+{% load common %}
+{% load flyby_preview %}
+{% load top_articles %}
+
+{% block content %}
+    {% block body %}
+
+    {% endblock %}
+        {% block sidebar %}
+        <div id="sidebar">
+            {% most_read_articles %}
+            <div class="sidekick-shell large-screen-only">
+                <div class="sidekick">
+                    {% ad_unit "300x600" %}
+                </div>
+            </div>
+            <div class="large-screen-only">
+                {% flyby_preview %}
+            </div>
+            <div class="sidekick-shell">
+                <div class="sidekick">
+                    {% ad_unit "300x250" %}
+                </div>
+            </div>
+            {% media_box %}
+            <div class="sidekick-shell">
+                <div class="sidekick">
+                {% ad_unit "300x250" %}
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </section>
+    <div style="margin: 10px 0;">
+        {% highlights_bar %}
+    </div>
+{% endblock %}
+
+{% comment %}
+{% extends "__base.html" %}
+{% load top_articles %}
+{% load common %}
+{% load ads_tags %}
+{% load flyby_preview %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/article.scss">
+{% endblock css %}
+
+
+{% block content %}
+    <section id="main">
+        <div id="article">
+            <div id="article-header">
+                {% block flybyheader %}{% endblock %}
+                <h1>{% block headline %}{% endblock %}</h1>
+                {% block underhead %}{% endblock %}
+            </div>
+
+            {% block prebody %}{% endblock %}
+
+            <div id="article-body">
+                {% block body %}{% endblock %}
+            </div>
+            <div class="sidebar">
+                {% block sidebar %}
+                    {% most_read_articles %}
+                    <div class="sidekick-shell primary">
+                        <div class="sidekick">
+                            {% ad_unit "300x600" %}
+                        </div>
+                        <div class="large-screen-only">
+                            {% flyby_preview %}
+                        </div>
+                        <div class="sidekick-shell">
+                            <div class="sidekick">
+                                <div class="ad-label">Advertisement</div>
+                                {% ad_unit "300x250" %}
+                            </div>
+                        </div>
+                    </div>
+                {% endblock sidebar %}
+            </div>
+
+            {% block postbody %}{% endblock %}
+
+        </div>
+    </section>
+{% endblock content %}
+{% endcomment %}

@@ -1,0 +1,9 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="column-article">
+    <h2>{{ article|linkify }}</h2>
+    <div class="column-date">{{ article|datify }}</div>
+    <p>{{ article.child.text|safe|paragraphs|slice:"1:2"|join:"" }}</p>
+    <p><a href="{{ article.get_absolute_url }}">Read more</a></p>
+</div>

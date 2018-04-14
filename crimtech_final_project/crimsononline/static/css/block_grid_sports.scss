@@ -1,0 +1,92 @@
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	padding: 10px;
+}
+
+.grid-item {
+	padding: 10px;
+	text-align: center;
+	background-color: rgb(225,225,225);
+	border: 10px solid white;
+}
+
+.grid-item > a > img {
+	vertical-align: middle;
+	min-height: 25vw;
+	object-fit: cover;
+    margin-top: 10px;
+}
+
+.grid-item .articles {
+    margin-top: 20px;
+}
+
+.grid-item .articles h3 {
+    font-size: 1.6em;
+}
+
+.grid-item .articles hr {
+    width: 75%;
+    align: center;
+}
+
+#top {
+    margin: 0 auto;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#top h1 {
+    float: left;
+    background-color: #BA0600;
+    color: white;
+    padding: 8px 23px 13px;
+    text-decoration: inherit;
+}
+
+@media (min-width: 766px) {
+    #block-grid-sports .grid-item {
+        width: 31%;
+    }
+}
+
+@media (max-width: 765px) and (min-width: 501px) {
+
+    .grid-container {
+        grid-template-columns: auto auto;
+    }
+
+    #block-grid-sports .grid-item {
+        width: 48%;
+    }
+
+    .grid-item > a > img {
+        vertical-align: middle;
+        width: 40vw;
+        max-height: 50vw;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .grid-container {
+        grid-template-columns: auto;
+    }
+
+    #block-grid-sports .grid-item {
+        width: 98%;
+        clear: left;
+    }
+
+    .grid-item > a > img {
+        vertical-align: middle;
+        width: 75vw;
+        min-height: 75vw;
+        object-fit: cover;
+    }
+}

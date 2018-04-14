@@ -1,0 +1,13 @@
+{% load compress %}
+
+{% compress css %}
+  <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/interstitials/interstitials.scss">
+{% endcompress %}
+
+<div id="interstitial-spiel">
+    <div id="interstitial-close"><a class="interstitial-close" href="#">Close</a></div>
+    <h1>{{ request.GET.title }}</h1>
+</div>
+<section id="interstitial-form">
+    {{ request.GET.text }}
+</section>

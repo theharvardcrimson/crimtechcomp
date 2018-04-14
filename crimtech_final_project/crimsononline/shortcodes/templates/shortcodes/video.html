@@ -1,0 +1,23 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+
+{% block content %}
+<div class="shortcodes-iframe-wrapper">
+	<object>
+	    <param name="movie" value="https://www.youtube.com/v/{{video.key}}&hl=en&fs=1"></param>
+	    <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
+	    <embed src="https://www.youtube.com/v/{{video.key}}&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed>
+	</object>
+</div>
+{% if byline %}
+	<div class="shortcodes-byline">
+		{{ video.contributors.all|linkify|human_list }}
+    </div>
+{% endif %}
+{% if caption %}
+    <div class="shortcodes-description">
+        {{ video.description|safe }}
+    </div>
+{% endif %}
+{% endblock %}

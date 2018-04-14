@@ -1,0 +1,31 @@
+<div style="float:left; width: 250px">
+{% for category in categories.keys %}
+    <button style="width:120px;" type="button" name="{{ category }}" class="tag_filter button">{{ category }}</button>
+{% endfor %}
+</div>
+{{ owidg }}
+<script type="text/javascript">
+    // Tags available to be added
+    tag_list = {{% for category, tags in categories.items %}
+        "{{ category }}": {
+            {% for tag in tags %}{{ tag.id }}: "{{ tag.text|safe }}"{% if not forloop.last %},{% endif %}{% endfor %}
+        }{% if not forloop.last %},{% endif %}{% endfor %}
+    };
+    // Tags currently applied to this content
+    tags_in_use = { {% for category in categories.keys %}
+            "{{ category }}": {}{% if not forloop.last %},{% endif %}
+    {% endfor %} };
+    addEvent(window, "load", function(e) {
+        SelectTag.init("id_{{ name }}", "{{ vname }}", {{ is_stacked }}, "{{ adm_media_prefix }}");
+    });
+    // Make selector buttons switch categories
+    django.jQuery("button.tag_filter").bind("click", function (e) {
+        SelectTag.clearSelect();
+        category = tag_list[e.target.name];
+        for (var value in category) {
+            text = category[value];
+            SelectTag.addOption(value,text,false);
+        }
+        SelectBox.redisplay("id_{{ name }}_from");
+    });
+</script>

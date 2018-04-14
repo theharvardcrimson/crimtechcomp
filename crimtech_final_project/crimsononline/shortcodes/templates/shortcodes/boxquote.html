@@ -1,0 +1,35 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% block addl_classes %}hideme{% endblock %}
+{% block content %}
+<div class="boxquote">
+  <div class="card">
+    {% if not image%}
+      {% if relContent %}
+        {% if relContent.content_type.name = "image" %}
+          <div class="card-image">
+            {{ relContent|to_img_tag:"800,800,800,800"}}
+          </div>
+        {% else %}
+          <div class="card-image">
+            {{ relContent.main_rel_content|to_img_tag:"800,800,800,800"}}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+    <div class="card-content">
+      <span class="card-title" {% if font %} style="font-family:{{ font }}"{% endif %}> "{{ text }}"</span>
+      <p style="font-size:15px; padding-top: 10px"> {{ speaker }}, {{ description }} </p>
+    </div>
+    <div class="card-action">
+       {% if relContent %}
+      <a style="font-size:15px; font-style: italic"
+      href="{{ relContent.get_absolute_url }}"> {{ relContent.title }} </a>
+       {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

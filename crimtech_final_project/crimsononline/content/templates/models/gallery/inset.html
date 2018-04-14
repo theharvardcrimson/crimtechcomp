@@ -1,0 +1,7 @@
+{% load common %}
+{% load content_filters %}
+<div class="inset-entry" data-key="{{ gallery.pk }}">
+	<div class="media-byline"><a href="{{ gallery.get_absolute_url }}">Gallery</a></div>
+	<div class="inset-image"><a href="{{ gallery.get_absolute_url }}">{{ gallery|to_img_tag:"200,150,200,150" }}</a></div>
+	<h3><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h3>
+</div>

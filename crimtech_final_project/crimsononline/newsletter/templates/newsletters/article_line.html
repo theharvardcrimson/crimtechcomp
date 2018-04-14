@@ -1,0 +1,81 @@
+{% load common %}
+{% load content_filters %}
+
+<table class="row article-title-row{% if first %} first-alert{% endif %}">
+  <tr>
+    <td class="wrapper last">
+      <table class="twelve columns">
+        <tr>
+          <td class="text-pad headline{% if big %} big-headline{% endif %}">
+            <a href="{{ article.get_absolute_url|absolute_url }}">
+              {{ article.title }}
+            </a>
+          </td>
+          <td class="expander"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table class="row article-body-row{% if last %} last-alert{% endif %}">
+  <tr>
+    {% if article.main_rel_content %}
+
+      {% if left_image %}
+      <td class="wrapper">
+        <table class="three columns">
+          <tr>
+            <td class="left-text-pad">
+              <a href="{{ article.get_absolute_url|absolute_url }}"><img width="130" height="86" src="{{ article.main_rel_content|img_url:"450,300,450,300" }}" alt=""></a>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="wrapper last">
+        <table class="nine columns">
+           <tr>
+             <td class="right-text-pad teaser{% if big %} big-teaser{% endif %}">
+               <a href="{{ article.get_absolute_url|absolute_url }}">{{ article.description }}</a>
+             </td>
+             <td class="expander"></td>
+           </tr>
+        </table>
+      </td>
+      {% elif right_image %}
+      <td class="wrapper">
+        <table class="eight columns">
+           <tr>
+             <td class="left-text-pad teaser{% if big %} big-teaser{% endif %}">
+               <a href="{{ article.get_absolute_url|absolute_url }}">{{ article.description }}</a>
+             </td>
+             <td class="expander"></td>
+           </tr>
+        </table>
+      </td>
+      <td class="wrapper last">
+        <table class="three columns">
+          <tr>
+            <td class="right-text-pad">
+              <a href="{{ article.get_absolute_url|absolute_url }}"><img width="130" height="86" src="{{ article.main_rel_content|img_url:"450,300,450,300" }}" alt=""></a>
+            </td>
+            <td class="expander"></td>
+          </tr>
+        </table>
+      </td>
+      {% endif %}
+
+    {% else %}
+    <td class="wrapper last teaser-wrapper">
+      <table class="twelve columns">
+         <tr>
+           <td class="text-pad teaser{% if big %} big-teaser{% endif %}">
+             <a href="{{ article.get_absolute_url|absolute_url }}">{{ article.description }}</a>
+           </td>
+           <td class="expander"></td>
+         </tr>
+      </table>
+    </td>
+    {% endif %}
+  </tr>
+</table>

@@ -1,0 +1,23 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load module %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/sitemap.scss">
+{% endblock %}
+
+{% block title %}Sitemap{% endblock %}
+
+{% block content %}
+<div class="col-12">
+	{% module 12 "" %}
+<span class="page-title"><a href="../">Archives</a> &rarr; {{year}}</span>
+<ul class="sitemap-issue">
+{% for issue in issues %}
+<li class="sitemap-cell"><a href="/sitemap/{{year}}/{{issue.id}}/">{{issue.issue_date|date:"n/j"}}</a></li>
+{% endfor %}
+<li class="clear" />
+</ul>
+{% endmodule %}
+</div>
+{% endblock %}

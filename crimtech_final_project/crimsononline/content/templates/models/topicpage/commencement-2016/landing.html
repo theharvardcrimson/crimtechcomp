@@ -1,0 +1,540 @@
+{% extends "models/topicpage/commencement-2016/__base.html" %}
+{% load ads_tags %}
+{% load top_articles %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+{% load placeholders %}
+{% load fm_yir %}
+{% get_static_prefix as STATIC_URL %}
+
+{% block addl_css %}
+<style media="all" type="text/css">
+    {% for t in topic.get_all_ordered_children|slice:":3" %}
+    .supp-link-left a:nth-child({{ forloop.counter }}) > div {
+        background-image: url({{ t.image|img_url:"500,10000" }});
+        {# Account for 20px padding with final height 820 #}
+        height: {% scalebox topic.get_all_ordered_children|slice:":3" forloop.counter0 820 %}px;
+        {% if t.pub_status != 1 %}
+            cursor: default;
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+        {% endif %}
+    }
+    {% endfor %}
+
+    {% for t in topic.get_all_ordered_children|slice:"3:" %}
+    .supp-link-right a:nth-child({{ forloop.counter }}) > div {
+        background-image: url({{ t.image|img_url:"500,10000" }});
+        height: {% scalebox topic.get_all_ordered_children|slice:"3:" forloop.counter0 800 %}px;
+        {% if t.pub_status != 1 %}
+            cursor: default;
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+        {% endif %}
+    }
+    {% endfor %}
+{{ custom_html }}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ad-tag top-leader-ad">Advertisement</div>
+<div class="leader-ad top-leader-body">
+    {% ad_unit "728x90" %}
+</div>
+<div class="content">
+    <div class="content-wrapper">
+    <div class="left-content-wrapper">
+        {% placeholder name="daily-stories" content_range="(0,3)" content_types="article,gallery,topic page,external content,image" as items %}
+        {% if items %}
+        <div class="section">
+        <div class="section-header">
+                <a href="{{items.title_link}}">{{items.title}}</a>
+        </div>
+
+                <div class="section-container">
+                    <div class="section-left">
+                        <a href="{{ items.0.get_absolute_url }}">
+                            <div class="left-story" style="background-image: url( {{items.0.main_rel_content|img_url:"800,300" }} ); background-position: center">
+                            </div>
+                        </a>
+                            <div class="section-left-title">
+                                <a href="{{ items.0.get_absolute_url }}">
+                                {{ items.0.title}}
+                            </a>
+                            </div>
+                            <div class="section-left-description">
+                                {{ items.0.description}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="section-right">
+                        <div class="right-story">
+                            <a href="{{ items.1.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.1.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.1.get_absolute_url }}">
+                                {{ items.1.title}}
+                            </a>
+                            </div>
+                        </a>
+                         </div>
+                        <div class="right-story">
+                            <a href="{{ items.2.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.2.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.2.get_absolute_url }}">
+                                {{ items.2.title}}
+                            </a>
+                            </div>
+                        </a>
+                        </div>
+                        <!--  <div class="read-more">
+                            <a href="{{items.title_link}}">More from {{items.title}}</a>
+                    </div> -->
+                    </div>
+                </div>
+
+        </div>
+        <div class="landing-divider">
+        </div>
+        {% endif %}
+        {% endplaceholder %}
+        {% placeholder name="daily-stories-2" content_range="(0,3)" content_types="article,image,widget,external content" as items %}
+            {% for i in items %}
+                {% if i.content_type.name = "article" %}
+                <div class="landing-article">
+                    <!-- <div class="landing-work-body">
+                        <img class="landing-image" src="{{ i.main_rel_content|img_url:"800,800"}}">
+                    </div> -->
+                    <div class="landing-article-title">
+                        <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                    </div>
+                    <div class="landing-article-teaser">
+                        {{ i.description }}
+                    </div>
+                    <div class="landing-article-byline">
+                        {{ i|byline:"short" }}
+                    </div>
+                </div>
+                {% elif i.content_type.name = "image" %}
+                <div class="landing-work">
+                    <div class="landing-article-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-body">
+                        <img class="landing-image" src="{{ i|img_url:"800,10000"}}">
+                    </div>
+                     <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                </div>
+                {% elif i.content_type.name = "widget" %}
+                <div class="landing-work">
+                    <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                    {{ i|render:"plain" }}
+                </div>
+                {% endif %}
+                 <div class="landing-divider"></div>
+            {% endfor %}
+        {% endplaceholder %}
+        {% placeholder name="year-in-review" content_range="(0,3)" content_types="article,gallery,topic page,external content,image" as items %}
+        {% if items %}
+        <div class="section">
+        <div class="section-header">
+                <a href="{{items.title_link}}">{{items.title}}</a>
+        </div>
+
+                <div class="section-container">
+                    <div class="section-left">
+                        <a href="{{ items.0.get_absolute_url }}">
+                            <div class="left-story" style="background-image: url( {{items.0.main_rel_content|img_url:"800,300" }} ); background-position: center">
+                            </div>
+                        </a>
+                            <div class="section-left-title">
+                                <a href="{{ items.0.get_absolute_url }}">
+                                {{ items.0.title}}
+                            </a>
+                            </div>
+                            <div class="section-left-description">
+                                {{ items.0.description}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="section-right">
+                        <div class="right-story">
+                            <a href="{{ items.1.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.1.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.1.get_absolute_url }}">
+                                {{ items.1.title}}
+                            </a>
+                            </div>
+                        </a>
+                         </div>
+                        <div class="right-story">
+                            <a href="{{ items.2.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.2.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.2.get_absolute_url }}">
+                                {{ items.2.title}}
+                            </a>
+                            </div>
+                        </a>
+                        </div>
+                        <!--  <div class="read-more">
+                            <a href="{{items.title_link}}">More from {{items.title}}</a>
+                    </div> -->
+                    </div>
+                </div>
+
+        </div>
+        <div class="landing-divider">
+        </div>
+        {% endif %}
+        {% endplaceholder %}
+        {% placeholder name="sports-in-review" content_range="(0,3)" content_types="article,gallery,topic page,external content,image" as items %}
+        {% if items %}
+        <div class="section">
+        <div class="section-header">
+                <a href="{{items.title_link}}">{{items.title}}</a>
+        </div>
+
+                <div class="section-container">
+                    <div class="section-left">
+                        <a href="{{ items.0.get_absolute_url }}">
+                            <div class="left-story" style="background-image: url( {{items.0.main_rel_content|img_url:"800,300" }} ); background-position: center">
+                            </div>
+                        </a>
+                            <div class="section-left-title">
+                                <a href="{{ items.0.get_absolute_url }}">
+                                {{ items.0.title}}
+                            </a>
+                            </div>
+                            <div class="section-left-description">
+                                {{ items.0.description}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="section-right">
+                        <div class="right-story">
+                            <a href="{{ items.1.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.1.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.1.get_absolute_url }}">
+                                {{ items.1.title}}
+                            </a>
+                            </div>
+                        </a>
+                         </div>
+                        <div class="right-story">
+                            <a href="{{ items.2.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.2.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.2.get_absolute_url }}">
+                                {{ items.2.title}}
+                            </a>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        <div class="landing-divider">
+        </div>
+        {% endif %}
+        {% endplaceholder %}
+        {% placeholder name="reunion-1966" content_range="(0,3)" content_types="article,gallery,topic page,external content,image" as items %}
+        {% if items %}
+        <div class="section">
+        <div class="section-header">
+                <a href="{{items.title_link}}">{{items.title}}</a>
+        </div>
+
+                <div class="section-container">
+                    <div class="section-left">
+                        <a href="{{ items.0.get_absolute_url }}">
+                            <div class="left-story" style="background-image: url( {{items.0.main_rel_content|img_url:"800,300" }} ); background-position: center">
+                            </div>
+                        </a>
+                            <div class="section-left-title">
+                                <a href="{{ items.0.get_absolute_url }}">
+                                {{ items.0.title}}
+                            </a>
+                            </div>
+                            <div class="section-left-description">
+                                {{ items.0.description}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="section-right">
+                        <div class="right-story">
+                            <a href="{{ items.1.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.1.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.1.get_absolute_url }}">
+                                {{ items.1.title}}
+                            </a>
+                            </div>
+                        </a>
+                         </div>
+                        <div class="right-story">
+                            <a href="{{ items.2.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.2.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.2.get_absolute_url }}">
+                                {{ items.2.title}}
+                            </a>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        <div class="landing-divider">
+        </div>
+        {% endif %}
+        {% endplaceholder %}
+        {% placeholder name="reunion-1991" content_range="(0,3)" content_types="article,gallery,topic page,external content,image" as items %}
+        {% if items %}
+        <div class="section">
+        <div class="section-header">
+                <a href="{{items.title_link}}">{{items.title}}</a>
+        </div>
+
+                <div class="section-container">
+                    <div class="section-left">
+                        <a href="{{ items.0.get_absolute_url }}">
+                            <div class="left-story" style="background-image: url( {{items.0.main_rel_content|img_url:"800,300" }} ); background-position: center">
+                            </div>
+                        </a>
+                            <div class="section-left-title">
+                                <a href="{{ items.0.get_absolute_url }}">
+                                {{ items.0.title}}
+                            </a>
+                            </div>
+                            <div class="section-left-description">
+                                {{ items.0.description}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="section-right">
+                        <div class="right-story">
+                            <a href="{{ items.1.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.1.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.1.get_absolute_url }}">
+                                {{ items.1.title}}
+                            </a>
+                            </div>
+                        </a>
+                         </div>
+                        <div class="right-story">
+                            <a href="{{ items.2.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.2.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.2.get_absolute_url }}">
+                                {{ items.2.title}}
+                            </a>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        <div class="landing-divider">
+        </div>
+        {% endif %}
+        {% endplaceholder %}
+        {% placeholder name="senior-section" content_range="(0,3)" content_types="article,gallery,topic page,external content,image" as items %}
+        {% if items %}
+        <div class="section">
+        <div class="section-header">
+                <a href="{{items.title_link}}">{{items.title}}</a>
+        </div>
+
+                <div class="section-container">
+                    <div class="section-left">
+                        <a href="{{ items.0.get_absolute_url }}">
+                            <div class="left-story" style="background-image: url( {{items.0.main_rel_content|img_url:"800,300" }} ); background-position: center">
+                            </div>
+                        </a>
+                            <div class="section-left-title">
+                                <a href="{{ items.0.get_absolute_url }}">
+                                {{ items.0.title}}
+                            </a>
+                            </div>
+                            <div class="section-left-description">
+                                {{ items.0.description}}
+                            </div>
+                        </a>
+                    </div>
+                    <div class="section-right">
+                        <div class="right-story">
+                            <a href="{{ items.1.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.1.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.1.get_absolute_url }}">
+                                {{ items.1.title}}
+                            </a>
+                            </div>
+                        </a>
+                         </div>
+                        <div class="right-story">
+                            <a href="{{ items.2.get_absolute_url }}">
+
+                                <div class="right-story-media" style="background-image: url( {{items.2.main_rel_content|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                </div>
+                                </a>
+                            <div class="section-right-title">
+                                <a href="{{ items.2.get_absolute_url }}">
+                                {{ items.2.title}}
+                            </a>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        <div class="landing-divider">
+        </div>
+        {% endif %}
+        {% endplaceholder %}
+
+</div>
+
+    <div class="right-content-wrapper">
+        {% placeholder name="articles" content_range="(0,3)" content_types="article,image,widget,external content" as items %}
+            {% for i in items %}
+                {% if i.content_type.name = "article" %}
+                <div class="landing-article">
+                    <!-- <div class="landing-work-body">
+                        <img class="landing-image" src="{{ i.main_rel_content|img_url:"800,800"}}">
+                    </div> -->
+                    <div class="landing-article-title">
+                        <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                    </div>
+                    <div class="landing-article-teaser">
+                        {{ i.description }}
+                    </div>
+                    <div class="landing-article-byline">
+                        {{ i|byline:"short" }}
+                    </div>
+                </div>
+                {% elif i.content_type.name = "image" %}
+                <div class="landing-work">
+                    <div class="landing-article-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-body">
+                        <img class="landing-image" src="{{ i|img_url:"800,10000"}}">
+                    </div>
+                     <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                </div>
+                {% elif i.content_type.name = "widget" %}
+                <div class="landing-work">
+                    <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                    {{ i|render:"plain" }}
+                </div>
+                {% endif %}
+                 <div class="landing-divider"></div>
+            {% endfor %}
+        {% endplaceholder %}
+                        <div class="sidekick">
+                                <div class="ad-label">Advertisement</div>
+                                {% ad_unit "300x250" %}
+                            </div>
+                        {% most_read_articles %}
+                        <div class="sidekick-shell">
+
+                        </div>
+                        <div class="sidekick primary">
+                            {% ad_unit "300x600" %}
+                        </div>
+        {% placeholder name="article-2" content_range="(0,100)" content_types="article,image,widget,external content" as items %}
+            {% for i in items %}
+                {% if i.content_type.name = "article" %}
+                <div class="landing-article">
+                    <!-- <div class="landing-work-body">
+                        <img class="landing-image" src="{{ i.main_rel_content|img_url:"800,800"}}">
+                    </div> -->
+                    <div class="landing-article-title">
+                        <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                    </div>
+                    <div class="landing-article-teaser">
+                        {{ i.description }}
+                    </div>
+                    <div class="landing-article-byline">
+                        {{ i|byline:"short" }}
+                    </div>
+                </div>
+                {% elif i.content_type.name = "image" %}
+                <div class="landing-work">
+                    <div class="landing-article-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-body">
+                        <img class="landing-image" src="{{ i|img_url:"800,10000"}}">
+                    </div>
+                     <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                </div>
+                {% elif i.content_type.name = "widget" %}
+                <div class="landing-work">
+                    <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                    {{ i|render:"plain" }}
+                </div>
+                {% endif %}
+                 <div class="landing-divider"></div>
+            {% endfor %}
+        {% endplaceholder %}
+    </div>
+</div>
+</div>
+<div class="landing-spacer">
+    </div>
+<div class="ad-tag">Advertisement</div>
+<div id="TheCrimson_AllArticles_ATF_728x90" class="leader-ad">
+    {% ad_unit "728x90" %}
+</div>
+<div class="content">
+    <div id="design-attrib"></div>
+</div>
+
+{% endblock %}

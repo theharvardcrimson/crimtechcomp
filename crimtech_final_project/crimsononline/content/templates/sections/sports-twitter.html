@@ -1,0 +1,146 @@
+{% extends "__base.html" %}
+{% load ads_tags %}
+{% load common %}
+{% load flyby_preview %}
+{% load top_articles %}
+{% load placeholders %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/sports.scss">
+{% endblock %}
+
+{% block content %}
+<section id="upper">
+    <div id="upper-body">
+        <div id="section-bar">
+            <h1>Sports</h1>
+            <nav id="section-nav">
+                <ul>
+                    <li><a href="/section/sports/list/">All Sports</a></li>
+                    <li><a href="/tag/Game Stories/">Game Stories</a></li>
+                    <li><a href="/tag/Sports Features/">Features</a></li>
+                    <li><a href="{{ rss_url }}"><img src="{{ STATIC_URL}}images/icons/rss.gif"></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="features" class="clearfix">
+            {% placeholder name="featured" content_range="(1,1)" content_types="article,video,topic page" as feat %}
+                {% with article=feat|first classes="feature vertical" image=1 %}
+                    {% include "models/article/preview.html" %}
+                {% endwith %}
+            {% endplaceholder %}
+            <div class="sports-list">
+                <h2 class="sports-list-block">Featured</h2>
+                <ul id="sports-list">
+                    <li><a href="/tag/baseball">Baseball</a></li>
+                    <li><a href="/tag/men's-basketball">Men's Basketball</a></li>
+                    <li><a href="/tag/women's-basketball">Women's Basketball</a></li>
+                    <li><a href="/tag/football">Football</a></li>
+                    <li><a href="/tag/men's-ice-hockey">Men's Ice Hockey</a></li>
+                    <li><a href="/tag/women's-ice-hockey">Women's Ice Hockey</a></li>
+                    <li><a href="/tag/men's-lacrosse">Men's Lacrosse</a></li>
+                    <li><a href="/tag/softball">Softball</a></li>
+                </ul>
+                <a href="/section/sports/list" class="sports-list-block">See more</a>
+            </div>
+        </div>
+        <div id="upper-first" class="clearfix">
+            <div class="columns">
+                <h2 class="subsection-header"><a href="/columns/sports">Columns</a></h2>
+                <div class="subsections-container">
+                    {% for column in columns|slice:":6" %}
+                        {% if column.recent %}
+                            {% include "models/column/section-sports-preview.html" %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div id="upper-second">
+            <div class="upper-column">
+                <div class="subsection">
+                    {% placeholder name="left column" content_range="(4,4)" content_types="article,video,topic page" as left_articles %}
+                        {% for article in left_articles %}
+                            {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="upper-column">
+                <div class="subsection">
+                    {% placeholder name="right column" content_range="(4,4)" content_types="article,video,topic page" as right_articles %}
+                        {% for article in right_articles|slice:":4" %}
+                            {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="upper-sidebar">
+
+        <div id="sports-timeline">
+            <a class="twitter-timeline" href="https://twitter.com/THCSports" data-widget-id="529789498490507264">Tweets by @THCSports</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            </script>
+        </div>
+
+        {% blog_preview %}
+        {% most_read_articles %}
+
+        {# NEEDS PLACEHOLDING #}
+
+        {% include "supplement.html" with title="Sports Previews" tag_slug="Previews" articles=previews featured_article=featured_preview %}
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "300x250" %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% highlights_bar %}
+
+<section id="lower">
+    <div id="lower-body">
+        <div class="lower-column">
+            {% placeholder name="lower column part 1 (left)" content_range="(5,5)" content_types="article,video,topic page" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 comments=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+
+            {% placeholder name="lower column part 2 (left)" content_range="(5,5)" content_types="article,video,topic page" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 noteaser=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+        <div class="lower-column">
+            {% placeholder name="lower column part 1 (right)" content_range="(5,5)" content_types="article,video,topic page" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 comments=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+
+            {% placeholder name="lower column part 2 (right)" content_range="(5,5)" content_types="article,video,topic page" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 noteaser=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div id="lower-sidebar">
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "300x250" %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block ads %}
+    {{ block.super }}
+{% endblock %}

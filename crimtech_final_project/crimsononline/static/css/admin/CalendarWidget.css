@@ -1,0 +1,14 @@
+.ui-datepicker-trigger {
+    cursor: pointer;
+}
+.ui-datepicker{
+    font-size: 68.75%; !important
+}
+.calendar_widget {
+    width: 100px;
+    cursor: pointer;
+}
+
+.calendar_widget_container{
+    margin-bottom: 10px;
+}

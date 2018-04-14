@@ -1,0 +1,8 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="mod mod-{{width}} mod-{{color}}">
+{% if title %}<span class="title">{{title}}</span>{% endif %}
+{{c}}
+</div>
+<span class="clear"></span>

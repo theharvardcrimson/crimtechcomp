@@ -1,0 +1,158 @@
+.postcard-container {
+    width: 100%;
+    max-width: 360px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000000;
+    margin: 0 auto 20px auto;
+}
+
+.postcard-container img {
+    width: auto;
+}
+
+.postcard-container:last-child {
+    border: none;
+}
+
+.postcard {
+    position: relative;
+    width: 322px;
+    height: 204px;
+    margin: 5px auto;
+}
+
+.postcard-type1 {
+    background-image: url('../images/postcard1.png');
+}
+
+.postcard-type2 {
+    background-image: url('../images/postcard2.png');
+}
+
+#content .postcard-container h3 {
+    margin-bottom: 15px;
+}
+
+.postcard .postcard-first {
+    width: 146px;
+    height: 204px;
+    margin-left: 10px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.postcard .postcard-first .ellipsis {
+    overflow: hidden;
+    margin: 14px 0 7px 0;
+}
+
+.postcard .postcard-first .more {
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-size: 10pt;
+    text-align: right;
+}
+
+.postcard .postcard-second {
+    position: absolute;
+    /*border: 1px solid #000000;*/
+    left: 165px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.postcard .postcard-second img:first-child {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 60px;
+}
+
+.postcard .postcard-second .default {
+    width: 60px;
+}
+
+.postcard .postcard-second .postmark.postmark1 {
+    position: absolute;
+    right: 50px;
+    top: 3px;
+}
+
+.postcard .postcard-second .postmark-location {
+    position: absolute;
+    left: 44px;
+    top: 31px;
+    font-size: 10px;
+    font-family: monospace;
+}
+
+.postcard .postcard-second .postmark.postmark2 {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+}
+
+.postcard .postcard-second .lines {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 22px;
+    padding-left: 6px;
+}
+
+.postcard .postcard-second p {
+    border-bottom: 2px solid black;
+    margin: 0 0 9px 0;
+    padding-left: 2px;
+    text-align: left;
+    font: 12px monospace;
+}
+
+.postcard .postcard-second p:first-child {
+    margin-top: 14px;
+}
+
+#upper-second  .upper-column {
+    width: 100%;
+    float: none;
+}
+
+.pager {
+    float: left;
+    clear: left;
+    width: 100%;
+}
+
+.pager .disabled {
+    color: #999;
+    cursor: default;
+}
+
+@media (min-width: 980px) {
+    #upper-first {
+        width: 62%;
+    }
+
+    #upper-second {
+        width: 36%;
+    }
+}
+
+@media (min-width: 581px) and (max-width: 800px) {
+    #upper-first {
+        float: left;
+    }
+
+    #upper-second {
+        float: left;
+        width: 37%;
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 320px) {
+    #upper-body {
+        padding: 0;
+    }
+}

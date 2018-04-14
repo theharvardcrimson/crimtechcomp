@@ -1,0 +1,22 @@
+{% load content_filters %}
+
+{% if article.rec_articles.all %}
+<div class="article-recommended-container">
+    <h3>Recommended Articles</h3>
+    <ul>
+        {% for article in article.rec_articles.all|slice:":6" %}
+            <li class="article-recommended">
+                <a href="{{ article.get_absolute_url }}?utm_source=thecrimson&utm_medium=web_primary&utm_campaign=recommend_sidebar">
+                {% if article.main_rel_content %}
+                    {{ article.main_rel_content|to_img_tag:"320,200,320,200" }}
+                    <div class="title">{{ article.title }}</div>
+                {% else %}
+                    <div class="title">{{ article.title }}</div>
+                    <div class="description">{{ article.description }}</div>
+                {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

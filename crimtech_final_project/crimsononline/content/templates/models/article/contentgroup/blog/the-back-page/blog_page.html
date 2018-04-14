@@ -1,0 +1,27 @@
+{% extends "models/article/contentgroup/blog/the-back-page/blog_entry.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% block textblock %}
+    {{ article.text|jump_to_anchor|safe }}
+{% endblock %}
+
+{% block commentslink %}
+{% endblock %}
+
+{% block comments %}
+    {% if disqus %}
+        <a name="comments"></a>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'thecrimson';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {% endif %}
+{% endblock %}

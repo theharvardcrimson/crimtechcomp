@@ -1,0 +1,15 @@
+{% if size == "fullscreen" or size == "parallax" %}
+	</div>
+	<div class="shortcodes-wrapper-fullscreen">
+		<div class="shortcodes-object-fullscreen">
+{% else %}
+	<div class="shortcodes-wrapper shortcodes-wrapper-{{ pos }} shortcodes-wrapper-{{ size }} {% block addl_classes %}{% endblock %}">
+	    <div class="shortcodes-object">
+{% endif %}
+	        {% block content %}{% endblock %}
+
+		</div>
+	</div>
+{% if size == "fullscreen" or size == "parallax" %}
+	<div class="content-wrapper">
+{% endif %}

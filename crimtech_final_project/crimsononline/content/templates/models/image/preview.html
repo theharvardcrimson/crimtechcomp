@@ -1,0 +1,41 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="article{% block classes %}{% if classes %} {{ classes }}{% endif %}{% endblock %}">
+    {% if image and article.main_rel_content %}
+        <div class="article-image">
+            <a href="{{ article.get_absolute_url }}">
+                {% if "horizontal" in classes %}
+                    {{ article.main_rel_content|to_img_tag:"373,246,373,246"}}
+                {% else %}
+                    {{ article.main_rel_content|to_img_tag:"373,246,373,246"}}
+                {% endif %}
+            </a>
+        </div>
+    {% endif %}
+
+    <div class="article-content">
+        {% if "bigger" in classes or "feature" in classes %}
+            <h2>{{ article|linkify }}</h2>
+        {% else %}
+            <h3>{{ article|linkify }}</h3>
+        {% endif %}
+
+        <div class="article-byline">
+            {{ article|byline:"short" }}
+            <span class="article-date">{{ article|datify }}</span>
+        </div>
+        <p>{{ article.teaser|striptags }}</p>
+
+        {% block comments %}
+            {% if article.num_comments %}
+                <div class="article-comments">
+                    <a href="{{ article.get_absolute_url }}#article-comments">
+                        <span class="comment-count">{{ article.num_comments }}</span>
+                        comment{% if article.num_comments != 1 %}s{% endif %}
+                    </a>
+                </div>
+            {% endif %}
+        {% endblock %}
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{% if news.enabled %}
+	<div id="breaking-news">
+		<div id="breaking-news-title" class="cf"><h3>{{ news.title }}</h3></div>
+		<div id="breaking-news-first">
+			<div>
+				<a href="{{ news.link }}">{{ news.text }}</a>
+				{% if news.updated %}Updated {{ news.updated }}{% endif %}
+			</div>
+		</div>
+		<div id="breaking-news-second">
+			<div>
+				<a id="breaking-news-dismiss" data-timestamp="{{ news.modified_on|time:"Hisu" }}" href="#" title="Dismiss">&times;</a>
+			</div>
+		</div>
+	</div>
+{% endif %}

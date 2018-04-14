@@ -1,0 +1,183 @@
+body
+{
+	background-image: url('local.thecrimson.com/static/images/smith.jpg');
+	background-color: black;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: Georgia, serif;
+	font-size: 20px;
+	color: #555;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+#logo {
+	position: fixed;
+	top: 25px;
+	left: 0px;
+	background-color: #ba0600;
+	z-index: 10;
+}
+
+#logo img {
+	padding: 5px 10px;
+	width: 200px;
+}
+
+/* hack for the share buttons */
+.at-vertical-menu {
+	top: 200px;
+}
+
+#main {
+	float: right;
+	max-width: 600px;
+	margin: 0 100px 100px 0;
+}
+
+#title-wrapper {
+	height: 800px;
+}
+
+#title {
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	padding-top: 150px;
+	overflow: hidden;
+}
+
+#title img {
+	width: 100%;
+	height: auto;
+}
+
+#title h1{
+	color: white;
+	font-family: 'Lato', serif;
+	font-weight: normal;
+	font-size: 4em;
+	margin: 0;
+}
+
+#title h2 {
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-weight: normal;
+	font-size: 1em;
+}
+
+#text section {
+	background-color: rgba(255,255,255,0.9);
+	padding: 5px 0;
+	margin: 50px 0;
+}
+
+#text section:first-child {
+	margin-top: 0;
+}
+
+#text p {
+	font-family: Georgia, serif;
+	color: #555;
+	font-size: 1em;
+	line-height: 1.65em;
+	padding: 0 30px;
+}
+
+#text a {
+	color: #ba0600;
+}
+
+#text h2 {
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-weight: normal;
+	font-size: 1.5em;
+	padding: 5px 30px;
+	margin: 15px -10px 20px;
+	background-color: #ba0600;
+}
+
+.graph {
+	width: 100%;
+	height: 300px;
+	margin: 60px auto;
+}
+
+.graph svg {
+	width: 95%;
+	height: 300px;
+	margin: 0 auto;
+}
+
+#text .graph h2 {
+	margin: 5px -10px;
+}
+
+.graph h3 {
+	font-family: 'Lato', sans-serif;
+	font-size: 0.8em;
+	text-align: center;
+	margin: 0;
+	line-height: 1.5em;
+}
+
+.graph h4 {
+	font-family: 'Lato', sans-serif;
+	font-size: 0.7em;
+	text-align: center;
+	margin: 0;
+}
+
+section#byline-footer {
+	font-size: 0.8em;
+	margin-top: 0;
+}
+
+#disqus_thread {
+	padding: 30px;
+}
+
+@media(max-width: 1000px) {
+	#main {
+		margin: 0 auto;
+		float: none;
+	}
+
+	#title {
+		margin-bottom: 0;
+	}
+}
+
+@media(max-width: 700px) {
+	#title-wrapper {
+		height: auto;
+	}
+	#title {
+		padding-top: 100px;
+	}
+}
+
+@media(max-width: 500px) {
+	body {
+		font-size: 15px;
+	}
+
+	#title h1 {
+		font-size: 3em;
+	}
+}

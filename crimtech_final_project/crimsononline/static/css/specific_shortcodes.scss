@@ -1,0 +1,59 @@
+/*
+ * SHORTCODES
+ *
+ * Styling for shortcoded elements below
+ */
+
+/*
+ * filterable_table
+ */
+
+.filterable-table {
+    margin-bottom: 5px;
+}
+.filterable-table input {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding-bottom: 4px;
+}
+.filterable-table .table-wrapper {
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.filterable-table table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.filterable-table thead {
+    background: #b94a46;
+}
+.filterable-table td {
+    padding: 7px;
+    border: 1px solid #ccc;
+    /* Prevent double border since wrapper also has left border */
+    border-left: none;
+}
+.filterable-table th {
+    padding: 7px;
+    height: 54px;
+    font-weight: lighter;
+    text-shadow: 0 1px 0 #943b38;
+    color: white;
+    border: 1px solid #943b38;
+    border-left: none;
+    box-shadow: inset 0px 1px 2px #c05c59;
+}
+
+.shortcodes-dropcap {
+    font-size: 3em;
+    color: #BA0600;
+    float: left;
+    line-height: 1.1;
+    height: 0.7em;
+    padding-right: 0.1em;
+}

@@ -1,0 +1,111 @@
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block title %}{{ tagname }} | Content Tag | {{ block.super }}{% endblock %}
+
+{% block css %}<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/filters.scss">
+{% endblock %}
+
+{% block js %}<script src="{{ STATIC_URL }}js/tag.js"></script>{% endblock %}
+
+{% block body %}
+<img src="{{STATIC_URL}}images/loading.gif" style="display:none;" id="preloadingimg">
+
+<section id="main" class="tag">
+	<div id="body">
+		<div class="tag-header">
+	    	<h1>{{ tagname }}</h1>
+	    </div>
+	    {% comment %}
+	    <a class="tag-subscribe" href="{{ rss_url }}">Subscribe via RSS</a>
+	    {% endcomment %}
+	    <div id="articlezone">
+			<div class="articles">
+			    {% for article in content %}
+			    	<div class="article-item">
+			        {{ article|render:"preview-list" }}
+			      </div>
+			    {% endfor %}
+		    </div>
+		    {% include "_pager.html" %}
+	    </div>
+	</div>
+
+{% endblock body %}
+
+{% comment %}
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block title %}{{ tagname }} | Content Tag | {{ block.super }}{% endblock %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/filters.css">
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	<script src="{{ STATIC_URL }}js/tag.js"></script>
+{% endblock %}
+
+{% block headline %}{{ tagname }}{% endblock %}
+
+{% block body %}
+<img src="{{STATIC_URL}}images/loading.gif" style="display:none;" id="preloadingimg">
+
+<!-- <section id="main" class="tag"> -->
+<!-- 	<div id="body">
+
+	    <h1>{{ tagname }}</h1> -->
+	    <ul class="list-actions">
+	    	<li>Section<br><br>
+	    		<input type="checkbox" name="section" value="all" {% if not secs|length %}checked{% endif %}>All<br>
+	    		<form id="sectionform">
+	    			<input type="hidden" name="tagname" value="{{ urltagname }}">
+
+	    			<div class="column-wrapper">
+		    			<span class="seccolumn">
+		    			{% for section in sectionlist %}
+			    			<input type="checkbox" name="section" value="{{ section|urlify }}" {% if section in secs %}checked{% endif %}>{{ section }}<br>
+			    			{% if forloop.counter|divisibleby:"3" %}
+				    			</span>
+				    			<span class="seccolumn">
+			    			{% endif %}
+		    			{% endfor %}
+		    			</span>
+	    			</div>
+	    		</form>
+	    	</li>
+	    	<li>Type<br><br>
+	    		<input type="checkbox" name="type" value="all" {% if not types|length %}checked{% endif %}>All<br>
+	    		<form id="typeform">
+	    			<input type="hidden" name="tagname" value="{{ urltagname }}">
+	    			<div class="column-wrapper">
+		    			<span class="typecolumn">
+		    			{% for type in typelist %}
+			    			<input type="checkbox" name="type" value="{{ type|urlify }}" {% if type in types %}checked{% endif %}>{{ type }}<br>
+			    			{% if forloop.counter|divisibleby:3 %}
+			    				</span>
+			    				<span class="typecolumn">
+			    			{% endif %}
+		    			{% endfor %}
+	    				</span>
+		    		</div>
+	    		</form>
+	    </ul>
+	    <div id="articlezone">
+		    {% include "_pager.html" %}
+			<div class="articles">
+			    {% for article in content %}
+			        {{ article|render:"preview-list" }}
+			    {% endfor %}
+		    </div>
+		    {% include "_pager.html" %}
+	    </div>
+	<!-- </div> -->
+
+{% endblock body %}
+{% endcomment %}

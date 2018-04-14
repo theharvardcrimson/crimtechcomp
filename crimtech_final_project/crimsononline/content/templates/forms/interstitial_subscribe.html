@@ -1,0 +1,59 @@
+{% comment %}
+  TODO(benesch, 26 aug 2015): Move this to the newsletter app.
+{% endcomment %}
+
+{% load compress %}
+
+{% compress css %}
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/interstitials/interstitials.scss">
+{% endcompress %}
+
+<div id="interstitial-spiel">
+	<div id="interstitial-close"><a class="interstitial-close" href="#">Close</a></div>
+	<h1>{{ tagline.0 }}</h1>
+	<p>{{ tagline.1 }}</p>
+</div>
+<section id="interstitial-form">
+	<form action="../../../../../subscribe">
+    <input type="hidden" name="UTM_SRC" value="{{ utm_src }}">
+    <input type="hidden" name="FORM_VRSN" value="">
+
+		<div class="interstitial-step">
+			<label for="email">Your e-mail <span class="req">*</span></label>
+			<div>
+				<input name="email" size="50" />
+			</div>
+			<div id="button-holder" style="margin-top: 25px">
+        <input type="submit" value="Next" disabled />
+        <div id="email-error-message">Please enter a valid email address.</div>
+      </div>
+		</div>
+	</form>
+</section>
+
+<script>
+	function emailValidate() {
+		var regex = /^([^\s\\/])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{1,5})+$/;
+	 	var valid = regex.test($('[name="email"]').val());
+	 	var button = $('#interstitial-form [type="submit"]');
+	 	if (valid) {
+	 		$('#email-error-message').hide();
+			button.removeAttr('disabled');
+			if ($('.interstitial-subscribe-track').length < 1) {
+				$('body')
+					.append('<img height="1" width="1" alt="" style="display:none" class="interstitial-subscribe-track" src="https://www.facebook.com/offsite_event.php?id=6008715636942&amp;value=0&amp;currency=USD" />')
+					.append('<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1024005553/?value=0&amp;label=zZlBCI_9qwUQsauk6AM&amp;guid=ON&amp;script=0"/>');
+	 		}
+	 	}
+	 	else {
+      		$('#email-error-message').show();
+	 		button.attr('disabled', true);
+	 	}
+	}
+
+	$('[name="email"]').on("input", emailValidate);
+
+	Crimson.Interstitials.onHide = function () {
+		$.post('/subscribe/online/', $('#interstitial-form form').serialize());
+	}
+</script>

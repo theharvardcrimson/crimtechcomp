@@ -1,0 +1,397 @@
+{% extends "__base.html" %}
+{% load top_articles %}
+{% load common %}
+{% load content_filters %}
+{% load ads_tags %}
+{% load flyby_preview %}
+{% load shortcodes_filters %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/article.scss">
+{% endblock css %}
+
+{% block meta %}
+    {{ block.super }}
+    {% if request.GET.page = "single" %}
+        <meta name="robots" content="noindex">
+    {% endif %}
+{% endblock meta %}
+
+{% block title %}
+    {{ article.headline }} |
+    {% if article.section %}
+        {{ article.section }} |
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+
+    <script type="text/javascript">
+            var disqus_shortname = '{{ DISQUS_SHORTNAME }}';
+            var disqus_url = 'http://www.thecrimson.com{{ request.path }}';
+            (function() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.src = 'http://thecrimson.disqus.com/embed.js';
+                dsq.async = true;
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0])
+                    .appendChild(dsq);
+            })();
+    </script>
+{% endblock %}
+{% block meta_social %}
+    {% if article.main_rel_content %}
+        <meta property="og:image" content="{{ article.main_rel_content|img_url:"635,630" }}">
+        <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ article.headline }}">
+    <meta name="twitter:description" content="{{ article.teaser }}">
+    {% if article.main_rel_content %}
+        <meta name="twitter:image" content="{{ article.main_rel_content|img_url:"480,480" }}">
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+    {% block body %}
+        <section id="main" data-content-id="{{ article.id }}">
+            <div id="article">
+            <div id="article-header">
+                    {% block flybyheader %}{% endblock %}
+                    <h1>PENIS{{ article.headline }}</h1>
+                    {% if article.subheadline %}
+                        <h2 style="font-size: 1.5em; font-style: italic; color: #999; margin: 3px 0 5px;">
+                            {{ article.subheadline }}
+                        </h2>
+                    {% endif %}
+                    <div class="article-byline">{{ article|byline:"full" }}{% date article %}</div>
+                </div>
+
+                {% if paragraphs.has_previous %}
+                    <div id="page-number">
+                        Page {{ paragraphs.number }} of {{ paragraphs.paginator.num_pages }}
+                    </div>
+                {% endif %}
+
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style sidebar">
+                    <div class="add-this-inner">
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_button_email"></a>
+                        <a class="addthis_button_print"></a>
+                        <a class="addthis_button_compact"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                    </div>
+                </div>
+
+                <div id="article-body">
+                    {% if article.main_rel_content and not article.main_rel_content_is_shortcoded and not paragraphs.has_previous %}
+                        <div id="article-image-side" class="{% if main_rel_content_too_tall %}too-tall{% endif %}">
+                            <a href="{{ article.main_rel_content.get_absolute_url }}">
+                                {{ article.main_rel_content|to_img_tag:"800,1200" }}
+                            </a>
+                            <div class="article-image-credit">
+                                {{ article.main_rel_content|byline_sans_by:"full" }}
+                            </div>
+                            <p class="article-image-caption">
+                                {{ article.main_rel_content.caption|safe }}
+                            </p>
+                        </div>
+                    {% endif %}
+                    <div id="text">
+                        {% if article.group and article.group.type = 'column' %}
+                        <h2>
+                            <a href="{{ article.group.get_absolute_url }}">{{ article.group.name }}</a>
+                        </h2>
+                        {% endif %}
+
+                        {% with paragraphs as paras %}
+                            {{ paras|slice:":5"|join:""|shortcodes|safe }}
+                            {% with article.rel_not_shortcoded|rel_no_articles|slice:"1:" as rcs %}
+                                {% if rcs %}
+                                <div id="article-inset">
+                                    <h2>
+                                        Multimedia
+                                    </h2>
+                                    {% for rc in rcs %}
+                                        {{ rc|render:"inset" }}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            {% endwith %}
+                            {{ paras|slice:"5:"|join:""|shortcodes|safe }}
+                            {% if paragraphs.has_other_pages %}
+                                {% spaceless %}
+                                    <div class="pagination {% if paragraphs.paginator.num_pages > 10 %}large{% endif %}">
+                                        <div class="pagination-spacer"></div>
+                                        <div class="pagination-navigation">
+                                            <a class="pagination-prev {% if not paragraphs.has_previous %}disabled{% endif %}"
+                                                href="?page={% if paragraphs.has_previous %}{{ paragraphs.previous_page_number }}{% endif %}"
+                                                rel="prev">&laquo; Previous Page</a>
+                                            <span class="pagination-pages">
+                                                {% for page_num in paragraphs.paginator.page_range %}
+                                                <span> <a
+                                                                {% if page_num = paragraphs.number %}class="pagination-current"{% endif %}
+                                                                href="?page={{ page_num }}">{{ page_num }}</a>
+                                                </span>
+                                                {% endfor %}
+                                            </span>
+                                            <a
+                                                        class="pagination-next {% if not paragraphs.has_next %}disabled{% endif %}"
+                                                        href="?page={% if paragraphs.has_next %}{{ paragraphs.next_page_number }}{% endif %}"
+                                                        rel="next">Next Page &raquo;</a>
+                                        </div>
+                                        <div class="pagination-spacer">
+                                            <a class="pagination-single" href="?page=single">Single Page View</a>
+                                        </div>
+                                    </div>
+                                {% endspaceless %}
+                            {% endif %}
+
+                            {% if request.GET.page = "single" %}
+                                <div class="pagination large">
+                                    <div class="pagination-spacer">
+                                        <a class="pagination-single" href="?page=1">Multi-Page View</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+
+
+                        <div id="article-tags">
+                            {% if tags %}
+                                <h3>Tags</h3>
+                                <div>
+                                {% for tag in tags %}
+                                    <a href="{{ tag.url }}">{{ tag.text|safe }}</a>
+                                    {% ifnotequal forloop.last 1 %}{% endifnotequal %}
+                                {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div id="subscribe-link">
+                            <strong>Want to keep up with breaking news? </strong>
+                            <a href="javascript:Crimson.Interstitials.show('subscribe')">Get the latest, straight to your inbox.</a><br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    {% with article.rel_content.all|rel_articles as ras %}
+                        {% if ras %}
+                            <div id="article-related-shell" class="sidebar">
+                                <div id="article-related">
+                                    <h3>Related Articles</h3>
+                                    <ul>
+                                        {% for ra in ras %}
+                                        <li>{{ ra|linkify }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    {% most_read_articles %}
+                    <div class="sidekick-shell sidebar">
+                        <div class="sidekick primary">
+                            {% ad_unit "300x600" %}
+                        </div>
+                        <div class="large-screen-only">
+                            {% flyby_preview %}
+                        </div>
+                        <div class="sidekick-shell">
+                            <div class="sidekick">
+                                <div class="ad-label">Advertisement</div>
+                                {% ad_unit "300x250" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="article-comments">
+                    <div id="disqus_thread"></div>
+                    <div class="sidekick-shell sidebar">
+                        <div class="sidekick">
+                            <div class="ad-label">Advertisement</div>
+                            {% ad_unit "300x250" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock body %}
+{% endblock content %}
+
+{% comment %}
+######################
+Attempt to actually make clean structure
+######################
+
+{% extends "__contentpage.html" %}
+{% load top_articles %}
+{% load common %}
+{% load content_filters %}
+{% load ads_tags %}
+{% load flyby_preview %}
+{% load shortcodes_filters %}
+
+{% block title %}
+    {{ article.title }} |
+    {% if article.section %}
+        {{ article.section }} |
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block meta_social %}
+    {% if article.main_rel_content %}
+        <meta property="og:image" content="{{ article.main_rel_content|img_url:"635,630" }}">
+        <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ article.title }}">
+    <meta name="twitter:description" content="{{ article.teaser }}">
+    {% if article.main_rel_content %}
+        <meta name="twitter:image" content="{{ article.main_rel_content|img_url:"480,480" }}">
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block headline %}{{ article.title }}{% endblock %}
+
+{% block underhead %}
+    {% if article.subtitle %}
+        <h2>{{ article.subtitle }}</h2>
+    {% endif %}
+    <div class="article-byline">{{ article|byline:"full" }}{% date article %}</div>
+{% endblock %}
+
+{% block prebody %}
+    {% if paragraphs.has_previous %}
+        <div id="page-number">
+            Page {{ paragraphs.number }} of {{ paragraphs.paginator.num_pages }}
+        </div>
+    {% endif %}
+
+    {{ block.super }}
+{% endblock %}
+
+{% block body %}
+    {% if article.main_rel_content and not paragraphs.has_previous %}
+        <div id="article-image-side" class="{% if main_rel_content_too_tall %}too-tall{% endif %}">
+            <a href="{{ article.main_rel_content.get_absolute_url }}">
+                {{ article.main_rel_content|to_img_tag:"800,1200" }}
+            </a>
+            <div class="article-image-credit">
+                {{ article.main_rel_content|byline_sans_by:"full" }}
+            </div>
+            <p class="article-image-caption">
+                {{ article.main_rel_content.caption|safe }}
+            </p>
+        </div>
+    {% endif %}
+    <div id="text">
+        {% if article.group and article.group.type = 'column' %}
+        <h2>
+            <a href="{{ article.group.get_absolute_url }}">{{ article.group.name }}</a>
+        </h2>
+        {% endif %}
+
+        {% with paragraphs as paras %}
+            {{ paras|slice:":5"|join:""|shortcodes|safe }}
+            {% with article.rel_not_shortcoded|rel_no_articles|notfirst as rcs %}
+                {% if rcs %}
+                <div id="article-inset">
+                    <h2>
+                        Multimedia
+                    </h2>
+                    {% for rc in rcs %}
+                        {{ rc|render:"inset" }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            {{ paras|slice:"5:"|join:""|shortcodes|safe }}
+            {% if paragraphs.has_other_pages %}
+                {% spaceless %}
+                    <div class="pagination {% if paragraphs.paginator.num_pages > 10 %}large{% endif %}">
+                        <div class="pagination-spacer"></div>
+                        <div class="pagination-navigation">
+                            <a class="pagination-prev {% if not paragraphs.has_previous %}disabled{% endif %}"
+                                href="?page={% if paragraphs.has_previous %}{{ paragraphs.previous_page_number }}{% endif %}"
+                                rel="prev">&laquo; Previous Page</a>
+                            <span class="pagination-pages">
+                                {% for page_num in paragraphs.paginator.page_range %}
+                                <a
+                                                {% if page_num = paragraphs.number %}class="pagination-current"{% endif %}
+                                                href="?page={{ page_num }}">{{ page_num }}</a>
+                                {% endfor %}
+                            </span>
+                            <a
+                                        class="pagination-next {% if not paragraphs.has_next %}disabled{% endif %}"
+                                        href="?page={% if paragraphs.has_next %}{{ paragraphs.next_page_number }}{% endif %}"
+                                        rel="next">Next Page &raquo;</a>
+                        </div>
+                        <div class="pagination-spacer">
+                            <a class="pagination-single" href="?page=single">Single Page View</a>
+                        </div>
+                    </div>
+                {% endspaceless %}
+            {% endif %}
+
+            {% if request.GET.page = "single" %}
+                <div class="pagination large">
+                    <div class="pagination-spacer">
+                        <a class="pagination-single" href="?page=1">Multi-Page View</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+
+        <div id="article-tags">
+            {% if tags %}
+                <h3>Tags</h3>
+                <div>
+                {% for tag in tags %}
+                    <a href="{{ tag.url }}">{{ tag.text|safe }}</a>
+                    {% ifnotequal forloop.last 1 %}{% endifnotequal %}
+                {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div id="subscribe-link">
+            <strong>Want to keep up with breaking news? </strong>
+            <a href="javascript:Crimson.Interstitials.show('subscribe')">Get the latest, straight to your inbox.</a><br><br>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {% with article.rel_content.all|rel_articles as ras %}
+        {% if ras %}
+            <div id="article-related-shell" class="sidebar">
+                <div id="article-related">
+                    <h3>Related Articles</h3>
+                    <ul>
+                        {% for ra in ras %}
+                        <li>{{ ra|linkify }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {{ block.super }}
+{% endblock %}
+{% endcomment %}

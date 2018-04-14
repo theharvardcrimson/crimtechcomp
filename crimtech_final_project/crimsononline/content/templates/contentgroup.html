@@ -1,0 +1,41 @@
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block title %}{{ cg.name }} | {{ cg.section }} | {{ block.super }}{% endblock %}
+
+{% block body %}
+
+<section id="main" class="column">
+            <div id="body">
+                <a href="{{ url_base}}"><h1>{{ cg.name }}</h1></a>
+                <div class="column-byline">{{ content|first|byline:"short" }}</div>
+                {% for article in content %}
+                    {% include "models/article/preview-column.html" %}
+                {% endfor %}
+
+                {% include "_pager.html" %}
+            </div>
+
+{% endblock body %}
+
+{% comment %}
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block title %}{{ cg.name }} | {{ cg.section }} | {{ block.super }}{% endblock %}
+
+{% block headline %}{{ cg.name }}{% endblock %}
+{% block underhead %}
+	<div class="column-byline">{{ content|first|byline:"short" }}</div>
+{% endblock %}
+
+{% block body %}
+	{% for article in content %}
+        {% include "models/article/preview-column.html" %}
+    {% endfor %}
+
+    {% include "_pager.html" %}
+{% endblock %}
+{% endcomment %}

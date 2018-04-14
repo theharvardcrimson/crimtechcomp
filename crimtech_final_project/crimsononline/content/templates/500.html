@@ -1,0 +1,31 @@
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block title %}Page not found | {{ block.super }}{% endblock %}
+{% block body %}
+
+<section id="main">
+    <div id="body">
+        <h1>Server error</h1>
+        <div id="article-content">
+            <p>Please <a href="mailto:president@thecrimson.com">let us know</a> how you triggered this error so we can resolve it as soon as possible.</p>
+        </div>
+    </div>
+
+{% endblock body %}
+
+
+{% comment %}
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block title %}Page not found | {{ block.super }}{% endblock %}
+
+{% block headline %}Server error{% endblock %}
+
+{% block body %}
+	<p>Please <a href="mailto:president@thecrimson.com">let us know</a> what happened so we can resolve it as soon as possible.</p>
+{% endblock body %}
+{% endcomment %}

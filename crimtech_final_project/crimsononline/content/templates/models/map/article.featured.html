@@ -1,0 +1,12 @@
+{% extends "models/wrapper.html" %}
+
+{% load content_filters %}
+{% load common %}
+
+{% block wrapper_classes %}wide{% endblock %}
+{% block wrapper_id %}wide{% endblock %}
+{% block wrapper_contents %}
+    <a href="{{map.get_absolute_url}}">
+    	{{map|to_map_thumb:"392,"}}
+    </a>
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "sponsored/__base.html" %}
+{% block more_css %}
+<link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/sponsored_content_css/the-crimson-brand-studio.scss">
+{% endblock %}
+{% load content_filters %}
+{% load shortcodes_filters %}
+{% block more_js %}
+    <script src="{{ STATIC_URL }}js/sponsored_content_js/the-crimson-brand-studio.js"></script>
+{% endblock %}
+{% block navbar %}
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header page-scroll">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand page-scroll brand" href="#page-top">
+        <span style="color: rgba(165, 10, 14, 1)">The Crimson</span> Brand Studio
+    </a>
+</div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li>
+        <a class="page-scroll" href="#about">How It Works</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="#what">What We Do</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="#contact">Get In Touch</a>
+        </li>
+    </ul>
+</div>
+<!-- /.navbar-collapse -->
+{% endblock %}
+{% block content %}
+<div class="content">
+    <div id="page-hide"></div>
+    <img id="landing-video-backup" class="grayscale" src="{{ STATIC_URL }}images/sponsored_content_images/landing.jpg">
+    <header id="page-top">
+        <iframe
+            id="landing-video" class="video grayscale" src="https://player.vimeo.com/video/228274869?background=1&loop=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+        </iframe>
+        <div class="top-fs">
+            <div class="container">
+                <div class="intro-text">
+                    <div id="title" class="intro-heading brand"><span style="color: rgba(165, 10, 14, 1);">The Crimson</span> <span class="avoidwrap"> Brand Studio</span></div>
+                    <div id="tagline" class="intro-lead-in">creates branded content to engage Harvard affiliates on campus and around the world.</div>
+                    <a id="btn1" href="#about" class="btn btn-lg custom-btn page-scroll">How it Works</a>
+                    <a id="btn2" href="#what" class="btn btn-lg custom-btn page-scroll">What We Do</a>
+                    <a id="btn3" href="#contact" class="btn btn-lg custom-btn page-scroll">Get In Touch</a>
+                </div>
+                <div id="to_about">
+                    <a href="#about" class="page-scroll">&#9660;</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--About Section-->
+    <div class="spacer-50"></div>
+    <div id="about_section-trigger" class="spacer-50"></div>
+    <section id="about">
+        <div class="container">
+            <div class="row col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <h2 class="hide-down">How It Works
+                    <hr class="underline"></h2>
+                </div>
+                <div id="about_text" class="hide-down">
+                    <p><strong><span style="color: rgba(165, 10, 14, 1)">The Crimson</span> Brand Studio</strong> develops native advertising on behalf of The Harvard Crimson, the nation's oldest continually published college newspaper. We produce, publish, and promote stories that engage our local and global audiences. We will create bespoke and compelling experiences that will drive brand awareness with and make a meaningful impression on our audience of millions of Harvard-affiliated readers.</p>
+                    <p>Our team will work with you personally to establish objectives, coproduce content, and strategize a marketing campaign in a way that best suits your brand's specific goals.</p>
+                    <p>The Crimson's news and opinion teams, including writers, editors, photographers, or designers, are not involved in the production of content for The Crimson Brand Studio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id='mid-fs-pic' class="mid-fs" style="background-image: url('{{ STATIC_URL }}images/sponsored_content_images/crimsonbuilding.jpg')">
+    </div>
+    <div class='spacer-40'></div>
+    <div id="what_section-trigger" class='spacer-50'></div>
+    <section id="what">
+        <div id="what-mobile-trigger" class="container">
+            <div class="row col-md-6 col-md-offset-3 text-center">
+                <div>
+                    <h2 class="hide-down">What We Do
+                    <hr class="underline"></h2>
+                </div>
+            </div>
+            <div id="what-icons" class="col-md-6 col-md-offset-3 text-center">
+                <div id="photography" class="row pad-bot hide" onclick="">
+                    <i class="fa fa-cust fa-camera"><span class="skills hide-left-sm">photography</span></i>
+                </div>
+                <div id="videography" class="row pad-bot hide" onclick="">
+                    <i class="fa fa-cust fa-video-camera"><span class="skills hide-left-sm">videography</span></i>
+                </div>
+                <div id="outreach" class="row pad-bot hide" onclick="">
+                    <i class="fa fa-cust fa-comments"><span class="skills hide-left-sm">social media</span></i>
+                </div>
+                <div id="design" class="row pad-bot hide" onclick="">
+                    <i class="fa fa-cust fa-paint-brush"><span class="skills hide-left-sm">graphic design</span></i>
+                </div>
+                <div id="analytics" class="row pad-bot hide" onclick="">
+                    <i class="fa fa-cust fa-line-chart"><span class="skills hide-left-sm">marketing analytics</span></i>
+                </div>
+                <div id="code" class="row hide" onclick="">
+                    <i class="fa fa-cust fa-code"><span class="skills hide-left-sm">custom solutions</span></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id='bot-fs-pic' class="bot-fs" style="background-image: url('{{ STATIC_URL }}images/sponsored_content_images/charles.jpg')"></div>
+    <section id="contact">
+        <div class="row">
+            <div id="contact-text" class='col-md-5 col-md-offset-7 text-center hide-down'>
+                <div>
+                    <h2>Get In Touch
+                    <hr class="underline"></h2>
+                </div>
+                <div id="email-icon" class="row">
+                    <i class="fa fa-2x fa-envelope"></i>
+                </div>
+                <div id="email-text" class="row">
+                    <!-- contact email address in encoded form to avoid scraping -->
+                    <strong><span style="color: rgba(165, 10, 14, 1)">&#116;&#104;&#101;&#99;&#114;&#105;&#109;&#115;&#111;&#110;</span>&#98;r&#97;n&#100;st&#117;dio</strong>&#64;thecrimson.com
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <div class="spacer-20"></div>
+    <section id="portfolio">
+        <div class="container">
+        {% comment %}
+            {% for a in articles %}
+                <a href="{{ a.get_absolute_url }}">
+                    {{ a.title }}
+                </a>
+            {% endfor %}
+        {% endcomment %}
+        </div>
+    </section> -->
+</div>
+{% endblock %}

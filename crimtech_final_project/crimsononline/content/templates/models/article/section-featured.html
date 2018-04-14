@@ -1,0 +1,28 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="section-article section-feature">
+        <div class="article-image">
+            <a href="{{ article.get_absolute_url }}">
+                {% block image %}
+                    {% if article.main_rel_content %}
+                        {{ article.main_rel_content|to_img_tag:"390,250,390,250" }}
+                    {% endif %}
+                {% endblock %}
+            </a>
+        </div>
+    {% block logo %}{% endblock %}
+    <div class="section-feature-text">
+        <div class="article-section">
+            <a href="{{ article.subsection.get_absolute_url }}">{{ article.subsection }}</a>
+        </div>
+        <h2>{{ article|linkify }}</h2>
+        <div class="article-byline">
+            {{ article|byline:"short" }}
+            <span class="article-date">{{ article|datify }}</span>
+        </div>
+        {% if not no_teaser %}
+            <p>{{ article.teaser|striptags }}</p>
+        {% endif %}
+    </div>
+</div>

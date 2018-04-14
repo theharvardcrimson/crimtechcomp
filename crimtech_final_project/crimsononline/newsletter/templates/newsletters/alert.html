@@ -1,0 +1,36 @@
+{% extends "newsletters/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+{% load placeholders %}
+{% load newsletter_ads %}
+
+
+{% block left_tag %}News Alert{% endblock %}
+
+{% block content %}
+
+  {% placeholder name="articles" content_range="(1,10)" content_types="article,external content,topic page" as articles %}
+
+    {% if articles|length == 1 %}
+      {% include "newsletters/article_line.html" with article=articles.0 big=1 first=1 last=1 left_image=1 %}
+    {% else %}
+      {% for a in articles %}
+        {% cycle 1 0 as left_image silent %}
+        {% cycle 0 1 as right_image silent %}
+        {% if forloop.first %}
+          {% include "newsletters/article_line.html" with article=a big=1 first=1 %}
+        {% elif forloop.last %}
+          {% include "newsletters/article_line.html" with article=a big=1 last=1 %}
+        {% else %}
+          {% include "newsletters/article_line.html" with article=a big=1 %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+  {% endplaceholder %}
+
+  {% newsletter_ad newsletter_obj 1 %}
+  <table border="0" cellpadding="0" cellspacing="0"  align="center" style="margin-left:auto; margin-right:auto;"><tr><td colspan="2"><a href="http://li.thecrimson.com/click?s=285716&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=285716&layout=marquee&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0" style="display: block; width:100%; height:auto;" width="{INSERT TEMPLATE MAX WIDTH HERE AS INTEGER}" /></a></td></tr><tr style="display:block; height:1px; line-height:1px;"><td><img src="http://li.thecrimson.com/imp?s=285717&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td><td><img src="http://li.thecrimson.com/imp?s=285718&sz=1x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" height="1" width="10" /></td></tr><tr><td align="left"><a href="http://li.thecrimson.com/click?s=285719&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=285719&sz=116x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td><td align="right"><a href="http://li.thecrimson.com/click?s=285720&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" rel="nofollow"><img src="http://li.thecrimson.com/imp?s=285720&sz=69x15&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" border="0"/></a></td></tr></table>
+  <table cellpadding="0" cellspacing="0" border="0" width="40" height="6"><tbody><tr><td><img src="http://li.thecrimson.com/imp?s=125046200&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046201&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046202&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046203&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046204&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046205&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046206&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046207&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046208&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046209&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046210&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046211&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046212&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046213&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046214&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046215&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046216&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046217&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046218&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td><td><img src="http://li.thecrimson.com/imp?s=125046219&sz=2x1&li=*|LIST:UID|*&e=*|EMAIL|*&p=*|CAMPAIGN_UID|*" width="2" height="6" border="0" /></td></tr></tbody></table>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load content_filters %}
+{% load common %}
+
+{% for article in entries %}
+
+<div class="blog-entry blog-{{ article|get_flyby_category|lower }}">
+    {% if not cg %}
+        <div class="entry-image"><a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"110,110,110,110" }}</a></div>
+    {% endif %}
+    <div class="entry-description{% if cg %} cg{% endif %}">
+        <div class="entry-title"><a href="{{ article.get_absolute_url }}">{{ article.headline }}</a></div>
+        {% if article.num_comments %}
+            <div class="article-comments">
+                <a href="{{ article.get_absolute_url }}#article-comments">
+                    <span class="comment-count">{{ article.num_comments }} </span>comment{% if article.num_comments != 1 %}s{% endif %}
+                </a>
+            </div>
+        {% endif %}
+        <div class="entry-info">
+            <div class="entry-byline">
+                <div class="entry-author">{{ article.contributors.all|linkify|human_list }}</div>
+                <div class="entry-date">{{ article.created_on }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}

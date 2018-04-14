@@ -1,0 +1,131 @@
+{% extends "__standard.html" %}
+{% load common %}
+{% load content_filters %}
+
+{% block title %}{{ writer }} | Writer Profile | {{ block.super }}{% endblock %}
+
+{% block meta %}
+    {{ block.super }}
+    {% if not writer.searchable %}
+        <meta name="robots" content="noindex">
+    {% endif %}
+{% endblock meta %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/writer.scss">
+{% endblock %}
+
+{% block body %}
+    <section id="main" class="author">
+        <div id="body">
+            <div id="writer-header">
+                <div>
+                {% if img_url %}
+                    <img id="writer-photo" src="{{ img_url }}" alt="Profile Picture">
+                {% endif%}
+                </div>
+                <div id="writer-info">
+                    <h4 id="writer-title">{{ writer.title }}</h4>
+                    <div class="social">
+                        <a href="{{ rss_url }}">
+                            <img src="{{ STATIC_URL }}images/icons/icon-rss.gif" alt="Subscribe via RSS">
+                        </a>
+                        {% if writer.twitter %}
+                        <a target="_blank" href="https://twitter.com/{{ writer.twitter }}">
+                            <img src="{{ STATIC_URL }}images/icons/twitter-logo.gif" alt="twitter">
+                        </a>
+                        {% endif %}
+                        {% if writer.email %}
+                        <a href="mailto:{{ writer.email }}">
+                            <img src="{{ STATIC_URL }}images/icons/email-logo.gif" alt="email">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div></div>
+                    <h1 id="writer-name">{{ writer }}</h1>
+                    {% if writer.bio %}
+                        <p class="writer-blurb">{{ writer.bio }}</p>
+                    {% endif %}
+                    {% if writer_byline %}
+                        <p class="writer-blurb">{{ writer_byline }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <h3 id="article-header">
+                Latest Content
+            </h3>
+
+            <div id="articles">
+                <!-- ensure the page is loaded with one page of articles -->
+                {% for article in content %}
+                    {{ article|render:"preview-list" }}
+                {% endfor %}
+            </div>
+            <div class="show-more-container">
+                <button id="show-more">Show More</button>
+                <p id="fetch-status" style="display: none;"></p>
+            </div>
+
+        </div>
+
+    {% comment %} This commented out section is cancerous but necessary if you look at __standard.html {% endcomment %}
+    <!-- </section> -->
+
+    <script>
+        let page = 2;
+
+        function fetchArticles() {
+            $("#show-more").hide().attr("disabled", true);
+            $("#fetch-status").show().text("Loading...");
+            $(window).off("scroll resize", fetchWhenVisible);
+
+            $.post("{{url_base}}/page/" + page + "/")
+                .done(function(data) {
+                    // no more articles can be retrieved
+                    if (data.articles.length == 0) {
+                        $("#fetch-status").hide();
+                        $("#show-more").hide().attr("disabled", true);
+                        $(window).off("scroll resize", fetchWhenVisible);
+                        return;
+                    }
+
+                    for (let article of data.articles) {
+                        $("#articles").append(article);
+                    }
+
+                    $("#show-more").show().attr("disabled", false);
+                    $("#fetch-status").hide();
+                    $(window).on("scroll resize", fetchWhenVisible);
+
+                    page += 1;
+                })
+                .fail(function(xhr, txt, error) {
+                    $("fetch-status").show().text(
+                        "Sorry, we couldn't fetch more articles right now. " +
+                        "Click the \"Show More\" button to try again."
+                    );
+                    $("#show-more").show().attr("disabled", false);
+                });
+        }
+
+        function fetchWhenVisible() {
+            // Don't automatically fetch for mobile devices (width < 680)
+            if ($(window).width() <= 680) {
+                return;
+            }
+
+            // fetch if the #show-more button is almost visible
+            let elementTop = $("#show-more").offset().top;
+            let elementBot = elementTop + $("#show-more").outerHeight();
+            let viewportTop = $(window).scrollTop();
+            let viewportBot = viewportTop + $(window).height();
+
+            if (elementBot > viewportTop && elementTop < viewportBot + 420) {
+                fetchArticles();
+            }
+        }
+
+        $("#show-more").click(fetchArticles);
+    </script>
+{% endblock body %}

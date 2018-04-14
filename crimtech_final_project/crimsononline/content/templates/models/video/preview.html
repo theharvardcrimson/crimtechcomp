@@ -1,0 +1,13 @@
+{% load content_filters %}
+
+<div class="media-another">
+    <div class="media-thumbnail">
+        <a href="{{ video.get_absolute_url }}">
+            {{ video|to_img_tag:"100,100,100,100" }}
+        </a>
+    </div>
+    <div class="media-entry">
+        <h4><a href="{{ video.get_absolute_url }}">{{ video.title }}</a></h4>
+        <div class="media-byline"><span class="media-date">{{ video|datify }}</span></div>
+    </div>
+</div>

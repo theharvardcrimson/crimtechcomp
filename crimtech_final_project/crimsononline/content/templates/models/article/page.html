@@ -1,0 +1,512 @@
+{% extends "__base.html" %}
+{% load top_articles %}
+{% load common %}
+{% load content_filters %}
+{% load ads_tags %}
+{% load flyby_preview %}
+{% load shortcodes_filters %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/article.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/twentytwenty-css/twentytwenty.scss" />
+{% endblock css %}
+
+{% block outside_css %}
+    <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+{% endblock outside_css %}
+
+{% block meta %}
+    {{ block.super }}
+    {% if not article.searchable or request.GET.page = "single" %}
+        <meta name="robots" content="noindex">
+    {% endif %}
+{% endblock meta %}
+
+{% block title %}
+    {{ article.headline }} |
+    {% if article.section %}
+        {{ article.section }} |
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script src="{{STATIC_URL }}js/twentytwenty-js/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="{{STATIC_URL }}js/twentytwenty-js/jquery.event.move.js" type="text/javascript"></script>
+    <script src="{{STATIC_URL }}js/twentytwenty-js/jquery.twentytwenty.js" type="text/javascript"></script>
+
+    <script src="{{ STATIC_URL }}js/sticky_bar.js"></script>
+
+    <script type="text/javascript">
+        {% if not article.show_ads %}
+          Crimson.ADS_ENABLED = false;
+        {% endif %}
+
+	$(function() {
+	    /* Script used for smooth navigation */
+	    $(".navlink").click(function(event) {
+		event.preventDefault();
+		var target = $(this).attr("href");
+		$("html, body").animate({
+		    scrollTop: $(target).offset().top - $(".navigation").outerHeight() - 15
+		}, 500);
+	    });
+
+	    $(".photoslider_container").twentytwenty();
+
+	    // handles links to next and previous part in series
+	    $(".current-series-image, .other-series-image").hover(function() {
+		clearTimeout($(".other-series-image").data('timeout'));
+		clearTimeout($(".current-series-image").data('timeout'));
+		var num_class = this.className.match(/series-num-\d+/)[0]
+		    $(".current-series-image, .other-series-image").not('.' + num_class).fadeTo(0, 0.7);
+		$('.' + num_class).fadeTo('fast', 1);
+	    }, function() {
+		var s = setTimeout(function() {
+		    $(".other-series-image").fadeTo('fast', 0.7);
+		}, 200);
+		$(".other-series-image").data('timeout', s);
+		var t = setTimeout(function() {
+		    $(".current-series-image").fadeTo('fast', 1);
+		}, 200);
+		$(".current-series-image").data('timeout', t);
+	    });
+	});
+    </script>
+{% endblock %}
+
+{% block meta_social %}
+    {% if article.main_rel_content %}
+        <meta property="og:image" content="{{ article.main_rel_content|img_url:"635,630" }}">
+        <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    {% endif %}
+    <meta property="og:title" content="{{ article.title }} |{% if article.section %} {{ article.section }} |{% endif %} The Harvard Crimson">
+    <meta property="og:description" content="{{ article.description }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ article.title }}">
+    <meta name="twitter:description" content="{{ article.description }}">
+    {% if article.main_rel_content %}
+        <meta name="twitter:image" content="{{ article.main_rel_content|img_url:"480,480" }}">
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block masthead_header %}
+    {{ block.super }}
+    {% include "_sticky_bar_commencement.html" %}
+    {% include "_sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+    {% block ab_test %}
+        <!-- Zedo video advertisements -->
+        <script>
+        var datalayer = {
+          z_cltr: '%%CLICK_URL_UNESC%%',
+          z_imtr: '%%VIEW_URL_UNESC%%'
+        }
+        </script>
+        <div id="zf74ca1d1-2fe9-4ba0-a804-50416ce4cbd7" style="display:none"></div>
+        <script>
+          !function(a,n,e,t,r){tagsync=e;var c=window[a];if(tagsync){var d=document.createElement("script");d.src="http://3760.tm.zedo.com/v1/e60bccfe-5c55-45ad-90ca-a4254ddb6e7a/atm.js",d.async=!0;var i=document.getElementById(n);if(null==i||"undefined"==i)return;i.parentNode.appendChild(d,i),d.onload=d.onreadystatechange=function(){var a=new zTagManager(n);a.initTagManager(n,c,this.aync,t,r)}}else document.write("<script src='http://3760.tm.zedo.com/v1/e60bccfe-5c55-45ad-90ca-a4254ddb6e7a/tm.js?data="+a+"'><"+"/script>")}("datalayer","zf74ca1d1-2fe9-4ba0-a804-50416ce4cbd7",true,1,1);
+        </script>
+    {% endblock %}
+
+    {% block body %}
+        <section id="main" data-content-id="{{ article.id }}">
+            <div id="next-previous-buttons">
+                {% if prev %}
+                <a id="previous-article" class="next-prev" href="{{prev.get_absolute_url}}">
+                    <div class="next-prev-arrow">&#12296;</div>
+                    <div class="next-prev-preview">
+                        {{ prev.main_rel_content|to_img_tag:"100,100,100,100" }}
+                        <div class="next-prev-title">{{ prev.title }}</div>
+                    </div>
+                </a>
+                {% endif %}
+                {% if next %}
+                <a id="next-article" class="next-prev" href="{{next.get_absolute_url}}">
+                    {# Reversed since these will be floated right #}
+                    <div class="next-prev-arrow">&#12297;</div>
+                    <div class="next-prev-preview">
+                        {{ next.main_rel_content|to_img_tag:"100,100,100,100" }}
+                        <div class="next-prev-title">{{ next.title }}</div>
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+            <div id="article">
+            <div id="article-header" class="sticky-bar-start">
+                    {% block flybyheader %}{% endblock %}
+                    <h1 id="top">{{ article.headline }}</h1>
+                    {% if article.subheadline %}
+                        <h2 style="font-size: 1.5em; font-style: italic; color: #999; margin: 3px 0 5px;">
+                            {{ article.subheadline }}
+                        </h2>
+                    {% endif %}
+                    <div class="article-byline">{{ article|byline:"full" }}{% date article %}</div>
+                </div>
+
+                {% if paragraphs.has_previous %}
+                    <div id="page-number">
+                        Page {{ paragraphs.number }} of {{ paragraphs.paginator.num_pages }}
+                    </div>
+                {% endif %}
+
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style sidebar">
+                    <div class="add-this-inner">
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_button_email"></a>
+                        <a class="addthis_button_print"></a>
+                        <a class="addthis_button_compact"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                    </div>
+                </div>
+
+                <div id="article-body">
+                    {% if article.main_rel_content and not article.main_rel_content_is_shortcoded and not paragraphs.has_previous %}
+                        <div id="article-image-side" class="{% if main_rel_content_too_tall %}too-tall{% endif %}">
+                            <a href="{{ article.main_rel_content.get_absolute_url }}">
+                                {{ article.main_rel_content|to_img_tag:"800,1200" }}
+                            </a>
+                            <div class="article-image-credit">
+                                {{ article.main_rel_content|byline_sans_by:"full" }}
+                            </div>
+                            <p class="article-image-caption">
+                                {{ article.main_rel_content.caption|safe }}
+                            </p>
+                        </div>
+                    {% endif %}
+                    <div id="text">
+                        {% if article.group and article.group.type = 'column' %}
+                        <h2>
+                            <a href="{{ article.group.get_absolute_url }}">{{ article.group.name }}</a>
+                        </h2>
+                        {% endif %}
+
+                        {% with paragraphs as paras %}
+                            {{ paras|slice:":5"|join:""|safe }}
+                            {% with article.rel_not_shortcoded|rel_no_articles|slice:"1:" as rcs %}
+                                {% if rcs %}
+                                <div id="article-inset">
+                                    <h2>
+                                        Multimedia
+                                    </h2>
+                                    {% for rc in rcs %}
+                                        {{ rc|render:"inset" }}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            {% endwith %}
+                            {{ paras|slice:"5:"|join:""|safe }}
+                            {% if paragraphs.has_other_pages %}
+                                {% spaceless %}
+                                    <div class="pagination {% if paragraphs.paginator.num_pages > 10 %}large{% endif %}">
+                                        <div class="pagination-spacer"></div>
+                                        <div class="pagination-navigation">
+                                            <a class="pagination-prev {% if not paragraphs.has_previous %}disabled{% endif %}"
+                                                href="?page={% if paragraphs.has_previous %}{{ paragraphs.previous_page_number }}{% endif %}"
+                                                rel="prev">&laquo; Previous Page</a>
+                                            <span class="pagination-pages">
+                                                {% for page_num in paragraphs.paginator.page_range %}
+                                                <span> <a
+                                                                {% if page_num = paragraphs.number %}class="pagination-current"{% endif %}
+                                                                href="?page={{ page_num }}">{{ page_num }}</a>
+                                                </span>
+                                                {% endfor %}
+                                            </span>
+                                            <a
+                                                        class="pagination-next {% if not paragraphs.has_next %}disabled{% endif %}"
+                                                        href="?page={% if paragraphs.has_next %}{{ paragraphs.next_page_number }}{% endif %}"
+                                                        rel="next">Next Page &raquo;</a>
+                                        </div>
+                                        <div class="pagination-spacer">
+                                            <a class="pagination-single" href="?page=single">Single Page View</a>
+                                        </div>
+                                    </div>
+                                {% endspaceless %}
+                            {% endif %}
+
+                            {% if request.GET.page = "single" %}
+                                <div class="pagination large">
+                                    <div class="pagination-spacer">
+                                        <a class="pagination-single" href="?page=1">Multi-Page View</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+
+                        <div id="subscribe-link">
+                            <strong>Want to keep up with breaking news? </strong>
+                            <a href="javascript:Crimson.Interstitials.show('subscribe')">Subscribe to our email newsletter.</a>
+                        </div>
+
+                        {% if series_article %}
+			<div id="series-container">
+			    <div id="series-images" class="si-{{series_articles|length}}">
+				{% for num, part in series_articles %}
+				    {% ifequal part article %}
+					<a href="{{part.get_absolute_url}}" class="current-series-image series-num-{{num}}">
+				    {% else %}
+					<a href="{% if part.pub_status %}{{part.get_absolute_url}}{% endif %}" class="other-series-image series-num-{{num}}{% if not part.pub_status %} series-draft{% endif %}">
+				    {% endifequal %}
+					    {% if part.main_rel_content %}
+						{{part.main_rel_content|to_img_tag:"300,300"}}
+					    {% else %}
+						<img src="{{STATIC_URL}}images/seal.jpg" alt='seal' width=295 height=302>
+					    {% endif %}
+					</a>
+				{% endfor %}
+			    </div>
+			    <div id="series-captions" class="si-{{series_articles|length}}">
+				{% for num, part in series_articles %}
+				    {% ifequal part article %}
+					<a href="{{part.get_absolute_url}}" class="current-series-image series-caption series-num-{{num}}">
+				    {% else %}
+					<a href="{% if part.pub_status %}{{part.get_absolute_url}}{% endif %}" class="other-series-image series-caption series-num-{{num}}{% if not part.pub_status %} series-draft{% endif %}">
+				    {% endifequal %}
+					    <p>
+						Part {{num}}
+					    </p>
+					</a>
+				{% endfor %}
+			    </div>
+			</div>
+                        {% endif %}
+
+                        {% if prev %}
+                        <div id="previous-article-bottom">
+                            <p id="next-in">Read more in {{ main_tag }}</p>
+                            <a id="next-in-link" href="{{ prev.get_absolute_url }}">{{ prev.title }}</a>
+                        </div>
+                        <div style="clear: both;"></div>
+                        {% endif %}
+
+                        <div id="article-tags">
+                            {% if tags %}
+                                <h3>Tags</h3>
+                                <div>
+                                {% for tag in tags %}
+                                    <a href="{{ tag.url }}">{{ tag.text|safe }}</a>
+                                    {% ifnotequal forloop.last 1 %}{% endifnotequal %}
+                                {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% recommended_articles %}
+                    </div>
+                </div>
+                <div class="sidebar">
+                    {% related_articles %}
+                    {% most_read_articles %}
+                    <div class="sidekick-shell sidebar">
+                        <div class="sidekick primary">
+                            <div class="ad-label">Advertisement</div>
+                            {% ad_unit "300x600" %}
+                        </div>
+                        <div class="large-screen-only">
+                            {% flyby_preview %}
+                        </div>
+                        {% sponsored_articles %}
+                        <div class="sidekick-shell">
+                            <div class="sidekick">
+                                <div class="ad-label">Advertisement</div>
+                                {% ad_unit "300x250" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="article-comments">
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                            var disqus_shortname = '{{ DISQUS_SHORTNAME }}';
+                            var disqus_url = 'http://www.thecrimson.com{{ request.path }}';
+                            (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript';
+                                dsq.src = 'http://thecrimson.disqus.com/embed.js';
+                                dsq.async = true;
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0])
+                                    .appendChild(dsq);
+                            })();
+                    </script>
+                </div>
+            </div>
+        </section>
+    {% endblock body %}
+{% endblock content %}
+
+{% comment %}
+######################
+Attempt to actually make clean structure
+######################
+
+{% extends "__contentpage.html" %}
+{% load top_articles %}
+{% load common %}
+{% load content_filters %}
+{% load ads_tags %}
+{% load flyby_preview %}
+{% load shortcodes_filters %}
+
+{% block title %}
+    {{ article.title }} |
+    {% if article.section %}
+        {{ article.section }} |
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block meta_social %}
+    {% if article.main_rel_content %}
+        <meta property="og:image" content="{{ article.main_rel_content|img_url:"635,630" }}">
+        <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ article.title }}">
+    <meta name="twitter:description" content="{{ article.teaser }}">
+    {% if article.main_rel_content %}
+        <meta name="twitter:image" content="{{ article.main_rel_content|img_url:"480,480" }}">
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block headline %}{{ article.title }}{% endblock %}
+
+{% block underhead %}
+    {% if article.subtitle %}
+        <h2>{{ article.subtitle }}</h2>
+    {% endif %}
+    <div class="article-byline">{{ article|byline:"full" }}{% date article %}</div>
+{% endblock %}
+
+{% block prebody %}
+    {% if paragraphs.has_previous %}
+        <div id="page-number">
+            Page {{ paragraphs.number }} of {{ paragraphs.paginator.num_pages }}
+        </div>
+    {% endif %}
+
+    {{ block.super }}
+{% endblock %}
+
+{% block body %}
+    {% if article.main_rel_content and not paragraphs.has_previous %}
+        <div id="article-image-side" class="{% if main_rel_content_too_tall %}too-tall{% endif %}">
+            <a href="{{ article.main_rel_content.get_absolute_url }}">
+                {{ article.main_rel_content|to_img_tag:"800,1200" }}
+            </a>
+            <div class="article-image-credit">
+                {{ article.main_rel_content|byline_sans_by:"full" }}
+            </div>
+            <p class="article-image-caption">
+                {{ article.main_rel_content.caption|safe }}
+            </p>
+        </div>
+    {% endif %}
+    <div id="text">
+        {% if article.group and article.group.type = 'column' %}
+        <h2>
+            <a href="{{ article.group.get_absolute_url }}">{{ article.group.name }}</a>
+        </h2>
+        {% endif %}
+
+        {% with paragraphs as paras %}
+            {{ paras|slice:":5"|join:""|safe }}
+            {% with article.rel_not_shortcoded|rel_no_articles|notfirst as rcs %}
+                {% if rcs %}
+                <div id="article-inset">
+                    <h2>
+                        Multimedia
+                    </h2>
+                    {% for rc in rcs %}
+                        {{ rc|render:"inset" }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            {{ paras|slice:"5:"|join:""|safe }}
+            {% if paragraphs.has_other_pages %}
+                {% spaceless %}
+                    <div class="pagination {% if paragraphs.paginator.num_pages > 10 %}large{% endif %}">
+                        <div class="pagination-spacer"></div>
+                        <div class="pagination-navigation">
+                            <a class="pagination-prev {% if not paragraphs.has_previous %}disabled{% endif %}"
+                                href="?page={% if paragraphs.has_previous %}{{ paragraphs.previous_page_number }}{% endif %}"
+                                rel="prev">&laquo; Previous Page</a>
+                            <span class="pagination-pages">
+                                {% for page_num in paragraphs.paginator.page_range %}
+                                <a
+                                                {% if page_num = paragraphs.number %}class="pagination-current"{% endif %}
+                                                href="?page={{ page_num }}">{{ page_num }}</a>
+                                {% endfor %}
+                            </span>
+                            <a
+                                        class="pagination-next {% if not paragraphs.has_next %}disabled{% endif %}"
+                                        href="?page={% if paragraphs.has_next %}{{ paragraphs.next_page_number }}{% endif %}"
+                                        rel="next">Next Page &raquo;</a>
+                        </div>
+                        <div class="pagination-spacer">
+                            <a class="pagination-single" href="?page=single">Single Page View</a>
+                        </div>
+                    </div>
+                {% endspaceless %}
+            {% endif %}
+
+            {% if request.GET.page = "single" %}
+                <div class="pagination large">
+                    <div class="pagination-spacer">
+                        <a class="pagination-single" href="?page=1">Multi-Page View</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+
+        <div id="article-tags">
+            {% if tags %}
+                <h3>Tags</h3>
+                <div>
+                {% for tag in tags %}
+                    <a href="{{ tag.url }}">{{ tag.text|safe }}</a>
+                    {% ifnotequal forloop.last 1 %}{% endifnotequal %}
+                {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+        <div id="subscribe-link">
+            <strong>Want to keep up with breaking news? </strong>
+            <a href="javascript:Crimson.Interstitials.show('subscribe')">Get the latest, straight to your inbox.</a><br><br>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {% with article.rel_content.all|rel_articles as ras %}
+        {% if ras %}
+            <div id="article-related-shell" class="sidebar">
+                <div id="article-related">
+                    <h3>Related Articles</h3>
+                    <ul>
+                        {% for ra in ras %}
+                        <li>{{ ra|linkify }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {{ block.super }}
+{% endblock %}
+{% endcomment %}

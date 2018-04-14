@@ -1,0 +1,135 @@
+/*
+Sponsored Bar design
+*/
+$color-sponsored: #DB006A;
+
+/************************************/
+/**** ARTICLE PAGE SPONSORED BOX ****/
+/************************************/
+
+.fadeout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, transparent 65%, white 100%);
+}
+.sponsored-sidebar {
+  margin: 10px 0px !important;
+  border-top: 2px solid $color-sponsored;
+  border-bottom: 2px solid $color-sponsored;
+}
+.sponsored-sidebar .article {
+  margin-bottom: 5px !important;
+}
+.sponsored-sidebar a {
+  text-decoration: none !important;
+}
+.sponsored-sidebar .sponsored-h3 {
+  padding-top: 10px !important;
+  margin-bottom: 9px !important;
+  text-align: center;
+}
+.sponsored-sidebar .highlights-item {
+  text-align: left;
+}
+.sponsored-sidebar .sponsored-image {
+  width: 70px;
+  display: inline-block;
+  float: none;
+}
+.sponsored-sidebar .sponsored-info {
+  position: relative;
+  vertical-align: top;
+  margin-left: 5px;
+  width: calc(100% - 85px);
+  height: 73px;
+  display: inline-block;
+  float: none;
+  overflow: hidden;
+}
+.sponsored-sidebar .sponsored-info > .sponsor {
+  font-size: 10px !important;
+}
+.sponsored-sidebar .sponsored-info > .title {
+  font-size: 13px !important;
+}
+.sponsored-sidebar .sponsored-info > .subtitle {
+  font-size: 10px !important;
+  line-height: 1em !important;
+}
+.sponsored-sidebar .sponsored-label {
+  font-size: 8px !important;
+}
+/************************************/
+/**** LANDING PAGE SPONSORED BAR ****/
+/************************************/
+
+#section-arts > .section-header {
+  margin-top: 0 !important;
+}
+
+.sponsored-bar {
+  padding-top: 0px !important;
+  border-top: 2px solid $color-sponsored;
+}
+.sponsored-h3 {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  color: $color-sponsored;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.sponsored-image {
+  position: relative;
+}
+.sponsored-label {
+  font-family: 'Lato', sans-serif !important;
+  color: black;
+  font-size: 9px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  background-color: rgba(255,255,255,0.7);
+}
+.sponsored-info {
+  text-align: left;
+  font-family: 'Lato', sans-serif !important;
+}
+
+.sponsored-info > .sponsor {
+  color: $color-sponsored;
+  font-size: 11px;
+  line-height: 1.4em;
+  text-transform: uppercase;
+}
+
+.sponsored-info > .title {
+  font-size: 16px;
+  line-height: 1.15em;
+  margin-top: 1px;
+  margin-bottom: 2px;
+}
+
+.sponsored-info > .subtitle {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.sponsored-item {
+  color: #333;
+  transition: color 0.3s ease;
+}
+.sponsored-item:focus, .sponsored-item:hover, {
+  color: $color-sponsored !important;
+}
+.shortcodes-wrapper-left {
+  padding: 15px 15px 15px 0px;
+}
+.shortcodes-wrapper-right {
+  padding: 15px 0px 15px 15px;
+}

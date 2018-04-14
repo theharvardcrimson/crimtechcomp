@@ -1,0 +1,461 @@
+[{
+    "pk": 15,
+    "model": "auth.group",
+    "fields": {
+        "name": "IT Exec",
+        "permissions": []
+    }
+},
+{
+    "pk": 16,
+    "model": "auth.group",
+    "fields": {
+        "name": "IT",
+        "permissions": [
+            89,
+            90,
+            25,
+            26,
+            95,
+            96,
+            97,
+            92,
+            93,
+            94
+        ]
+    }
+},
+{
+    "pk": 17,
+    "model": "auth.group",
+    "fields": {
+        "name": "News",
+        "permissions": []
+    }
+},
+{
+    "pk": 18,
+    "model": "auth.group",
+    "fields": {
+        "name": "Photo",
+        "permissions": []
+    }
+},
+{
+    "pk": 19,
+    "model": "auth.group",
+    "fields": {
+        "name": "Arts",
+        "permissions": []
+    }
+},
+{
+    "pk": 20,
+    "model": "auth.group",
+    "fields": {
+        "name": "FM",
+        "permissions": []
+    }
+},
+{
+    "pk": 21,
+    "model": "auth.group",
+    "fields": {
+        "name": "Design",
+        "permissions": []
+    }
+},
+{
+    "pk": 22,
+    "model": "auth.group",
+    "fields": {
+        "name": "Sports",
+        "permissions": []
+    }
+},
+{
+    "pk": 23,
+    "model": "auth.group",
+    "fields": {
+        "name": "Biz",
+        "permissions": []
+    }
+},
+{
+    "pk": 24,
+    "model": "auth.group",
+    "fields": {
+        "name": "Ed",
+        "permissions": []
+    }
+},
+{
+    "pk": 25,
+    "model": "auth.group",
+    "fields": {
+        "name": "Execs",
+        "permissions": [
+            83,
+            84,
+            85,
+            71,
+            74,
+            28,
+            41,
+            62,
+            53,
+            56,
+            50,
+            47,
+            65,
+            77,
+            80,
+            44,
+            38,
+            59,
+            72,
+            75,
+            29,
+            42,
+            63,
+            54,
+            57,
+            51,
+            48,
+            66,
+            78,
+            81,
+            45,
+            39,
+            60,
+            31,
+            76,
+            58,
+            79,
+            82,
+            90,
+            26
+        ]
+    }
+},
+{
+    "pk": 26,
+    "model": "auth.group",
+    "fields": {
+        "name": "Editors",
+        "permissions": [
+            71,
+            74,
+            28,
+            62,
+            53,
+            56,
+            50,
+            65,
+            77,
+            80,
+            59,
+            72,
+            75,
+            29,
+            42,
+            63,
+            54,
+            57,
+            51,
+            66,
+            78,
+            81,
+            60,
+            76,
+            58
+        ]
+    }
+},
+{
+    "pk": 27,
+    "model": "auth.group",
+    "fields": {
+        "name": "Superexecs",
+        "permissions": [
+            71,
+            74,
+            28,
+            35,
+            32,
+            41,
+            62,
+            53,
+            56,
+            50,
+            47,
+            65,
+            68,
+            77,
+            80,
+            44,
+            38,
+            59,
+            72,
+            75,
+            29,
+            36,
+            33,
+            42,
+            63,
+            54,
+            57,
+            51,
+            48,
+            66,
+            69,
+            78,
+            81,
+            45,
+            39,
+            60,
+            31,
+            73,
+            76,
+            30,
+            37,
+            34,
+            43,
+            64,
+            55,
+            58,
+            52,
+            49,
+            67,
+            70,
+            79,
+            82,
+            46,
+            40,
+            61,
+            90,
+            91,
+            13,
+            14,
+            15,
+            25,
+            26,
+            27,
+            95,
+            96,
+            97,
+            92,
+            93,
+            94
+        ]
+    }
+},
+{
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+        "username": "root",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2009-09-27 20:14:12",
+        "groups": [],
+        "user_permissions": [],
+        "password": "sha1$f0be3$451149df38e748ccb9fae0273c78faffb7e8e5ba",
+        "email": "itchair@thecrimson.com",
+        "date_joined": "2008-09-24 16:47:56"
+    }
+},
+{
+    "pk": 2,
+    "model": "auth.user",
+    "fields": {
+        "username": "editor",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": true,
+        "last_login": "2009-09-27 20:01:41",
+        "groups": [
+            26
+        ],
+        "user_permissions": [],
+        "password": "sha1$ccebb$48c96eb1c6d2431fd737b4707dc43b8176ff5a21",
+        "email": "",
+        "date_joined": "2009-09-27 16:45:10"
+    }
+},
+{
+    "pk": 3,
+    "model": "auth.user",
+    "fields": {
+        "username": "exec",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": true,
+        "last_login": "2009-09-27 20:06:40",
+        "groups": [
+            25
+        ],
+        "user_permissions": [],
+        "password": "sha1$4a405$be7e2577f94839f0f908e57ea8cc9938bf22ee05",
+        "email": "",
+        "date_joined": "2009-09-27 16:47:06"
+    }
+},
+{
+    "pk": 4,
+    "model": "auth.user",
+    "fields": {
+        "username": "superexec",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": true,
+        "last_login": "2009-09-27 19:44:31",
+        "groups": [
+            27
+        ],
+        "user_permissions": [],
+        "password": "sha1$7760a$44dce924f2774df37289cc2c977cbec9aa62dd2a",
+        "email": "",
+        "date_joined": "2009-09-27 18:19:37"
+    }
+},
+{
+    "pk": 1,
+    "model": "sites.site",
+    "fields": {
+        "domain": "www.thecrimson.com",
+        "name": "www.thecrimson.com"
+    }
+},
+{
+    "pk": 1,
+    "model": "flatpages.flatpage",
+    "fields": {
+        "registration_required": false,
+        "title": "About",
+        "url": "/about/",
+        "template_name": "",
+        "sites": [1],
+        "content": "<h1>About Us</h1>\r\n<table id=\"table1\" width=\"100%\" border=\"0\" cellpadding=\"4\" cellspacing=\"4\"> \r\n<tbody> \r\n<tr> \r\n<td valign=\"top\" width=\"40%\"><strong><font size=\"2\" color=\"#660000\" face=\"Arial\">HISTORY OF THE CRIMSON</font></strong><br><font class=\"text\">The Harvard Crimson, the nation's oldest continuously published daily college newspaper, was founded in 1873 and incorporated in 1967. The newspaper traces its history to the first issue of \"The Magenta,\" published January 24, 1873, and changed its name to \"The Crimson\" to reflect the new color of the college on May 21, 1875. The Crimson has a rich tradition of journalistic integrity and counts among its ranks of editorship some of America's greatest journalists. The faces of Pulitzer Prize-winning Crimson editors line the walls of The Crimson. Past editors include John F. Kennedy '40. The name of Franklin D. Roosevelt, Class of 1904, is proudly engraved upon The Crimson's president's chair. One hundred and thirty-five years after its founding, having grown from a fortnightly newspaper to a daily, The Harvard Crimson continues to flourish with a strong body of undergraduate staff volunteers. </font><br><br><strong><font size=\"2\" color=\"#660000\" face=\"Arial\">WHAT WE PRINT</font></strong><br><font class=\"text\">The Harvard Crimson is the only breakfast-table daily newspaper in Cambridge, MA. The Crimson publishes every morning, Monday through Friday, except on federal and University holidays. In addition to the daily newspaper, The Crimson publishes an extended sports section on Mondays; Fifteen Minutes, the weekend magazine of The Crimson on Thursdays; and an arts section on Fridays. Our presses are also available for third-party contract printing. Call 617-576-6600 for more information. <br></font><br><strong><font size=\"2\" color=\"#660000\" face=\"Arial\">JOINING THE CRIMSON</font></strong><br><font class=\"text\">If you are a Harvard College student you are eligible to join The Crimson. Please click <a href=\"/info/comp.aspx\"><u>here</u></a> to learn more about our comp process.<br><br></font><strong><font size=\"2\" color=\"#660000\" face=\"Arial\">WHAT SHOULD I DO IF THE CRIMSON MAKES A MISTAKE IN A STORY?</font></strong><font class=\"text\"><br>In the event that we run something that is factually inaccurate, we are eager to correct the error. When a correction is necessary, it will run in a corrections box on page two. Please e-mail Managing Editor&nbsp;Paras D. Bhayani&nbsp;(pbhayani@fas.harvard.edu) about corrections.<br></font></td> \r\n<td valign=\"top\" width=\"60%\"> \r\n<div class=\"almond_box\"> \r\n<table id=\"table3\" width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr> \r\n<td width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">President</font></strong></div></td> \r\n<td width=\"2%\"> \r\n<p align=\"right\">&nbsp;</p></td> \r\n<td width=\"48%\"><font size=\"2\">Malcom&nbsp;A.&nbsp;Glenn '09<br></font></td></tr> \r\n<tr> \r\n<td width=\"50%\">&nbsp;</td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\">&nbsp;</td></tr> \r\n<tr> \r\n<td width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Managing Editor</font></strong></div></td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\"><font size=\"2\">Paras&nbsp;D.&nbsp;Bhayani '09<br></font></td></tr> \r\n<tr> \r\n<td width=\"50%\">&nbsp;</td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\">&nbsp;</td></tr> \r\n<tr> \r\n<td width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Business Manager</font></strong></div></td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\"><font size=\"2\">Gideon&nbsp;L. Lowin '09</font><br></td></tr> \r\n<tr> \r\n<td width=\"50%\">&nbsp;</td> \r\n<td width=\"2%\">&nbsp;</td> \r\n<td width=\"48%\">&nbsp;</td></tr></tbody></table> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>NEWS</strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Associate Managing Editors</font></strong><strong><font size=\"2\"><br><br>News Executives<br>&nbsp;<br>&nbsp;<br><br><br>Senior Story Editors<br><br></font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"\"><font size=\"2\">Laurence H. M. Holland&nbsp;'09</font><br><font size=\"2\">Samuel&nbsp;P.&nbsp;Jacobs '09<br></font><span class=\"\"><font size=\"2\">Johannah S. Cornblatt&nbsp;'09</font></span><br><font size=\"2\">Claire&nbsp;M.&nbsp;Guehenno '09<br>Victoria&nbsp;B.&nbsp;Kabak '09<br>Madeline W. Lissner '09<br>Laura A. Moore&nbsp;'09<br></font><span class=\"\"><font size=\"2\">Noah S. Bloom '09</font></span><br><p class=\"MsoNormal\"></p><span class=\"\"> \r\n<p class=\"MsoNormal\" style=\"font-family: Times New Roman;\"><font size=\"2\"></font></p><span> \r\n<p style=\"font-family: Times New Roman;\"><font size=\"2\"></font></p><span> \r\n<p style=\"font-family: Times New Roman;\"></p><span><span style=\"font-family: Times New Roman;\"></span></span></span></span> \r\n<p class=\"MsoNormal\"><font style=\"font-family: Times New Roman;\" size=\"2\"></font><o:p></o:p></p><span><span></span> \r\n<p style=\"font-family: Times New Roman;\"><font size=\"2\"></font></p></span> \r\n<p class=\"MsoNormal\" style=\"font-family: Times New Roman;\"><font size=\"2\"></font></p></span> \r\n<p class=\"MsoNormal\"><o:p></o:p></p> \r\n<p class=\"MsoNormal\"><o:p></o:p></p></td></tr> \r\n<tr> \r\n<td colspan=\"3\"> \r\n<div style=\"text-align: center;\">&nbsp;<br><strong>EDITORIAL</strong> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Editorial Chairs<br>&nbsp;<br>Associate Editorial Editors<br><br><br><br><br></font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n \r\n \r\n<td class=\"\"><font style=\"font-family: Times New Roman;\" size=\"5\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span></font><font style=\"font-family: Times New Roman;\" size=\"2\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span><span><span style=\"font-size: 5pt;\"></span><span><span><span><span></span><span></span></span></span></span></span></font><font size=\"2\">Emma&nbsp;M.&nbsp;Lind '09<br>Ramya Parthasarathy '09<br>Daniel E. Herz-Roiphe '10<br>Ronald K. Kamdem '10<br>Robert G. King '09-'10<br>J. Maxwell Larkin '10<br>Noah M. Silver '10<font size=\"3\">&nbsp;</font><br>James M. Wilsterman '10</font></td></tr></tbody></table><strong><br>ARTS</strong></div> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Arts Chairs<br><br>Associate Arts </font></strong><strong><font size=\"2\">Editors</font></strong><br><strong><font size=\"2\"><br><br><br><br><br><br></font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Patrick R. Chesnut '09<br>Jake G. Cohen '09</font><br><font size=\"2\">Anna K. Barnet&nbsp;'10<br>Sanders I. Bernstein&nbsp;'10<br>Joshua Kearney&nbsp;'10<br>Beryl C. D. Lipton&nbsp;'10<br>Nayeli E. Rodriguez&nbsp;'10<br>Claire J. Saffitz&nbsp;'09<br>John D. Selig '10<br></font></td></tr></tbody></table></td></tr> \r\n<tr align=\"center\"> \r\n<td colspan=\"3\">&nbsp;<span style=\"font-weight: bold;\"><br>DESIGN</span> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Design Chairs<br>&nbsp;<br>Associate Design </font></strong><strong><font size=\"2\">Editors</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"\"><font style=\"font-family: Times New Roman;\" size=\"5\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span></font><font style=\"font-family: Times New Roman;\" size=\"2\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span><span><span style=\"font-size: 5pt;\"></span><span><span><span><span></span><span></span></span></span></span></span></font><font size=\"2\">Aditi Banga&nbsp;'09<br></font><font size=\"2\">Samantha P. Krug&nbsp;'10</font><br><font size=\"2\">Sarah B. Joselow&nbsp;'10</font><font size=\"2\"><br>Julia V. Guren&nbsp;'10<br>Devon L. Hein&nbsp;'09<br>Alee Lockman&nbsp;'10<br>Elisa M. Orr '10<br>Katharine E. Lauderdale '11<br></font></td></tr></tbody></table></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>INFORMATION TECHNOLOGY</strong> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">IT Chair<br>Associate IT </font></strong><strong><font size=\"2\">Editors</font></strong><br><strong><font size=\"2\">&nbsp;<br><br></font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"\"><font style=\"font-family: Times New Roman;\" size=\"5\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span></font><font style=\"font-family: Times New Roman;\" size=\"2\"><span><span style=\"font-size: 5pt;\"><span style=\"color: rgb(0, 0, 0);\"></span></span></span><span><span style=\"font-size: 5pt;\"></span><span><span><span><span></span><span></span></span></span></span></span></font><font size=\"2\">Daniel C. Carroll&nbsp;'09&nbsp;<br>Cindy C. Cheng '10<br>Andy Y. Lei '10<br>Cary Y. Lin '10</font></td></tr></tbody></table><strong></strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>MAGAZINE</strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Magazine Chairs<br>&nbsp;<br>Associate Magazine Editors</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Nicola C. Perlman&nbsp;'09<br>Nicole G. White&nbsp;'09<br>Asli A. Bashir '10<br>Kate E. Cetrulo&nbsp;'09<br>Gracye Y. Cheng '10<br>Jessica L. Fleischer '10<br>Emily C. Graff '10<br>Jun Li '10<br>Charles R. Melvoin '10<br>Mark A. Pacult '10</font><br><br><font size=\"2\"></font></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>PHOTOGRAPHY</strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Photography Chairs<br><br>Associate Photography </font></strong><strong><font size=\"2\">Editors</font></strong><br><strong><font size=\"2\">&nbsp;</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Hillary W Berkowitz '09</font><br><font size=\"2\">Meghan T. Purdy '09</font><font size=\"2\"><br>Alan C. Chiu '10<br>Natasha L. Coleman '09<br></font><font size=\"2\">Rachel M. Douglas '09<br>Jessica S. Lin '09<br></font><font size=\"2\">Peter R. Raymond '09</font><br><font size=\"2\">Sarah M. Roberts '09<br>Raquel Rodriguez '09<br>Adam D. Sidman '10<br>Terrell Woods '11<br></font></td></tr> \r\n<tr align=\"center\"> \r\n<td colspan=\"3\"><strong><br>SPORTS</strong> \r\n<table id=\"table2\" style=\"width: 100%;\" border=\"0\" cellpadding=\"2\" cellspacing=\"0\"> \r\n<tbody> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Sports Chairs<br><br>Associate Sports </font></strong><strong><font size=\"2\">Editors</font></strong><br><strong><font size=\"2\">&nbsp;</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Brad Hinshelwood '09<br></font><font size=\"2\">Madeleine I. Shapiro&nbsp;'09</font><font size=\"2\"><br></font><font size=\"2\">Loren Amor '10<br>Robert T. Hamlin '10<br>Dixon McPhillips&nbsp;'10<br>Julia R. Senior '10<br></font><font size=\"2\">Courtney D. Skinner '10<br></font><font size=\"2\">Walter E. Howell '09<br>Ted Kirby&nbsp;'09<br><br></font></td></tr></tbody></table></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"board\" colspan=\"3\"> \r\n<div align=\"center\"><strong><br>BUSINESS</strong></div></td></tr> \r\n<tr valign=\"top\"> \r\n<td class=\"title\" width=\"50%\"> \r\n<div align=\"right\"><strong><font size=\"2\">Associate Business Manager<br>Director of Business Development<br>Director of Staff Development<br>Advertising Managers<br>&nbsp;<br>&nbsp;<br>Circulation Managers<br>&nbsp;<br>Contract Printing Managers<br><br>Operations Managers<br>&nbsp;<br>Sales Managers<br>&nbsp;</font></strong></div></td> \r\n<td class=\"name\">&nbsp;</td> \r\n<td class=\"name\"><font size=\"2\">Tyler W. Bosmeny '09<br></font><font size=\"2\">Katherine R. Hill '09<br></font><font size=\"2\"><br>Robert J. Prior '09<br>Katherine A. Petti '10<br>Jessica H. Roe '09<br>Amartya Sengupta '10<br>Aparicio J. Davis '10<br>Jesse Ge '10<br>Philip J. Daniel '10<br>Thomas J. Lawless '10<br>Maxwell L. Child '10<br>Steven J. Stelmach '10<br>Wenna Jia '10<br>Bohao D. Pan '10<br>Xin Pan '10<br>John C. Zhou '10<br></font></td></tr> \r\n<tr valign=\"top\" align=\"center\"> \r\n<td class=\"board\" colspan=\"3\"><br></td></tr> \r\n<tr> \r\n<td style=\"text-align: left;\"><br></td> \r\n<td><br></td> \r\n<td><br></td></tr></tbody></table></div></td></tr> \r\n<tr> \r\n<td>&nbsp;</td> \r\n<td>&nbsp;</td></tr></tbody></table>",
+        "enable_comments": false
+    }
+},
+{
+    "pk": 1,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.topstories",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 2,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.rotater",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 3,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.morenews",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 4,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.opinion",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 5,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": "",
+        "default_content": "",
+        "name": "index.featured",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 6,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.arts",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 7,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.sports",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 8,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "index.fm",
+        "expiration": "2008-12-05 01:53:05"
+    }
+},
+{
+    "pk": 9,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "news_bottom_left",
+        "expiration": "2009-07-27 09:06:59"
+    }
+},
+{
+    "pk": 10,
+    "model": "content_module.contentmodule",
+    "fields": {
+        "content": null,
+        "comment": null,
+        "default_content": null,
+        "name": "news_bottom_mid",
+        "expiration": "2009-07-27 09:06:59"
+    }
+}]

@@ -1,0 +1,10 @@
+{% load content_filters %}
+{% load common %}
+{% load staticfiles %}
+
+<td class="results-name">Video</td>
+<td class="results-pk">{{ video.pk }}</td>
+<td class="results-image">{{ video.pic|to_thumb_tag}}</td>
+<td>{{ video.title }}</td>
+<td class="results-section">{{ video.section }}</td>
+<td>{{ video.issue }}</td>

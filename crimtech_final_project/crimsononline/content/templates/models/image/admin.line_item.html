@@ -1,0 +1,10 @@
+{% load common %}
+{% load content_filters %}
+{% load staticfiles %}
+
+<td class="results-name">Image</td>
+<td class="results-pk">{{ image.pk }}</td>
+<td class="results-image">{{ image|to_thumb_tag }}</td>
+<td>{{ image.title }}</td>
+<td class="results-section">{{ image.section }}</td>
+<td>{{ image.issue }}</td>

@@ -1,0 +1,72 @@
+#writer-header {
+	overflow:hidden;
+	padding-bottom: 30px;
+	margin-top: 15px;
+}
+
+#writer-photo {
+	width:150px;
+	height:150px;
+	float: left;
+	padding-right: 20px;
+}
+
+#writer-info {
+	margin-left: 10px;
+	overflow: hidden;
+}
+
+#writer-title {
+	color: #999;
+	text-transform: uppercase;
+	font: 1em 'Colaborate Light', 'Lucida Sans Unicode', sans-serif;
+	float:left;
+}
+
+h1#writer-name {
+	padding-top: 0;
+	padding-bottom: 10px;
+	width: 100%;
+	display: inline-block;
+}
+
+.writer-blurb{
+	margin-top: 10px;
+	font-family: Georgia, serif;
+	color: #444;
+}
+
+
+.social img{
+	width:25px;
+	height:auto;
+	float:right;
+	margin-left: 5px;
+}
+
+h3#article-header {
+	background-color: #ba0900;
+	color: white;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	font: 1.8em 'Crimson', Georgia, serif;
+}
+
+.show-more-container {
+  text-align: center;
+
+  button {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    width: 150px;
+    padding: 10px;
+    font-size: 0.71873rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 10px;
+  }
+}

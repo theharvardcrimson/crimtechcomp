@@ -1,0 +1,35 @@
+{% load common %}
+{% load content_filters %}
+
+        <div class="blog-entry-wrapper">
+            <div class="blog-entry blog-arts">
+                {% if article.main_rel_content.image and not cg %}
+                    <div class="entry-image">
+                        <a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|to_img_tag:"610,455,610,455" }}</a>
+                    </div>
+                {% endif %}
+                <div class="entry-content">
+                    <h3 class="entry-title">
+                        <a href="{{ article.get_absolute_url }}">{{ article.headline }}</a>
+                    </h3>
+                    {% if article.num_comments %}
+                        <div class="article-comments">
+                            <a href="{{ article.get_absolute_url }}#article-comments">
+                                <span class="comment-count">{{ article.num_comments }} </span>comment{% if article.num_comments != 1 %}s{% endif %}
+                            </a>
+                        </div>
+                    {% endif %}
+                    <p>{{ article.teaser|truncatewords:20 }}</p>
+                </div>
+                <div class="entry-info">
+                    <div class="entry-byline">
+                        <div class="entry-author">
+                            {{ article.contributors.all|linkify|human_list }}
+                        </div>
+                        <div class="entry-date">
+                            {{ article.created_on }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

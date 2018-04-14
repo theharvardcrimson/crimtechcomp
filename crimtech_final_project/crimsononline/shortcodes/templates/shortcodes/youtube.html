@@ -1,0 +1,60 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+
+{% block content %}
+<div class="shortcodes-iframe-wrapper">
+  {% if autoplay %}
+    <script>
+      (function() {
+        var player;
+
+        if (youtubeVideoHandlers) {
+          youtubeVideoHandlers.push(function () {
+            new YT.Player('{{ youtube_api_id }}', {
+              videoId: '{{ id }}',
+              playerVars: { autoplay: 1, autohide: 1, modestbranding: 1, rel: 0 },
+              events: {
+                onReady: function (event) {
+                  player = event.target;
+                  player.pauseVideo();
+                  player.mute();
+                }
+              }
+            });
+
+            $(function () {
+              $('#{{ youtube_api_id }}').fracs(function (fracs) {
+                if (!player) return;
+
+                if (fracs.visible > 0.5) {
+                  player.playVideo();
+                }
+
+                if (fracs.visible < 0.2) {
+                  player.pauseVideo();
+                }
+              });
+            });
+          });
+        }
+      })();
+    </script>
+    <div id="{{ youtube_api_id }}"></div>
+  {% else %}
+  	<iframe src="https://www.youtube.com/embed/{{ id }}?{{ youtube_params }}"
+    frameborder="0">
+    </iframe>
+  {% endif %}
+</div>
+{% if byline %}
+	<div class="shortcodes-byline shortcodes-video-byline">
+		{{ video.contributors.all|linkify|human_list }}
+	</div>
+{% endif %}
+{% if caption %}
+	<div class="shortcodes-description">
+		{{ caption }}
+	</div>
+{% endif %}
+{% endblock %}

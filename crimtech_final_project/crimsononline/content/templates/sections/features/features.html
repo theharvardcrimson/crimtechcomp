@@ -1,0 +1,136 @@
+{% extends "__base.html" %}
+
+{% load ads_tags %}
+{% load content_filters %}
+{% load content_tags %}
+{% load placeholders %}
+{% load compress %}
+{% load content_module %}
+{% load common %}
+{% load cache %}
+{% load static %}
+
+{% block title %}
+  The Harvard Crimson | Features
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/features.scss">
+  <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox.scss">
+  <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox-buttons.scss">
+  <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox-thumbs.scss">
+{% endblock %}
+
+{% block content %}
+  <div class="container spotlight-light">
+    {% placeholder name="featured" content_range="(0,25)" content_types="article,topic page,external content" as feats %}
+      {% if feats %}
+        <div class="neighborhood">
+          <div class="hood_name">
+            <span>
+              {{ feats.title }}
+            </span>
+          </div>
+          <div class="individuals cf length-{{ feats|length }}">
+            {% for a in feats %}
+              <div class="frosh">
+                <div class="section">{{ a.section }}</div>
+                  <a href="{{ a.get_absolute_url }}">
+                    <img src="{{ a.main_rel_content|img_url:"600,600,600,600" }}">
+                    <div class="innards"></div>
+                    <div class="bottom-info">
+                      <div class="name">{{ a.title }}</div>
+                    </div>
+                  </a>
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endplaceholder %}
+
+    {% placeholder name="featured 2" content_range="(0,25)" content_types="article,topic page,external content" as feats2 %}
+      {% if feats2 %}
+        <div class="neighborhood">
+          <div class="hood_name">
+            <span>
+              {{ feats2.title }}
+            </span>
+          </div>
+          <div class="individuals cf length-{{ feats2|length }}">
+            {% for a in feats2 %}
+              <div class="frosh">
+                <div class="section">{{a.section}}</div>
+                <a href="{{ a.get_absolute_url }}">
+                  <img src="{{ a.main_rel_content|img_url:"600,600,600,600" }}">
+                  <div class="innards"></div>
+                  <div class="bottom-info">
+                    <div class="extra">{{ a.subtitle }}</div>
+                    <div class="name">{{ a.title }}</div>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endplaceholder %}
+
+    {% placeholder name="featured 3" content_range="(0,25)" content_types="article,topic page,external content" as feats3 %}
+      {% if feats3 %}
+        <div class="neighborhood">
+          <div class="hood_name">
+            <span>
+              {{ feats3.title }}
+            </span>
+          </div>
+          <div class="individuals cf length-{{ feats3|length }}">
+            {% for a in feats3 %}
+              <div class="frosh">
+                <a href="{{ a.get_absolute_url }}">
+                  <img src="{{ a.main_rel_content|img_url:"600,600,600,600" }}">
+                  <div class="innards"></div>
+                  <div class="bottom-info">
+                    <div class="extra">{{ a.subtitle }}</div>
+                    <div class="name">{{ a.title }}</div>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+      </div>
+      {% endif %}
+    {% endplaceholder %}
+
+    {% placeholder name="featured 4" content_range="(0,25)" content_types="article,topic page,external content" as feats4 %}
+      {% if feats4 %}
+        <div class="neighborhood">
+          <div class="hood_name">
+            <span>
+              {{ feats4.title }}
+            </span>
+          </div>
+          <div class="individuals cf length-{{ feats4|length }}">
+            {% for a in feats4 %}
+              <div class="frosh">
+                <a href="{{ a.get_absolute_url }}">
+                  <img src="{{ a.main_rel_content|img_url:"600,600,600,600" }}">
+                  <div class="innards"></div>
+                  <div class="bottom-info">
+                    <div class="extra">{{ a.subtitle }}</div>
+                    <div class="name">{{ a.title }}</div>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endplaceholder %}
+    <div class="neighborhood">
+      <div class="hood-bottom">
+        <a class="read-more" href="/tag/features/">Read More from The Harvard Crimson</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

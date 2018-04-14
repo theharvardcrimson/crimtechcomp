@@ -1,0 +1,12 @@
+{% load common %}
+{% load content_filters %}
+
+<h3>Media</h3>
+{% for c in medialist %}
+	<div class="magazine-story article">
+		<a href="{{ c.get_absolute_url }}">{{ c|fm_img_tag:"139,59,139,59" }}</a>
+		<div class="magazine-subsection article-subsection"><a href="{{ article.subsection.get_absolute_url }}">{{ c.subsection }}</a></div>
+		<h4>{{ c|linkify }}</h4>
+		<div class="magazine-byline article-byline"><span class="article-date">{{  c|datify  }}</span></div>
+	</div>
+{% endfor %}

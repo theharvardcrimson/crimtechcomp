@@ -1,0 +1,14 @@
+{% extends "contentgroup/blog/the-back-page/page.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% block title %}
+	{{ article.headline }}
+{% endblock %}
+
+{% block center %}
+<div class="cbb">
+    {{ article|render:"blog_page" }}
+</div>
+{% endblock %}

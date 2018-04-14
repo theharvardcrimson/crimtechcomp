@@ -1,0 +1,27 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="upper-supplement">
+    <div class="upper-supplement-column">
+        <h2><a href="/tag/{{ tag_slug }}">{{ title }}</a></h2>
+        <div class="article">
+            <div class="article-image">
+                <a href="{{ featured_article.get_absolute_url }}">
+                    {{ featured_article|get_image_obj|to_img_tag:"214,214,214,214" }}
+                </a>
+            </div>
+            <h3>{{ featured_article|linkify }}</h3>
+            <div class="article-byline">
+                {{ featured_article|byline:"short" }} <span class="article-date">{{ featured_article|datify }}</span>
+            </div>
+        </div>
+        {% for article in articles %}
+            <div class="article">
+                <h4>{{ article|linkify }}</h4>
+                <div class="article-byline">
+                    {{ article|byline:"short" }} <span class="article-date">{{ featured_article|datify }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

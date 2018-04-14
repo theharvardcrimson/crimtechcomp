@@ -1,0 +1,42 @@
+{% extends "placeholders/ctor.html" %}
+
+{% block additional_scripts %}
+  <script>
+    $(function() {
+      let message = "{{ article.headline|safe }}";
+
+      // takes 2 seconds to fade away the splash screen
+      function fadeOut() {
+        $('.splash-screen').fadeOut(2000, function() {
+          $('body').css('overflow-y', 'scroll');
+        });
+      }
+
+      function typeWriter(idx) {
+        if (idx < message.length) {
+          // add the current character to the text
+          $("#typewriter-title").text(message.substring(0, idx + 1));
+
+          // wait 0.05 seconds to add the next character
+          setTimeout(() => typeWriter(idx + 1), 50);
+        } else {
+          // wait for 1.5 seconds after typing the text. then fade away
+          setTimeout(fadeOut, 1500);
+        }
+      }
+
+      // after a 200 ms delay, begin the typewriter effect
+      setTimeout(() => typeWriter(0), 200);
+    });
+  </script>
+{% endblock %}
+
+{% block additional_css %}
+  <link rel="stylesheet" type="text/x-scss" media="all" href="{{ STATIC_URL }}css/splash_rotc_plus.scss">
+{% endblock %}
+
+{% block splash_screen %}
+  <div class="splash-screen">
+    <div id="typewriter-title"></div>
+  </div>
+{% endblock %}

@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width"/>
+  <style type="text/css">
+    {% include "newsletters/ink.css" %}
+    #header{
+      background-image:url('{{ STATIC_URL }}images/newsletter/harvard-today-header.jpeg');
+      background-size:  cover;                      /* <------ */
+      background-repeat:  no-repeat;
+      background-position: center center;
+    }
+  </style>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+    {% include "newsletters/harvard_today.css" %}
+    #navwrapper ul li a{
+      color: #fff !important;
+    }
+  </style>
+  {% block additional_head %}{% endblock %}
+</head>
+
+<body>
+    <table class="body">
+      <tr>
+        <td class="center" align="center" valign="top">
+          <center>
+            <table class="container">
+              <tr>
+                <td>
+                  <table class="row" id="header">
+                    <tr>
+                      <td class="wrapper last">
+                        <table id="headertext" class="twelve columns">
+                          <tr>
+                            {% block header %}
+
+                            {% endblock %}
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+
+                  <table id="navwrapper" class="row">
+                    <tr>
+                      <td class="wrapper last">
+                        <table id="nav" class="twelve columns">
+                          <tr>
+                            <td class="center" align="center">
+                              <center>
+                              <ul>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/news/">News</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/opinion/">Opinion</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/fm/">Magazine</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/sports/">Sports</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/arts/">Arts</a></li>
+                                <li><a target="_blank" href="http://www.thecrimson.com/section/flyby/">Flyby</a></li>
+                              </ul>
+                              </center>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  {% comment %}
+                  <table id="socialbar" class="row">
+                    <tr>
+                      <td class="wrapper">
+                        <table class="nine columns">
+                          <tr>
+                            <td id="socialtext" class="left-text-pad">
+                              follow us on facebook and twitter
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="wrapper last">
+                        <table class="three columns">
+                          <tr>
+                            <td class="text-pad">
+                              <table id="social-buttons"><tr>
+                              <td><a target="_blank" href="http://www.facebook.com/TheHarvardCrimson">
+                                <img height="30" src="images/facebook.png">
+                              </a></td>
+                              <td><a target="_blank" href="http://twitter.com/thecrimson">
+                                <img height="30" src="images/twitter.png">
+                              </a></td>
+                              </tr></table>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  {% endcomment %}
+
+
+                  {% block content %}
+                  {% endblock %}
+
+                  <table class="row">
+                    <tr>
+                      <td class="wrapper last">
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="center" id="endline" align="center">
+                              <table>
+                                <tr>
+                                  <td id="sent-to-line" class="center" align="center">
+                                    Sent to *|EMAIL|* &mdash; <a href="*|ABOUT_LIST|*">why did I get this?</a>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td class="center" align="center">
+                                    <a href="*|UPDATE_PROFILE|*">unsubscribe from this list</a> | <a href="*|UNSUB|*">unsubscribe from all Crimson emails</a>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td class="center" align="center">
+                                    The Harvard Crimson &middot; 14 Plympton St. &middot; Cambridge, MA 02138
+                                    <img src="http://www.thecrimson.com/subscribe/track/" width="1" height="1" alt="">
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- END EMAIL CONTENT -->
+                </td>
+              </tr>
+            </table>
+          </center>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+</html>

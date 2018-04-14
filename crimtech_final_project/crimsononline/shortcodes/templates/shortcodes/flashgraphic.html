@@ -1,0 +1,21 @@
+{% load common %}
+
+<div class="shortcodes-wrapper shortcodes-wrapper-{{ pos }} shortcodes-wrapper-{{ size }}" data-key="{{ flashgraphic.pk }}">
+	<div class="graphic" style="margin: 0 auto; width:100%;">
+	    <object width="100%" height="{{ height }}">
+	        <param name="movie" value="{{  flashgraphic.graphic.url }}">
+	        <embed src="{{ flashgraphic.graphic.url }}" width="100%">
+	        </embed>
+	    </object>
+	</div>
+	{% if byline %}
+		<div class="shortcodes-byline">
+			{{ flashgraphic.contributors.all|linkify|human_list }}
+        </div>
+	{% endif %}
+	{% if caption %}
+        <div class="shortcodes-description">
+            {{ flashgraphic.caption|safe }}
+        </div>
+	{% endif %}
+</div>

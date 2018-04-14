@@ -1,0 +1,11 @@
+sudo cp 0000-crimson-production /etc/apache2/sites-available/
+sudo a2dissite 0001-crimson
+sudo a2ensite 0000-crimson-production
+sudo cp favicon.ico /srv/crimson/
+sudo rm /srv/crimson/conf/local_settings.py
+sudo cp local_settings.py /srv/crimson/conf/
+sudo rm /srv/crimson/newrelic.ini
+sudo cp newrelic.ini /srv/crimson/
+# set up crontab
+# fixed 0000-crimson-production apache config
+# modified rc.local

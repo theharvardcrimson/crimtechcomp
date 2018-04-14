@@ -1,0 +1,49 @@
+#magazine-primary h1 {
+    text-indent: -9999px;
+    margin: 0px;
+    margin-left: -10px;
+    background: transparent url('../images/25thReunionHeader.png') no-repeat;
+    height: 319px;
+    width: 542px;
+}
+
+#magazine-scrutiny-inner {
+    top: -102px;
+}
+
+#magazine-tertiary-first, #magazine-tertiary-third {
+    width: 50%;
+}
+
+#magazine-tertiary-third .magazine-tertiary-inner {
+    float: left;
+    width: 100%;
+}
+
+#magazine-tertiary-third .magazine-tertiary-inner:last-child {
+    clear: left;
+}
+
+#magazine-tertiary-first .magazine-story.article,
+    #magazine-tertiary-third .magazine-story.article{
+    width: 48%;
+    margin-right: 1%;
+    margin-left: 1%;
+    float: left;
+}
+
+#magazine-tertiary-third .magazine-story.article.no-img {
+    margin-top: 0px;
+}
+
+@media (min-width: 1000px) {
+    #magazine-cover-stories {
+        top: -9px;
+    }
+}
+
+@media (max-width: 660px) {
+    #magazine-tertiary-first, #magazine-tertiary-third {
+        width: 100%;
+    }
+}

@@ -1,0 +1,14 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    <div class="article-section">
+        <a href="{{ pdf.get_absolute_url }}">{{ pdf.subsection }}</a>
+    </div>
+    <h2>{{ pdf|linkify }}</h2>
+        <div class="article-byline">
+            {{ pdf|byline:"short" }}
+            <span class="article-date">{{ pdf|datify }}</span>
+        </div>
+    <p>{{ pdf.description }}</p>
+</div>

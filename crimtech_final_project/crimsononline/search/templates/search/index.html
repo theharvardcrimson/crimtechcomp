@@ -1,0 +1,21 @@
+{% extends '__standard.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}search/css/search.scss">
+{% endblock %}
+
+{% block js %}
+  {{ block.super }}
+  <script src="//www.google.com/cse/cse.js?cx={{ custom_search_engine_id }}" async>
+  </script>
+{% endblock %}
+
+{% block body %}
+  <section id="main">
+    <div id="body">
+      <gcse:search></gcse:search>
+    </div>
+{% endblock %}

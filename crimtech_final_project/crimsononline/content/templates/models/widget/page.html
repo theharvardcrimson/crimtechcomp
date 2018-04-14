@@ -1,0 +1,106 @@
+{% extends "__base.html" %}
+{% load top_articles %}
+{% load common %}
+{% load content_filters %}
+{% load ads_tags %}
+{% load flyby_preview %}
+{% load shortcodes_filters %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/article.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/widget_page.scss">
+{% endblock css %}
+
+{% block meta %}
+    {{ block.super }}
+    {% if request.GET.page = "single" %}
+        <meta name="robots" content="noindex">
+    {% endif %}
+{% endblock meta %}
+
+{% block title %}
+    {{ widget.title }} |
+    {% if widget.section %}
+        {{ widget.section }} |
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <!-- AddThis Smart Layers BEGIN -->
+    <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+    <!-- AddThis Smart Layers END -->
+
+    <script type="text/javascript">
+        var disqus_shortname = '{{ DISQUS_SHORTNAME }}';
+        var disqus_url = 'http://www.thecrimson.com{{ request.path }}';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://thecrimson.disqus.com/embed.js';
+            dsq.async = true;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0])
+                .appendChild(dsq);
+        })();
+    </script>
+{% endblock %}
+{% block meta_social %}
+    <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ widget.title }}">
+    <meta name="twitter:description" content="{{ widget.description }}">
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% block body %}
+        <section id="main">
+            <div id="article">
+                <div id="article-header">
+                    {% block flybyheader %}{% endblock %}
+                    <h1>{{ widget.title }}</h1>
+                    <div class="article-byline">{{ widget|byline:"full" }}{% date widget %}</div>
+                </div>
+
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style sidebar">
+                    <div class="add-this-inner">
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_button_email"></a>
+                        <a class="addthis_button_print"></a>
+                        <a class="addthis_button_compact"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                    </div>
+                </div>
+
+                <div class="widget-container">
+                {{ widget|render:"plain" }}
+                </div>
+
+                <p class="article-image-caption">
+                    {{ widget.caption|safe }}
+                </p>
+
+                <div id="article-tags">
+                {% if tags %}
+                    <h3>Tags</h3>
+                    <div>
+                    {% for tag in tags %}
+                        <a href="{{ tag.url }}">{{ tag.text|safe }}</a>
+                        {% ifnotequal forloop.last 1 %}{% endifnotequal %}
+                    {% endfor %}
+                    </div>
+                {% endif %}
+                </div>
+
+                <div id="article-comments">
+                    <div id="disqus_thread"></div>
+                </div>
+            </div>
+        </section>
+    {% endblock body %}
+{% endblock content %}

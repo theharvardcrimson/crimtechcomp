@@ -1,0 +1,67 @@
+
+        <div id="item-__prefix__" class="item-row">
+          {# Built in django forms aren't flexible enough. Fields need to be broken apart for hiding, inlining #}
+          {{ bulk_formset.empty_form.image_ptr }}
+          <div class="fields-default">
+            <div class="image-placeholder">
+              <img src="" alt="Preview">
+              {{ bulk_formset.empty_form.file_name }}
+            </div>
+
+            {# Hidden field for file names. This will be matched to the file in the temporary uploads bucket #}
+            {{ bulk_formset.empty_form.filename }}
+
+            {# Checkboxes for where to upload, e.g. Admin and Smugmug #}
+            <div class="destination-block">
+              <label>
+                Admin
+                {{ bulk_formset.empty_form.publishable }}
+              </label>
+              <label>
+                Smugmug
+                {{ bulk_formset.empty_form.sell_online }}
+              </label>
+              <br/>
+              <label>
+                Show Advanced
+                <input type="checkbox" class="advanced">
+              </label>
+            </div>
+
+            {# Block of title metadata #}
+            <div class="title-block">
+              {{ bulk_formset.empty_form.title }}
+              {{ bulk_formset.empty_form.subtitle }}
+              {{ bulk_formset.empty_form.slug }}
+            </div>
+            <div class="description-block">
+              {{ bulk_formset.empty_form.description }}
+            </div>
+            <div class="tags-block">
+              {{ bulk_formset.empty_form.contributors }}
+              {{ bulk_formset.empty_form.multimedia_contributors }}
+              {{ bulk_formset.empty_form.tags }}
+            </div>
+          </div>
+
+          {# Fields present only for images going into Admin #}
+          <div class="fields-publishing hidden-animate">
+            <div class="fields-publishing-2">
+              {{ bulk_formset.empty_form.section }}
+              {{ bulk_formset.empty_form.priority }}
+              {{ bulk_formset.empty_form.pub_status }}
+            </div>
+            <div class="fields-publishing-1">
+              {{ bulk_formset.empty_form.issue }}
+            </div>
+          </div>
+
+          {# Advanced fields that aren't usually used #}
+          <div class="fields-advanced hidden-animate">
+            {{ bulk_formset.empty_form.multimedia_contributors }}
+            {{ bulk_formset.empty_form.contributor_override }}
+            {{ bulk_formset.empty_form.group }}
+            {{ bulk_formset.empty_form.searchable }}
+            {{ bulk_formset.empty_form.show_ads }}
+          </div>
+        </div>

@@ -1,0 +1,76 @@
+{% load content_filters %}
+<div class="rel_content" id="{{attrs.id}}_wrapper">
+    {{ hidden }}
+    <ul class="add_links">
+        {% for t in types %}
+            <li><a href="{{t.url}}add/" id="add_id_{{t.name}}" onclick="return showAddAnotherPopup(this);">New {{t.name}}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="ajax_search">
+        <div class="search_bar">
+            <span class="title">Search for content</span>
+            Search: <input id="{{attrs.id}}_tags"> |
+            Start Date: <input class="date_input" id="{{attrs.id}}_start_date" size="10" value="{{yesterday|date:"m/d/Y"}}">
+            End Date: <input class="date_input" id="{{attrs.id}}_end_date" size="10" value="{{today|date:"m/d/Y"}}"> |
+            Type: <select id="{{attrs.id}}_type">
+                <option value="{% for t in types %}{{t.id}};{% endfor %}">All</option>
+                {% for t in types %}
+                    <option value="{{t.id}}">{{t.name}}</option>
+                {% endfor %}
+            </select>
+            <a href="#" class="button" id="{{attrs.id}}_go">Find</a>
+            <a href="#" class="button" id="{{attrs.id}}_suggest">Suggestions</a>
+            <br/>
+            <span class="help-text">Search field will search in slugs and headlines.</span>
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="results-name">Type</th>
+                        <th class="results-pk">PK</th>
+                        <th class="results-image">Thumbnail</th>
+                        <th class="results-title">Title</th>
+                        <th class="results-section">Section</th>
+                        <th class="results-issue">Issue</th>
+                    </tr>
+                </thead>
+                <tbody class="results">
+
+                </tbody>
+            </table>
+        </div>
+        <p class="paging_links">&nbsp;</p>
+    </div>
+    <h3>Selected Content:</h3>
+    <div class="table-wrapper">
+        <table class="rel_objs">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="results-name">Type</th>
+                    <th class="results-pk">PK</th>
+                    <th class="results-image">Thumbnail</th>
+                    <th class="results-title">Title</th>
+                    <th class="results-section">Section</th>
+                    <th class="results-issue">Issue</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for obj in objs %}
+                <tr {% if obj.shortcoded %}class="shortcoded-item"{% endif %}>{{ obj.related_content|render:"admin.line_item" }}</tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            baseIdvar="{{attrs.id}}";
+            set_related_content('{{attrs.id}}', [
+                {% for t in types %}
+                    '{{t.name}}'{% if forloop.last %}{% else %},{% endif %}
+                {% endfor %}
+            ]);
+        });
+    </script>
+</div>

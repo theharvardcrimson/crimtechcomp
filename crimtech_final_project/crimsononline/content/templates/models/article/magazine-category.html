@@ -1,0 +1,33 @@
+{% load common %}
+{% load content_filters %}
+
+{% with len=list|length %}
+<div class="magazine-story-container contains{{ len }}">
+{% for article in list %}
+	{% if article|get_image_obj %}
+		<div class="magazine-story article stories{{ len }}">
+			<div class="magazine-story-inner">
+				<a href="{{ article.get_absolute_url }}">{{ article|get_image_obj|fm_img_tag:"334,189,334,189" }}</a>
+				<h4>{{ article|linkify }}</h4>
+				<div class="magazine-byline article-byline">{{ article|byline:"short" }}</div>
+			</div>
+		</div>
+	{% else %}
+		<div class="magazine-story article magazine-without-image stories{{ len }}">
+				<div class="magazine-story-inner">
+				<h4>{{ article|linkify }}</h4>
+				<div class="magazine-byline article-byline">{{ article|byline:"short" }}</div>
+				<p>{{ article.teaser|shortentext:150 }}</p>
+			</div>
+		</div>
+	{% endif %}
+	{% if forloop.counter == 1 and len == 2 %}
+		</div>
+		<div class="magazine-story-container">
+	{% elif forloop.counter == 2 and len == 4 %}
+		</div>
+		<div class="magazine-story-container">
+	{% endif %}
+{% endfor %}
+</div>
+{% endwith %}

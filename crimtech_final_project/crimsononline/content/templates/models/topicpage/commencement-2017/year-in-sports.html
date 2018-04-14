@@ -1,0 +1,194 @@
+{% extends "models/topicpage/commencement-2017/__base.html" %}
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+{% load placeholders %}
+{% get_static_prefix as STATIC_URL %}
+
+{% block title %}{{ topic.title }} {{ topic.subtitle }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="ad-tag top-leader-ad">Advertisement</div>
+<div class="leader-ad top-leader-body">
+    {% ad_unit "728x90" %}
+</div>
+
+<div class="content">
+    <div class="section yis">
+        <div class="section-anchor" id="featured"></div>
+        <div class="section-header">{{ topic.title }} {{ topic.subtitle }}</div>
+        {% placeholder name="featured" content_range="(0,4)" content_types="article,external content,topic page" as feats %}
+        {% if feats %}
+            <div class="featured-container cf">
+                <div class= "featured-top">
+                    <div class="featured-left">
+                        {% for article in feats|slice:":1" %}
+                            <div class="article">
+                                <a href="{{ article.get_absolute_url }}">
+                                    <div class="media" style="background-image: url( {{article.main_rel_content|img_url:"1000,1000" }} ); background-position: center; background-size:cover; background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="article-content">
+                                        <h3>{{ article|linkify }}</h3>
+                                        <div class="article-byline">
+                                            {{ article|byline:"short" }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="featured-right">
+                        {% for article in feats|slice:"1:2" %}
+                            <div class="article">
+                                <a href="{{ article.get_absolute_url }}">
+                                    <div class="media" style="background-image: url( {{article.main_rel_content|img_url:"1000,1000" }} ); background-position: center; background-size:cover; background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="article-content">
+                                        <h3>{{ article|linkify }}</h3>
+                                        <div class="article-byline">
+                                            {{ article|byline:"short" }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="featured-bottom">
+                <div class="featured-left">
+                        {% for article in feats|slice:"2:3" %}
+                            <div class="article">
+                                <a href="{{ article.get_absolute_url }}">
+                                    <div class="media" style="background-image: url( {{article.main_rel_content|img_url:"1000,1000" }} ); background-position: center; background-size:cover; background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="article-content">
+                                        <h3>{{ article|linkify }}</h3>
+                                        <div class="article-byline">
+                                            {{ article|byline:"short" }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="featured-right">
+                        {% for article in feats|slice:"3:" %}
+                            <div class="article">
+                                <a href="{{ article.get_absolute_url }}">
+                                    <div class="media" style="background-image: url( {{article.main_rel_content|img_url:"1000,1000" }} ); background-position: center; background-size:cover; background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="article-content">
+                                        <h3>{{ article|linkify }}</h3>
+                                        <div class="article-byline">
+                                            {{ article|byline:"short" }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% endplaceholder %}
+    </div>
+    <divider class="section-divider"></divider>
+    <div id="non-featured" class="section">
+        {% placeholder name="articles" content_range="(0,100)" content_types="article,image,widget,external content,topic page" as items %}
+            <div id="cards-two" class="card">
+                <div id="cards-two-left">
+                    {% for article in items|slice:":1" %}
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                    {% endfor %}
+                </div>
+                <div id="cards-two-right">
+                    {% for article in items|slice:"1:2" %}
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                    {% endfor %}
+                </div>
+            </div>
+            <divider class="section-divider"></divider>
+            <div id="cards-three" class="card">
+                {% for article in items|slice:"2:4" %}
+                    <div id="cards-three-left">
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                    </div>
+                {% endfor %}
+                <div id="cards-three-right">
+                    {% for article in items|slice:"4:5" %}
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                {% endfor %}
+                </div>
+            </div>
+            <divider class="section-divider"></divider>
+            {% for article in items|slice:"5:10" %}
+                <div id="cards-horizontal">
+                {% include "models/article/preview.html" with image=1 no_date=1 %}
+                </div>
+                <divider class="section-divider"></divider>
+            {% endfor %}
+            <div id="cards-two" class="card">
+                <div id="cards-two-left">
+                    {% for article in items|slice:"10:11" %}
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                    {% endfor %}
+                </div>
+                <div id="cards-two-right">
+                    {% for article in items|slice:"11:12" %}
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                    {% endfor %}
+                </div>
+            </div>
+            <divider class="section-divider"></divider>
+            {% for article in items|slice:"12:18" %}
+                <div id="cards-horizontal">
+                {% include "models/article/preview.html" with image=1 no_date=1 %}
+                </div>
+                <divider class="section-divider"></divider>
+            {% endfor %}
+            <div id="cards-two" class="card">
+                <div id="cards-two-left">
+                    {% for article in items|slice:"18:19" %}
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                    {% endfor %}
+                </div>
+                <div id="cards-two-right">
+                    {% for article in items|slice:"19:20" %}
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                    {% endfor %}
+                </div>
+            </div>
+            <divider class="section-divider"></divider>
+            <div id="cards-three" class="card">
+                {% for article in items|slice:"20:22" %}
+                    <div id="cards-three-left">
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                    </div>
+                {% endfor %}
+                <div id="cards-three-right">
+                    {% for article in items|slice:"22:23" %}
+                        {% include "models/article/preview.html" with image=1 no_date=1 %}
+                {% endfor %}
+                </div>
+            </div>
+            <divider class="section-divider"></divider>
+            {% for article in items|slice:"23:29" %}
+                <div id="cards-horizontal-noimg">
+                    {% include "models/article/preview.html" with no_date=1 %}
+                </div>
+                <divider class="section-divider"></divider>
+            {% endfor %}
+        {% endplaceholder %}
+    </div>
+</div>
+<div class="ad-tag">Advertisement</div>
+<div class="leader-ad">
+    {% ad_unit "728x90" %}
+</div>
+
+{% endblock %}

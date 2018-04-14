@@ -1,0 +1,24 @@
+{{ fakeinput }}
+{{ input }}
+{% if url and not disabled %}
+<a href="#" class="button" id="{{attrs.id}}_go">
+    Generate a Slug
+</a>
+<br/>
+<p class="help_text">Make sure you've filled out all the other fields before you click the button</p>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("#{{attrs.id}}_go").click(function(){
+            if (typeof(tinyMCE) != 'undefined'){
+                tinyMCE.activeEditor.save();
+            }
+            var text = $("{{text_field}}").val();
+            var date = $("{{date_field}}").val();
+            $.get('{{url}}', {'text': text, 'date': date}, function(data){
+                $("#{{attrs.id}}").val(data);
+            }, 'text');
+            return false;
+        });
+    });
+</script>
+{% endif %}

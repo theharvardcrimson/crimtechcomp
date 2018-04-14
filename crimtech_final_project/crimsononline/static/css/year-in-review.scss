@@ -1,0 +1,68 @@
+#magazine-primary h1 {
+    text-indent: -9999px;
+    margin: 0px;
+    margin-left: -10px;
+    background: transparent url('../images/YearInReviewHeader.png') no-repeat;
+    height: 400px;
+    width: 618px;
+}
+
+#magazine-scrutiny-inner {
+    top: -152px;
+    width: 100%;
+}
+
+#magazine-tertiary-first {
+    width: 100%;
+    float: none;
+}
+
+#magazine-tertiary-first .magazine-story.article {
+    width: 23%;
+    margin: 1%;
+    float: left;
+}
+
+@media (min-width: 1000px) {
+    #magazine-cover-stories {
+        top: -34px;
+    }
+
+    #magazine-cover-stories h3 {
+        background-color: rgba(0,0,0,0);
+    }
+}
+
+@media (min-width: 641px) {
+    #magazine-tertiary-first .magazine-story.article:nth-child(4n+2) {
+        clear: left;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:last-child {
+        width: 100%;
+    }
+}
+
+@media(max-width: 640px) and (min-width: 461px) {
+    #magazine-tertiary-first .magazine-story.article {
+        width: 31%;
+    }
+
+     #magazine-tertiary-first .magazine-story.article:nth-child(3n+2) {
+        clear: left;
+    }
+}
+
+@media(max-width: 460px) {
+    #magazine-tertiary-first .magazine-story.article {
+        width: 48%;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:last-child {
+        width: 100%;
+    }
+}

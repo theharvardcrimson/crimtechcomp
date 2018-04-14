@@ -1,0 +1,189 @@
+{% extends "__base.html" %}
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+
+{% block title %}The Harvard Crimson{% endblock %}
+
+{% block meta_social %}
+{% if topic.parent %}
+    <meta property="og:image" content="{{ topic.image|img_url:"500,10000" }}">
+{% elif article.main_rel_content %}
+    <meta property="og:image" content="{{ topic.main_rel_content|img_url:"500,10000" }}">
+{% else %}
+    <meta property="og:image" content="{{ STATIC_URL}}images/seal.jpg">
+{% endif %}
+{% endblock %}
+
+{% block base_css %}
+    {% compress css %}
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/ads.scss">
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/shortcodes.scss">
+        <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/fonts.scss">
+        {% block remove_css %}
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/commencement2017.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/base.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/content.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/incidentals2.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/index.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/media.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/responsive2.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/section.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/adblock-blocker.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/highlights.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/sponsored.scss">
+        {% endblock %}
+    {% endcompress %}
+    {% block addl_css %}{% endblock %}
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif|Lato:300,400,700|Lora:400,700,400italic' rel='stylesheet' type='text/css'>
+{% endblock base_css %}
+
+{% block js %}
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+
+    {% compress js %}
+        <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery-1.11.0.min.js"></script>
+        <script src="{{ STATIC_URL }}js/lib/jquery.cookie.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/lib/TweenMax.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/lib/scrollmagic.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/topicpage/commencement2014.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/sticky_bar.js"></script>
+        <script src="{{ STATIC_URL }}js/interstitials.js"></script>
+        <script src="{{ STATIC_URL }}js/responsive.js"></script>
+        <script src="{{ STATIC_URL }}js/base.js"></script>
+        <script type="text/javascript">
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', '{{ ANALYTICS_USER_AGENT }}', 'thecrimson.com');
+            ga('send', 'pageview');
+
+            $(function() {
+                $()
+            });
+        </script>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var parts = window.location.search.substr(1).split("&");
+            var get = {};
+            for (var i = 0; i < parts.length; i++) {
+                var temp = parts[i].split("=");
+                get[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+            }
+            if ('message' in get) {
+                var m = get['message'].split(': ')
+                if (typeof m[1] === 'undefined')
+                    m[1] = ''
+                Crimson.Interstitials.create('message', {
+                    url: '/interstitials/message/?title=' + encodeURIComponent(m[0]) + '&text=' + encodeURIComponent(m[1]),
+                    autorun: false,
+                    interval: 0,
+                    view_delay: 0
+                });
+                Crimson.Interstitials.show('message');
+            }
+
+            $("#toggle").on('click',function(e) {
+                e.preventDefault();
+                $("#collapse-menu").toggle();
+            });
+        });
+    </script>
+        {% ads_head %}
+    {% endcompress %}
+
+    {% block addl_js %}{% endblock %}
+{% endblock js %}
+
+    {% block addl_header %}
+    {% endblock %}
+</head>
+
+{% block masthead_header %}
+    <header>
+        <div id="masthead">
+            <div id="masthead-first-wrapper">
+                <div id="masthead-first" style="background: #fff url('{{ STATIC_URL }}images/header-logo-dark.png') no-repeat scroll -75px -75px / 500px auto;">
+                    <div id="masthead-first-container">
+                        <a id="masthead-logo" href="/">
+                            <img src="https://s3.amazonaws.com/static.thecrimson.com/images/masthead-red.png" width="415">
+                        </a>
+
+                        <div id="masthead-search">
+                            <form action="/search/" id="cse-search-box">
+                              <input type="hidden" name="cx" value="013815813102981840311:aw6l9tjs1a0" />
+                              <input type="hidden" name="cof" value="FORID:10" />
+                              <input type="hidden" name="ie" value="UTF-8" />
+                              <input type="text" class="query" name="q" />
+                              <button class="search-submit" type="submit" name="sa">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <nav id="nav-mobile">
+
+                    <div id="toggle">
+                        <ul>
+                            <li><a href="#" id="toggle">Sections</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="collapse-menu">
+                        {% spaceless %}
+                          <ul>
+                            <li class="nav-published">{% section_link "News" is nav %}</li>
+                            <li class="nav-published">{% section_link "Opinion" is nav %}</li>
+                            <li class="nav-published">{% section_link "Features" is nav %}</li>
+                            <li class="nav-published">{% section_link "Magazine" is nav %}</li>
+                            <li class="nav-published">{% section_link "Sports" is nav %}</li>
+                            <li class="nav-published">{% section_link "Arts" is nav %}</li>
+                            <li class="nav-published">{% section_link "Flyby" is nav %}</li>
+                          </ul>
+                        {% endspaceless %}
+                    </div>
+
+                </nav>
+                <nav id="nav-sections" class="mobile-hidden">
+
+                    {% spaceless %}
+                      <ul>
+                        <li class="nav-published">{% section_link "News" is nav %}</li>
+                        <li class="nav-published">{% section_link "Opinion" is nav %}</li>
+                        <li class="nav-published">{% section_link "Features" is nav %}</li>
+                        <li class="nav-published">{% section_link "Magazine" is nav %}</li>
+                        <li class="nav-published">{% section_link "Sports" is nav %}</li>
+                        <li class="nav-published">{% section_link "Arts" is nav %}</li>
+                        <li class="nav-published">{% section_link "Flyby" is nav %}</li>
+                      </ul>
+                    {% endspaceless %}
+                </nav>
+            </div>
+        </div>
+        {% include "_sticky_bar_commencement.html" %}
+        {% include "_sidebar_commencement.html" %}
+    </header>
+{% endblock masthead_header %}
+
+<div id="modal">
+    <div id="interstitial"></div>
+</div>
+
+
+{% block base_content%}
+      {% block content %}{% endblock content %}
+{% endblock base_content %}
+
+</body>
+
+</html>

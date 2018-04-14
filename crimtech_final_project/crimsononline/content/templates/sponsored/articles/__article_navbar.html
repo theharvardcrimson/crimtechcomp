@@ -1,0 +1,38 @@
+{% load content_filters %}
+<div class="left-bar">
+<div class="navbar-clipped">
+    <div class="center">
+        <a class="brand" href="/sponsored/the-crimson-brand-studio" target="_blank">
+            <span style="color: rgba(165, 10, 14, 1)">The Crimson</span> Brand Studio
+        </a>
+    </div>
+</div>
+<div class="navbar-header page-scroll">
+    <a class="navbar-brand brand" href="/sponsored/the-crimson-brand-studio" target="_blank">
+        <span style="color: rgba(165, 10, 14, 1)">The Crimson</span> Brand Studio
+    </a>
+</div>
+<ul class="nav navbar-nav">
+    <li class="nav-center">
+        {% if 'The Crimson Brand Studio' in article|byline_sans_by:"full" %}
+            <a href="{{ article|byline_sans_by:'sponsor_url' }}" target="_blank">
+                Paid Post with {{ article|byline_sans_by:'sponsor_name' }}
+            </a>
+        {% else %}
+            <a href="{{ article|byline_sans_by:'sponsor_url' }}" target="_blank">
+                Paid Post by {{ article|byline_sans_by:'sponsor_name' }}
+            </a>
+        {% endif %}
+    </li>
+    <li id="help1" class="nav-right">
+        <a href="/sponsored/the-crimson-brand-studio#about" target="_blank">
+        <i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp;&nbsp;What's This
+        </a>
+    </li>
+    <li id="help2" class="nav-right">
+        <a href="/sponsored/the-crimson-brand-studio#about" target="_blank">
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+        </a>
+    </li>
+</ul>
+</div>

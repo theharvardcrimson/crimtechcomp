@@ -1,0 +1,14 @@
+{% extends "shortcodes/_base.html" %}
+{% block content %}
+<div class="timeline">
+                            <div class="vbar"></div>
+                            <ol class="timeline-events">
+				{% for event in events %}
+                                <li class="timeline-event">
+                                    <span class="time">{{ event.1 }}<span>{{ event.0 }}</span></span>
+                                    <span class="ttext">{{ event.2  }}</span>
+                                </li>
+                                {% endfor %}
+                            </ol>
+</div>
+{% endblock %}

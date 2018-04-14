@@ -1,0 +1,30 @@
+{% extends "shortcodes/_base.html" %}
+
+{% load common %}
+{% load content_filters %}
+
+{% block content %}
+    <div class="photoslider_container">
+        {{ left_image|to_img_tag:"800,1200" }}
+        {{ right_image|to_img_tag:"800,1200" }}
+    </div>
+    {% if byline %}
+        {% if num_bylines == 1 %}
+             <div class="shortcodes-byline">
+                 {{ right_image.contributors.all|linkify|human_list }}
+             </div>
+        {% else %}
+             <div class="shortcodes-byline">
+                  Left image: {{ left_image.contributors.all|linkify|human_list }}
+             </div>
+             <div class="shortcodes-byline">
+                 Right image: {{ right_image.contributors.all|linkify|human_list }}
+             </div>
+        {% endif %}
+    {% endif %}
+    {% if caption %}
+        <div class="shortcodes-description">
+            {{ caption }}
+        </div>
+    {% endif %}
+{% endblock %}

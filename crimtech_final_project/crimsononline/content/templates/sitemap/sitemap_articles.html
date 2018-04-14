@@ -1,0 +1,29 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load module %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/sitemap.scss">
+{% endblock %}
+
+{% block title %}Sitemap{% endblock %}
+
+{% block content %}
+	<div class="col-12">
+		{% module 12 "" %}
+		{% with articles|first as article %}
+		<span class="page-title"><a href="../../">Archives</a> &rarr; <a href="../">{{article.issue.issue_date.year}}</a> &rarr; {{article.issue.issue_date|date:"n/j"}}</span>
+		{% endwith %}
+			{% if articles %}
+			<ul class="sitemap-article">
+				{% for article in articles %}
+				<li class="sitemap-cell" title="{{article.headline}}"><a href="{{article.get_absolute_url}}">{{article.headline|truncatechars:80}}</a></li>
+				{% endfor %}
+				<li class="clear" />
+			</ul>
+			{% else %}
+				<li>No articles found in this time period</li>
+			{% endif %}
+		{% endmodule %}
+	</div>
+{% endblock %}

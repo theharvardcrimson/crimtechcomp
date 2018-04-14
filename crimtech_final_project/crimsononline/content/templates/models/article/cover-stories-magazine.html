@@ -1,0 +1,8 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="magazine-cover-story magazine-story article">
+	<h4>{{ article|linkify }}</h4>
+	<a href="#"><img src="images/fm-wwr.jpg" alt="Cover story" /></a>
+	<div class="magazine-byline article-byline">{{ article|byline:"short" }} </div>
+</div>

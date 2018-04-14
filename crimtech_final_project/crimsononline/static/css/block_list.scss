@@ -1,0 +1,90 @@
+#top {
+    max-width: 980px;
+    margin: 0 auto;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 5px;
+}
+
+#top h1 {
+    float: left;
+    background-color: #BA0600;
+    color: white;
+    padding: 8px 23px 13px;
+    text-decoration: inherit;
+}
+
+#block-list {
+    list-style: none;
+    padding-left: 0;
+    max-width: 980px;
+    margin: 0px auto;
+}
+
+#block-list li {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #FEFFEA;
+    float: left;
+    min-height: 573px;
+    text-align: center;
+    padding: 0;
+    margin: 1%;
+    border: 1px solid #ccc;
+    -moz-box-shadow: 3px 3px 3px #eee;
+    -o-box-shadow: 3px 3px 3px #eee;
+    -webkit-box-shadow: 3px 3px 3px #eee;
+    box-shadow: 3px 3px 3px #eee;
+}
+
+#block-list li a {
+    position: relative;
+}
+
+#block-list li img {
+    width: 100%;
+}
+
+#block-list li a h2 {
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    margin: -4px 0 0;
+    background-color: rgba(186,6,0, 0.75);
+    color: #EEE;
+    text-decoration: inherit
+}
+
+#block-list li .articles {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+@media (min-width: 766px) {
+    #block-list li {
+        width: 31%;
+    }
+
+    #block-list li:nth-child(3n+1) {
+        clear: left;
+    }
+}
+
+@media (max-width: 765px) and (min-width: 501px) {
+    #block-list li {
+        width: 48%;
+    }
+
+    #block-list li:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+@media (max-width: 500px) {
+    #block-list li {
+        width: 98%;
+        clear: left;
+    }
+}

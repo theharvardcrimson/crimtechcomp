@@ -1,0 +1,110 @@
+{% extends '__base.html' %}
+
+{% load placeholders %}
+{% load content_filters %}
+{% load common %}
+
+{% block css %}
+  <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/todays_paper.scss">
+{% endblock %}
+
+{% block content %}
+  <div id='todays-paper-wrapper'>
+    <div id='todays-paper'>
+      <div id="todays-paper-header">
+        <span>THE UNIVERSITY DAILY, EST. 1873</span>
+        <span>TODAY'S PAPER</span>
+        <span>{{ volume_information }}</span>
+      </div>
+      <div id='todays-paper-hero'>
+        <div>
+          <h2>It'll Be Just Like You're in Cambridge</h2>
+          <span>The only breakfast-table daily newspaper of Harvard and the City of Cambridge — brought to you wherever you are in the world. Subscribe today.</span><br>
+          <a target="_blank" href="http://subscribe.thecrimson.com">SUBSCRIBE</a>
+        </div>
+        <img src="{{ STATIC_URL }}images/todays_paper_graphic_new.png">
+      </div>
+      <hr>
+      <div id='todays-paper-content'>
+        <div id='issuu'>
+          <span id='the-print-edition'>The Print Edition</span>
+          <a href="{{ newspaper_link }}" target="_blank"><img src="{{ image }}" ></a>
+          <div id='read-more'>
+            <a href="{{ newspaper_link }}" target="_blank"><span>Read this entire issue.</span></a>
+            <span>Purchase individual pages online or browse our archives via Issuu.</span>
+          </div>
+        </div>
+        <div id='todays-paper-headlines'>
+          <span>Today's Stories</span>
+          <div id='todays-paper-headlines-container'>
+            <!-- {% if main.extra_text %}
+              <div class="briefing-teaser">
+                {% with teasers=main.extra_text|parse_json %}
+                  {% for main_teaser in teasers %}
+                    {{ main_teaser }}
+                  {% endfor %}
+                {% endwith %}
+              </div>
+            {% endif %} -->
+            <!-- <hr/> -->
+            {% if feat_content %}
+              {% with feat_content.0 as feat_content %}
+                <div class="story featured">
+                  <div class="headline">
+                    <a href="{{ feat_content.get_absolute_url }}">
+                      {{ feat_content.title }}
+                    </a>
+                  </div>
+                  <a href="{{ feat_content.get_absolute_url }}">
+                    <img class="main-img" src='{{ feat_content.main_rel_content|img_url:"1200,800,1200,800" }}'>
+                  </a>
+                  <div class="teaser">
+                    <ul>
+                      {% if feat.extra_text %}
+                        {% with teasers=feat.extra_text|parse_json %}
+                          {% for teaser in teasers %}
+                            {% for bullet in teaser %}
+                              <li>{{ bullet }}</li>
+                            {% endfor %}
+                          {% endfor %}
+                        {% endwith %}
+                      {% endif %}
+                      <a class="see-more" href="{{ feat_content.get_absolute_url }}">Read Story &#10142;</a>
+                    </ul>
+                  </div>
+                </div>
+              {% endwith %}
+            {% endif %}
+
+            {% if stories_placeholder.extra_text %}
+              {% with teasers=stories_placeholder.extra_text|parse_json %}
+                {% for story, teaser in stories|zip:teasers %}
+                  <div class="story">
+                    <div class="headline">
+                      <a href="{{ story.get_absolute_url }}">
+                        {{ story.title }}
+                      </a>
+                    </div>
+                    <!-- {% if story.main_rel_content %}
+                      <a href="{{ story.get_absolute_url }}">
+                        <img class="main-img" src='{{ story.main_rel_content|img_url:"1200,800,1200,800" }}'>
+                      </a>
+                    {% endif %} -->
+                    <div class="teaser">
+                      <ul>
+                        {% for bullet in teaser %}
+                          <li>{{ bullet }}</li>
+                        {% endfor %}
+                        <a class="see-more" href="{{ story.get_absolute_url }}">Read Story &#10142;</a>
+                      </ul>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endwith %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

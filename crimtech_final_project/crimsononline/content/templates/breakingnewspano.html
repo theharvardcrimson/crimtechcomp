@@ -1,0 +1,212 @@
+{% extends "__base.html" %}
+{% load ads_tags %}
+{% load common %}
+{% load content_filters %}
+{% load content_tags %}
+{% load flyby_preview %}
+{% load top_articles %}
+{% load placeholders %}
+
+{% block title %}Harvard News | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <section id="breaking">
+        {% ph_info name="breaking image" as breaking_info %}
+            {% if breaking_info.title_link %}
+                <div id="breaking-headline"><a href="{{ breaking_info.title_link }}">{{ breaking_info.title }}</a></div>
+            {% else %}
+                <div id="breaking-headline">{{ breaking_info.title }}</div>
+            {% endif %}
+        {% endinfo %}
+
+        {% placeholder name="breaking image" content_range="(1, 1)" content_types="image" as breaking_img %}
+            {% if breaking_info.title_link %}
+                <div id="breaking-image-container"><a href="{{ breaking_img.title_link }}">{{ breaking_img.0|to_img_tag:"800,325,800,325" }}</a></div>
+            {% else %}
+                <div id="breaking-image-container">{{ breaking_img.0|to_img_tag:"800,325,800,325" }}</div>
+            {% endif %}
+        {% endplaceholder %}
+
+        <div id="breaking-sidebar">
+            <a class="twitter-timeline"  href="https://twitter.com/thecrimson" data-widget-id="508619836327333888">Tweets by @thecrimson</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            </script>
+        </div>
+
+        <div id="breaking-main">
+            <div id="breaking-main-first">
+                {% placeholder name="primary-first-featured" content_range="(1,1)" content_types="article, topic page, external content" as feat %}
+                    {% with article=feat|first %}
+                        {% include "models/article/preview.html" %}
+                    {% endwith %}
+                {% endplaceholder %}
+
+                {% placeholder name="primary-first" content_range="(2,2)" content_types="article" as firsts %}
+                {% for article in firsts %}
+                    {% include "models/article/preview.html" %}
+                {% endfor %}
+                {% endplaceholder %}
+            </div>
+            <div id="breaking-main-second">
+                {% placeholder name="primary-first-featured" content_range="(1,1)" content_types="article, topic page, external content" as feat %}
+                    {% with article=feat|first %}
+                        {% include "models/article/preview.html" %}
+                    {% endwith %}
+                {% endplaceholder %}
+            </div>
+        </div>
+    </section>
+
+    <div class="breaking-separator"></div>
+
+    <section id="primary">
+        <div id="primary-first">
+            {% placeholder name="primary-first-featured" content_range="(1,1)" content_types="article, topic page, external content" as feat %}
+                {% with article=feat|first classes="feature vertical" image=1 %}
+                    {% include "models/article/preview.html" %}
+                {% endwith %}
+            {% endplaceholder %}
+
+            {% placeholder name="primary-first" content_range="(2,2)" content_types="article" as firsts %}
+                {% for article in firsts %}
+                    {% include "models/article/preview.html" %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+        <div id="primary-second">
+            {% placeholder name="primary-second-featured" content_range="(1, 1)" content_types="article" as feat %}
+                {% include "models/article/preview.html" with classes="bigger" article=feat|first %}
+            {% endplaceholder %}
+
+            {% placeholder name="primary-second" content_range="(2, 2)" content_types="article" as seconds %}
+                {% for article in seconds %}
+                    {% include "models/article/preview.html" %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+        <div id="primary-third">
+            {% flyby_preview %}
+            {% most_read_articles %}
+            <div class="sidekick-shell">
+                <div class="sidekick">
+                    {% ad_unit "300x250" %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% highlights_bar %}
+    <section id="secondary">
+        <div id="secondary-first">
+            <div id="section-opinion" class="section-box">
+                <h2 class="section-header"><a href="/section/opinion/">Opinion</a></h2>
+                <div class="raise" style="position: relative;">
+                    {% placeholder name="opinion" content_range="(1,5)" content_types="article" as opinion_articles %}
+                        {% for article in opinion_articles %}
+                            {% if forloop.counter0 < 2 %}
+                                {% include "models/article/section.html" with teaser=1 %}
+                            {% else %}
+                                {% include "models/article/section.html" %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+        <div id="secondary-second">
+            {% placeholder name="secondary second" content_range="(4,8)" content_types="article" as secondary_second_articles %}
+                {% for article in secondary_second_articles|slice:":3" %}
+                    {% include "models/article/preview-small.html" %}
+                {% endfor %}
+                <div class="more-news">
+                    <h3>More News</h3>
+                    <ul>
+                        {% for article in secondary_second_articles|slice:"3:8" %}
+                            {% include "models/article/list-item.html" %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endplaceholder %}
+        </div>
+        <div id="secondary-third">
+            <div id="photo-box">
+                <h2 class="media-title"><a href="/section/media/">Photo</a></h2>
+                {% placeholder name="galleries" content_range="(1,3)" content_types="gallery" as galleries %}
+                    {% for gallery in galleries|slice:":3" %}
+                    <div class="media-entry">
+                        <a href="{{ gallery.get_absolute_url }}">
+                            {{ gallery|to_img_tag:"143,114,143,114" }}
+                        </a>
+                        <h4><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h4>
+                    </div>
+                    {% endfor %}
+                {% endplaceholder %}
+            </div>
+            {% media_box %}
+            <div id="fm-shell">
+                <div id="fm-box">
+                    <div id="fm-container">
+                        {% placeholder name="fm featured" content_range="(2,4)" content_types="article" as fm_articles %}
+                            <div id="fm-first">
+                                <div id="fm-feature">
+                                   {% include "models/article/section-featured-fm.html" with article=fm_articles|first %}
+                                </div>
+                            </div>
+                            <div id="fm-second">
+                                {% for article in fm_articles|slice:"1:4" %}
+                                    {% include "models/article/section.html" %}
+                                {% endfor %}
+                            </div>
+                        {% endplaceholder %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tertiary">
+        <div id="tertiary-first">
+            <div id="section-sports" class="section-box">
+                {% placeholder name="sports section" content_range="(1,4)" content_types="article" as sports_articles %}
+                    <div class="section-box-first">
+                        <h2 class="section-header"><a href="/section/sports/">Sports</a></h2>
+                        {% include "models/article/section-featured.html" with article=sports_articles|first %}
+                    </div>
+                    <div class="section-box-second">
+                        {% for article in sports_articles|slice:"1:4" %}
+                            {% include "models/article/section.html" %}
+                        {% endfor %}
+                    </div>
+                {% endplaceholder %}
+            </div>
+            <div id="section-arts" class="section-box">
+                {% placeholder name="arts section" content_range="(1,4)" content_types="article" as arts_articles %}
+                    <div class="section-box-first">
+                        <h2 class="section-header"><a href="/section/arts/">Arts</a></h2>
+                        {% include "models/article/section-featured.html" with article=arts_articles|first %}
+                    </div>
+                    <div class="section-box-second">
+                        {% for article in arts_articles|slice:"1:4" %}
+                            {% include "models/article/section.html" %}
+                        {% endfor %}
+                    </div>
+                {% endplaceholder %}
+            </div>
+        </div>
+        <div id="tertiary-second">
+            {% blog_preview %}
+
+            <div class="sidekick">
+                {% ad_unit "300x250" %}
+            </div>
+
+            {% comment %}<div class="sidekick">
+                {% ad_unit "300x180" %}
+            </div>{% endcomment %}
+
+            <div class="sidekick">
+                <iframe src="/jobbox/" width="300" height="200">
+                </iframe>
+            </script>
+        </div>
+    </section>
+{% endblock content %}

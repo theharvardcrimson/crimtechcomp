@@ -1,0 +1,10 @@
+<div id="most-read-shell" class="sidebar">
+    <div id="most-read-box">
+        <h3>MOST READ</h3>
+        <ol>
+            {% for article in mostreadarticles %}
+                {% include "models/article/thumbnail-list-item.html" %}
+            {% endfor %}
+        </ol>
+    </div>
+</div>

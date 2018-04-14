@@ -1,0 +1,90 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load content_filters %}
+{% load flyby_preview %}
+{% load top_articles %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/level_blocks.js"></script>
+{% endblock js %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/columnist_block_list.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/images_grid.scss">
+{% endblock css %}
+
+{% block content %}
+<div id="top" class="clearfix">
+    <a href = "/columns/{{ section_name }}"><h1>{{ title }}</h1></a>
+    <div id="links">
+        <a href="/columns/{{ section_name }}"{% if active %}class="active"{% endif %}>Active</a>
+        <a href="?all" {% if not active %}class="active"{% endif %}>All</a>
+    </div>
+</div>
+{% if active %}
+<ul class="days_of_week">
+    <li class="top_bar">
+       <ul>Monday</ul>
+       <ul>Tuesday</ul>
+       <ul>Wednesday</ul>
+       <ul>Thursday</ul>
+       <ul>Friday</ul>
+    </li>
+</ul>
+{% endif %}
+<ul id="images_grid">
+    {% for chunk in blocks %}
+        <li class="{{ chunk.image.day_of_week }} {{ chunk.image.week }} item">
+            <div class="columnist-image">
+                <a href="{{ chunk.main_url }}" class="img-link">
+                    {% if chunk.image.image %}
+                        {{ chunk.image|to_img_tag:"250,250,250,250" }}
+                    {% else %}
+                        <img src="{{ STATIC_URL }}images/noface.jpg">
+                    {% endif %}
+                </a>
+
+            </div>
+            <div class="article-info">
+                <a href="{{ chunk.main_url }}">
+                    <h2>{{ chunk.title }}</h2>
+                </a>
+                {% if chunk.image.subname %}
+                    <div class="subname">
+                        <a href={{ chunk.main_url }}>{{ chunk.image.subname }}</a>
+                    </div>
+                {% endif %}
+                <div class="articles">
+                    {% for article in chunk.articles %}
+                        <div class="article">
+                            <h3>{{ article|linkify }}</h3>
+                            <div class="article-byline">
+                                <span class="article-date">{{ article|datify }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+{% include '_pager_get.html' with paginator=p.paginator %}
+
+{% endblock %}
+
+{% block ads %}
+    {{ block.super }}
+{% endblock %}
+
+{% comment %}
+{% block ad_leaderboard_atf %}
+    {% ad_unit "TheCrimson_SportsLanding_ATF_728x90" 728 90 %}
+{% endblock %}
+
+{% block ad_leaderboard_btf %}
+    {% ad_unit "TheCrimson_SportsLanding_BTF_728x90" 728 90 %}
+{% endblock %}
+{% endcomment %}

@@ -1,0 +1,5 @@
+{% extends "shortcodes/_base.html" %}
+
+{% block content %}
+<blockquote{% if font %} style="font-family:{{ font }}"{% endif %}>{{ text }}</blockquote>
+{% endblock %}

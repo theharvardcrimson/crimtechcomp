@@ -1,0 +1,131 @@
+#magazine-primary h1 {
+    text-indent: -9999px;
+    margin: 0px;
+    margin-left: -10px;
+    background: transparent url('../images/50thReunionHeader.png') no-repeat;
+    height: 319px;
+    width: 542px;
+}
+
+#magazine-scrutiny-inner {
+    top: -102px;
+}
+
+#magazine-tertiary-first {
+    width: 64%;
+    padding: 1%;
+}
+
+#magazine-tertiary-first .magazine-story.article {
+    width: 31%;
+    margin: 1%;
+    float: left;
+}
+
+#magazine-tertiary-first .magazine-story.article:nth-child(5) {
+    clear: left;
+}
+
+#magazine-tertiary-third {
+    width: 33%;
+}
+
+#magazine-tertiary-second {
+    float: none;
+    clear: left;
+    margin: 0px auto;
+}
+
+@media (max-width: 805px) {
+    #magazine-tertiary-third {
+        width: 33%;
+    }
+
+    #magazine-tertiary-third .magazine-tertiary-inner {
+        width: 100%;
+        float: none;
+    }
+
+    #magazine-tertiary-third .magazine-story.article {
+        width: 100%;
+        float: none;
+        margin-bottom: 15px;
+    }
+
+    #magazine-tertiary-third .magazine-story.article.no-img {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 700px) {
+    #magazine-tertiary-first {
+        width: 98%;
+    }
+
+    #magazine-tertiary-third {
+        width: 98%;
+        padding: 0px 2%;
+    }
+
+    #magazine-tertiary-third .magazine-tertiary-inner {
+        float: left;
+        width: auto;
+    }
+
+    #magazine-tertiary-third .magazine-tertiary-inner {
+        float: left;
+    }
+
+    #magazine-tertiary-third .magazine-tertiary-inner:nth-child(2) {
+        width: 33%;
+    }
+
+
+    #magazine-tertiary-third .magazine-tertiary-inner:last-child {
+        width: 66%;
+        clear: none;
+    }
+
+    #magazine-tertiary-third .magazine-tertiary-inner .magazine-story.article {
+        float: left;
+    }
+
+    #magazine-tertiary-third .magazine-tertiary-inner:nth-child(2) .magazine-story.article {
+        width: 45%;
+        margin: 0px 2.5%;
+    }
+
+    #magazine-tertiary-third .magazine-tertiary-inner:last-child .magazine-story.article {
+        width: 21.66%;
+        margin: 0px 1.66%;
+    }
+}
+
+@media (max-width: 485px) {
+    #magazine-tertiary-first .magazine-story.article {
+        width: 48%;
+        clear: none;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:nth-child(5) {
+        clear: none;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #magazine #magazine-tertiary-third .magazine-tertiary-inner {
+        width: 100%;
+    }
+
+    #magazine #magazine-tertiary-third .magazine-tertiary-inner:nth-child(2) {
+        margin-bottom: 0px;
+    }
+
+    #magazine #magazine-tertiary-third .magazine-tertiary-inner .magazine-story.article {
+        width: 98%;
+        margin: 0px 1%;
+    }
+
+}

@@ -1,0 +1,15 @@
+<script>
+  $(function () {
+    $.ajax({
+      dataType: "jsonp",
+      url: "https://api.instagram.com/oembed?url=http://instagr.am/p/{{ id|safe }}/",
+      success: function (instagram) {
+        $("#instagram-{{ id|safe }}").html(instagram.html);
+      },
+    });
+  });
+</script>
+
+<div class="shortcodes-wrapper shortcodes-wrapper-{{ pos }} shortcodes-wrapper-{{ size }}">
+  <div id="instagram-{{ id|safe }}" class="shortcodes-object"></div>
+</div>

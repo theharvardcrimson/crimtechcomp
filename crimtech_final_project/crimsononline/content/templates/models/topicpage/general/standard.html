@@ -1,0 +1,132 @@
+{% extends "__base.html" %}
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+{% load placeholders %}
+
+{% block title %}{{ topic.title }} | {{ block.super }}{% endblock %}
+
+{% block meta_social %}
+    {% if topic.main_rel_content %}
+        <meta property="og:image" content="{{ topic.main_rel_content|img_url:"635,630" }}">
+        <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thecrimson">
+    <meta name="twitter:title" content="{{ topic.title }}">
+    <meta name="twitter:description" content="{{ topic.description }}">
+    {% if article.main_rel_content %}
+        <meta name="twitter:image" content="{{ topic.main_rel_content|img_url:"480,480" }}">
+    {% endif %}
+    <meta property="og:image" content="{{ STATIC_URL}}images/seal.jpg">
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/general.scss">
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    {% compress js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/TweenMax.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/scrollmagic.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/topicpage/commencement2014.js"></script>
+    {% endcompress %}
+{% endblock %}
+
+{% block outside_css %}
+    {{ block.super }}
+    <style type="text/css">
+    {% placeholder name="featured" content_range="(0,4)" content_types="article,external content" as feats %}
+        {% for a in feats|slice:":2" %}
+        .featured-left a:nth-child({{ forloop.counter }}) > div {
+            background-image: url({{ a.main_rel_content|img_url:"500,10000" }});
+            height: {% scalebox feats|slice:":2" forloop.counter0 500 %}px;
+        }
+        {% endfor %}
+
+        {% for a in feats|slice:"2:4" %}
+        .featured-right a:nth-child({{ forloop.counter }}) > div {
+            background-image: url({{ a.main_rel_content|img_url:"500,10000" }});
+            height: {% scalebox feats|slice:"2:4" forloop.counter0 500 %}px;
+        }
+        {% endfor %}
+    {% endplaceholder %}
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif|Lora:400,700,400italic' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="content">
+    <div>
+        <div class="section no-pad">
+            <div class="section-anchor" id="featured"></div>
+            <div class="section-header">{{ topic.title }}</div>
+            {% placeholder name="featured" content_range="(0,4)" content_types="article,external content,topic page" as feats %}
+            {% if feats %}
+            <div class="featured-container cf">
+                <div class="featured-left">
+                    {% for a in feats|slice:":2" %}
+                    <a href="{{ a.get_absolute_url }}"><div>
+                        <div class="featured-title"><div>{{ a.title }}</div></div>
+                    </div></a>
+                    {% endfor %}
+                </div>
+                <div class="featured-right">
+                    {% for a in feats|slice:"2:" %}
+                    <a href="{{ a.get_absolute_url }}"><div>
+                        <div class="featured-title"><div>{{ a.title }}</div></div>
+                    </div></a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% endplaceholder %}
+        </div>
+
+
+        <div class="section">
+            {% placeholder name="articles" content_range="(0,100)" content_types="article,image,widget,gallery,external content,topic page" as items %}
+                {% for i in items %}
+                    {% if i.content_type.name = "article" or i.content_type.name = "gallery" or i.content_type.name = "topic page" %}
+                    <div class="landing-article">
+                        <div class="landing-article-title">
+                            <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                        </div>
+                        <div class="landing-article-teaser">
+                            {{ i.description }}
+                        </div>
+                        <div class="landing-article-byline">
+                            {{ i|byline:"short" }}
+                        </div>
+                    </div>
+                    {% elif i.content_type.name = "image" %}
+                    <div class="landing-work">
+                        <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                        <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                        <div class="landing-work-body">
+                            <img class="landing-image" src="{{ i|img_url:"800,10000"}}">
+                        </div>
+                    </div>
+                    {% elif i.content_type.name = "widget" %}
+                    <div class="landing-work">
+                        <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                        <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                        {{ i|render:"plain" }}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

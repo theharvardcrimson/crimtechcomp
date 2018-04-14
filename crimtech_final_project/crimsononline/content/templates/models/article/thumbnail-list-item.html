@@ -1,0 +1,11 @@
+{% load common %}
+{% load content_filters %}
+{% load static %}
+
+<li class="article-listitem">
+  <a href="{{ article.get_absolute_url }}">
+    <div class="article-listitem-text">
+      {{ article.title }}
+    </div>
+  </a>
+</li>

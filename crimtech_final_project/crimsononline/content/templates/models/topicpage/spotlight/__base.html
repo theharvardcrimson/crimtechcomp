@@ -1,0 +1,152 @@
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_tags %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1">
+
+        <title>{% block title %}The Harvard Crimson{% endblock %}</title>
+
+        <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson" type="text/javascript"></script>
+
+        {% compress js %}
+            {% ads_head %}
+            <script src="{{ STATIC_URL }}js/lib/jquery.js"></script>
+            <script src="{{ STATIC_URL }}js/table.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/spotlight.js"></script>
+            <script src="{{ STATIC_URL }}js/responsive.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox.pack.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-buttons.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-media.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/jquery.fancybox-thumbs.js"></script>
+            <script src="{{ STATIC_URL }}js/sticky_bar.js"></script>
+
+
+            <script>
+                // Google Analytics
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', '{{ ANALYTICS_USER_AGENT }}', 'thecrimson.com');
+                ga('send', 'pageview');
+            </script>
+        {% endcompress %}
+
+        {% compress css %}
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/fonts.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/spotlight.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox-buttons.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/topicpage/jquery.fancybox-thumbs.scss">
+            <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/specific_shortcodes.scss">
+        {% endcompress %}
+        {% block meta_social %}
+        {% endblock %}
+        {{ custom_html|safe }}
+    </head>
+    <body class="{% block body_class %}{% endblock %}" style="{% block body_style %}{% endblock %}">
+        <div class="is-light">
+          {% include "_sticky_bar_commencement.html" with article=topic %}
+          {% include "_sidebar.html" %}
+        </div>
+        <header class="is-dark">
+            <div class="wrapper">
+                <ul class="header-nav">
+                    <a class="header-logo" href="http://www.thecrimson.com/" target="_blank"><li><img src="{{ STATIC_URL }}images/logo.svg"></li></a>
+                    {% block nav %}
+                        <a class="header-logo" href="http://www.thecrimson.com/" target="_blank"><li>The Harvard Crimson</li></a>
+                    {% endblock %}
+                </ul>
+            </div>
+        </header>
+
+        {% block content %}
+        {% endblock %}
+
+        <div class="leader-ad">
+            {% ad_unit "728x90" %}
+        </div>
+
+        <div id="comments">
+            <div id="disqus_thread"></div>
+        </div>
+
+        <!--
+
+        <footer>
+          <img class="is-light" src="{{ STATIC_URL }}images/footer-title.png" width="319" />
+          <img class="is-dark" src="{{ STATIC_URL }}images/masthead.png" width="319" />
+          <ul>
+            <li><a href="/about/privacy/">Privacy Policy</a></li>
+            <li><a href="/about/permissions/">Rights &amp; Permissions</a></li>
+            <li><a href="/contact/">Contact Us</a></li>
+            <li><a href="/contact/">Corrections</a></li>
+            <li><a href="/sitemap/">Archives</a></li>
+            <li><a href="/sitemap/contributors/">Writers</a></li>
+          </ul>
+        </footer>
+
+        -->
+
+        <footer>
+    <div id="footer">
+    <table>
+    <tr>
+      <td id="footer-sections">
+        <h1>Sections</h1>
+        <ul>
+          <li><a href="/section/news/">News</a></li>
+          <li><a href="/section/opinion/">Opinion</a></li>
+          <li><a href="/section/features/">Features</a></li>
+          <li><a href="/section/fm/">Magazine</a></li>
+          <li><a href="/section/sports/">Sports</a></li>
+          <li><a href="/section/arts/">Arts</a></li>
+          <li><a href="/section/media/">Multimedia</a></li>
+          <li><a href="/flyby/">Flyby</a></li>
+        </ul>
+      </td>
+
+      <td id="footer-more">
+        <h1>More</h1>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/advertising/" target="_blank">Advertising</a></li>
+          <li><a href="https://subscribe.thecrimson.com/">Subscribe</a></li>
+          <li><a href="http://programs.thecrimson.com/">Journalism Programs</a></li>
+          <li><a href="/classifieds/" rel="nofollow">Classifieds</a></li>
+          <li><a href="http://thecrimson.personforce.com/" target="_blank">Job Board</a></li>
+          <li><a href="http://store.thecrimson.com/" target="_blank">Photo Store</a></li>
+        </ul>
+      </td>
+
+      <td id="footer-resources">
+        <h1>Resources</h1>
+        <ul>
+          <li><a href="/about/privacy/">Privacy Policy</a></li>
+          <li><a href="/about/permissions/">Rights &amp; Permissions</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/contact/">Corrections</a></li>
+          <li><a href="/subscribe/">Email&nbsp;Subscriptions</a></li>
+          <li><a href="https://subscribe.thecrimson.com/">Print&nbsp;Subscriptions</a></li>
+          <li><a href="/sitemap/">Archives</a></li>
+          <li><a href="/sitemap/contributors/">Writers</a></li>
+        </ul>
+      </td>
+
+      <td rowspan="2" id="footer-img">
+        <div id="footerimg"></div>
+      </td>
+    </tr>
+    </table>
+    <br>
+    <center>Copyright © 2017 The Harvard Crimson, Inc.</center>
+    </div>
+  </footer>
+    </body>
+</html>

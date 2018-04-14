@@ -1,0 +1,258 @@
+{% extends "__base.html" %}
+{% load ads_tags %}
+{% load common %}
+{% load flyby_preview %}
+{% load top_articles %}
+{% load content_filters %}
+{% load placeholders %}
+{% load editors_choice %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/opinion.scss">
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/lib/dotdotdot.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var card = $('.postcard .postcard-first');
+        card.each(function(){
+            var div_height = $(this).height();
+            var margin_top = parseFloat($(this)
+                .find('.ellipsis').css('margin-top'));
+            var margin_bott = parseFloat($(this)
+                .find('.ellipsis').css('margin-bottom'));
+            var other = $(this).find('.more').height() + parseFloat($(this)
+                .find('.more').css('margin-bottom'));
+            $(this).find('.ellipsis')
+                .css('height', div_height - margin_top - margin_bott - other);
+        });
+
+        $('.ellipsis').dotdotdot();
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<section id="upper">
+    <div id="upper-body">
+        <div id="section-bar">
+            <h1>Opinion</h1>
+            <nav id="section-nav">
+                <ul>
+                    <li><a href="/tag/Editorials/">Staff Editorials</a></li>
+                    <li><a href="/tag/Op-Eds/">Op-Eds</a></li>
+                    <li><a href="/columns/opinion">Columns</a></li>
+                    <li><a href="/tag/Cartoon/types/image">Cartoons</a></li>
+                    <li><a href="/about/editorial">About Editorial</a></li>
+                    <li><a href="{{ rss_url }}"><img src="{{ STATIC_URL}}images/icons/rss.gif"></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        {% comment %}
+        <div class="feature half">
+            <h2>
+                <a href="/section/opinion/postcards">Summer Postcards</a>
+            </h2>
+            <h3>{{ card.article|linkify }}</h3>
+            <div class="postcard {{ card.class }}">
+                <div class="postcard-first">
+                    <p class="ellipsis">{{ card.article.teaser }}</p>
+                    <p class="more"><a href="{{ card.article.get_absolute_url }}">Read more</a></p>
+                </div>
+                <div class="postcard-second">
+                    <a href="{{ card.article.get_absolute_url }}">
+                        {% if not card.article.main_rel_content %}
+                        <img class="default" src="{{ STATIC_URL }}images/seal.jpg">
+                        {% else %}
+                            {{ card.article.main_rel_content|to_img_tag:"60,50,60,50" }}
+                        {% endif %}
+                        <img class="postmark {{ card.postmark }}" src="{{ STATIC_URL }}images/{{ card.postmark }}.png">
+                    </a>
+                    {% if card.postmark == 'postmark1' %}
+                    <span class='postmark-location'>{{ card.country }}</span>
+                    {% endif %}
+                    <div class="lines">
+                        <p>{{ card.article|byline_sans_by:"short" }}</p>
+                        <p>{{ card.city }}{% if card.country %},{% endif %}</p>
+                        {% if card.country %}
+                        <p>{{ card.country }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <p><a href="/section/opinion/postcards">See more postcards</a></p>
+        </div>
+        {% endcomment %}
+
+        <div id="upper-first">
+            <h2 class="subsection-header"><a href="/columns/opinion">Columns</a></h2>
+            <div class="subsections-container">
+                {% for column in columns|slice:":5" %}
+                    {% if column.recent %}
+                        {% include "models/column/section-sports-preview.html" %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="upper-second">
+            <div class="upper-column">
+                <div class="subsection">
+                    <h2><a href="/tag/Editorials">Editorials</a></h2>
+                    {% placeholder name="editorials" content_range="(2, 2)" content_types="article" as editorials %}
+                        {% for article in editorials|slice:":1" %}
+                            {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="upper-column">
+                <div class="subsection">
+                    <h2><a href="/tag/Op-Eds">Op-Eds</a></h2>
+                        {% placeholder name="opeds" content_range="(2, 2)" content_types="article" as opeds %}
+                            {% for article in opeds|slice:":1" %}
+                                {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                            {% endfor %}
+                        {% endplaceholder %}
+                </div>
+            </div>
+
+            <div class="feature half cartoon-box">
+                {% placeholder name="cartoon" content_range="(1,1)" content_types="image" as cartoon %}
+                <h2>
+                    <a href="{{ cartoon.0.get_absolute_url }}">Featured Cartoon</a>
+                </h2>
+                <a href="{{ cartoon.0.get_absolute_url }}">
+                    {{ cartoon.0|to_img_tag:"600,600" }}
+                </a>
+                <div class="article-byline">
+                    <div class="article-nametag">
+                        {{cartoon.0|byline:"full"}}
+                    </div>
+                </div>
+                {% endplaceholder %}
+                <p><a href="/tag/Cartoon/types/image">See more here</a></p>
+            </div>
+
+            <div class="upper-column">
+                <div class="subsection">
+                    <h2><a href="/tag/Editorials">Editorials</a></h2>
+                    {% placeholder name="editorials" content_range="(2, 2)" content_types="article" as editorials %}
+                        {% for article in editorials|slice:"1:" %}
+                            {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="upper-column">
+                <div class="subsection">
+                    <h2><a href="/tag/Op-Eds">Op-Eds</a></h2>
+                        {% placeholder name="opeds" content_range="(2, 2)" content_types="article" as opeds %}
+                            {% for article in opeds|slice:"1:" %}
+                                {% include "models/article/preview-small.html" with image=0 comments=1 section=0 %}
+                            {% endfor %}
+                        {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+
+        {% comment %}
+        <div class="upper-supplements one-supplement">
+            <div class="upper-supplement">
+                <h2><a href="/tag/roundtable">Roundtables</a></h2>
+                <div class="upper-supplement-column">
+                    {% placeholder name="rountable feature" content_range="(1, 1)" content_types="article" as rtable %}
+                    <div class="article">
+                        <div class="article-image"><a href="{{ rtable.0.get_absolute_url }}">{{ rtable.0|get_image_obj|to_img_tag:"130,90,130,90" }}</a></div>
+                        <h3><a href="{{ rtable.0.get_absolute_url }}">{{ rtable.0.headline }}</a></h3>
+                        <div class="article-byline">{{ rtable.0|byline:"short" }}</a> <span class="article-date">{{ rtable.0|datify }}</span></div>
+                    </div>
+                    {% endplaceholder %}
+                </div>
+                <div class="upper-supplement-column">
+                    {% placeholder name="rountables" content_range="(4, 4)" content_types="article" as roundtables %}
+                        {% for article in roundtables%}
+                        <div class="article">
+                            <h4><a href="{{ article.get_absolute_url }}">{{ article.headline }}</a></h4>
+                        </div>
+                        {% endfor %}
+                    {% endplaceholder %}
+                </div>
+            </div>
+        </div>
+        {% endcomment %}
+    </div>
+    <div id="upper-sidebar">
+        {% most_read_articles %}
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "300x250" %}
+            </div>
+        </div>
+        <div class="sidekick-shell">
+            <div class="sidekick" id="oped-box">
+                <h2 class="opeds-submit">Submit an Op-Ed</h2>
+                <em>To submit an op-ed, email it as a Word document to <a href="mailto:op-eds@thecrimson.com"><strong>op-eds@thecrimson.com</strong></a>. Op-eds should be 650-850 words in length. If your op-ed is selected for publication, you will hear back from our op-ed editors within three business days. </em>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="site-separator">
+<div class="interlude">
+    <div class="ad ad-sidekick">
+      {% ad_unit "300x250" %}
+    </div>
+    {% editors_choice section="opinion" title="Opinions' Choice" num=5 %}
+</div>
+<hr class="site-separator">
+
+<section id="lower">
+    <div id="lower-body">
+        <div class="lower-column">
+            {# 8:13 #}
+            {% placeholder name="lower column part 1 (left)" content_range="(5,5)" content_types="article" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 comments=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+
+            {# 18:23 #}
+            {% placeholder name="lower column part 2 (left)" content_range="(5,5)" content_types="article" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 noteaser=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+        <div class="lower-column">
+            {# 13:18 #}
+            {% placeholder name="lower column part 1 (right)" content_range="(5,5)" content_types="article" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 comments=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+
+            {# 23:28 #}
+            {% placeholder name="lower column part 2 (right)" content_range="(5,5)" content_types="article" as lower_articles %}
+                {% for article in lower_articles %}
+                    {% include "models/article/preview-small.html" with image=0 noteaser=1 section=1 %}
+                {% endfor %}
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div id="lower-sidebar">
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "300x250" %}
+            </div>
+        </div>
+        <div class="sidekick-shell">
+            <div class="sidekick">
+                {% ad_unit "300x600" %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

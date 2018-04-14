@@ -1,0 +1,14 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="full">
+    <object width="538" height="324">
+        <param name="movie" value="https://www.youtube.com/v/{{video.key}}&hl=en&fs=1"></param>
+        <param name="allowFullScreen" value="true"></param>
+        <param name="allowscriptaccess" value="always"></param>
+        <embed src="https://www.youtube.com/v/{{video.key}}&hl=en&fs=1"
+                type="application/x-shockwave-flash" allowscriptaccess="always"
+                allowfullscreen="true" width="538" height="324"></embed>
+    </object>
+    <p class="byline">{{video.contributors.all|linkify|human_list}}</p>
+</div>

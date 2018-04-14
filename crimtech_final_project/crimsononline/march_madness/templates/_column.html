@@ -1,0 +1,18 @@
+{% load content_filters %}
+{% load common %}
+
+<div class="article-column">
+    <div class="column-inner">
+        <h3>{{ section }}</h3>
+        <div class="articles">
+        {% for a in articles %}
+            <a class="title" href="{{ a.get_absolute_url }}" target="_blank">{{ a.title }}</a>
+            <div class="article-byline">
+                {{ a|byline:"short" }}
+                {% date a %}
+            </div>
+            <div class="description">{{ a.description }}</div>
+        {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,466 @@
+@font-face {
+    font-family: 'Colaborate Thin';
+    src: url('../../fonts/ColabThi-webfont.eot');
+    src: url('../../fonts/ColabThi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/ColabThi-webfont.woff') format('woff'),
+         url('../../fonts/ColabThi-webfont.ttf') format('truetype'),
+         url('../../fonts/ColabThi-webfont.svg#ColaborateThinRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    color: #ba0600;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(186, 6, 0, 0.95);
+    z-index: 10;
+    height: 45px;
+    overflow: hidden;
+}
+
+header .wrapper {
+    height: 100%;
+}
+
+header ul {
+    float: left;
+    list-style: none;
+    padding-left: 40px;
+    margin: 0;
+    height: 100%;
+}
+
+header ul li {
+    padding: 2px 10px;
+    line-height: 36px;
+    float: left;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    cursor: hand;
+    /*height: 100%;*/
+    vertical-align: middle;
+}
+
+/*header ul li:hover, header ul li.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+}*/
+
+header ul li.inactive:hover {
+    background-color: #999;
+    color: white;
+    cursor: default;
+}
+
+header .header-logo li {
+    font-family: 'Crimson', Georgia, serif;
+    font-size: 20px;
+    color: white;
+    margin: 0 auto;
+}
+
+header li img {
+    height: 30px;
+    vertical-align: middle;
+}
+
+.bigText {
+	position: absolute;
+	bottom: 20px;
+}
+
+#title {
+    margin: auto;
+    margin-bottom: 13px;
+    background-size: cover;
+    color: white;
+    position: relative;
+}
+
+#title .title-inner {
+    background-color: rgba(16,16,16,0.5);
+    padding: 115px 0px 50px;
+}
+
+#title h1 {
+    margin: 0;
+    font-family: 'Crimson', Georgia, serif;
+    font-weight: normal;
+    font-size: 70pt;
+    text-align: center;
+}
+
+#title h1 .newline {
+    display: block;
+    margin-top: -10px;
+}
+
+#title p {
+    margin-top: 35px;
+	width: 90%;
+	max-width: 1000px;
+    margin: 15px auto;
+    font-family: Georgia;
+    font-size: 19px;
+    line-height: 1.3em;
+    padding-top: 11px;
+}
+
+#mainContainer {
+	background-color: white;
+	margin: auto;
+	width: 90%;
+	max-width: 1000px;
+	margin-top: 0px;
+	margin-bottom: 30px;
+}
+
+.darken {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.25);
+}
+
+a.jump {
+    display:block;
+    position:relative;
+    top:-50px;
+    visibility:hidden;
+}
+
+.story {
+	position: relative;
+	height: 400px;
+	margin-top: 20px;
+	background-color: black;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.story.half {
+	width: 49%;
+	float: left;
+}
+
+
+.story.second {
+	margin-left: 2%;
+}
+
+.story.half .teaser {
+    width: 70%;
+}
+
+.hiddenContent {
+    position: relative;
+    float: left;
+    clear: both;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	background-color: #F7F7F7;
+    /*border: 10px solid #ddd;*/
+	display: none;
+    width: 100%;
+}
+
+.hiddenContent a {
+    color: #ba0600;
+    text-decoration: none;
+}
+
+.hiddenContent a:hover {
+    text-decoration: underline;
+}
+
+.mainPic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+	height: 400px;
+	transition-duration: .7s;
+	opacity: 1;
+    background-size: cover;
+
+}
+
+.story:hover .mainPic, .story.darkened .mainPic, .story.selected .mainPic {
+	opacity: .4;
+}
+
+.story.selected .teaser, .story.shrunk .teaser {
+    display: none;
+}
+
+/* #clear { */
+/* 	clear: both; */
+/* } */
+
+.catName {
+	position: relative;
+	z-index: 2;
+	padding: 0 20px;
+	margin-top: 20px;
+	color: white;
+	font-size: 33pt;
+	font-family: 'Crimson', Georgia, serif;
+	background: rgba(0,0,0,.6);
+}
+
+.teaser {
+	transition-duration: .7s;
+	position: relative;
+	z-index: 2;
+	margin: 60px 0 0 50px ;
+	color: #F7F7F7;
+	font-family: 'Crimson', Georgia, serif;
+	width: 45%;
+	font-style: italic;
+	font-size: 20px;
+	opacity: 0;
+}
+
+.story:hover .teaser {
+    opacity: 1;
+}
+
+/* .catName2{ * * * * /
+/*     position: relative; */
+/*     z-index: 2; */
+/* 	margin-top: 60px; */
+/* 	color: white; */
+/* 	font-size: 33pt; */
+/* 	font-family: 'Roboto Condensed'; */
+/* 	background: rgba(0,0,0,.6); */
+/* 	width: 100%; */
+/* 	padding-left: 20px; */
+/* } */
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+/* want to change the color probs */
+.headline, .headline1, .headline2 {
+	position: relative;
+	padding: 10px 0 400px 10px;
+	font-family: 'Crimson', Georgia, serif;
+	font-size: 70px;
+	color: #FFF;
+	background-size: cover;
+}
+
+.content_wrapper {
+	padding-top: 30px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+    padding-right: 30px;
+	color: #303030;
+}
+
+.text {
+/*	padding-left: 20px;
+	padding-right: 20px;*/
+	font-size: 18px;
+	font-family: 'Georgia', serif;
+}
+
+#comments {
+    background-color: white;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
+.triangle-style {
+    position: absolute;
+    z-index: 2;
+    width: 0;
+    height: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    border-bottom: 30px solid white;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+}
+
+/* for weird border: */
+.hiddenContent .triangle-style {
+    border-bottom: 30px solid #ddd;
+    bottom: inherit;
+    top: -36px;
+    bottom: inherit;
+}
+
+.image-attr {
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    color: white;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font: 10px 'Colaborate Light','Lucida Sans Unicode',sans-serif;
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    padding-left: 15px;
+}
+
+.image-attr a, .image-attr a:visited {
+    color: #fff;
+}
+
+.gray-bg {
+    bottom: 0;
+    right: 0;
+    background-position: 3px 4px;
+    padding-left: 18px;
+    background-color: rgba(0,0,0,0.5);
+    padding-bottom: 2px;
+    padding-right: 4px;
+    padding-top: 2px;
+}
+
+#design-attribution {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    font-size: 0.8em;
+    font-style: italic;
+    font-family: 'Georgia', serif;
+}
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+@media (max-width: 1020px) and (min-width: 851px) {
+    .teaser {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 940px) and (min-width: 851px) {
+    .catName {
+        font-size: 29pt;
+    }
+}
+
+@media (max-width: 850px) {
+    #title p {
+        font-size: 19px;
+    }
+
+    .story.half {
+        width: 100%;
+        float: none;
+    }
+
+    .story.second {
+        margin-left: 0;
+    }
+
+    .teaser {
+        width: 70%;
+    }
+}
+
+@media (max-width: 720px) {
+    .headline, .headline1, .headline2 {
+        font-size: 56px;
+    }
+
+    #title h1 {
+        font-size: 50pt;
+    }
+
+    #title p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 580px) {
+    .teaser, .story.half .teaser {
+        font-size: 18px;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .catName {
+        font-size: 28pt;
+    }
+
+    .text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 520px) {
+    .catName {
+        font-size: 22pt;
+    }
+
+    #title h1 {
+        font-size: 30pt;
+    }
+
+    #title p {
+        font-size: 14px;
+    }
+
+    .teaser, .story.half .teaser {
+        font-size: 14px;
+    }
+
+    .story {
+        height: 275px;
+    }
+
+    .mainPic {
+        height: 275px;
+    }
+
+    .headline, .headline1, .headline2 {
+        width: 98%;
+        padding: 10px 0 330px 2%;
+        font-size: 40px;
+    }
+}

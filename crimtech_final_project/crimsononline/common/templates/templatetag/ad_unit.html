@@ -1,0 +1,7 @@
+<div id="{{ name }}" style="width: {{ width }}px; height: {{ height }}px;">
+    <script>
+        if ($('#{{ name|escapejs }}').parent().parent().width() >= {{ width }}) {
+            googletag.cmd.push(function() { googletag.display('{{ name }}'); });
+        }
+    </script>
+</div>

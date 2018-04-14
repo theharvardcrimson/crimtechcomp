@@ -1,0 +1,20 @@
+{% load content_filters %}
+{% load common %}
+
+<div class="fb_photos">
+    <ul class="fb_thumbs">
+        {% for item in gallery.contents.all|slice:":8" %}
+            <li>
+                <a href="javascript:void(0)" onclick="switch_product_img('{{ gallery.pk }}_photo_', {{ forloop.counter }}, {{ gallery.contents.all|length }});" style="background-image: url('{{ item|img_url:"532,532,1,1" }}');"></a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% for item in gallery.contents.all|slice:":8" %}
+        <div id="{{ gallery.pk }}_photo_{{ forloop.counter }}" {% if not forloop.first %}style="display:none;"{% endif %}>
+            {{ item|to_img_tag:"532,532,1,1" }}
+            {% if item.child.caption %}
+                <div class="fb_gallery_image_caption">{{ item.child.caption|truncatewords_html:40 }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

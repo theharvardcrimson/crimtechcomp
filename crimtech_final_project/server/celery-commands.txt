@@ -1,0 +1,9 @@
+sudo cp supervisor.init /etc/init.d/
+sudo cp supervisord.conf /etc/
+
+# fix supervisord.conf to refer to vagrant rather than crimson on vagrant
+# add sqs to local_settings.py
+# remove newrelic run from supervisord.conf on vagrant
+
+sudo update-rc.d supervisor.init defaults
+sudo update-rc.d supervisor.init enable

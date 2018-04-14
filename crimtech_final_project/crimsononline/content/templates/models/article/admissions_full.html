@@ -1,0 +1,108 @@
+{% extends "__admissions.html" %}
+{% load ads_tags %}
+{% load common %}
+{% load content_filters %}
+{% load top_articles %}
+
+{% block body_class %}l-post{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	<script src="http://s7.addthis.com/js/300/addthis_widget.js" async></script>
+{% endblock %}
+
+{% block title %}
+	{{ article.headline }} | The Harvard Crimson Admissions Blog
+{% endblock %}
+
+{% block sidebar %}
+	{% most_read_admissions %}
+
+	<div class="ad ad-primary">
+		{% ad_unit "300x600" %}
+	</div>
+
+	<hr class="rule">
+
+	{% most_read_admissions %}
+
+	{% include "admissions/question-box.html" %}
+
+	<hr class="rule">
+
+	<div class="ad ad-sidekick">
+		{% ad_unit "300x250" %}
+	</div>
+
+	<hr class="rule">
+
+	{% include "admissions/social.html" %}
+{% endblock sidebar %}
+
+{% block content %}
+	<article class="post">
+		<header>
+			{% if article.group %}
+				<div class="post-series">
+					{{ article.group.name }}
+				</div>
+			{% endif %}
+			<h2 class="post-title">
+				<a href="{{ article.get_absolute_url }}">{{ article.groupless_headline }}</a>
+			</h2>
+			<h3 class="post-subtitle">
+				{% if article.subheadline %}
+					{{ article.subheadline }}
+				{% endif %}
+			</h3>
+			<span class="post-metadata">
+				{{ article|byline:"full" }}<br>
+				<a href="{{ article.get_absolute_url }}">{{ article.issue.issue_date|date:"l" }}, {% date article %}</a>
+			</span>
+		</header>
+
+		<div class="post-content js-external-links">
+			{% if article.main_rel_content %}
+				<a class="post-image post-image-{{ article.main_rel_content.orientation }}" href="{{ article.main_rel_content.get_absolute_url }}">
+					{{ article.main_rel_content|to_img_tag:"550, 800"}}
+				</a>
+			{% endif %}
+
+			{{ paragraphs|join:""|jump_to_anchor|safe }}
+
+			{% with article.rel_content.all|rel_no_articles|slice:"1:" as rcs %}
+				{% if rcs %}
+					<div id="article-inset">
+						<h2><a href="#">Multimedia</a></h2>
+						{% for rc in rcs %}
+						{{ rc|render:"inset" }}
+						{% endfor %}
+					</div>
+				{% endif %}
+			{% endwith %}
+		</div>
+
+		<div class="post-social">
+			<h2 class="module-title">Share</h2>
+			<div class="module-content addthis_toolbox addthis_default_style addthis_32x32_style">
+				<a class="addthis_button_facebook" addthis:url="http://{{ request.get_host }}{{ request.path }}"></a>
+	            <a class="addthis_button_twitter" addthis:url="http://{{ request.get_host }}{{ request.path }}"></a>
+	            <a class="addthis_button_email" addthis:url="http://{{ request.get_host }}{{ request.path }}"></a>
+	            <a class="addthis_button_compact" addthis:url="http://{{ request.get_host }}{{ request.path }}"></a>
+	        </div>
+		</div>
+
+		<div class="post-comments">
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+				var disqus_shortname = 'crimsonadmissions';
+				var disqus_url = 'http://www.thecrimson.com{{ request.path|escapejs }}';
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
+		</div>
+	</article>
+{% endblock %}

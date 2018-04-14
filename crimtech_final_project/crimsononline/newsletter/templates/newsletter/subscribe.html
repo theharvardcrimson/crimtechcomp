@@ -1,0 +1,53 @@
+{% extends "__bare.html" %}
+
+{% load compress %}
+
+{% block head_content %}
+  {{ block.super }}
+
+  {% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/fonts.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/interstitials/interstitials.scss">
+    <style type="text/x-scss">
+      body {
+        background: url('{{ STATIC_URL }}images/interstitials/harvardsquare.jpg') no-repeat fixed;
+        font: 0.9em/1.3em Georgia, serif;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+
+        &.form-type-alumni {
+          background-image: url('{{ STATIC_URL }}images/interstitials/alumni.jpg');
+        }
+
+        &.form-type-sports {
+          background-image: url('{{ STATIC_URL }}images/interstitials/football.jpg');
+        }
+      }
+    </style>
+  {% endcompress %}
+
+  <script src="{{ STATIC_URL }}js/lib/jquery.js"></script>
+  <script src="{{ STATIC_URL }}js/lib/jquery.cookie.js"></script>
+  <script src="{{ STATIC_URL }}js/interstitials.js"></script>
+{% endblock %}
+
+{% block body_class %}
+form-type-{{ form_type }}
+{% endblock %}
+
+{% block body_content %}
+  <div id="interstitial-inline-wrapper">
+    <div id="interstitial-inline">
+      {% include "forms/subscribe_form.html" with tagline=tagline utm_src=utm_src %}
+
+      <div id="interstitial-inline-footer">
+        <a href="/">
+          © The Harvard Crimson · 14 Plympton Street · Cambridge, MA 02138
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock body_content %}

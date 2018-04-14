@@ -1,0 +1,141 @@
+{% extends "models/topicpage/commencement-2014/__base.html" %}
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_module %}
+{% load content_tags %}
+{% load common %}
+{% load cache %}
+{% load static %}
+{% load placeholders %}
+{% get_static_prefix as STATIC_URL %}
+
+{% block addl_css %}
+<style media="all" type="text/css">
+    {% for t in topic.get_all_ordered_children|slice:":4" %}
+    .supp-link-left a:nth-child({{ forloop.counter }}) > div {
+        background-image: url({{ t.image|img_url:"500,10000" }});
+        height: {% scalebox topic.get_all_ordered_children|slice:":4" forloop.counter0 800 %}px;
+        {% if t.pub_status != 1 %}cursor: default;{% endif %}
+    }
+    {% endfor %}
+
+    {% for t in topic.get_all_ordered_children|slice:"4:" %}
+    .supp-link-right a:nth-child({{ forloop.counter }}) > div {
+        background-image: url({{ t.image|img_url:"500,10000" }});
+        height: {% scalebox topic.get_all_ordered_children|slice:"4:" forloop.counter0 800 %}px;
+        {% if t.pub_status != 1 %}cursor: default;{% endif %}
+    }
+    {% endfor %}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<header>
+    <div id="toolbar">
+        <div id="toolbar-container">
+            <nav id="toolbar-colophon">
+                <ul>
+                    {% for t in topic.get_ordered_children %}
+                    <li><a href="{{ t.get_absolute_url }}">{{ t.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <nav id="toolbar-social">
+                {% contentmodule quicklinks-social %}{% endcontentmodule %}
+            </nav>
+            <!-- <div id="toolbar-weather">
+                {% weather %}
+            </div> -->
+            <div id="masthead-search-mobile">
+                <form action="/search/" id="cse-search-box">
+                    <input type="hidden" name="cx" value="013815813102981840311:aw6l9tjs1a0" />
+                    <input type="hidden" name="cof" value="FORID:10" />
+                    <input type="hidden" name="ie" value="UTF-8" />
+                    <input type="text" class="query" name="q" />
+                    <button class="search-submit" type="submit" name="sa">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="masthead">
+        <div id="masthead-first-wrapper">
+            <div id="masthead-first">
+                <div id="masthead-first-container">
+                    <h1><a href="/?r=0">The Harvard Crimson</a></h1>
+                    <h3><a href="{{ topic.get_absolute_url }}">{{ topic.title }}</a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="content"><div class="home-link">
+   <a href="/?r=0" class="cf">Back to<span class="break-on-large"></span> thecrimson.com</a>
+</div></div>
+
+<div class="content">
+    <div class="section">
+        <div class="section-anchor" id="supp-link"></div>
+        <div class="section-header">Sections</div>
+        <div class="supp-link-container cf">
+            <div class="supp-link-left">
+                {% for t in topic.get_all_ordered_children|slice:":4" %}
+                <a href="{% if t.pub_status = 1 %}{{ t.get_absolute_url }}{% endif %}"><div>
+                    <div class="supp-link-title"><div>{{ t.title }}</div></div>
+                </div></a>
+                {% endfor %}
+            </div>
+            <div class="supp-link-right">
+                {% for t in topic.get_all_ordered_children|slice:"4:" %}
+                <a href="{% if t.pub_status = 1 %}{{ t.get_absolute_url }}{% endif %}"><div>
+                    <div class="supp-link-title"><div>{{ t.title }}</div></div>
+                </div></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        {% placeholder name="articles" content_range="(0,100)" content_types="article,image,widget,external content" as items %}
+            {% for i in items %}
+                {% if i.content_type.name = "article" %}
+                <div class="landing-article">
+                    <div class="landing-article-title">
+                        <a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+                    </div>
+                    <div class="landing-article-teaser">
+                        {{ i.description }}
+                    </div>
+                    <div class="landing-article-byline">
+                        {{ i|byline:"short" }}
+                    </div>
+                </div>
+                {% elif i.content_type.name = "image" %}
+                <div class="landing-work">
+                    <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                    <div class="landing-work-body">
+                        <img class="landing-image" src="{{ i|img_url:"800,10000"}}">
+                    </div>
+                </div>
+                {% elif i.content_type.name = "widget" %}
+                <div class="landing-work">
+                    <div class="landing-work-title big-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></div>
+                    <div class="landing-work-byline">{{ i|byline:"short" }}</div>
+                    {{ i|render:"plain" }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endplaceholder %}
+    </div>
+</div>
+<div class="ad-tag">Advertisement</div>
+<div id="TheCrimson_AllArticles_ATF_728x90" class="leader-ad">
+    {% ad_unit "728x90" %}
+</div>
+<div class="content">
+    <div id="design-attrib"></div>
+</div>
+
+{% endblock %}

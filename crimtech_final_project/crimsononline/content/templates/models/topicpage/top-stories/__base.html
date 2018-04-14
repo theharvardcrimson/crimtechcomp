@@ -1,0 +1,71 @@
+{% load ads_tags %}
+{% load compress %}
+{% load content_filters %}
+{% load content_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{ topic.title }} {{ topic.subtitle }} | The Harvard Crimson</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:image" content="http://static.thecrimson.com/images/seal.jpg">
+
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson"></script>
+        <link href='http://fonts.googleapis.com/css?family=Lato|Roboto|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+        {% compress js %}
+            {% ads_head %}
+            <script src="{{ STATIC_URL }}js/lib/jquery.js"></script>
+            <script src="{{ STATIC_URL }}js/topicpage/animation.js" type="text/javascript"> </script>
+
+            <script type="text/javascript">
+
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-327124-1']);
+              _gaq.push(['_setDomainName', 'thecrimson.com']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+
+            </script>
+        {% endcompress %}
+
+        {% compress css %}
+            <link rel="stylesheet" href="{{ STATIC_URL }}css/topicpage/top-stories.scss" type="text/x-scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/shortcodes.scss">
+            <link rel="stylesheet" media="all" type="text/x-scss" href="{{ STATIC_URL }}css/specific_shortcodes.scss">
+        {% endcompress %}
+
+        {{ custom_html|safe }}
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <ul class="header-nav">
+                    <a class="header-logo" href="http://www.thecrimson.com/" target="_blank"><li><img src="{{ STATIC_URL }}images/logo.svg"></li></a>
+                    {% block nav %}
+                        <a class="header-logo" href="http://www.thecrimson.com/" target="_blank"><li>The Harvard Crimson</li></a>
+                    {% endblock %}
+                </ul>
+            </div>
+        </header>
+
+        {% block content %}
+        {% endblock %}
+
+        <div id="design-attribution">
+            Designed by Tara J. Aida, Mirhee Kim, Samuel M. Fishman, and Josh R. Palay.
+        </div>
+
+        <div id="comments">
+            <div id="disqus_thread"></div>
+        </div>
+    </body>
+</html>

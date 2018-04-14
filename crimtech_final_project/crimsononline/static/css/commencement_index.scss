@@ -1,0 +1,63 @@
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+#feature-icon-link {
+    width: 20%;
+    max-width: 60px;
+    float: left;
+    margin-right: 5%;
+}
+
+#content #feature-header {
+    width: 75%;
+    float: left;
+    margin: 10px 0px;
+}
+
+#content #primary-first .article-content h2 {
+    text-align: center;
+}
+
+#commencement-nav ul {
+    padding: 0px 10px;
+}
+
+#commencement-nav ul li {
+    list-style: none;
+    width: 23%;
+    padding: 0px 1% 1% 1%;
+    float: left;
+    text-align: center;
+}
+
+#commencement-nav ul li:nth-child(5) {
+    clear: left;
+}
+
+#commencement-nav ul li img {
+    max-width: 100%;
+}
+
+@media (min-width: 470px) and (max-width: 580px) {
+    #feature-icon-link {
+        display: none;
+    }
+    #content #feature-header {
+        float: none;
+        width: 98%;
+        margin: 10px auto;
+        text-align: center
+    }
+    #commencement-nav ul li p {
+        display: none;
+    }
+}

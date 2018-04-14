@@ -1,0 +1,14 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    <div class="article-section">
+        <a href="{{ table.subsection.get_absolute_url }}">{{ table.subsection }}</a>
+    </div>
+    <h2>{{ table|linkify }}</h2>
+        <div class="article-byline">
+            {{ table|byline:"short" }}
+            <span class="article-date">{{ table|datify }}</span>
+        </div>
+    <p>{{ table.description }}</p>
+</div>

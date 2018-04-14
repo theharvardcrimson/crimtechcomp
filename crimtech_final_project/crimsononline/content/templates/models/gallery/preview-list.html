@@ -1,0 +1,21 @@
+{% load common %}
+{% load content_filters %}
+
+<div class="list-article article">
+    {% if gallery.child.main_rel_content %}
+        <div class="article-headline-image">
+            <a href="{{ gallery.get_absolute_url }}">
+                {{ gallery.child.main_rel_content|to_img_tag:"60,60,60,60" }}
+            </a>
+        </div>
+    {% endif %}
+    <div class="article-section">
+        <a href="{{ gallery.subsection.get_absolute_url }}">{{ gallery.subsection }}</a>
+    </div>
+    <h2>{{ gallery|linkify }}</h2>
+        <div class="article-byline">
+            {{ gallery|byline:"short" }}
+            <span class="article-date">{{ gallery|datify }}</span>
+        </div>
+    <p>{{ gallery.child.teaser }}</p>
+</div>

@@ -1,0 +1,68 @@
+#magazine-primary h1 {
+    text-indent: -9999px;
+    margin: 0px;
+    margin-left: -10px;
+    background: transparent url('../images/SeniorSectionHeader.png') no-repeat;
+    width: 400px;
+    height: 238px;
+}
+
+#magazine-scrutiny-inner {
+    top: -21px;
+}
+
+#magazine-cover-stories .article p {
+    color: #333;
+    margin-top: 6px;
+}
+
+#magazine-tertiary-first {
+    width: 98%;
+    padding: 1%;
+}
+
+#magazine-tertiary-first .magazine-story.article {
+    width: 23%;
+    margin: 1%;
+    float: left;
+}
+
+#magazine-tertiary-first .magazine-story.article:nth-child(4n+2) {
+    clear: left;
+}
+
+#magazine-tertiary-first .magazine-story.article:last-child {
+    width: 100%;
+}
+
+#magazine-tertiary-first, #magazine-tertiary-third {
+    width: 100%;
+}
+
+@media (max-width: 625px) {
+    #magazine-tertiary-first .magazine-story.article:nth-child(4n+2) {
+        clear: none;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:nth-child(3n+2) {
+        clear: left;
+    }
+
+    #magazine-tertiary-first .magazine-story.article {
+        width: 31%;
+    }
+}
+
+@media (max-width: 450px) {
+    #magazine-tertiary-first .magazine-story.article:nth-child(3n+2) {
+        clear: none;
+    }
+
+    #magazine-tertiary-first .magazine-story.article:nth-child(2n+2) {
+        clear: left;
+    }
+
+    #magazine-tertiary-first .magazine-story.article {
+        width: 48%;
+    }
+}

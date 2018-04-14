@@ -1,0 +1,28 @@
+{% load common %}
+{% load content_filters %}
+{% load cache %}
+
+<section id="row">
+    <div id="highlights-row" class="sponsored-bar">
+        <h3 class="sponsored-h3">From Our Advertisers</h3>
+        {% for article in articles %}
+            <div class="row article">
+                <a href="{{ article.get_absolute_url }}">
+                    <div class="highlights-item sponsored-item">
+                        <div style="position: relative">
+                            <img src="{{ article.main_rel_content|img_url:"400,300,400,300" }}">
+                            <div class="sponsored-label">Sponsored</div>
+                        </div>
+                        <div class="sponsored-info">
+                            <div class="sponsor">{{ article|byline_sans_by:'sponsor_name' }}</div>
+                            <div class="title">{{ article.title }}</div>
+                            {% if not no_teaser %}
+                                <p class="subtitle">{{ article.description|striptags }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>

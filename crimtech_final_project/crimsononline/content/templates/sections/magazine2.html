@@ -1,0 +1,241 @@
+{% extends "fm/__base.html" %}
+
+{% load ads_tags %}
+{% load common %}
+{% load content_filters %}
+{% load placeholders %}
+{% load editors_choice %}
+
+{% block content %}
+  <script>
+    window.fm_already_loaded = new Set();
+  </script>
+  {% placeholder name="featured" content_range="(0,1)" content_types="article,topic page,external content" as articles %}
+    {% if articles %}
+      <!-- <div class="no-site-bar-adjust"></div> -->
+
+      <section class="homepage-image-banner">
+        <img src="{{ articles.0.main_rel_content|img_url:'1280,560' }}">
+        <a class="site-logo" href="/section/fm/">
+          <img src="{{ STATIC_URL }}images/fm-logo-clean.png" width="270">
+        </a>
+        <div class="primary-text">
+          <h1 class="primary-heading">{{ articles.0|linkify }}</h1>
+          <br><br>
+          <span class="primary-byline primary-byline-bold">{{ articles.0|byline:'short' }}</span>
+        </div>
+      </section>
+
+      <nav class="site-nav sticky-bar-start">
+        <ul class="site-nav-list">
+          <li class="site-nav-item"><a class="site-nav-link" href="/section/fm/issues/">Issues</a></li>
+          <li class="site-nav-item"><a class="site-nav-link" href="/section/fm/levity/">Levity</a></li>
+          <li class="site-nav-item"><a class="site-nav-link" href="/section/fm/around-town/">Around town</a></li>
+          <li class="site-nav-item"><a class="site-nav-link" href="/section/fm/introspection/">Introspection</a></li>
+          <li class="site-nav-item"><a class="site-nav-link" href="/section/fm/conversations/">Conversations</a></li>
+          <li class="site-nav-item"><a class="site-nav-link" href="/section/fm/retrospection/">Retrospection</a></li>
+          <li class="site-nav-item"><a class="site-nav-link" href="/section/fm/the-scoop/">The Scoop</a></li>
+        </ul>
+      </nav>
+      <script>
+        $(document.body).addClass("first-screen");
+      </script>
+    {% endif %}
+  {% endplaceholder %}
+
+
+
+  {% placeholder name="subsection" content_range="(0,0)" content_types="article,topic page" as subsection %}
+    {% if subsection.title %}
+      <div class="site-title">
+        <h1 class="primary-heading">
+          <a href="{{ subsection.title_link }}">{{ subsection.title }}</a>
+        </h1>
+      </div>
+    {% endif %}
+  {% endplaceholder %}
+
+  <div class="container">
+    <div class="ad ad-leaderboard">
+      {% ad_unit "728x90" %}
+    </div>
+    <div class="article-cards">
+      {% placeholder name="cards" content_range="(1,30)" content_types="article,topic page" as articles %}
+        {% for article in articles %}
+          <div class="card-wrapper">
+            <article class="card{% if not article.main_rel_content %} card-imageless{% endif %}">
+              <a href="{{ article.get_absolute_url }}">
+                <img class="card-image" src="{{ article.main_rel_content|img_url:'360,240,360,240' }}">
+              </a>
+
+              <div class="card-text">
+                <a class="card-section" href="{{ article.fm_subsection.get_absolute_url }}">{{ article.fm_subsection }}</a>
+
+                {% if not article.main_rel_content %}
+                  <div class="card-spacer"></div>
+                {% endif %}
+
+                <h1 class="card-heading">{{ article|linkify }}</h1>
+                <span class="card-byline">{{ article|byline:'short' }}</span>
+              </div>
+            </article>
+          </div>
+          <script>
+            fm_already_loaded.add("{{ article|safe }}");
+          </script>
+        {% endfor %}
+      {% endplaceholder %}
+    </div>
+  </div>
+
+  <div class="ad ad-leaderboard">
+    {% ad_unit "728x90" %}
+  </div>
+
+  <hr class="site-separator">
+
+  <div class="interlude">
+    <div class="ad ad-sidekick">
+      {% ad_unit "300x250" %}
+    </div>
+    {% editors_choice section="magazine" title="FM Editors' Choice" num=5 %}
+  </div>
+
+  <hr class="site-separator">
+
+  <div class="article-graveyard">
+    <div class="fm-articles">
+    </div>
+    <div class="fm-button-container">
+      <button id="fm-show-more">More Stories</button>
+      <p id="fm-loading-text" style="display: none;">Loading...</p>
+      <p id="fm-failure-text" style="display: none;">Sorry, we couldn't fetch more articles right now. Click the "More Stories" button to try again.</p>
+      <p id="fm-end-of-content" style="display: none;">End of content.</p>
+    </div>
+  </div>
+  <script>
+    const NUM_TO_REQUEST = 5;
+    const LOAD_THRESHOLD = 10;
+    let num_fetched = 0;
+    let section_name_regexp = /\/section\/fm\/([^\/]*)\/?/; // /section/fm/section-name/
+    $(function () {
+      let SECTION_NAME = section_name_regexp.exec(window.location.pathname)[1];
+      let is_mobile = $(window).width() <= 680;
+
+      function isVisible(element) {
+        let elementTop = element.offset().top;
+        let elementBottom = elementTop + element.outerHeight();
+        let viewportTop = $(window).scrollTop();
+        let viewportBottom = viewportTop + $(window).height();
+
+        return elementBottom > viewportTop && elementTop < viewportBottom + 420;
+      }
+
+      function fetchWhenVisible() {
+        is_mobile = $(window).width() <= 680;
+
+        if (!is_mobile && isVisible($("#fm-show-more"))) {
+          getArticles();
+        }
+      }
+
+      $("#fm-show-more").click(getArticles);
+
+      let has_called = false;
+      let num_loaded = 0;
+
+      function getArticles() {
+        $(window).off('scroll resize', fetchWhenVisible);
+        $("#fm-show-more").hide();
+        $("#fm-failure-text").hide();
+        $("#fm-show-more").attr("disabled", true);
+        $("#fm-loading-text").show();
+        $.post('/section/fm_paginate', {
+          count: NUM_TO_REQUEST,
+          offset: num_fetched,
+          section: SECTION_NAME
+        }).done(function (response, txt, xhr) {
+            let data = response.data;
+            $("#fm-loading-text").hide();
+            if (data.length === 0) {
+              $("#fm-end-of-content").show();
+              return;
+            }
+
+            num_fetched += data.length;
+
+            num_loaded += renderArticles(data);
+
+            if (num_loaded < LOAD_THRESHOLD) {
+              getArticles();
+              return;
+            }
+
+            num_loaded = 0;
+            $("#fm-show-more").show();
+
+            if (has_called) {
+              $(window).on('scroll resize', fetchWhenVisible);
+            } else {
+              has_called = true;
+            }
+            $("#fm-show-more").attr("disabled", false);
+          })
+          .fail(function (xhr, txt, error) {
+            $("#fm-failure-text").show();
+            $("#fm-loading-text").hide();
+            $("#fm-show-more").show();
+            $("#fm-show-more").attr("disabled", false);
+          })
+      }
+
+      function renderArticles(articles) {
+        let count = 0;
+        for (let article of articles) {
+          // skip articles that have already been loaded to avoid duplicates
+          if (fm_already_loaded.has(article.title)) {
+            continue;
+          }
+
+          // replace an unavailable image with an empty gray div
+          let image;
+          if (article.image) {
+            image = `<img class="tombstone-image" src="${article.image}">`;
+          } else {
+            image = `<div style="height: 100%; background: #333;"></div>`;
+          }
+
+          $(".fm-articles").append(`
+            <div class="tombstone-wrapper">
+              <article class="tombstone">
+                <a href="${article.url}" class="tombstone-image-wrapper">
+                  ${image}
+                </a>
+                <div class="tombstone-text">
+                  <a class="tombstone-section" href="${article.tag_url}">
+                    ${article.tag_title}
+                  </a>
+                  <h1 class="tombstone-heading">
+                    <a href="${article.url}">${article.title}</a>
+                  </h1>
+                  <div class="tombstone-byline">
+                    ${article.byline}
+                  </div>
+                  <p class="tombstone-description">
+                    ${article.description}
+                  </p>
+                </div>
+              </article>
+            </div>
+          `);
+          fm_already_loaded.add(article.title);
+          ++count;
+        }
+
+        return count;
+      }
+
+      getArticles();
+    })
+  </script>
+{% endblock content %}

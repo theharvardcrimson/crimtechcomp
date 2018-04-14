@@ -1,0 +1,39 @@
+{% load common %}
+{% load content_filters %}
+
+<h1><a href="{{article.get_absolute_url}}">{{article.headline}}</a></h1>
+<div class="published">Published by {{ article.contributors.all|linkify|human_list }} on {{ article.issue.issue_date|date:"F d, Y" }} at {{ article.modified_on|date:"g:iA" }}</div>
+
+{% if article.main_rel_content %}
+    {{ article.main_rel_content|render:"contentgroup/blog/the-back-page/blog_image" }}
+{% endif %}
+
+<div class="text">
+    {% block textblock %}
+        {% if article|flyby_teaser %}
+            {{article|flyby_teaser|safe}}
+            <p class="jump"><a href="{{ article.get_absolute_url }}#jump">(Continued)</a></p>
+        {% else %}
+            {{article.text|safe}}
+        {% endif %}
+    {% endblock %}
+</div>
+<div class="afterpost">
+<div class="entry-tags">
+    {% with content.tags.all as a_tags %}
+        {% if a_tags %}
+            TAGGED:
+        {% endif %}
+        {% for tag in a_tags %}
+            <a class="tag" href="{{ tag.get_absolute_url }}">{{ tag.text }}</a>{% ifnotequal forloop.last 1 %}, {% endifnotequal %}
+        {% endfor %}
+    {% endwith %}
+</div>
+{% block commentslink %}
+<div class="comments">
+<a href="{{article.get_absolute_url}}#comments">Comments</a>
+</div>
+{% endblock %}
+</div>
+{% block comments %}
+{% endblock%}

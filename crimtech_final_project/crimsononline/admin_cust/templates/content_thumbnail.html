@@ -1,0 +1,16 @@
+{% load content_filters %}
+{% load common %}
+{% load staticfiles %}
+
+{% for obj in objs %}
+  <tr>{{obj|render:"admin.line_item"}}</tr>
+{% empty %}
+  <tr>
+    <td class="results-name"></td>
+    <td class="results-pk"></td>
+    <td class="results-image"></td>
+    <td>No Results Found</td>
+    <td class="results-section"></td>
+    <td></td>
+  </tr>
+{% endfor %}

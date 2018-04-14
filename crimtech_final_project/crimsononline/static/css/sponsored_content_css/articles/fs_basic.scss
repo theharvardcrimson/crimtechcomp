@@ -1,0 +1,79 @@
+@import '../__base';
+
+@media (max-width: 850px) {
+    .article-content p {
+        width: 85vw !important;
+    }
+}
+.lead-fs {
+    min-height: 380px;
+}
+.article-content {
+    padding-top: 0;
+    width: 100vw;
+}
+.article-content p {
+    width: 65vw;
+    margin: auto;
+    padding-bottom: 14px;
+}
+.article-byline {
+    font-family: 'Lato';
+    font-weight: 300;
+    text-align: center;
+    width: 85vw;
+    margin: auto;
+    padding-bottom: 20px;
+}
+.article-body {
+    margin-top: 35px;
+    padding: 0px 10vw;
+}
+.lead-fs .container .headers {
+    background-color: $color-light;
+    padding: 6px 6px 6px 6px;
+    width: 100vw;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+}
+.lead-fs .container .headers h1 {
+    margin-top: 10px;
+    margin-bottom: 14px;
+    font-style: normal;
+    font-size: calc(30px + 2vw);
+}
+.lead-fs .container .headers h3 {
+    margin-top: 15px;
+    font-style: italic;
+    line-height: 30px;
+}
+.article-content .shortcodes-wrapper-large {
+    width: 100vw !important;
+    margin-left: -10vw !important;
+    text-align: center;
+}
+.article-content .shortcodes-wrapper-medium {
+    max-width: 80vw !important;
+    margin: auto;
+}
+.article-content .shortcodes-wrapper-center {
+    text-align: center;
+}
+.disclosure {
+    padding: 25px;
+}
+.shortcodes-wrapper > .shortcodes-object > blockquote {
+    padding: 10px 20px !important;
+    border: 5px;
+    margin: 10px 25px !important;
+    font-family: 'Encode Sans', sans-serif !important;
+    font-weight: 600;
+    line-height: 24px !important;
+}
+.shortcodes-wrapper-left > .shortcodes-object > blockquote {
+    border-right: 5px solid $gray-accent;
+}
+.shortcodes-wrapper-right > .shortcodes-object > blockquote {
+    border-left: 5px solid $gray-accent;
+}

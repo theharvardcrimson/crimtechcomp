@@ -1,0 +1,49 @@
+{% extends "shortcodes/_base.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var latlng = new google.maps.LatLng({{ map.center_lat }},{{ map.center_lng }});
+    var myOptions = {
+      zoom: {{map.zoom_level}},
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      scrollwheel: false,
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+        maxWidth: 380
+    });
+    {% for marker in map.markers.all %}
+        var point = new google.maps.LatLng({{ marker.lat }},{{ marker.lng }});
+        var marker{{marker.pk}} = new google.maps.Marker({
+            position: point,
+            map: map,
+            icon: "//maps.google.com/mapfiles/ms/icons/{{ marker.color }}-dot.png",
+            title:"{{map.title}}"
+        });
+
+        {% if marker.popup_text %}
+            google.maps.event.addListener(marker{{marker.pk}}, 'click', function() {
+                infowindow.setContent('{{marker.popup_text|escapejs|safe}}');
+                infowindow.open(map,marker{{marker.pk}});
+            });
+        {% endif %}
+    {% endfor %}
+});
+</script>
+
+<div class="shortcodes-object">
+    <div id="map_canvas" class="shortcodes-object"></div>
+    <p><em>Click markers for more information.</em></p>
+    {% if caption %}
+        <div class="shortcodes-description">
+            {{ caption }}
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

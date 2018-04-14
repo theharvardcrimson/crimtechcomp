@@ -1,0 +1,48 @@
+{% extends "__base.html" %}
+{% load common %}
+{% load content_filters %}
+{% load flyby_preview %}
+{% load top_articles %}
+{% load ads_tags %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/dev_mag2.scss">
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/dev_mag_addl.scss">
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/fm_puzzle.scss">
+{% endblock %}
+
+{% block js %}
+	<script src="{{ STATIC_URL }}js/fm.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<!--[if IE]>
+	<style type="text/css">
+		#puzzle {
+			width: 1000px;
+		}
+	</style>
+<![endif]-->
+
+<div id="magazine">
+    {% include 'templatetag/fm_puzzle_page_content.html' %}
+	{% highlights_bar %}
+
+	<div id="magazine-more">
+		<div class="other_issues">
+			<h2>Other Issues</h2>
+			<h4>Click a cover to jump in</h4><br>
+			{% for issue in oldissues|slice:"1:" %}
+				{% include 'models/article/magazine-other-issues.html' %}
+			{% endfor %}
+		</div>
+		<hr>
+		<div class="sidekick-shell">
+		    <div class="sidekick">
+		        {% ad_unit "300x250" %}
+		    </div>
+		</div>
+	</div>
+
+{% endblock %}

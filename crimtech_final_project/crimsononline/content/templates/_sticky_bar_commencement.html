@@ -1,0 +1,41 @@
+<div class="navigationwrapper">
+    <div class="navigation">
+        <h2 class="navigation-left navlogo">
+            <img class="sidebar-menu-button sidebar-menu-button-open" src="{{STATIC_URL }}images/menu.svg" alt="">
+            <a href="/">The Harvard Crimson</a>
+        </h2>
+        <div class="navigation-right">
+            <div class="addthis_toolbox addthis_default_style">
+                <div class="add-this-inner">
+                    <a class="addthis_button_facebook"></a>
+                    <a class="addthis_button_twitter"></a>
+                    <a class="addthis_button_email"></a>
+                    <a class="addthis_button_print"></a>
+                </div>
+            </div>
+        </div>
+        <h2 class="navigation-center">
+        {# Topic Title: Article Title/Headline #}
+        {% if article.parent_topic %}
+            <a class="navlink" href="#top">
+                {{ article.parent_topic.title }}: {{ article.title }}
+            </a>
+        {# Article Title/Headline Only #}
+        {% elif article %}
+            <a class="navlink" href="#top">
+                {{ article.title }}
+            </a>
+        {# Topic Title Only (2nd-level topic page) #}
+        {% elif topic.parent %}
+            <a class="navlink" href="#top">
+                {{ topic.parent.title }}: {{ topic.title }}
+            </a>
+        {# Topic Title Only (top-level topic page) #}
+        {% else %}{# Level 1, topicpage #}
+            <a class="navlink" href="#top">
+                {{ topic.title }}
+            </a>
+        {% endif %}
+        </h2>
+    </div>
+</div>

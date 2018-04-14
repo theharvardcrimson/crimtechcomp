@@ -1,0 +1,66 @@
+header h3 {
+    text-transform: uppercase;
+    font-size: 1.6em;
+    color: #fff;
+    margin-top: 8px;
+    font-family: 'Lato', 'Colaborate Thin', 'Gill Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+header h3 a, header h3 a:hover, header h3 a:active, header h3 a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+header {
+    border-bottom: 3px solid #ddd;
+}
+
+
+/* HOME LINK */
+
+.home-link {
+    position: fixed;
+    right: 0;
+    background-color: #a70500;
+    color: #fff;
+    padding-right: 15px;
+    font-family: 'Lato', 'Agenda', 'Gill Sans', sans-serif;
+    font-weight: lighter;
+    top: 470px;
+    text-align: center;
+
+    -webkit-transition: padding 250ms ease 0;
+    -moz-transition: padding 250ms ease 0;
+    -o-transition: padding 250ms ease 0;
+    transition: padding 250ms ease 0;
+}
+
+.home-link:hover {
+    padding-right: 24px;
+}
+
+.home-link a {
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 10px;
+    padding-left: 8px;
+}
+
+.home-link a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.break-on-large {
+    display: block;
+    height: 0;
+}
+
+.show-on-small {
+    display: none;
+}

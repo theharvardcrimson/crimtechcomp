@@ -1,0 +1,316 @@
+{% load compress %}
+{% load common %}
+{% load ads_tags %}
+{% load content_filters %}
+{% load content_tags %}
+{% load flyby_preview %}
+{% load top_articles %}
+{% load placeholders %}
+{% load fm_yir %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{topic.title}} | Magazine | The Harvard Crimson </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1">
+    {% placeholder name="header article" content_range="(0,1)" content_types="article,topic page" as headerarticles %}
+        {% with harticle=headerarticles|first %}
+            {% if harticle.main_rel_content %}
+                <meta property="og:image" content="{{ article.main_rel_content|img_url:"800,800" }}">
+                <meta property="og:url" content="http://{{ request.get_host }}{{ request.path }}">
+        {% endif %}
+        {% endwith %}
+    {% endplaceholder %}
+    <meta property="og:description" content="{{ topic.description }}">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic|Lato:300,400,700|Lora:400,700,400italic|Open+Sans:300italic,400italic,600italic,400,300,600,700|Raleway:400,200,300,500,600,700' rel='stylesheet' type='text/css'>
+
+
+    {% compress css %}
+
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/fmmain2017.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/fmgoes-around.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/fmshortcodes.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/fmmagnific-popup.scss">
+    {% endcompress %}
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/TweenMax.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/scrollmagic.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/jquery.roundabout.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/fm-yearinreview.js"></script>
+
+
+    <script src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=thecrimson" type="text/javascript"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-327124-1', 'thecrimson.com');
+        ga('send', 'pageview');
+
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+
+        googletag.cmd.push(function() {
+            googletag.defineSlot('/1046082/TheCrimson_AllArticles_ATF_728x90', [728, 90], 'TheCrimson_AllArticles_ATF_728x90').addService(googletag.pubads());
+            googletag.defineSlot('/1046082/TheCrimson_AllArticles_BTF_728x90', [728, 90], 'TheCrimson_AllArticles_BTF_728x90').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+
+        addthis.layers({
+            'theme' : 'transparent',
+            'share' : {
+              'position' : 'right',
+              'numPreferredServices' : 5
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <a class="header-logo" href="http://www.thecrimson.com/">
+                <img src="{{ STATIC_URL }}images/whitecrimsonlogofm.png" height="18" width="215">
+            </a>
+            <ul class="header-nav">
+                <a href="#levity"><li>Levity</li></a>
+                <a href="#around-town"><li>Around Town</li></a>
+                <a href="#conversation"><li>Conversations</li></a>
+                <a href="#introspection"><li>Introspection</li></a>
+                <a href="#retrospection"><li>Retrospection</li></a>
+                <a href="#photoessay"><li>Photo Essay</li></a>
+                <a href="#editors-note"><li>Editor's Note</li></a>
+            </ul>
+        </div>
+    </header>
+
+    <div id="header">
+        <a href='/section/fm'><div id="yir-fm-title"><img src="{{ STATIC_URL}}images/fmlogo-black.png"></div></a>
+        {{ custom_html|safe }}
+        {% placeholder name="header image" content_range="(1,1)" content_types="image" as imgs %}
+            {% with img=imgs|first %}
+              <div id="header-image" style="background-image: url({{ img|img_url:"1050,600" }})">
+              </div>
+              <div class="fullscreen-byline">
+                {{ img|byline:"short" }}
+              </div>
+            {% endwith %}
+        {% endplaceholder %}
+    </div>
+    <div class="content">
+        <div class="section">
+            <div class="section-anchor" id="levity"></div>
+            <div class="section-header">Levity</div>
+            <div class="levity-container cf">
+            {% placeholder name="levity articles" content_range="(3,3)" content_types="article,topic page" as levitys %}
+                {% for article in levitys %}
+                    <div class="levity-wrapper" style="background-image: url( {{article.main_rel_content|img_url:"300,700" }} ); background-size: cover; background-position: center">
+                        <a href="{{ article.get_absolute_url }}">
+                            <div class="levity">
+                                <div class="levity-title">
+                                    <div>{{ article.title }}</div>
+                                    <p>{{ article.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endplaceholder %}
+            </div>
+        </div>
+    </div>
+    <div id="header">
+        <div class="section-photoessay">
+            {% placeholder name="venn diagram" content_range="(1,1)" content_types="image" as pic %}
+                    <div id="photoessay-image" style="background-image: url('{{ pic.0|img_url:"1050,600" }}');  background-repeat: no-repeat; background-size: cover; min-height: 100%; min-width: 100%;">
+                    </div>
+                    <div class="fullscreen-byline">
+                        {{ pic.0|byline:"short" }}
+                    </div>
+                </a>
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div class="content">
+        <div class="section">
+            <div class="section-anchor" id="around-town"></div>
+            <div class="section-header">Around Town</div>
+            {% placeholder name="around town articles" content_range="(2,2)" content_types="article,topic page" as aroundTowns %}
+                <div class="aroundTown-container cf">
+                    <div class="aroundTown-left-new">
+                        <a href="{{ aroundTowns.0.get_absolute_url }}">
+                            <div class="first-story" style="background-image: url( {{aroundTowns.0|yir_img|img_url:"800,300" }} ); background-position: center">
+                                <div class="aroundTown-title">
+                                    <div>{{ aroundTowns.0.title}}</div>
+                                    <p>{{ aroundTowns.0.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="aroundTown-right-new">
+                        <a href="{{ aroundTowns.1.get_absolute_url }}">
+                            <div class="first-story" style="background-image: url( {{aroundTowns.1|yir_img|img_url:"500,225" }} ); background-position: center; background-size: cover">
+                                <div class="aroundTown-title">
+                                    <div>{{ aroundTowns.1.title }}</div>
+                                    <p>{{ aroundTowns.1.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endplaceholder %}
+        </div>
+        <div class="section">
+            <div class="section-anchor" id="conversation"></div>
+            <div class="section-header">Conversation</div>
+            {% placeholder name="conversation articles" content_range="(6,6)" content_types="article,topic page" as conversations %}
+                <div class="introspection-container cf">
+                    <div class="introspection-top">
+                        <a href="{{ conversations.0.get_absolute_url }}">
+                            <div class="first-story" style="background-image: url( {{conversations.0|yir_img|img_url:"800,300" }} ); background-position: center">
+                                <div class="introspection-title">
+                                    <div>{{ conversations.0.title}}</div>
+                                    <p>{{ conversations.0.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{ conversations.1.get_absolute_url }}">
+                            <div class="second-story" style="background-image: url( {{conversations.1|yir_img|img_url:"950,450" }} ); background-position: center; background-size: cover">
+                                <div class="introspection-title">
+                                    <div>{{ conversations.1.title }}</div>
+                                    <p>{{ conversations.1.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="introspection-bottom">
+                        <a href="{{ conversations.2.get_absolute_url }}">
+                            <div class="first-story" style="background-image: url( {{conversations.2|yir_img|img_url:"500,225" }} ); background-position: center; background-size: cover">
+                                <div class="introspection-title">
+                                    <div>{{ conversations.2.title }}</div>
+                                    <p>{{ conversations.2.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{ conversations.3.get_absolute_url }}">
+                            <div class="second-story" style="background-image: url( {{conversations.3|yir_img|img_url:"500,500" }} ); background-position: center; background-size: cover">
+                                <div class="introspection-title">
+                                    <div>{{ conversations.3.title }}</div>
+                                    <p>{{ conversations.3.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{ conversations.4.get_absolute_url }}">
+                            <div class="third-story" style="background-image: url( {{conversations.4|yir_img|img_url:"500,500" }} ); background-position: center; background-size: cover">
+                                <div class="introspection-title">
+                                    <div>{{ conversations.4.title }}</div>
+                                    <p>{{ conversations.4.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endplaceholder %}
+        </div>
+        <div class="section">
+            <div class="section-anchor" id="retrospection"></div>
+            <div class="section-header">Retrospection</div>
+            {% placeholder name="retrospection articles" content_range="(1,1)" content_types="article,topic page" as retrospections %}
+                <div class="retrospection-container cf">
+                    <div class="retrospection">
+                        <a href="{{ retrospections.0.get_absolute_url }}">
+                            <div class="first-story" style="background-image: url( {{retrospections.0|yir_img|img_url:"800,300" }} ); background-position: center">
+                                <div class="retrospection-title">
+                                    <div>{{ retrospections.0.title}}</div>
+                                    <p>{{ retrospections.0.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endplaceholder %}
+        </div>
+        <div class="section">
+            <div class="section-anchor" id="introspection"></div>
+            <div class="section-header">Introspection</div>
+            {% placeholder name="introspection articles" content_range="(1,1)" content_types="article,topic page" as introspections %}
+                <div class="retrospection-container cf">
+                    <div class="retrospection">
+                        <a href="{{ introspections.0.get_absolute_url }}">
+                            <div class="first-story" style="background-image: url( {{introspections.0|yir_img|img_url:"800,300" }} ); background-position: center">
+                                <div class="retrospection-title">
+                                    <div>{{ introspections.0.title}}</div>
+                                    <p>{{ introspections.0.description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div id="header">
+        <div class="section-photoessay">
+            <div class="section-anchor" id="photoessay"></div>
+            <div class="section-header">Photo Essay</div>
+            {% placeholder name="photo essay" content_range="(1,1)" content_types="article" as photoessays %}
+                <a href="{{ photoessays.0.get_absolute_url }}">
+                    <div id="photoessay-image" style="background-image: url('{{ photoessays.0|yir_img|img_url:"1050,600" }}');  background-repeat: no-repeat; background-size: cover; min-height: 100%; min-width: 100%;">
+                        <div id="photoessay-information">
+                            <div id="photoessay-title">
+                                {{photoessays.0.title}}
+                            </div>
+                            <div id="photoessay-description">
+                                {{photoessays.0.caption}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fullscreen-byline">
+                        {{ photoessays.0|byline:"short" }}
+                    </div>
+                </a>
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div class="content">
+        <div class="section">
+            <div class="section-anchor" id="editors-note"></div>
+            <div class="section-header">Editors&rsquo; Note</div>
+            {% placeholder name="editors-note" content_range="(1,1)" content_types="article" as notes %}
+                {% with article=notes.0 %}
+                <div class="article-body">
+                    {{ article.text|safe }}
+                </div>
+                {% endwith %}
+            {% endplaceholder %}
+        </div>
+    </div>
+</div>
+
+<div class="ad-tag">Advertisement</div>
+<div id="TheCrimson_AllArticles_ATF_728x90" class="leader-ad">
+    <script type='text/javascript'>
+        if ($(window).width() >= 728) {
+            googletag.cmd.push(function() { googletag.display('TheCrimson_AllArticles_ATF_728x90'); });
+        }
+    </script>
+</div>
+<div class="content">
+
+</div>

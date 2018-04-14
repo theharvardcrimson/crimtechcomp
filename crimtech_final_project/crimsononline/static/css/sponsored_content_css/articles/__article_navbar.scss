@@ -1,0 +1,503 @@
+// @import '../__base';
+$color-background: #FFFFFF;
+$color-primary: #333;
+$color-secondary: rgba(165, 10, 14, 1);
+$color-muted: #A2A2A2;
+$color-light: rgba(255, 255, 255, .65);
+$movement: 30px;
+$movement-sm: calc(5px + 1.5vw);
+$transition: all 1s;
+$transition-fast: all .4s;
+
+.navbar {
+    font-family: 'SuecaSans Light';
+    font-size: 14px;
+    height: 46px !important;
+    min-height: 46px !important;
+    background-color: rgba(255, 255, 255, .9);
+    border-bottom: 1px solid $color-primary;
+    box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.05);
+}
+.navbar .container {
+    width: 100vw;
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 0 !important;
+}
+.navbar-header {
+    height: 46px !important;
+    min-height: 46px !important;
+}
+.navbar-brand, .navbar-nav {
+    color: $color-muted;
+}
+.navbar a {
+    color: $color-primary;
+}
+.navbar-brand {
+    height: 20px;
+}
+.navbar-nav > li > a, .navbar-brand {
+    padding: 13px 13px 13px 13px !important;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus,
+.navbar .navbar-nav>li>a:focus,
+.navbar .navbar-nav>li>a:hover {
+    background-color: transparent;
+    color: $color-secondary;
+}
+.navbar-toggle {
+    margin: 6px 20px;
+}
+.navbar-toggle .icon-bar {
+    border: 1px solid $color-primary;
+}
+.navbar-collapse {
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom: 1px solid $color-primary;
+}
+.color-primary {
+    color: $color-primary;
+}
+.color-secondary {
+    color: $color-secondary;
+}
+.color-muted {
+    color: $color-muted;
+}
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+.content {
+    min-height: 100vh;
+}
+.article-content {
+    min-height: 100vh;
+    width: 100vw;
+    margin: auto;
+    padding: 55px 0 0 0;
+}
+.sidebar {
+    position: absolute;
+    width: 18vw;
+    margin-right: 5vw;
+}
+.add-this-inner {
+    margin-top: 10px;
+}
+.add-this-inner .at-icon-wrapper, .add-this-inner .at-icon-wrapper svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+.add-this-inner a {
+    margin: 0 !important;
+}
+#most-read-shell {
+    color: $color-primary;
+    right: 0;
+}
+#most-read-shell > #most-read-box > h3 {
+    font-family: 'SuecaSans Light';
+    padding-bottom: 10px;
+    border-bottom: 1px dotted black;
+}
+#most-read-shell > #most-read-box > ol {
+    font-size: 14px;
+    padding-left: 12px;
+}
+#most-read-shell > #most-read-box > ol > li > a {
+    color: $color-primary;
+}
+.lead-fs {
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -100;
+}
+.lead-fs .container {
+    padding: 35vh 0 0 0;
+    width: 100vw;
+    // margin: auto;
+}
+.headers {
+    font-family: 'Encode Sans', sans-serif;
+}
+.article-byline {
+    padding-top: 5px;
+    color: $color-muted;
+    font-size: 14px;
+    // text-transform: uppercase;
+}
+.caption {
+    margin: 2px 2px 2px 10px;
+    font-size: 13px;
+}
+.article-body {
+    font-size: 16px !important;
+}
+#page-hide {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: white;
+    z-index: -1;
+}
+body {
+    font-family: 'Mercury Text G2' !important;
+}
+hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 95%;
+    border: none;
+    border-top: 1px solid black;
+}
+.disclosure {
+    font-family: 'SuecaSans Light';
+    font-style: italic;
+    font-size: 14px;
+    color: $color-primary;
+    text-align: center;
+}
+.pad-bot {
+    padding-bottom: calc(30px + 1.5vw);
+}
+.mid-fs {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% -10%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: -4;
+}
+.bot-fs {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: -5;
+}
+
+.container {
+    z-index: 2 !important;
+}
+span.avoidwrap {
+    display: inline-block;
+}
+.brand {
+    font-family: 'Big Moore';
+    font-weight: 300;
+    color: $color-primary;
+}
+
+.border-left {
+    border-left: solid 1px black;
+    left: 17px;
+    padding-left: calc(12px + 1.2vw);
+}
+
+.spacer {
+    height: 100vh;
+    z-index: -2000;
+}
+.spacer-10 {
+    height: 10vh;
+    z-index: -2000;
+}
+.spacer-20 {
+    height: 20vh;
+    z-index: -2000;
+}
+.spacer-30 {
+    height: 30vh;
+    z-index: -2000;
+}
+.spacer-40 {
+    height: 40vh;
+    z-index: -2000;
+}
+.spacer-50 {
+    height: 50vh;
+    z-index: -2000;
+}
+.spacer-60 {
+    height: 60vh;
+    z-index: -2000;
+}
+.spacer-70 {
+    height: 70vh;
+    z-index: -2000;
+}
+.spacer-80 {
+    height: 80vh;
+    z-index: -2000;
+}
+.spacer-90 {
+    height: 90vh;
+    z-index: -2000;
+}
+
+footer {
+    bottom: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 12px;
+    color: $color-muted;
+    background-color: $color-primary;
+}
+footer a {
+    color: $color-muted;
+}
+footer a:hover {
+    color: white;
+    text-decoration: none;
+}
+.hide {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 0 !important;
+}
+.hide-up {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 0 !important;
+    transform: translate(0, -$movement);
+}
+.hide-down {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 0 !important;
+    transform: translate(0, $movement);
+}
+.hide-right {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 0 !important;
+    transform: translate($movement, 0);
+}
+.hide-left {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 0 !important;
+    transform: translate(-$movement, 0);
+}
+.hide-left-sm {
+    -webkit-transition: $transition-fast; /* For Safari 3.1 to 6.0 */
+    transition: $transition-fast;
+    opacity: 0;
+    transform: translate(-$movement-sm, 0);
+}
+.reveal {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 1;
+}
+.reveal-up {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 1;
+    transform: translate(0, -$movement);
+}
+.reveal-down {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 1;
+    transform: translate(0, $movement);
+}
+.reveal-right {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 1;
+    transform: translate($movement, 0);
+}
+.reveal-left {
+    -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+    transition: $transition;
+    opacity: 1;
+    transform: translate(-$movement, 0);
+}
+.reveal-right-sm {
+    -webkit-transition: $transition-fast; /* For Safari 3.1 to 6.0 */
+    transition: $transition-fast;
+    opacity: 1;
+    transform: translate($movement-sm, 0);
+}
+
+
+
+
+
+
+
+
+.navbar {
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 14px;
+    box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.05);
+}
+.navbar .container {
+    padding: 0px 0px !important;
+    // padding: 0 !important;
+}
+#help2 {
+    display: none;
+}
+.navbar-clipped {
+    width: 100vw;
+    height: 28px;
+    font-size: 15px;
+    padding: 4px 4px 4px 4px;
+    display: none;
+}
+.navbar-clipped > .center {
+    text-align: center;
+    width: 180px !important;
+    margin: auto !important;
+}
+.navbar-nav > li > a, .navbar-brand {
+    padding: 13px 13px 13px 13px !important;
+}
+@media (max-width: 920px) {
+    .navbar {
+        height: 56px !important;
+    }
+    .navbar-header {
+        display: none;
+    }
+    .navbar-nav {
+        width: 100% !important;
+    }
+    .nav-center {
+        width: 75% !important;
+        padding-left: 25% !important;
+    }
+    .nav-right {
+        width: 25% !important;
+    }
+    .navbar-nav > li {
+        float: left !important;
+    }
+    .navbar-clipped {
+        display: inline-block;
+    }
+    .navbar-nav > li > a, .navbar-brand {
+        padding: 0px 13px 13px 13px !important;
+    }
+}
+@media (max-width: 550px) {
+    .navbar > .container > .left-bar {
+        border-left: 5px solid #ECECEC;
+        margin: 5px 0 5px 16px;
+        height: 42px !important;
+    }
+    .navbar {
+        padding-bottom: 10px !important;
+    }
+    .nav-center {
+        width: 80% !important;
+        max-width: calc(100% - 120px) !important;
+        text-align: left !important;
+        padding-left: 0 !important;
+    }
+    .nav-center a {
+        margin-left: 0 !important;
+    }
+    .nav-right {
+        width: 20% !important;
+        min-width: 120px;
+    }
+    .navbar-nav > li {
+        float: left !important;
+    }
+    .navbar-clipped {
+        height: 0px !important;
+        padding: 0px !important;
+    }
+    .navbar-clipped > .center {
+        margin-left: 0 !important;
+        text-align: left;
+        padding-left: 12px;
+        width: 193px !important;
+    }
+    .navbar-nav > li > a, .navbar-brand {
+        padding: 0px 13px 13px 13px !important;
+    }
+}
+@media (max-width: 410px) {
+    #help1 {
+        display: none;
+    }
+    #help2 {
+        display: inline;
+    }
+    .nav-center {
+        max-width: calc(100% - 20px) !important;
+        text-align: left !important;
+        padding-left: 0 !important;
+    }
+    .nav-right {
+        min-width: 20px !important;
+    }
+}
+.navbar .container {
+    width: 100vw;
+}
+.navbar-brand, .navbar-nav {
+    color: $color-muted;
+}
+.navbar a {
+    color: $color-primary;
+}
+.navbar-header {
+    width: 30% !important;
+    padding-left: 18px;
+}
+.navbar-nav {
+    float: none !important;
+    display: inline-block !important;
+    width: 70%;
+    margin: 0 !important;
+}
+.nav-center {
+    width: 57%;
+    text-align: center;
+}
+.nav-center a {
+    width: 100%;
+    margin: auto;
+}
+.nav-right {
+    width: 42%;
+    text-align: right;
+}
+.nav-right a {
+    width: 100%;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus,
+.navbar .navbar-nav>li>a:focus,
+.navbar .navbar-nav>li>a:hover,
+.navbar-clipped a:focus,
+.navbar-clipped a:hover {
+    text-decoration: none;
+    background-color: transparent;
+    color: $color-secondary;
+}

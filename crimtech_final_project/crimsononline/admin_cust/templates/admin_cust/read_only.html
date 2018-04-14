@@ -1,0 +1,15 @@
+{% extends "admin/base_site.html" %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumbs">
+    <a href=".">Home</a>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <p>We apologize for any inconvenience. We'll be back online shortly.</p>
+
+  {% if contact %}
+    <p>Contact {{ contact }} with any urgent concerns.</p>
+  {% endif %}
+{% endblock %}

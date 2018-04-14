@@ -1,0 +1,146 @@
+{% extends "__base.html" %}
+
+{% load common %}
+{% load content_filters %}
+{% load content_module %}
+{% load module %}
+
+{% block css %}
+	{{block.super}}
+	<link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/threecolumn.scss">
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}css/sportsblog.scss">
+{% endblock %}
+
+{% block js %}
+    {{block.super}}
+
+<script src="//platform.twitter.com/widgets.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+     $("#expandable").click(function() {
+          $("#standings").toggle();
+     });
+     $("#expandable1").click(function() {
+          $("#taglinks").toggle();
+     });
+
+    $("#footer_wrapper").appendTo("#content_wrapper:parent");
+} );
+
+/*
+cbb function by Roger Johansson, http://www.456bereastreet.com/
+*/
+var cbb = {
+	init : function() {
+	// Check that the browser supports the DOM methods used
+		if (!document.getElementById || !document.createElement || !document.appendChild) return false;
+		var oElement, oOuter, oI1, oI2, tempId;
+	// Find all elements with a class name of cbb
+		var arrElements = document.getElementsByTagName('*');
+		var oRegExp = new RegExp("(^|\\s)cbb(\\s|$)");
+		for (var i=0; i<arrElements.length; i++) {
+	// Save the original outer element for later
+			oElement = arrElements[i];
+			if (oRegExp.test(oElement.className)) {
+	// 	Create a new element and give it the original element's class name(s) while replacing 'cbb' with 'cb'
+				oOuter = document.createElement('div');
+				oOuter.className = oElement.className.replace(oRegExp, '$1cb$2');
+	// Give the new div the original element's id if it has one
+				if (oElement.getAttribute("id")) {
+					tempId = oElement.id;
+					oElement.removeAttribute('id');
+					oOuter.setAttribute('id', '');
+					oOuter.id = tempId;
+				}
+	// Change the original element's class name and replace it with the new div
+				oElement.className = 'i3';
+				oElement.parentNode.replaceChild(oOuter, oElement);
+	// Create two new div elements and insert them into the outermost div
+				oI1 = document.createElement('div');
+				oI1.className = 'i1';
+				oOuter.appendChild(oI1);
+				oI2 = document.createElement('div');
+				oI2.className = 'i2';
+				oI1.appendChild(oI2);
+	// Insert the original element
+				oI2.appendChild(oElement);
+	// Insert the top and bottom divs
+				cbb.insertTop(oOuter);
+				cbb.insertBottom(oOuter);
+			}
+		}
+	},
+	insertTop : function(obj) {
+		var oOuter, oInner;
+	// Create the two div elements needed for the top of the box
+		oOuter=document.createElement("div");
+		oOuter.className="bt"; // The outer div needs a class name
+	    oInner=document.createElement("div");
+	    oOuter.appendChild(oInner);
+		obj.insertBefore(oOuter,obj.firstChild);
+	},
+	insertBottom : function(obj) {
+		var oOuter, oInner;
+	// Create the two div elements needed for the bottom of the box
+		oOuter=document.createElement("div");
+		oOuter.className="bb"; // The outer div needs a class name
+	    oInner=document.createElement("div");
+	    oOuter.appendChild(oInner);
+		obj.appendChild(oOuter);
+	},
+	// addEvent function from http://www.quirksmode.org/blog/archives/2005/10/_and_the_winner_1.html
+	addEvent : function(obj, type, fn) {
+		if (obj.addEventListener)
+			obj.addEventListener(type, fn, false);
+		else if (obj.attachEvent) {
+			obj["e"+type+fn] = fn;
+			obj[type+fn] = function() { obj["e"+type+fn]( window.event ); }
+			obj.attachEvent("on"+type, obj[type+fn]);
+		}
+	}
+};
+
+cbb.addEvent(window, 'load', cbb.init);
+</script>
+
+{% endblock %}
+
+{% block title %}
+    The Back Page | {{ block.super }}
+{% endblock %}
+
+{% block meta %}{% endblock %}
+
+{% block content %}
+<div id="banner" style="margin: 0 auto;"><a href="/blog/the-back-page/"><img src="https://s3.amazonaws.com/static.thecrimson.com/images/sportsblog/banner1.jpg" width="973" height="179" align="top"></a></div>
+<div id="container">
+<div id="maincenter" >
+{% block center %}
+{% endblock %}
+</div >
+
+<div id="maingutter">
+<img src="{{ STATIC_URL }}images/sportsblog/banner3.jpg" width="23" height="113" align="right"
+    style="position: relative; margin-left: 5px; float: left"/>
+</div>
+{% block mainright %}
+<div id="mainright">
+<img src="{{ STATIC_URL }}images/sportsblog/banner2.jpg" width="309" height="113"
+     align="right" style="margin-bottom: 20px; margin-right: -5px;" />
+<div style="clear: both;"></div>
+
+
+<a class="twitter-timeline" href="https://twitter.com/THCSports" data-widget-id="563181750948757504" max-length=>Tweets by @THCSports</a>
+<br />
+
+<br />
+
+</div>
+  <!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats -->
+<!-- end #container -->
+</div>
+<span class="clear"></span>
+</div>
+{% endblock %}
+{% endblock %}
