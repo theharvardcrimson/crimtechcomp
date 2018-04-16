@@ -77,10 +77,6 @@ What we'll work hard to teach you:
 - Assorted CS practices and concepts (we couldn't think of everything else off
   the top of our heads)
 
-#### Due Dates/Late Policy/The "Fun" Stuff:
-
-*TODOTODOTODOTODO*
-
 #### Submitting:
 
     Submissions for your assignments will be automatically checked and you'll
@@ -124,6 +120,10 @@ What we'll work hard to teach you:
   If you're super comfortable, help out those around you. If you're super
   uncomfortable, seek out the help of those around you. We'll be there 
   for emotional support (and, ya know, coding help).
+
+#### Meals:
+  We'll explain a little more about this in the first meeting, but medium story short: we ask that you get three meals with the CrimTech associates of your choice. It doesn't really matter when or where, or even how many of you there are (if you're shy, bring a friend!). We just want you to get to know some of the current associates, and we think that while social mixers/game nights/etc. are great, breakfast/lunch/dinner are also a great way to be a little bit more personal. 
+
 
 #### Midpoints:
 
@@ -174,4 +174,4 @@ experience. Welcome again, and happy comping! (Proceed to _GET_STARTED.md_ to _g
 
 Love,
 
-Nick \& Richard
+Nick \&\& Richard
