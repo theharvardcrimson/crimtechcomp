@@ -6,8 +6,25 @@
 
     <!-- this tells our webpage how to find its css stylesheet -->
     <link rel="stylesheet" href="{% static 'css/excellent.css' %}">
+    <!-- Twitter Bootstrap to make the website prettier -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <!-- Adding a navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="pull-left"><img id="logo" src="http://rncollective.net/wp-content/uploads/2017/01/rn-logo-white.png"></a>
+          <a class="navbar-brand" href=""><span class="bodacious">Free Nick and Richard!</span></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="wrapper">
       <h1>Nick and Richard's Excellent Adventure</h1>
       <p>Instead of writing comp presentations themselves, Nick and Richard decided to travel through time in order to assemble history's finest computer scientists.</p>
@@ -24,9 +41,12 @@
         <li>Like, if we could have a nav bar and a footer, we'd be well on our way to at least 2005</li>
         <li>And, like, if you could be so excellent as to add a logo to that navbar we'd be lookin' bodacious (make sure the logo has the id "logo")</li>
         <li>Finally, play around and add 3 features you think make websites cool (I added a background image, I made a carousel, I added a form, etc., etc.) And list out those features in three fancy, bodacious bullet points below!</li>
+        <li class ="bodacious">I added a background.</li>
+        <li class ="bodacious">I added a button with a link.</li>
+        <li class ="bodacious">I added an active progress bar.</li>
       </ul>
 
-      <img id="task1" src="">
+      <img id="task1" src="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/blogs/2439/2014/12/167535-172497.jpg?itok=btlFCU8S">
         <!--
           Congrats! You found your first task (sorry we're feeling cute and hid it in an HTML comment)
           For your first task, find a historical figure and put a bodacious portrait here.
@@ -34,12 +54,21 @@
         -->
       </img>
 
+      <a id="btn1" href="https://en.wikipedia.org/wiki/Albert_Einstein" type="button" class="btn btn-primary btn-lg center-block">Click Here to Learn More</a>
+
       <div id="task2">
-        This is like, <div>some</div> identically-styled text.
+        This is like, <span>some</span> identically-styled text.
       </div>
 
       <div id="task3">
+        <p class="bodacious">The British professor, Timothy Berners-Lee, is known as the "inventor of the World Wide Web." He was knighted by Queen Elizabeth II.</p>
+      </div>
 
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar"
+          aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+          70% of the way there to letting Nick and Richard back to the present
+        </div>
       </div>
 
       <p>(In case you are wondering why this assignment is so strange, it is because <a href="http://www.imdb.com/title/tt0096928/" target="_blank">it is written in the style of an art house film from 1989</a>. Also, this assignment might have been created past midnight.)</p>
@@ -47,4 +76,11 @@
       <h4>Nick <span class="bodacious">&&</span> Richard</h4>
     </div>
   </body>
+      <footer class="page-footer font-small mdb-color lighten-3 pt-4 mt-4">
+          <div class="footer-copyright py-3 text-center">
+              <div class="container-fluid">
+                  <p class="bodacious">Release Nick and Richard!</p>
+              </div>
+          </div>
+      </footer>
 </html>
