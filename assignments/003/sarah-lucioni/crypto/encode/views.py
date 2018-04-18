@@ -29,15 +29,15 @@ def encrypt(msg, k): #<-- this is just a function
 
 
 def encode_view(request): #<-- this is a view
-  #if request.method == 'POST':
-    #context = {'encode': None}
+  if request.method == 'POST':
+    context = {'encode': None}
 
-    #msg, k = request.POST['msg'], request.POST['key']
-    #fun = request.POST['function']
+    msg, k = request.POST['msg'], request.POST['key']
+    fun = request.POST['function']
 
-    #context['encode'] = encrypt(msg, k)
+    context['encode'] = encrypt(msg, k)
 
-    #return render(request, 'encode.html', context=context)
+    return render(request, 'encode.html', context=context)
 
-  #else:
+  else:
     return render(request, "encode.html")
