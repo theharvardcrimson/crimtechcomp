@@ -6,12 +6,16 @@
     <h1 style="text-align: center;">Encode</h1>
     <div style="text-align: center;">
         <form method="post">
-            <input name="key" placeholder="Key"/>
+            <input name="key" placeholder="Key" onkeyup="encode()" autocomplete="off"/>
             <br>
-            <input name="text" placeholder="Text"/>
+            <input name="text" placeholder="Text" onkeyup="encode()" autocomplete="off"/>
             <br>
             <button type="submit">Encode</button>
             {% csrf_token %}
         </form>
     </div>
+    <br>
+    <h2 style="text-align: center;">Result</h2>
+    <div id="localBox" style="text-align: center;"></div>
+
 {% endblock %}

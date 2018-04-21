@@ -1,6 +1,8 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from encode import urls as encode_urls
 from decode import urls as decode_urls
 from . import views
@@ -13,5 +15,6 @@ urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^encode/.*', include(encode_urls)),
     url(r'^decode/.*', include(decode_urls)),
-    url(r'^.*', views.index, name="index"),
+    url(r'^$', views.index, name="index"),
+    staticfiles_urlpatterns()
 ]

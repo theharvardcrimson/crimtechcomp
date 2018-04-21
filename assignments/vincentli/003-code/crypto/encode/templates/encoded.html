@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}: Encode Results{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center;">Results</h1>
+    <div style="text-align: center;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Key</th>
+                    <th style="text-align: center;">Message</th>
+                    <th style="text-align: center;">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{key}}</td>
+                    <td>{{message}}</td>
+                    <td>{{encoded}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
