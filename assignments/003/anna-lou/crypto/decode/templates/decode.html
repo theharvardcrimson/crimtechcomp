@@ -4,6 +4,12 @@
 
 {% block body %}
   <h2 style="margin-bottom:30px">Decoder</h2>
+  <div style="padding:10px">
+    <input type="radio" id="choice1" name="choice" value="remote" checked="checked">
+    <span style="margin:5px">Remote</span>
+    <input type="radio" id="choice2" name="choice" value="local">
+    <span style="margin:5px">Local</span>
+  </div>
   <form>
     <div class="form-group">
       <input class="form-control" name="key" placeholder="Key">
@@ -11,7 +17,64 @@
     <div class="form-group">
       <textarea rows="4" class="form-control" name="message" placeholder="Message"></textarea>
     </div>
-    <button type="submit" formmethod="post" class="btn btn-success">Decode</button>
+    <button id="submitbtn" type="submit" formmethod="post" class="btn btn-success">Encode</button>
     {% csrf_token %}
   </form>
+  <div id="realtime" style="margin:10px"></div>
+{% endblock %}
+
+{% block script %}
+<script>
+  $(document).ready(function() {
+    keyv.onkeydown = keyv.onkeyup = msgv.onkeydown = msgv.onkeyup = eventHandler;
+    remote.onclick = local.onclick = radioHandler;
+    $('#realtime').hide()
+  });
+
+  var keyv = document.getElementsByName("key")[0]
+  var msgv = document.getElementsByName("message")[0]
+  var remote = document.getElementsByName("choice")[0]
+  var local = document.getElementsByName("choice")[1]
+
+  var isAlpha = function(ch){
+    return /^[a-zA-Z]+$/.test(ch);
+  }
+
+  function eventHandler() {
+    var msg = msgv.value.toLowerCase();
+    var key = keyv.value.toLowerCase();
+    var msgl = msg.length;
+    var keyl = key.length;
+    var res = "";
+    var counter = 0;
+    var forward = true;
+    for (i = 0; i < msgl; i++) {
+      var msgc = msg.charCodeAt(i) - 97;
+      var keyc = key.charCodeAt(counter) - 96;
+      res += String.fromCharCode(isAlpha(msg.charAt(i)) ? (msgc - keyc + 26) % 26 + 97 : msg.charCodeAt(i));
+      counter += forward ? 1 : -1;
+      if (counter > keyl - 1) {
+        counter = keyl - 1;
+        forward = false;
+      }
+      else if (counter < 0) {
+        counter = 0;
+        forward = true;
+      }
+    }
+    $('#realtime').html(res);
+  }
+
+  function radioHandler() {
+    if (local.checked) {
+      $('#submitbtn').hide()
+      $('#realtime').show()
+    }
+    else {
+      $('#submitbtn').show()
+      $('#realtime').hide()
+    }
+  }
+
+</script>
 {% endblock %}
