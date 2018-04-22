@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Sleep time and wake up for each day.
+{% endblock %}
+
+{% block main %}
+    <b>Crimson Tech Comp</b>
+    <br></br>
+      <form method="post">
+        <input name="Key" id="Key" placeholder="Key"/>
+        <br></br>
+        <input name="Message" id="Message" placeholder="Message"/>
+        <br></br>
+        <button type="submit">Submit Me!</button>
+        {% csrf_token %}
+      </form>
+{% endblock %}w
