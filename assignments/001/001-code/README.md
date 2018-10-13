@@ -175,6 +175,17 @@ Any guesses as to what this HTML page would look like? Can you see which tag I f
 
 In summary, you should have a basic, functioning blog. We will check for functionality with respect to adding authors and articles, and if you've followed the basic setup (i.e. do you have an "index" view and are your urls setup correctly.)
 
+-----
+
+Submitting:
+
+If you would like to submit, we ask that you submit exactly 5 files in the following order:
+    1. assignment/settings.py
+    2. assignment/urls.py
+    3. my_app/models.py
+    4. my_app/urls.py
+    5. my_app.views.py
+
 Best,
 
 
