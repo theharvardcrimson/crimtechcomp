@@ -1,6 +1,6 @@
 ## Welcome!
 
-Welcome to the Crimson Comp - 2018! We're looking forward to working together with you
+Welcome to the Crimson Technology Board Comp! We're looking forward to working together with you
 to make this a wonderful experience for all involved, and we hope that 
 these "assignments" contribute, rather than detract from that experience. 
 
@@ -25,8 +25,6 @@ Before we get going, we'd like to clarify some things:
     talk_to_us()
   elif you_think_this_is_too_easy:
     talk_to_us()
-  else:
-    rock_on()
   ```
 
   Yes, that is a contrived example of Python code. Yes it's cheesy. And no, not 
@@ -78,11 +76,18 @@ What we'll work hard to teach you:
   the top of our heads)
 
 #### Submitting:
+    Submissions are automatically scored and should tell you how you did on each
+    assignment. The methodology for submission should be pretty easy, but in
+    essence if you want to submit an assignment, follow the steps below.
 
-    Submissions for your assignments will be automatically checked and you'll
-    receive feedback immediately. We'll explain the process when we get there,
-    and it'll take a little bit to get used to for some of you, but that's ok.
-    We're here to help, and you'll master it by the end. 
+    1. Go to https://tech.thecrimson.com and login
+    2. Go to the assignment page for the assignment (https://tech.thecrimson.com/assignments/###)
+    where ### is the number of the assignment you're doing.
+    3. Upload the file(s) you've been instructed to in the relevant README.
+    4. Press Submit.
+    
+    It really is that easy! But also make sure to check out how you did by going back under the 
+    comp tab on the main page, and click the assignment to expand out your results.
 
 #### Late Policy: 
 
@@ -101,29 +106,9 @@ What we'll work hard to teach you:
     us know if you need something, and we're willing to be accommodating - this is a
     two-way communication highway. 
 
-#### The Hackathon:
-
-  To kick off the comp, we're having a "hackathon." It's *mandatory*, but there'll be 
-  pizza and cool people (well, us, but your fellow compers should be pretty cool). 
-  You'll get more instructions when you come, but expect to spend some time doing
-  lame (awesome) activities, some time coding, and some time chilling. 
-
-  There will be something for everyone (even for you, the comper who is *way* too
-  good at CS to be doing "basic" Python exercises). This is not designed as a
-  contrived "here's Python, look you can add numbers in it now." It was built
-  with the knowledge that you have a skill level that may be different from the person
-  next to you. We've been there. We are trying to make you feel like you can work a
-  bit, then play a bit. 
-
-  This is a community. 
-
-  If you're super comfortable, help out those around you. If you're super
-  uncomfortable, seek out the help of those around you. We'll be there 
-  for emotional support (and, ya know, coding help).
-
 #### Meals:
-  We'll explain a little more about this in the first meeting, but medium story short: we ask that you get three meals with the CrimTech associates of your choice. It doesn't really matter when or where, or even how many of you there are (if you're shy, bring a friend!). We just want you to get to know some of the current associates, and we think that while social mixers/game nights/etc. are great, breakfast/lunch/dinner are also a great way to be a little bit more personal. 
 
+  We'll explain a little more about this in the first meeting, but medium story short: we ask that you get three meals with the CrimTech associates of your choice. It doesn't really matter when or where, or even how many of you there are (if you're shy, bring a friend!). We just want you to get to know some of the current associates, and we think that while social mixers/game nights/etc. are great, breakfast/lunch/dinner are also a great way to be a little bit more personal. 
 
 #### Midpoints:
 
@@ -134,8 +119,7 @@ What we'll work hard to teach you:
 
   You should see the look on your metaphorical (maybe literal) face. Before you
   panic/get upset/complain, the midpoint interviews are actually intended more as a
-  gauge of where you're at. The "technical" questions won't warrant preparation. The 
-  other questions will certainly not need too much thought. 
+  gauge of where you're at. The "technical" questions won't warrant preparation.
 
   If you've been actively participating in the comp, midpoints will be an almost 
   literal walk in the park. I'm serious. They're more about your effort than your

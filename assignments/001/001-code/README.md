@@ -4,7 +4,7 @@
 
 Hey Y'all!
 
-So we've included a requirements.txt file in this directory. Please double check that you're working within the virtual environment you've decided to use for this comp (do you remember how?) and then run
+So we've included a requirements.txt file in this directory. Please double check that you're working within the virtual machine for the comp and within the virtual environment you've decided to use for this comp (do you remember how?) and then run
 ```bash
 pip install -r requirements.txt
 ```
@@ -30,7 +30,7 @@ assignment/
     ├── tests.py
     └── views.py
 ```
-When you run ```django-admin startproject assignment```, it should be run in the "your-name/" directory. And for running ```check 001```, you should be within the root of your Django project, or in "your-name/assignment/"
+When you run ```django-admin startproject assignment```, it will create a directory "assignment" within your current directory. This is where your webpage will live!
 
 -----
 
@@ -38,11 +38,9 @@ Assignment!
 
 Please read through all of the following before beginning the assignment, particularly the last point!
 
-Also, note that while ```check 001``` can be used for anything python here, it will not be able to help you with your HTML, so be aware that even once all of your checks pass, you still may have some work to do! We're working hard to automate HTML testing too, but we also want to improve the experience of working with ```check``` in general!
+Here's the assignment for this week:
 
-Alright, and here's the assignment for this week:
-
-1. So in the meeting, we got you acquainted with the django-admin commands ```startproject``` and ```startapp```. We expect that you will have a project with the title "assignment" with an app called "my_app". We technically aren't checking for any other apps, so if you have apps named other things, it won't matter to us. 
+1. So in the meeting, we got you acquainted with the django-admin commands ```startproject``` and ```startapp```. We expect that you will have a project with the title "assignment" with an app called "my_app".
 
 2. Now, you might be wondering, "how do I use this django thing?" And to see it in action, go ahead and find the directory with "manage.py" in it (should be the main "assignment/" directory). From there, you can run ```python manage.py runserver 0.0.0.0:8000``` which tells Django to run locally and bind to port 8000. If you want to view your site, go ahead and head over to "127.0.0.1:8000" or "localhost:8000" in your web browser of choice. Note, the text in red about unapplied migrations has to do with your models and database - you can fix it by running ```python manage.py makemigrations``` and then ```python manage.py migrate```
 
@@ -174,6 +172,8 @@ Then in "foo.html", you can write:
 Any guesses as to what this HTML page would look like? Can you see which tag I forgot to include?
 
 16. Whew, I know that this is a really long document with a ton of reading, but if you complete the enormous tasks outlined above, you will have a pretty solid foundation in Django, with the ability to build some pretty crazy things. We know this is a lot to take in, and that you'll have lots of questions - so please email us, please come to our office hours, and please don't spend too long working on this!
+
+In summary, you should have a basic, functioning blog. We will check for functionality with respect to adding authors and articles, and if you've followed the basic setup (i.e. do you have an "index" view and are your urls setup correctly.)
 
 Best,
 
