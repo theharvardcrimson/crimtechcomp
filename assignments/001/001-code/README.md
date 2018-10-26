@@ -181,10 +181,10 @@ Submitting:
 
 If you would like to submit, we ask that you submit exactly 5 files in the following order:
     1. assignment/settings.py
-    2. assignment/urls.py
+    2. my_app/urls.py
     3. my_app/models.py
-    4. my_app/urls.py
-    5. my_app.views.py
+    4. my_app.views.py
+    5. templates/index.html
 
 Best,
 
