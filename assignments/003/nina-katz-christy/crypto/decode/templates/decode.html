@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../static/decode.js"></script>
+{% endblock %}
+
+{% block body %}
+<form id="decode_form" method="post">
+    <input id="key" name="key" placeholder="Key"/>
+    <input id="msg" name="msg" placeholder="Message"/>
+    <button type="submit">Decode</button>
+    {% csrf_token %}
+</form>
+<textarea id="result"></textarea>
+{% endblock %}
